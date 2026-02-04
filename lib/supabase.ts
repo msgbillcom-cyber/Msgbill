@@ -1,3 +1,10 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
-export const createClientSideClient = () => createClientComponentClient();
+export const createClientSideClient = () => {
+    // If environment variables are missing (e.g. during build), 
+    // we want to avoid crashing, though functionality won't work without them.
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        console.warn('Supabase env vars missing in client side client');
+    }
+    return createClientComponentClient();
+};
