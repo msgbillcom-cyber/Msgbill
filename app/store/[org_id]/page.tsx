@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createClientSideClient } from "@/lib/supabase";
 import { formatCurrency } from "@/lib/utils";
 import Button from "@/components/ui/Button";
 import Card, { CardContent } from "@/components/ui/Card";
@@ -33,7 +33,7 @@ interface CartItem extends Product {
 export default function StorePage() {
     const params = useParams();
     const orgId = params.org_id as string;
-    const supabase = createClientComponentClient();
+    const supabase = createClientSideClient();
 
     const [org, setOrg] = useState<Organization | null>(null);
     const [products, setProducts] = useState<Product[]>([]);

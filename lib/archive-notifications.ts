@@ -3,7 +3,7 @@
  * Sends emails to users before their invoices are auto-archived
  */
 
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClientSideClient } from '@/lib/supabase';
 // import { Database } from '@/types/supabase'; // Not needed for basic functionality
 
 
@@ -19,7 +19,7 @@ interface ArchiveWarning {
  * Get invoices that will be archived soon
  */
 export async function getArchiveWarnings(daysBefore: number = 7): Promise<ArchiveWarning[]> {
-    const supabase = createClientComponentClient();
+    const supabase = createClientSideClient();
 
     const { data, error } = await supabase
         .rpc('get_archive_warnings', { days_before: daysBefore });
@@ -40,7 +40,7 @@ export async function sendArchiveWarningEmail(
     invoices: ArchiveWarning[]
 ) {
     // Get organization details
-    const supabase = createClientComponentClient();
+    const supabase = createClientSideClient();
     const { data: org } = await supabase
         .from('organizations')
         .select('name, subscription_tier')
