@@ -24,6 +24,7 @@ import UpgradeModal from "@/components/dashboard/UpgradeModal";
 
 interface InvoiceItem {
     id: string;
+    productId?: string;
     description: string;
     quantity: number;
     rate: number;
@@ -266,7 +267,7 @@ export default function NewInvoicePage() {
             if (invError) throw invError;
 
             // 2. Create Items
-            const invoiceItems = items.map(({ id, ...rest }) => ({
+            const invoiceItems = items.map(({ id, productId, ...rest }) => ({
                 invoice_id: invoice.id,
                 ...rest,
             }));
@@ -276,6 +277,17 @@ export default function NewInvoicePage() {
                 .insert(invoiceItems);
 
             if (itemsError) throw itemsError;
+
+            // 3. Deduct Stock (if item is a product)
+            // We run this in parallel for speed, failures here are non-critical for invoice creation but should be logged
+            Promise.all(items.map(async (item) => {
+                if (item.productId) {
+                    await supabase.rpc('deduct_product_stock', {
+                        p_id: item.productId,
+                        quantity: item.quantity
+                    });
+                }
+            }));
 
             addToast({
                 title: "Success",

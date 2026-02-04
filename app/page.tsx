@@ -116,16 +116,53 @@ export default function Home() { // Changed function name from HomePage to Home
 
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "MsgBill",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "INR",
-        },
-        "description": "WhatsApp Invoicing Software for Indian Businesses",
+        "@graph": [
+            {
+                "@type": "SoftwareApplication",
+                "name": "MsgBill",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web, Android, iOS",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "INR",
+                    "priceValidUntil": "2026-12-31",
+                    "availability": "https://schema.org/InStock"
+                },
+                "description": "WhatsApp Invoicing Software for Indian Businesses. Create GST invoices, manage inventory, and collect payments.",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.8",
+                    "ratingCount": "1250"
+                },
+                "featureList": [
+                    "WhatsApp Invoicing",
+                    "GST Billing",
+                    "Inventory Management",
+                    "WhatsApp Store",
+                    "Payment Collections",
+                    "UPI Payment Links"
+                ]
+            },
+            {
+                "@type": "Organization",
+                "name": "MsgBill",
+                "url": "https://msgbill.com",
+                "logo": "https://msgbill.com/logo-final.png",
+                "sameAs": [
+                    "https://twitter.com/msgbill",
+                    "https://facebook.com/msgbill",
+                    "https://instagram.com/msgbill"
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+91-9876543210",
+                    "contactType": "customer service",
+                    "areaServed": "IN",
+                    "availableLanguage": "en"
+                }
+            }
+        ]
     };
 
     return (

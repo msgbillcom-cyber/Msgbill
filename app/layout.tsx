@@ -21,6 +21,14 @@ export const metadata: Metadata = {
         "send invoice on whatsapp",
         "vyapar alternative",
         "mybillbook alternative",
+        "inventory management software",
+        "whatsapp store builder",
+        "online store for small business",
+        "payment collection automation",
+        "upi payment link generator",
+        "gst invoice format in excel",
+        "billing app for pc",
+        "retail billing software"
     ],
     metadataBase: new URL("https://msgbill.com"),
     openGraph: {
