@@ -74,18 +74,23 @@ export default function ProductModal({
                 description: formData.description,
             };
 
+            let response;
             if (productToEdit) {
-                const { error } = await supabase
-                    .from("products")
-                    .update(payload)
-                    .eq("id", productToEdit.id);
-                if (error) throw error;
+                response = await fetch('/api/inventory/products', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...payload, id: productToEdit.id }),
+                });
             } else {
-                const { error } = await supabase
-                    .from("products")
-                    .insert(payload);
-                if (error) throw error;
+                response = await fetch('/api/inventory/products', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
             }
+
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Failed to save product');
 
             addToast({
                 title: "Success",

@@ -287,19 +287,24 @@ export default function NewInvoicePage() {
 
             // 3. Deduct Stock (if item is a product)
             // We await this to ensure it completes before navigation
-            await Promise.all(items.map(async (item) => {
-                if (item.productId) {
-                    try {
-                        await supabase.rpc('deduct_product_stock', {
-                            p_id: item.productId,
-                            quantity: item.quantity
-                        });
-                    } catch (err) {
-                        console.error("Failed to deduct stock for item:", item.description, err);
-                        // Continue even if stock deduction fails
-                    }
+            const productItems = items.filter(i => i.productId && i.quantity > 0);
+            if (productItems.length > 0) {
+                try {
+                    await fetch('/api/inventory/deduct', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            items: productItems.map(i => ({
+                                productId: i.productId,
+                                quantity: i.quantity
+                            }))
+                        })
+                    });
+                } catch (err) {
+                    console.error("Failed to deduct stock:", err);
+                    // Continue even if stock deduction fails
                 }
-            }));
+            }
 
             addToast({
                 title: "Success",

@@ -53,6 +53,7 @@ export default function PublicInvoiceClient({
             invoiceUrl,
             businessName: organization.name || organization.company_name || "MsgBill",
             paymentLink: invoice.payment_link_url,
+            upiId: organization.upi_id,
         });
 
         shareViaWhatsApp(invoice.clients.phone, message);
@@ -218,6 +219,11 @@ export default function PublicInvoiceClient({
                                     <p className="text-xs text-secondary-500">
                                         IFSC: {organization?.ifsc_code}
                                     </p>
+                                    {organization?.upi_id && (
+                                        <p className="text-xs text-secondary-500 mt-1">
+                                            UPI: <span className="font-medium text-primary-600">{organization.upi_id}</span>
+                                        </p>
+                                    )}
                                 </div>
                             </div>
                         </div>

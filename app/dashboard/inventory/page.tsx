@@ -65,12 +65,12 @@ export default function InventoryPage() {
         if (!confirm("Are you sure you want to delete this product?")) return;
         
         try {
-            const { error } = await supabase
-                .from("products")
-                .delete()
-                .eq("id", id);
+            const response = await fetch(`/api/inventory/products?id=${id}`, {
+                method: 'DELETE',
+            });
+            const data = await response.json();
             
-            if (error) throw error;
+            if (!response.ok) throw new Error(data.error || 'Failed to delete product');
             
             addToast({
                 title: "Success",

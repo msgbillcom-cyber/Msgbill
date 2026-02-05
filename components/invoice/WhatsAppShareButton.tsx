@@ -23,6 +23,7 @@ interface WhatsAppShareButtonProps {
     };
     businessName: string;
     paymentLink?: string;
+    upiId?: string;
     onShareComplete?: () => void;
 }
 
@@ -30,6 +31,7 @@ export default function WhatsAppShareButton({
     invoice,
     businessName,
     paymentLink,
+    upiId,
     onShareComplete,
 }: WhatsAppShareButtonProps) {
     const [loading, setLoading] = useState(false);
@@ -66,6 +68,7 @@ export default function WhatsAppShareButton({
                 invoiceUrl,
                 businessName,
                 paymentLink,
+                upiId,
             });
 
             // Open WhatsApp

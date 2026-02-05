@@ -8,10 +8,11 @@ export interface WhatsAppMessageTemplate {
     invoiceUrl: string;
     businessName: string;
     paymentLink?: string;
+    upiId?: string;
 }
 
 export function generateInvoiceMessage(template: WhatsAppMessageTemplate): string {
-    const { invoiceNumber, clientName, amount, dueDate, invoiceUrl, businessName, paymentLink } = template;
+    const { invoiceNumber, clientName, amount, dueDate, invoiceUrl, businessName, paymentLink, upiId } = template;
 
     let message = `Hi ${clientName},\n\n`;
     message += `📄 Your invoice ${invoiceNumber} is ready!\n\n`;
@@ -21,6 +22,10 @@ export function generateInvoiceMessage(template: WhatsAppMessageTemplate): strin
 
     if (paymentLink) {
         message += `\n💳 Pay Now: ${paymentLink}\n`;
+    }
+    
+    if (upiId) {
+        message += `\n📲 Pay via UPI: ${upiId}\n`;
     }
 
     message += `\nThank you for your business!\n`;
@@ -35,7 +40,7 @@ export function generateReminderMessage(
     template: WhatsAppMessageTemplate,
     tone: ReminderTone = 'friendly'
 ): string {
-    const { invoiceNumber, clientName, amount, dueDate, invoiceUrl, businessName, paymentLink } = template;
+    const { invoiceNumber, clientName, amount, dueDate, invoiceUrl, businessName, paymentLink, upiId } = template;
 
     let message = '';
 
@@ -63,6 +68,10 @@ export function generateReminderMessage(
         message += `💳 *Pay Now:* ${paymentLink}\n\n`;
     } else {
         message += `📄 *View Invoice:* ${invoiceUrl}\n\n`;
+    }
+
+    if (upiId) {
+        message += `📲 *UPI ID:* ${upiId}\n\n`;
     }
 
     message += `Thanks,\n${businessName}`;

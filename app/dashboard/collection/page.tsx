@@ -102,7 +102,8 @@ export default function CollectionPage() {
             dueDate: formatDate(selectedInvoice.due_date),
             invoiceUrl: `${window.location.origin}/invoice/${selectedInvoice.id}`,
             businessName: profile?.company_name || "MsgBill User",
-            paymentLink: selectedInvoice.payment_link_url
+            paymentLink: selectedInvoice.payment_link_url,
+            upiId: profile?.upi_id,
         }, reminderTone);
 
         shareViaWhatsApp(clientPhone, message);

@@ -390,6 +390,7 @@ export default function InvoiceDetailPage() {
                                 businessName={profile?.company_name ||
                                     "MsgBill"}
                                 paymentLink={invoice.payment_link_url}
+                                upiId={profile?.upi_id}
                                 onShareComplete={() => {
                                     addToast({
                                         title: "Shared!",
