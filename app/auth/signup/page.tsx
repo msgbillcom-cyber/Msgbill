@@ -56,14 +56,13 @@ function SignupContent() {
         setLoading(true);
 
         try {
-            // Using OTP instead of password signup for better email verification
-            const { data, error } = await supabase.auth.signInWithOtp({
+            const { data, error } = await supabase.auth.signUp({
                 email,
+                password,
                 options: {
-                    emailRedirectTo: `${window.location.origin}/auth/callback?next=/onboarding`,
+                    emailRedirectTo: `${window.location.origin}/auth/callback`,
                     data: {
                         full_name: name,
-                        password: password, // Store password for later
                     },
                 },
             });
@@ -71,9 +70,9 @@ function SignupContent() {
             if (error) throw error;
 
             addToast({
-                title: "Check Your Email",
+                title: "Account Created",
                 type: "success",
-                message: "We sent you a verification code. Please check your inbox.",
+                message: "Please enter the verification code sent to your email.",
             });
 
             router.push(`/auth/verify?email=${encodeURIComponent(email)}`);
