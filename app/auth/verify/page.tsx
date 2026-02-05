@@ -98,23 +98,23 @@ function VerifyContent() {
     };
 
     return (
-        <div className="min-h-screen flex overflow-hidden relative">
+        <div className="relative flex min-h-screen overflow-hidden">
             {/* Left Side - Animated Background */}
-            <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary-600 via-primary-500 to-purple-600 relative overflow-hidden items-center justify-center p-12">
+            <div className="relative items-center justify-center hidden p-12 overflow-hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary-600 via-primary-500 to-purple-600">
                 {/* Floating Gradient Orbs */}
-                <div className="absolute top-20 left-20 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-float" />
-                <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl animate-float-slow animation-delay-1000" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary-300/20 rounded-full blur-2xl animate-float animation-delay-500" />
+                <div className="absolute rounded-full top-20 left-20 w-96 h-96 bg-white/10 blur-3xl animate-float" />
+                <div className="absolute rounded-full bottom-20 right-20 w-80 h-80 bg-purple-400/20 blur-3xl animate-float-slow animation-delay-1000" />
+                <div className="absolute w-64 h-64 -translate-x-1/2 -translate-y-1/2 rounded-full top-1/2 left-1/2 bg-primary-300/20 blur-2xl animate-float animation-delay-500" />
 
                 {/* Content */}
-                <div className="relative z-10 text-white text-center space-y-6 animate-slide-in-from-left">
-                    <div className="inline-block p-4 bg-white/90 backdrop-blur-md rounded-2xl mb-6">
+                <div className="relative z-10 space-y-6 text-center text-white animate-slide-in-from-left">
+                    <div className="inline-block p-4 mb-6 bg-white/90 backdrop-blur-md rounded-2xl">
                         <Image
                             src="/logo-final.png"
                             alt="MsgBill"
                             width={300}
                             height={120}
-                            className="w-64 h-auto object-contain"
+                            className="object-contain w-64 h-auto"
                             priority
                         />
                     </div>
@@ -128,18 +128,18 @@ function VerifyContent() {
             </div>
 
             {/* Right Side - Verification Form */}
-            <div className="flex-1 flex items-center justify-center p-8 bg-gradient-to-br from-secondary-50 to-white relative">
+            <div className="relative flex items-center justify-center flex-1 p-8 bg-gradient-to-br from-secondary-50 to-white">
                 {/* Background decoration */}
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-r from-primary-100/30 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 rounded-full pointer-events-none w-96 h-96 bg-gradient-to-r from-primary-100/30 blur-3xl" />
 
-                <div className="w-full max-w-md relative z-10 animate-scale-in">
+                <div className="relative z-10 w-full max-w-md animate-scale-in">
                     {/* Back to Login Link */}
                     <Link
                         href="/auth/login"
-                        className="inline-flex items-center gap-2 text-secondary-600 hover:text-primary-600 transition-colors mb-6 group"
+                        className="inline-flex items-center gap-2 mb-6 transition-colors text-secondary-600 hover:text-primary-600 group"
                     >
                         <svg
-                            className="w-5 h-5 group-hover:-translate-x-1 transition-transform"
+                            className="w-5 h-5 transition-transform group-hover:-translate-x-1"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -155,9 +155,9 @@ function VerifyContent() {
                     </Link>
 
                     {/* Glassmorphic Card */}
-                    <div className="glass-strong rounded-3xl p-8 shadow-premium">
-                        <div className="text-center mb-8">
-                            <h2 className="text-3xl font-bold text-secondary-900 mb-2">
+                    <div className="p-8 glass-strong rounded-3xl shadow-premium">
+                        <div className="mb-8 text-center">
+                            <h2 className="mb-2 text-3xl font-bold text-secondary-900">
                                 Enter Verification Code
                             </h2>
                             <p className="text-secondary-600">
@@ -176,7 +176,7 @@ function VerifyContent() {
                                     fullWidth
                                     value={email}
                                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-                                    className="h-12 px-4 bg-white/80 backdrop-blur-sm border-2 border-secondary-200 focus:border-primary-400 focus:ring-4 focus:ring-primary-100 transition-all rounded-xl"
+                                    className="h-12 px-4 transition-all border-2 bg-white/80 backdrop-blur-sm border-secondary-200 focus:border-primary-400 focus:ring-4 focus:ring-primary-100 rounded-xl"
                                 />
                             </div>
 
@@ -189,7 +189,7 @@ function VerifyContent() {
                                     fullWidth
                                     value={otp}
                                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setOtp(e.target.value)}
-                                    className="h-12 px-4 bg-white/80 backdrop-blur-sm border-2 border-secondary-200 focus:border-primary-400 focus:ring-4 focus:ring-primary-100 transition-all rounded-xl tracking-widest text-center text-lg font-bold"
+                                    className="h-12 px-4 text-lg font-bold tracking-widest text-center transition-all border-2 bg-white/80 backdrop-blur-sm border-secondary-200 focus:border-primary-400 focus:ring-4 focus:ring-primary-100 rounded-xl"
                                 />
                             </div>
 
@@ -205,13 +205,13 @@ function VerifyContent() {
                         </form>
                         
                         <div className="mt-6 text-center">
-                            <p className="text-secondary-600 text-sm">
+                            <p className="text-sm text-secondary-600">
                                 Didn't receive the code?{" "}
                                 <button
                                     type="button"
                                     onClick={handleResend}
                                     disabled={loading}
-                                    className="text-primary-600 font-semibold hover:text-primary-700 hover:underline transition-all disabled:opacity-50"
+                                    className="font-semibold transition-all text-primary-600 hover:text-primary-700 hover:underline disabled:opacity-50"
                                 >
                                     Resend Code
                                 </button>
