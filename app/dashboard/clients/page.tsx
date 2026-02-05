@@ -62,7 +62,7 @@ export default function ClientsPage() {
         } finally {
             setLoading(false);
         }
-    }, [user, search, page, addToast, supabase]);
+    }, [user, search, page, addToast, supabase, orgId]);
 
     useEffect(() => {
         fetchClients();

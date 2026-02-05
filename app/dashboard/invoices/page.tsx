@@ -43,7 +43,7 @@ export default function InvoicesPage() {
         } finally {
             setLoading(false);
         }
-    }, [user, search, addToast, supabase]);
+    }, [user, search, addToast, supabase, orgId]);
 
     useEffect(() => {
         fetchInvoices();

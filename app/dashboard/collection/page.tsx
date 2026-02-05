@@ -31,7 +31,10 @@ export default function CollectionPage() {
     const [reminderTone, setReminderTone] = useState<ReminderTone>('friendly');
 
     const fetchOverdueInvoices = async () => {
-        if (!orgId) return;
+        if (!orgId) {
+            setLoading(false);
+            return;
+        }
         setLoading(true);
         try {
             const today = new Date().toISOString().split("T")[0];

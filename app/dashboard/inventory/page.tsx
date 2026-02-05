@@ -23,7 +23,10 @@ export default function InventoryPage() {
     const [searchQuery, setSearchQuery] = useState("");
 
     const fetchProducts = async () => {
-        if (!orgId) return;
+        if (!orgId) {
+            setLoading(false);
+            return;
+        }
         setLoading(true);
         try {
             let query = supabase

@@ -26,9 +26,9 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
     const [isMobileOpen, setIsMobileOpen] = useState(false);
 
     return (
-        <div className="min-h-screen bg-secondary-50 dark:bg-secondary-900">
-            {/* Mobile Header */}
-            <header className="lg:hidden h-16 bg-white dark:bg-secondary-800 border-b border-border flex items-center justify-between px-4 sticky top-0 z-50">
+        <div className="min-h-screen bg-secondary-50 dark:bg-secondary-900 flex flex-col lg:flex-row">
+            {/* Mobile Header - Visible only on mobile */}
+            <header className="lg:hidden h-16 bg-white dark:bg-secondary-800 border-b border-border flex items-center justify-between px-4 sticky top-0 z-50 w-full">
                 <div className="flex items-center gap-2 relative w-48 h-16">
                     <Image
                         src="/logo-final.png"
@@ -65,10 +65,14 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
                 />
             )}
 
+            {/* Sidebar Wrapper */}
             <div
                 className={cn(
-                    "fixed inset-y-0 left-0 z-50 transition-transform duration-300 transform lg:relative lg:translate-x-0",
+                    "fixed inset-y-0 left-0 z-50 transition-transform duration-300 transform lg:relative lg:translate-x-0 lg:z-auto",
                     isMobileOpen ? "translate-x-0" : "-translate-x-full",
+                    // When collapsed, width is 20 (5rem), when expanded 64 (16rem) - handled by Sidebar internally but wrapper needs to match?
+                    // Actually Sidebar is fixed in its implementation, which is problematic for flex.
+                    // We should let Sidebar control its width and be relative on desktop.
                 )}
             >
                 <Sidebar
@@ -80,11 +84,11 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
                 />
             </div>
 
+            {/* Main Content */}
             <main
                 className={cn(
-                    "flex-1 transition-all duration-300",
-                    !sidebarCollapsed && "lg:ml-64",
-                    sidebarCollapsed && "lg:ml-20",
+                    "flex-1 transition-all duration-300 w-full",
+                    // Remove lg:ml-64 because flex handles positioning now
                 )}
             >
                 <div className="min-h-screen p-4 md:p-6 lg:p-8">

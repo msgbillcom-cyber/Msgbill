@@ -26,7 +26,10 @@ export default function ExpensesPage() {
   });
 
   const fetchExpenses = async () => {
-    if (!orgId) return;
+    if (!orgId) {
+        setLoading(false);
+        return;
+    }
     setLoading(true);
     try {
       const { data, error } = await supabase

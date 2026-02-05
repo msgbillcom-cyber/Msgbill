@@ -51,6 +51,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <aside
             className={cn(
                 "fixed left-0 top-0 h-screen bg-white dark:bg-secondary-900 border-r border-border",
+                "lg:relative lg:h-screen", // On desktop, become relative (or sticky if needed)
                 "transition-all duration-300 ease-in-out z-40",
                 "flex flex-col",
                 isCollapsed ? "w-20" : "w-64",

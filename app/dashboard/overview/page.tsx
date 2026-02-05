@@ -30,7 +30,10 @@ export default function DashboardOverview() {
 
     useEffect(() => {
         const fetchDashboardData = async () => {
-            if (!profile?.org_id) return;
+            if (!profile?.org_id) {
+                setLoading(false);
+                return;
+            }
             setLoading(true);
             try {
                 // 1. Fetch Invoices
@@ -120,6 +123,14 @@ export default function DashboardOverview() {
             color: "bg-secondary-900 text-white",
         },
     ];
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center min-h-[400px]">
+                <div className="w-8 h-8 border-4 border-primary-600 border-t-transparent rounded-full animate-spin" />
+            </div>
+        );
+    }
 
     return (
         <div className="space-y-8">

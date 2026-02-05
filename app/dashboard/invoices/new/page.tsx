@@ -84,62 +84,68 @@ export default function NewInvoicePage() {
         const checkUsageAndFetch = async () => {
             if (!profile?.org_id) return;
 
-            // 0. Fetch Invoice Number
-            await fetchNextInvoiceNumber(profile.org_id);
+            setLoading(true);
+            try {
+                // 0. Fetch Invoice Number
+                await fetchNextInvoiceNumber(profile.org_id);
 
-            // 1. Check Invoice Count
-            const { count, error: countError } = await supabase
-                .from("invoices")
-                .select("*", { count: "exact", head: true })
-                .eq("org_id", profile.org_id);
+                // 1. Check Invoice Count
+                const { count, error: countError } = await supabase
+                    .from("invoices")
+                    .select("*", { count: "exact", head: true })
+                    .eq("org_id", profile.org_id);
 
-            // 2. Fetch Clients
-            const { data, error } = await supabase
-                .from("clients")
-                .select("id, name, billing_state, gstin")
-                .order("name");
-            if (!error) setClients(data || []);
+                // 2. Fetch Clients
+                const { data, error } = await supabase
+                    .from("clients")
+                    .select("id, name, billing_state, gstin")
+                    .order("name");
+                if (!error) setClients(data || []);
 
-            // 2.1 Fetch Products
-            const { data: prodData } = await supabase
-                .from("products")
-                .select("*")
-                .eq("org_id", profile.org_id)
-                .order("name");
-            if (prodData) setProducts(prodData);
+                // 2.1 Fetch Products
+                const { data: prodData } = await supabase
+                    .from("products")
+                    .select("*")
+                    .eq("org_id", profile.org_id)
+                    .order("name");
+                if (prodData) setProducts(prodData);
 
-            // 
-            // 3. Pre-fill business details from profile/org
-            if (profile) {
-                // If profile has business info, use it
-                if (profile.state) setBusinessState(profile.state);
-                if (profile.gstin) setBusinessGstin(profile.gstin);
-                
-                // Also check organization table if needed
-                const { data: org } = await supabase
-                    .from("organizations")
-                    .select("state, gstin, subscription_tier")
-                    .eq("id", profile.org_id)
-                    .single();
-                
-                if (org) {
-                    if (org.state) setBusinessState(org.state);
-                    if (org.gstin) setBusinessGstin(org.gstin);
+                // 3. Pre-fill business details from profile/org
+                if (profile) {
+                    // If profile has business info, use it
+                    if (profile.state) setBusinessState(profile.state);
+                    if (profile.gstin) setBusinessGstin(profile.gstin);
                     
-                    // Check Limits with Plan
-                    const plan = org.subscription_tier?.toUpperCase() || 'FREE';
-                    // @ts-ignore
-                    const limit = LIMITS[plan]?.invoicesTotal || LIMITS.FREE.invoicesTotal;
+                    // Also check organization table if needed
+                    const { data: org } = await supabase
+                        .from("organizations")
+                        .select("state, gstin, subscription_tier")
+                        .eq("id", profile.org_id)
+                        .single();
                     
-                    if (count !== null && count >= limit) {
-                        setIsLimitReached(true);
-                        setShowUpgrade(true);
-                    } else {
-                        // Reset if within limits (in case previously set)
-                        setIsLimitReached(false);
-                        setShowUpgrade(false);
+                    if (org) {
+                        if (org.state) setBusinessState(org.state);
+                        if (org.gstin) setBusinessGstin(org.gstin);
+                        
+                        // Check Limits with Plan
+                        const plan = org.subscription_tier?.toUpperCase() || 'FREE';
+                        // @ts-ignore
+                        const limit = LIMITS[plan]?.invoicesTotal || LIMITS.FREE.invoicesTotal;
+                        
+                        if (count !== null && count >= limit) {
+                            setIsLimitReached(true);
+                            setShowUpgrade(true);
+                        } else {
+                            // Reset if within limits (in case previously set)
+                            setIsLimitReached(false);
+                            setShowUpgrade(false);
+                        }
                     }
                 }
+            } catch (error) {
+                console.error("Error fetching invoice data:", error);
+            } finally {
+                setLoading(false);
             }
         };
         checkUsageAndFetch();
@@ -152,7 +158,7 @@ export default function NewInvoicePage() {
         const today = new Date();
         today.setDate(today.getDate() + 30);
         setDueDate(today.toISOString().split("T")[0]);
-    }, [supabase]);
+    }, [profile, supabase]);
 
     // Calculations
     const totals = useMemo(() => {
@@ -211,6 +217,7 @@ export default function NewInvoicePage() {
             ...items,
             {
                 id: Math.random().toString(36).substr(2, 9),
+                productId: product.id,
                 description: product.name,
                 quantity: 1,
                 rate: product.price,
