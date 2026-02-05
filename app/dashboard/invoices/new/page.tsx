@@ -286,13 +286,18 @@ export default function NewInvoicePage() {
             if (itemsError) throw itemsError;
 
             // 3. Deduct Stock (if item is a product)
-            // We run this in parallel for speed, failures here are non-critical for invoice creation but should be logged
-            Promise.all(items.map(async (item) => {
+            // We await this to ensure it completes before navigation
+            await Promise.all(items.map(async (item) => {
                 if (item.productId) {
-                    await supabase.rpc('deduct_product_stock', {
-                        p_id: item.productId,
-                        quantity: item.quantity
-                    });
+                    try {
+                        await supabase.rpc('deduct_product_stock', {
+                            p_id: item.productId,
+                            quantity: item.quantity
+                        });
+                    } catch (err) {
+                        console.error("Failed to deduct stock for item:", item.description, err);
+                        // Continue even if stock deduction fails
+                    }
                 }
             }));
 
