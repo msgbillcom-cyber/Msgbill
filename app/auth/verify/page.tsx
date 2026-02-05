@@ -55,8 +55,9 @@ function VerifyContent() {
                 message: "Email verified successfully.",
             });
             
-            // Redirect to onboarding or dashboard
-            router.push("/onboarding");
+            // Redirect through auth callback for consistency
+            // This ensures profile checks and proper session setup
+            router.push("/auth/callback?next=/onboarding");
         } catch (error: any) {
             console.error("Verification error:", error);
             addToast({ title: "Error", type: "error", message: error.message });

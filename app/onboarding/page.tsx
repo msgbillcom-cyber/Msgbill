@@ -49,6 +49,22 @@ export default function OnboardingPage() {
         );
     }
 
+    // Verify user is authenticated before allowing onboarding
+    if (!user) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-secondary-50">
+                <div className="text-center">
+                    <h2 className="text-xl font-semibold text-secondary-900 mb-4">
+                        Please sign in to continue
+                    </h2>
+                    <Button onClick={() => router.push("/auth/login")}>
+                        Go to Login
+                    </Button>
+                </div>
+            </div>
+        );
+    }
+
     const handleLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
