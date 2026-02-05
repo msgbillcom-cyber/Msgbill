@@ -44,12 +44,25 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Update invoice with latest share timestamp
+        // Update invoice with latest share timestamp AND set status to 'sent' if it was 'draft'
         const updateField = shareType === 'whatsapp' ? 'whatsapp_shared_at' : 'email_sent_at';
+
+        // First fetch current status
+        const { data: currentInvoice } = await supabase
+            .from('invoices')
+            .select('status')
+            .eq('id', invoiceId)
+            .single();
+
+        const updates: any = { [updateField]: new Date().toISOString() };
+        
+        if (currentInvoice?.status === 'draft') {
+            updates.status = 'sent';
+        }
 
         await supabase
             .from('invoices')
-            .update({ [updateField]: new Date().toISOString() })
+            .update(updates)
             .eq('id', invoiceId);
 
         return NextResponse.json({ success: true, data });
