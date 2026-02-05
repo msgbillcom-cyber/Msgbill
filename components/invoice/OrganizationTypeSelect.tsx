@@ -53,13 +53,13 @@ export default function OrganizationTypeSelect({
         <div className="space-y-2">
             <label className="block text-sm font-medium text-secondary-700">
                 {label}
-                {required && <span className="text-red-500 ml-1">*</span>}
+                {required && <span className="ml-1 text-red-500">*</span>}
             </label>
             <select
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
                 required={required}
-                className="w-full px-3 py-2 border border-secondary-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white text-secondary-900"
+                className="w-full px-3 py-2 bg-white border rounded-lg border-secondary-300 focus:outline-none focus:ring-2 focus:ring-primary-500 text-secondary-900"
             >
                 <option value="">Select organization type...</option>
                 {Object.entries(ORGANIZATION_TYPES).map(([key, type]: any) => (
@@ -76,11 +76,11 @@ export default function OrganizationTypeSelect({
                     )}`}
                 >
                     <div className="font-medium">{selectedType[1].name}</div>
-                    <div className="text-sm mt-1">
+                    <div className="mt-1 text-sm">
                         {selectedType[1].gstRate === "exempt" && (
                             <>
                                 <p>✓ GST exemption applicable</p>
-                                <p className="text-xs mt-1">
+                                <p className="mt-1 text-xs">
                                     No GST will be charged on invoices. Ensure you have
                                     valid GST exemption documentation.
                                 </p>
@@ -89,7 +89,7 @@ export default function OrganizationTypeSelect({
                         {selectedType[1].gstRate === "applicable" && (
                             <>
                                 <p>✓ GST is mandatory</p>
-                                <p className="text-xs mt-1">
+                                <p className="mt-1 text-xs">
                                     Apply appropriate GST rates (0%, 5%, 12%, 18%, 28%)
                                     based on item category.
                                 </p>
@@ -98,7 +98,7 @@ export default function OrganizationTypeSelect({
                         {selectedType[1].gstRate === "conditional" && (
                             <>
                                 <p>⚠ GST is conditional</p>
-                                <p className="text-xs mt-1">
+                                <p className="mt-1 text-xs">
                                     GST applicability depends on turnover. File GST
                                     returns if turnover exceeds ₹40 lakh.
                                 </p>
