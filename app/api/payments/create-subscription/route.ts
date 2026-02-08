@@ -26,7 +26,14 @@ export async function POST(request: NextRequest) {
         }
 
         // Check if Razorpay credentials are configured
-        if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+        const key_id = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+        const key_secret = process.env.RAZORPAY_KEY_SECRET;
+
+        if (!key_id || !key_secret) {
+             console.error("Razorpay Config Error: Missing keys", { 
+                 hasKeyId: !!key_id, 
+                 hasKeySecret: !!key_secret 
+             });
              return NextResponse.json(
                 { error: 'Razorpay not configured' },
                 { status: 500 }
@@ -35,8 +42,8 @@ export async function POST(request: NextRequest) {
 
         // Initialize Razorpay
         const razorpay = new Razorpay({
-            key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-            key_secret: process.env.RAZORPAY_KEY_SECRET,
+            key_id,
+            key_secret,
         });
 
         const referenceId = `sub_${orgId}_${Date.now()}`;
