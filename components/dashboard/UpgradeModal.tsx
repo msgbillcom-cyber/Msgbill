@@ -21,17 +21,46 @@ export default function UpgradeModal({
     description =
         `You've reached the ${LIMITS.FREE.invoicesTotal}-invoice limit on your Free Plan. Upgrade to Pro to continue growing your business.`,
 }: UpgradeModalProps) {
-    const { profile } = useAuth();
+    const { profile, user } = useAuth();
     const [showPayment, setShowPayment] = useState(false);
-    
-    // Admin WhatsApp for manual verification
-    const ADMIN_WHATSAPP = "918665433181"; 
-    const UPI_ID = "msgbill@jio"; 
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
-    const handlePaymentVerified = () => {
-        const message = `Hi, I have paid ₹499 for MsgBill Pro via UPI.\n\nMy Email: ${profile?.email}\nOrg ID: ${profile?.org_id}\n\nPlease activate my account.`;
-        window.open(`https://wa.me/${ADMIN_WHATSAPP}?text=${encodeURIComponent(message)}`, "_blank");
-        onClose();
+    const handleRazorpayPayment = async () => {
+        setLoading(true);
+        setError("");
+        try {
+            const response = await fetch('/api/payments/create-subscription', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    orgId: profile?.org_id,
+                    userEmail: profile?.email || user?.email,
+                    userName: profile?.full_name,
+                    userPhone: profile?.phone,
+                }),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Failed to create payment link');
+            }
+
+            const data = await response.json();
+            if (data.paymentLink && data.paymentLink.short_url) {
+                // Redirect to Razorpay Payment Link
+                window.location.href = data.paymentLink.short_url;
+            } else {
+                throw new Error('Invalid payment link received');
+            }
+        } catch (err: any) {
+            console.error('Payment error:', err);
+            setError(err.message || 'Something went wrong. Please try again.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -88,55 +117,50 @@ export default function UpgradeModal({
                     </>
                 ) : (
                     <div className="animate-fade-in">
-                        <div className="w-16 h-16 bg-success-100 text-success-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-                            📱
+                        <div className="w-16 h-16 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                            💳
                         </div>
                         <h3 className="text-xl font-bold text-secondary-900 mb-2">
-                            Scan & Pay via UPI
+                            Pay Securely via Razorpay
                         </h3>
                         <p className="text-secondary-500 text-sm mb-6">
-                            Scan the QR code or pay to the UPI ID below.
+                            You will be redirected to a secure payment page.
                         </p>
 
-                        <div className="bg-white p-4 sm:p-6 rounded-2xl border-2 border-dashed border-secondary-200 mb-6 inline-block shadow-sm max-w-full">
-                             <div className="relative w-40 h-40 sm:w-48 sm:h-48 mb-4 mx-auto">
-                                <Image
-                                    src="/payment/upi-qr.jpg"
-                                    alt="Scan to Pay"
-                                    fill
-                                    className="object-contain"
-                                />
-                             </div>
-                             <div className="flex items-center justify-between bg-secondary-50 p-3 rounded-lg border border-secondary-100">
-                                <code className="text-xs sm:text-sm font-bold text-secondary-800 select-all break-all">{UPI_ID}</code>
-                                <button 
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(UPI_ID);
-                                        // Optional: Add toast notification here
-                                    }}
-                                    className="text-xs text-primary-600 font-bold hover:underline ml-2 uppercase tracking-wide shrink-0"
-                                >
-                                    Copy
-                                </button>
-                             </div>
+                        <div className="bg-secondary-50 p-6 rounded-2xl border border-secondary-100 mb-6">
+                            <div className="flex justify-between items-center mb-2">
+                                <span className="text-secondary-600 font-medium">Plan</span>
+                                <span className="font-bold text-secondary-900">MsgBill Pro (Monthly)</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xl">
+                                <span className="text-secondary-600 font-medium">Total</span>
+                                <span className="font-black text-primary-600">₹499.00</span>
+                            </div>
                         </div>
+
+                        {error && (
+                            <div className="mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg border border-red-100">
+                                {error}
+                            </div>
+                        )}
 
                         <div className="space-y-3">
                             <Button
                                 size="lg"
                                 fullWidth
-                                className="shadow-glow font-bold bg-gradient-to-r from-success-600 to-success-500 hover:from-success-700 hover:to-success-600 text-white"
-                                onClick={handlePaymentVerified}
+                                className="shadow-glow font-bold bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-700 hover:to-primary-600 text-white"
+                                onClick={handleRazorpayPayment}
+                                isLoading={loading}
                             >
-                                I have made the payment
+                                Proceed to Payment
                             </Button>
-                            <Button variant="ghost" fullWidth onClick={() => setShowPayment(false)}>
+                            <Button variant="ghost" fullWidth onClick={() => setShowPayment(false)} disabled={loading}>
                                 Back
                             </Button>
                         </div>
-                        <p className="text-[10px] text-secondary-400 mt-4">
-                            Clicking "I have made the payment" will open WhatsApp to notify our team for activation.
-                        </p>
+                        <div className="mt-4 flex items-center justify-center gap-2 text-secondary-400 opacity-75">
+                           <span className="text-[10px] font-medium uppercase tracking-widest">Secured by Razorpay</span>
+                        </div>
                     </div>
                 )}
 

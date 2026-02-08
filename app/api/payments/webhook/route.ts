@@ -41,8 +41,38 @@ export async function POST(request: NextRequest) {
 
         // Handle payment.captured event
         if (event.event === 'payment_link.paid') {
-            const paymentLinkId = event.payload.payment_link.entity.id;
+            const paymentLinkEntity = event.payload.payment_link.entity;
+            const paymentLinkId = paymentLinkEntity.id;
+            const referenceId = paymentLinkEntity.reference_id;
             const payment = event.payload.payment.entity;
+
+            // Check if it's a subscription payment
+            if (referenceId && referenceId.startsWith('sub_')) {
+                // referenceId format: sub_{orgId}_{timestamp}
+                const parts = referenceId.split('_');
+                if (parts.length >= 2) {
+                    const orgId = parts[1];
+                    console.log(`Processing subscription for Org: ${orgId}`);
+
+                    // Upgrade organization to PRO
+                    const { error: updateError } = await supabase
+                        .from('usage_limits')
+                        .update({
+                            plan_type: 'pro',
+                            max_invoices: 1000000, // Effectively infinite
+                            max_clients: 1000000,
+                        })
+                        .eq('org_id', orgId);
+
+                    if (updateError) {
+                        console.error('Failed to upgrade subscription:', updateError);
+                    } else {
+                        console.log(`Organization ${orgId} upgraded to PRO`);
+                    }
+                    
+                    return NextResponse.json({ received: true });
+                }
+            }
 
             // Find invoice by payment link ID
             const { data: invoice, error: findError } = await supabase

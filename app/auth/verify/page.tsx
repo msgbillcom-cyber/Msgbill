@@ -44,10 +44,14 @@ function VerifyContent() {
             const { data, error } = await supabase.auth.verifyOtp({
                 email,
                 token: otp,
-                type: 'signup', // or 'email'
+                type: 'signup',
             });
 
-            if (error) throw error;
+            if (error) {
+                // If OTP fails, it might be a confirmation link issue
+                console.error("OTP verification failed:", error.message);
+                throw error;
+            }
 
             addToast({
                 title: "Success",
