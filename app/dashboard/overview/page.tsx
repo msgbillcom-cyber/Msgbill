@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import PageHeader from "@/components/layout/PageHeader";
 import Card, { CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
@@ -8,6 +9,7 @@ import Button from "@/components/ui/Button";
 import Table from "@/components/ui/Table";
 import { createClientSideClient } from "@/lib/supabase";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { useToast } from "@/components/ui/Toast";
 import { formatCurrency, formatDate } from "@/lib/utils";
 import { LIMITS } from "@/lib/limits";
 import Link from "next/link";
@@ -27,6 +29,27 @@ export default function DashboardOverview() {
     const [recentInvoices, setRecentInvoices] = useState<any[]>([]);
     const [overdueInvoices, setOverdueInvoices] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
+    const { addToast } = useToast();
+    const router = useRouter();
+
+    useEffect(() => {
+        // Check for subscription success
+        const searchParams = new URLSearchParams(window.location.search);
+        if (searchParams.get('subscription') === 'success') {
+            addToast({
+                title: "Welcome to Pro! 🚀",
+                type: "success",
+                message: "Your subscription is active. Enjoy unlimited access!",
+                duration: 5000,
+            });
+            // Remove the query param without full reload
+            const newUrl = window.location.pathname;
+            window.history.replaceState({}, '', newUrl);
+            
+            // Force refresh profile/limits
+            router.refresh();
+        }
+    }, [addToast, router]);
 
     useEffect(() => {
         const fetchDashboardData = async () => {

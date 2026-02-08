@@ -56,16 +56,24 @@ export async function POST(request: NextRequest) {
 
                     // Upgrade organization to PRO
                     const { error: updateError } = await supabase
-                        .from('usage_limits')
+                        .from('organizations')
                         .update({
-                            plan_type: 'pro',
-                            max_invoices: 1000000, // Effectively infinite
-                            max_clients: 1000000,
+                            subscription_tier: 'pro'
                         })
-                        .eq('org_id', orgId);
+                        .eq('id', orgId);
 
                     if (updateError) {
-                        console.error('Failed to upgrade subscription:', updateError);
+                        console.error('Failed to upgrade subscription (org update):', updateError);
+                        
+                        // Fallback: update usage_limits directly if org update fails
+                        await supabase
+                            .from('usage_limits')
+                            .update({
+                                plan_type: 'pro',
+                                max_invoices: 2147483647,
+                                max_clients: 2147483647,
+                            })
+                            .eq('org_id', orgId);
                     } else {
                         console.log(`Organization ${orgId} upgraded to PRO`);
                     }
