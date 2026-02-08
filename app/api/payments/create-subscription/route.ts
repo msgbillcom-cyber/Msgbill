@@ -70,8 +70,10 @@ export async function POST(request: NextRequest) {
 
     } catch (error: any) {
         console.error('Error creating subscription link:', error);
+        // Provide more detailed error message for debugging
+        const errorMessage = error.error?.description || error.message || 'Failed to create subscription link';
         return NextResponse.json(
-            { error: error.message || 'Failed to create subscription link' },
+            { error: errorMessage },
             { status: 500 }
         );
     }
