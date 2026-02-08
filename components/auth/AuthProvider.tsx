@@ -35,7 +35,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = (
             // Add a 5-second timeout to the Supabase query to prevent hanging the app
             const profilePromise = supabase
                 .from("profiles")
-                .select("*")
+                .select("*, organization_members(org_id)")
                 .eq("id", userId)
                 .single();
 
@@ -90,13 +90,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = (
                     );
                     setProfile(null);
                 } else {
+                    // Extract org_id if present in organization_members relation
+                    let finalProfile = { ...data };
+                    if (data.organization_members && data.organization_members.length > 0) {
+                         // Assuming single org per user for now, or taking the first one
+                         finalProfile.org_id = data.organization_members[0].org_id;
+                    }
+
                     console.log(
                         "Profile fetched successfully for:",
                         userId,
                         "Onboarded:",
                         data?.onboarded,
+                        "OrgID:",
+                        finalProfile.org_id
                     );
-                    setProfile(data);
+                    setProfile(finalProfile);
                 }
             }
             setProfileLoading(false);
