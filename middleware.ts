@@ -28,7 +28,6 @@ export async function middleware(req: NextRequest) {
   const isCallbackRoute = url.pathname === '/auth/callback';
 
   if (!session) {
-    // If trying to access protected route or non-public API without session
     if (isProtectedRoute) {
       const loginUrl = new URL('/auth/login', req.url);
       loginUrl.searchParams.set('next', url.pathname);
@@ -38,10 +37,22 @@ export async function middleware(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
   } else {
+    // Session exists - fetch profile if accessing dashboard
+    if (url.pathname.startsWith('/dashboard')) {
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('onboarded, org_id')
+        .eq('id', session.user.id)
+        .maybeSingle();
+
+      if (!profile || !profile.onboarded || !profile.org_id) {
+        console.log('Middleware: Redirecting to onboarding from dashboard');
+        return NextResponse.redirect(new URL('/onboarding', req.url));
+      }
+    }
+
     // If logged in and trying to access non-callback auth pages (login/signup)
-    // Allow callback to complete its redirect logic
     if (isAuthRoute && !isCallbackRoute) {
-      // Check if user has completed onboarding before redirecting
       const { data: profile } = await supabase
         .from('profiles')
         .select('onboarded, org_id')
