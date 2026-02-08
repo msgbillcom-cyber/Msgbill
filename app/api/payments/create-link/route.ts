@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
         }
 
         // Check if Razorpay credentials are configured
-        if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || !process.env.RAZORPAY_SECRET) {
+        if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
             // Return mock data for development
             const mockPaymentLink = {
                 id: `plink_mock_${Date.now()}`,
@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
         // Initialize Razorpay
         const razorpay = new Razorpay({
             key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-            key_secret: process.env.RAZORPAY_SECRET,
+            key_secret: process.env.RAZORPAY_KEY_SECRET,
         });
 
         // Create payment link
