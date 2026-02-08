@@ -16,12 +16,14 @@ export async function GET(
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
-        const key_id = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
-        const key_secret = process.env.RAZORPAY_KEY_SECRET;
+        const key_id = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID?.trim();
+        const key_secret = process.env.RAZORPAY_KEY_SECRET?.trim();
 
         if (!key_id || !key_secret) {
             return NextResponse.json({ error: 'Razorpay not configured' }, { status: 500 });
         }
+
+        console.log("Initializing Razorpay with Key ID:", key_id.substring(0, 8) + "...");
 
         const razorpay = new Razorpay({
             key_id,

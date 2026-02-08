@@ -33,8 +33,11 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Check if Razorpay credentials are configured
-        if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+        // Check and clean Razorpay credentials
+        const key_id = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID?.trim();
+        const key_secret = process.env.RAZORPAY_KEY_SECRET?.trim();
+
+        if (!key_id || !key_secret) {
             // Return mock data for development
             const mockPaymentLink = {
                 id: `plink_mock_${Date.now()}`,
@@ -48,7 +51,6 @@ export async function POST(request: NextRequest) {
             };
 
             // Update invoice with mock payment link
-            // Use user's client to respect RLS
             await supabase
                 .from('invoices')
                 .update({
@@ -63,10 +65,12 @@ export async function POST(request: NextRequest) {
             });
         }
 
+        console.log("Initializing Razorpay with Key ID:", key_id.substring(0, 8) + "...");
+
         // Initialize Razorpay
         const razorpay = new Razorpay({
-            key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-            key_secret: process.env.RAZORPAY_KEY_SECRET,
+            key_id,
+            key_secret,
         });
 
         // Create payment link
