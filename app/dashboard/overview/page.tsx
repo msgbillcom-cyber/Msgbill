@@ -40,7 +40,6 @@ export default function DashboardOverview() {
         title: "Welcome to Pro! 🚀",
         type: "success",
         message: "Your subscription is active. Enjoy unlimited access!",
-        duration: 5000,
       });
       // Remove the query param without full reload
       const newUrl = window.location.pathname;

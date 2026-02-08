@@ -38,7 +38,7 @@ export async function GET(
         return NextResponse.json({
             status: paymentLink.status,
             paid: isPaid,
-            payment_id: paymentLink.payment_id,
+            payment_id: (paymentLink as any).payment_id || (paymentLink as any).payments?.[0], // Handle both potential property names
         });
 
     } catch (error: any) {

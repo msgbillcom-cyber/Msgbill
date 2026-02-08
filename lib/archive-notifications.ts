@@ -134,7 +134,7 @@ export async function dailyArchiveWarningJob() {
  * Upgrade hook - recalculate archive dates when subscription changes
  */
 export async function onSubscriptionUpgrade(orgId: string, newTier: string) {
-    const supabase = createClientComponentClient();
+    const supabase = createClientSideClient();
 
     // Recalculate archive dates for all invoices
     const retentionMonths = {
