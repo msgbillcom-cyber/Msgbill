@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
             key_secret,
         });
 
-        const referenceId = `sub_${orgId}_${Date.now()}`;
+        const referenceId = `sub_${orgId}`; // sub_ + UUID = 4 + 36 = 40 characters (max limit)
         const amount = 499; // ₹499
 
         // Create payment link
