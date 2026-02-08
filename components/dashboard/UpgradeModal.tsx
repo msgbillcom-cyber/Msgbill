@@ -21,7 +21,7 @@ export default function UpgradeModal({
     description =
         `You've reached the ${LIMITS.FREE.invoicesTotal}-invoice limit on your Free Plan. Upgrade to Pro to continue growing your business.`,
 }: UpgradeModalProps) {
-    const { profile, user } = useAuth();
+    const { profile, user, orgId } = useAuth();
     const [showPayment, setShowPayment] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
@@ -30,13 +30,19 @@ export default function UpgradeModal({
         setLoading(true);
         setError("");
         try {
+            const organizationId = profile?.org_id || orgId;
+
+            if (!organizationId) {
+                throw new Error("Organization ID is missing. Please contact support.");
+            }
+
             const response = await fetch('/api/payments/create-subscription', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    orgId: profile?.org_id,
+                    orgId: organizationId,
                     userEmail: profile?.email || user?.email,
                     userName: profile?.full_name,
                     userPhone: profile?.phone,
