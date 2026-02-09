@@ -168,9 +168,14 @@ export default function ClientsPage() {
                 title="Clients"
                 description="Manage your customer directory and GST details."
                 action={
-                    <Button onClick={handleAddNew} leftIcon={<span>➕</span>}>
-                        Add Client
-                    </Button>
+                    <div className="flex gap-2">
+                        <Button variant="outline" onClick={fetchClients} title="Refresh List">
+                            🔄
+                        </Button>
+                        <Button onClick={handleAddNew} leftIcon={<span>➕</span>}>
+                            Add Client
+                        </Button>
+                    </div>
                 }
             />
 

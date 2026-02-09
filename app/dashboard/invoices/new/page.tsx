@@ -71,14 +71,20 @@ export default function NewInvoicePage() {
     useEffect(() => {
         // Fetch next invoice number
         const fetchNextInvoiceNumber = async (orgId: string) => {
-            const { data, error } = await supabase.rpc('get_next_invoice_number', {
-                org_uuid: orgId
-            });
-            
-            if (!error && data) {
-                setInvoiceNumber(data);
-            } else {
-                // Fallback to timestamp if RPC fails
+            try {
+                const { data, error } = await supabase.rpc('get_next_invoice_number', {
+                    org_uuid: orgId
+                });
+                
+                if (!error && data) {
+                    setInvoiceNumber(data);
+                } else {
+                    console.error("RPC Error or No Data:", error);
+                    // Fallback to timestamp if RPC fails
+                    setInvoiceNumber(`INV-${Date.now().toString().slice(-6)}`);
+                }
+            } catch (err) {
+                console.error("Failed to fetch invoice number:", err);
                 setInvoiceNumber(`INV-${Date.now().toString().slice(-6)}`);
             }
         };

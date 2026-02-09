@@ -133,16 +133,34 @@ export default function InvoicesPage() {
                 />
             </div>
 
-            <Table headers={["Invoice #", "Client", "Date", "Amount", "Status", "Actions"]}>
-                {invoices.length === 0 ? (
-                    <tr>
-                        <td colSpan={6} className="p-8 text-center text-secondary-500">
-                            {loading ? "Loading..." : "No invoices found. Start by creating one!"}
-                        </td>
-                    </tr>
-                ) : (
-                    invoices.map((row) => (
-                        <tr key={row.id} className="border-b border-secondary-100 last:border-0 hover:bg-secondary-50">
+            {invoices.length === 0 && !loading ? (
+                <div className="flex flex-col items-center justify-center py-20 bg-white rounded-xl border border-dashed border-secondary-300 text-center">
+                    <div className="w-20 h-20 bg-primary-50 rounded-full flex items-center justify-center mb-6">
+                        <span className="text-4xl">📄</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-secondary-900 mb-2">
+                        No invoices created yet
+                    </h3>
+                    <p className="text-secondary-500 max-w-md mb-8">
+                        Create your first professional invoice in seconds. Share it via WhatsApp and get paid faster.
+                    </p>
+                    <Link href="/dashboard/invoices/new">
+                        <Button size="lg" leftIcon={<span>➕</span>} className="shadow-lg hover-lift">
+                            Create Invoice Now
+                        </Button>
+                    </Link>
+                </div>
+            ) : (
+                <Table headers={["Invoice #", "Client", "Date", "Amount", "Status", "Actions"]}>
+                    {invoices.length === 0 && loading ? (
+                        <tr>
+                            <td colSpan={6} className="p-8 text-center text-secondary-500">
+                                Loading invoices...
+                            </td>
+                        </tr>
+                    ) : (
+                        invoices.map((row) => (
+                            <tr key={row.id} className="border-b border-secondary-100 last:border-0 hover:bg-secondary-50">
                             <td className="p-4 font-bold text-secondary-900">{row.invoice_number}</td>
                             <td className="p-4">{row.clients?.name || "Unknown Client"}</td>
                             <td className="p-4">{formatDate(row.issue_date)}</td>
@@ -176,6 +194,7 @@ export default function InvoicesPage() {
                     ))
                 )}
             </Table>
+            )}
         </div>
     );
 }
