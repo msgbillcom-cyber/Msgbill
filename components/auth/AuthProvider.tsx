@@ -27,8 +27,34 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const router = useRouter();
   const pathname = usePathname();
 
+  // Cache profile in localStorage to prevent flicker
+  useEffect(() => {
+    if (profile) {
+        localStorage.setItem('cached_profile', JSON.stringify(profile));
+    } else if (profile === null && !loading) {
+        // Only clear if we explicitly know user is logged out (not just initial state)
+        // We handle explicit clear in signOut
+    }
+  }, [profile, loading]);
+
   const fetchProfile = async (userId: string, userEmail?: string) => {
     setProfileLoading(true);
+    
+    // Optimistic Load: Check cache first
+    try {
+        const cached = localStorage.getItem('cached_profile');
+        if (cached) {
+            const parsed = JSON.parse(cached);
+            if (parsed.id === userId) {
+                console.log("Using cached profile for immediate display");
+                setProfile(parsed);
+                // Don't set loading false yet, we still want to re-validate in background
+            }
+        }
+    } catch (e) {
+        console.warn("Cache parse error", e);
+    }
+
     try {
       console.log("Fetching profile for user:", userId);
 
@@ -334,6 +360,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       value={{
         user,
         loading,
+        profileLoading,
         profile,
         orgId: profile?.org_id,
         signOut,

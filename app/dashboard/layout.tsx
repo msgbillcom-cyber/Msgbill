@@ -9,7 +9,7 @@ export default function DashboardRootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { profile, loading, signOut } = useAuth();
+  const { user, profile, loading, signOut } = useAuth();
 
   const isPro = profile?.subscription_tier === "pro";
 
@@ -93,8 +93,8 @@ export default function DashboardRootLayout({
     <DashboardLayout
       sections={sections}
       user={{
-        name: profile?.full_name || profile?.company_name || "Owner",
-        email: profile?.email || "",
+        name: profile?.full_name || profile?.company_name || user?.email?.split('@')[0] || "Owner",
+        email: profile?.email || user?.email || "",
         avatar: profile?.avatar_url,
       }}
       onSignOut={signOut}
