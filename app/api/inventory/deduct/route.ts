@@ -30,11 +30,37 @@ export async function POST(request: Request) {
             // Since we don't have raw query RPC, we must Read -> Calculate -> Update.
             // This is not atomic but acceptable for this fix.
 
+            // Security: Verify product belongs to user's org (via RLS check or explicit check)
+            // Since we are using admin client, we MUST explicitly check org_id
+            
+            // 1. Get user's org_id
+            const { data: profile } = await supabase
+                .from('profiles')
+                .select('org_id')
+                .eq('id', session.user.id)
+                .single();
+                
+            if (!profile?.org_id) {
+                 results.push({ id: item.productId, status: 'failed', error: 'User has no organization' });
+                 continue;
+            }
+
             const { data: product } = await supabaseAdmin
                 .from('products')
-                .select('stock_quantity')
+                .select('stock_quantity, org_id')
                 .eq('id', item.productId)
                 .single();
+
+            if (!product) {
+                 results.push({ id: item.productId, status: 'failed', error: 'Product not found' });
+                 continue;
+            }
+
+            // 2. Check ownership
+            if (product.org_id !== profile.org_id) {
+                 results.push({ id: item.productId, status: 'failed', error: 'Unauthorized access to product' });
+                 continue;
+            }
 
             if (product) {
                 const newStock = Number(product.stock_quantity) - Number(item.quantity);
