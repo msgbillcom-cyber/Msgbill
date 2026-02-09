@@ -15,7 +15,7 @@ function VerifyContent() {
   const searchParams = useSearchParams();
   const { addToast } = useToast();
 
-  const [type, setType] = useState<"signup" | "magiclink">("signup");
+  const [type, setType] = useState<"signup" | "magiclink" | "email">("signup");
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
@@ -26,9 +26,9 @@ function VerifyContent() {
       setEmail(emailParam);
     }
     const typeParam = searchParams.get("type");
-    if (typeParam === "magiclink") {
-      setType("magiclink");
-    }
+    if (typeParam === "magiclink") setType("magiclink");
+    if (typeParam === "email") setType("email");
+    if (typeParam === "signup") setType("signup");
   }, [searchParams]);
 
   const handleVerify = async (e: React.FormEvent) => {
