@@ -4,6 +4,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import "@/app/globals.css";
 import { Metadata } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
     title: {
@@ -120,6 +121,7 @@ export default function RootLayout({
                         </AuthProvider>
                     </ToastProvider>
                 </ErrorBoundary>
+                <Analytics />
             </body>
         </html>
     );
