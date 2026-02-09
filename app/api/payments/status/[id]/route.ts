@@ -35,10 +35,16 @@ export async function GET(
 
         const isPaid = paymentLink.status === 'paid';
 
+        // Safe extraction of payment_id
+        let paymentId = (paymentLink as any).payment_id;
+        if (!paymentId && (paymentLink as any).payments && (paymentLink as any).payments.length > 0) {
+             paymentId = (paymentLink as any).payments[0].payment_id;
+        }
+
         return NextResponse.json({
             status: paymentLink.status,
             paid: isPaid,
-            payment_id: (paymentLink as any).payment_id || (paymentLink as any).payments?.[0], // Handle both potential property names
+            payment_id: paymentId,
         });
 
     } catch (error: any) {
