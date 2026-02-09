@@ -159,18 +159,17 @@ export default function DashboardOverview() {
     },
   ];
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="w-8 h-8 border-4 border-primary-600 border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return "Good Morning";
+    if (hour < 18) return "Good Afternoon";
+    return "Good Evening";
+  };
 
   return (
     <div className="space-y-8">
       <PageHeader
-        title={`Welcome back, ${profile?.company_name || "Owner"}`}
+        title={`${getGreeting()}, ${profile?.company_name || "Owner"}`}
         description="Monitor your invoicing performance and track payments."
         action={
           <Link href="/dashboard/invoices/new">
@@ -201,7 +200,11 @@ export default function DashboardOverview() {
                 </span>
               </div>
               <div className="text-2xl font-black text-secondary-900">
-                {card.value}
+                {loading ? (
+                  <div className="h-8 w-24 bg-secondary-100 rounded animate-pulse" />
+                ) : (
+                  card.value
+                )}
               </div>
             </CardContent>
           </Card>
@@ -212,44 +215,68 @@ export default function DashboardOverview() {
         {/* Tables Column */}
         <div className="lg:col-span-2 space-y-8">
           {/* Overdue Invoices */}
-          {overdueInvoices.length > 0 && (
+          {(loading || overdueInvoices.length > 0) && (
             <Card className="border-error-100 bg-error-50/10">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="text-error-700 flex items-center gap-2">
                   <span>⚠️</span> Overdue Invoices
                 </CardTitle>
-                <Badge variant="error" size="sm" dot>
-                  {overdueInvoices.length} critical
-                </Badge>
+                {!loading && (
+                  <Badge variant="error" size="sm" dot>
+                    {overdueInvoices.length} critical
+                  </Badge>
+                )}
               </CardHeader>
               <CardContent>
                 <Table headers={["ID", "Client", "Amount", "Status", "Due"]}>
-                  {overdueInvoices.map((row) => (
-                    <tr
-                      key={row.id}
-                      className="border-b border-secondary-100 last:border-0 hover:bg-secondary-50"
-                    >
-                      <td className="p-4 font-bold">{row.invoice_number}</td>
-                      <td className="p-4">{row.clients?.name}</td>
-                      <td className="p-4 font-semibold text-primary-600">
-                        {formatCurrency(row.grand_total)}
-                      </td>
-                      <td className="p-4">
-                        <Badge
-                          variant={
-                            row.status === "paid" ? "success" : "secondary"
-                          }
-                          size="sm"
-                          dot
-                        >
-                          {row.status}
-                        </Badge>
-                      </td>
-                      <td className="p-4 text-error-600 font-medium">
-                        {formatDate(row.due_date)}
-                      </td>
-                    </tr>
-                  ))}
+                  {loading ? (
+                    [1, 2].map((i) => (
+                      <tr key={i} className="border-b border-secondary-100">
+                        <td className="p-4">
+                          <div className="h-4 w-16 bg-secondary-200 rounded animate-pulse" />
+                        </td>
+                        <td className="p-4">
+                          <div className="h-4 w-32 bg-secondary-200 rounded animate-pulse" />
+                        </td>
+                        <td className="p-4">
+                          <div className="h-4 w-20 bg-secondary-200 rounded animate-pulse" />
+                        </td>
+                        <td className="p-4">
+                          <div className="h-6 w-16 bg-secondary-200 rounded animate-pulse" />
+                        </td>
+                        <td className="p-4">
+                          <div className="h-4 w-24 bg-secondary-200 rounded animate-pulse" />
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    overdueInvoices.map((row) => (
+                      <tr
+                        key={row.id}
+                        className="border-b border-secondary-100 last:border-0 hover:bg-secondary-50"
+                      >
+                        <td className="p-4 font-bold">{row.invoice_number}</td>
+                        <td className="p-4">{row.clients?.name}</td>
+                        <td className="p-4 font-semibold text-primary-600">
+                          {formatCurrency(row.grand_total)}
+                        </td>
+                        <td className="p-4">
+                          <Badge
+                            variant={
+                              row.status === "paid" ? "success" : "secondary"
+                            }
+                            size="sm"
+                            dot
+                          >
+                            {row.status}
+                          </Badge>
+                        </td>
+                        <td className="p-4 text-error-600 font-medium">
+                          {formatDate(row.due_date)}
+                        </td>
+                      </tr>
+                    ))
+                  )}
                 </Table>
               </CardContent>
             </Card>
@@ -267,13 +294,30 @@ export default function DashboardOverview() {
             </CardHeader>
             <CardContent>
               <Table headers={["ID", "Client", "Amount", "Status"]}>
-                {recentInvoices.length === 0 ? (
+                {loading ? (
+                  [1, 2, 3].map((i) => (
+                    <tr key={i} className="border-b border-secondary-100">
+                      <td className="p-4">
+                        <div className="h-4 w-16 bg-secondary-200 rounded animate-pulse" />
+                      </td>
+                      <td className="p-4">
+                        <div className="h-4 w-32 bg-secondary-200 rounded animate-pulse" />
+                      </td>
+                      <td className="p-4">
+                        <div className="h-4 w-20 bg-secondary-200 rounded animate-pulse" />
+                      </td>
+                      <td className="p-4">
+                        <div className="h-6 w-16 bg-secondary-200 rounded animate-pulse" />
+                      </td>
+                    </tr>
+                  ))
+                ) : recentInvoices.length === 0 ? (
                   <tr>
                     <td
                       colSpan={4}
                       className="p-8 text-center text-secondary-500"
                     >
-                      {loading ? "Loading..." : "No activity tracked yet."}
+                      No activity tracked yet.
                     </td>
                   </tr>
                 ) : (

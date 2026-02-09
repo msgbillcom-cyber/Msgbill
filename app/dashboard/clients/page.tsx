@@ -144,6 +144,24 @@ export default function ClientsPage() {
         },
     ];
 
+    const handleClientSuccess = (client?: any) => {
+        if (client) {
+            // Optimistic update
+            if (selectedClient) {
+                // Edit mode: Update existing client
+                setClients(prev => prev.map(c => c.id === client.id ? client : c));
+            } else {
+                // Add mode: Prepend new client
+                setClients(prev => [client, ...prev]);
+                setTotalCount(prev => prev + 1);
+            }
+        } else {
+            // Fallback to full fetch if no client data returned (legacy)
+            fetchClients();
+        }
+        setIsModalOpen(false);
+    };
+
     return (
         <div className="space-y-6">
             <PageHeader
@@ -248,7 +266,7 @@ export default function ClientsPage() {
             <ClientModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                onSuccess={fetchClients}
+                onSuccess={handleClientSuccess}
                 client={selectedClient}
             />
         </div>

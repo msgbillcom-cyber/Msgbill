@@ -21,6 +21,7 @@ import { formatCurrency } from "@/lib/utils";
 import { LIMITS } from "@/lib/limits";
 import { calculateInvoiceGST } from "@/lib/gst";
 import UpgradeModal from "@/components/dashboard/UpgradeModal";
+import ClientModal from "@/components/dashboard/ClientModal";
 
 interface InvoiceItem {
     id: string;
@@ -42,6 +43,7 @@ export default function NewInvoicePage() {
     const [products, setProducts] = useState<any[]>([]);
     const [isLimitReached, setIsLimitReached] = useState(false);
     const [showUpgrade, setShowUpgrade] = useState(false);
+    const [isClientModalOpen, setIsClientModalOpen] = useState(false);
 
     // Invoice state
     const [clientId, setClientId] = useState("");
@@ -226,6 +228,25 @@ export default function NewInvoicePage() {
         ]);
     };
 
+    const handleClientSuccess = (client: any) => {
+        if (client) {
+            // Add new client to the list
+            setClients(prev => [...prev, client]);
+            
+            // Auto-select the new client
+            setClientId(client.id);
+            if (client.billing_state) setClientState(client.billing_state);
+            if (client.gstin) setClientGstin(client.gstin);
+            
+            addToast({
+                title: "Client Added",
+                type: "success",
+                message: `${client.name} has been selected.`
+            });
+        }
+        setIsClientModalOpen(false);
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (isLimitReached) {
@@ -336,29 +357,42 @@ export default function NewInvoicePage() {
                             </CardHeader>
                             <CardContent className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <Select
-                                        label="Select Client"
-                                        value={clientId}
-                                        onChange={(
-                                            e: React.ChangeEvent<
-                                                HTMLSelectElement
-                                            >,
-                                        ) => {
-                                            const id = e.target.value;
-                                            setClientId(id);
-                                            const client = clients.find(c => c.id === id);
-                                            if (client) {
-                                                if (client.billing_state) setClientState(client.billing_state);
-                                                if (client.gstin) setClientGstin(client.gstin);
-                                            }
-                                        }}
-                                        options={clients.map((c) => ({
-                                            label: c.name,
-                                            value: c.id,
-                                        }))}
-                                        placeholder="Choose a client..."
-                                        required
-                                    />
+                                    <div className="flex gap-2 items-end">
+                                        <div className="flex-1">
+                                            <Select
+                                                label="Select Client"
+                                                value={clientId}
+                                                onChange={(
+                                                    e: React.ChangeEvent<
+                                                        HTMLSelectElement
+                                                    >,
+                                                ) => {
+                                                    const id = e.target.value;
+                                                    setClientId(id);
+                                                    const client = clients.find(c => c.id === id);
+                                                    if (client) {
+                                                        if (client.billing_state) setClientState(client.billing_state);
+                                                        if (client.gstin) setClientGstin(client.gstin);
+                                                    }
+                                                }}
+                                                options={clients.map((c) => ({
+                                                    label: c.name,
+                                                    value: c.id,
+                                                }))}
+                                                placeholder="Choose a client..."
+                                                required
+                                            />
+                                        </div>
+                                        <Button 
+                                            type="button" 
+                                            variant="secondary" 
+                                            className="mb-[2px] h-[42px] px-3"
+                                            onClick={() => setIsClientModalOpen(true)}
+                                            title="Create New Client"
+                                        >
+                                            ➕
+                                        </Button>
+                                    </div>
                                     <Input
                                         label="Invoice Number"
                                         value={invoiceNumber}
@@ -640,6 +674,12 @@ export default function NewInvoicePage() {
                     setShowUpgrade(false);
                     if (isLimitReached) router.push("/dashboard/invoices");
                 }}
+            />
+
+            <ClientModal
+                isOpen={isClientModalOpen}
+                onClose={() => setIsClientModalOpen(false)}
+                onSuccess={handleClientSuccess}
             />
         </div>
     );

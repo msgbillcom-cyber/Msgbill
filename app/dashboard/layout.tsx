@@ -93,8 +93,9 @@ export default function DashboardRootLayout({
     <DashboardLayout
       sections={sections}
       user={{
-        name: profile?.company_name || "Owner",
+        name: profile?.full_name || profile?.company_name || "Owner",
         email: profile?.email || "",
+        avatar: profile?.avatar_url,
       }}
       onSignOut={signOut}
     >

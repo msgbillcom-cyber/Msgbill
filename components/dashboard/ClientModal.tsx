@@ -14,7 +14,7 @@ import { LIMITS } from "@/lib/limits";
 interface ClientModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onSuccess: () => void;
+    onSuccess: (client?: any) => void;
     client?: any; // If provided, we are in Edit mode
 }
 
@@ -142,6 +142,8 @@ const ClientModal: React.FC<ClientModalProps> = ({
                 throw new Error("No active session");
             }
 
+            let result;
+
             if (client) {
                 // Update via API (Bypassing RLS)
                 console.log("Updating existing client via API:", client.id);
@@ -157,7 +159,7 @@ const ClientModal: React.FC<ClientModalProps> = ({
                     }),
                 });
 
-                const result = await response.json();
+                result = await response.json();
                 if (!response.ok) throw new Error(result.error || "Failed to update client");
 
                 addToast({
@@ -180,7 +182,7 @@ const ClientModal: React.FC<ClientModalProps> = ({
                     }),
                 });
 
-                const result = await response.json();
+                result = await response.json();
                 if (!response.ok) throw new Error(result.error || "Failed to create client");
 
                 addToast({
@@ -189,7 +191,8 @@ const ClientModal: React.FC<ClientModalProps> = ({
                     message: "Client added successfully.",
                 });
             }
-            onSuccess();
+            // Pass the actual client data back to the parent
+            onSuccess(result.client); 
             onClose();
         } catch (error: any) {
             console.error("Client submission error:", error);

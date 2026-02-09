@@ -41,6 +41,31 @@ export default function OnboardingPage() {
     const [qrFile, setQrFile] = useState<File | null>(null);
     const [qrPreview, setQrPreview] = useState<string | null>(null);
 
+    // Optimize image preview generation
+    const handleLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setLogoFile(file);
+            setLogoPreview(URL.createObjectURL(file));
+        }
+    };
+
+    const handleQrChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setQrFile(file);
+            setQrPreview(URL.createObjectURL(file));
+        }
+    };
+
+    // Cleanup URLs on unmount
+    React.useEffect(() => {
+        return () => {
+            if (logoPreview) URL.revokeObjectURL(logoPreview);
+            if (qrPreview) URL.revokeObjectURL(qrPreview);
+        };
+    }, [logoPreview, qrPreview]);
+
     if (authLoading) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-secondary-50">
@@ -64,30 +89,6 @@ export default function OnboardingPage() {
             </div>
         );
     }
-
-    const handleLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if (file) {
-            setLogoFile(file);
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setLogoPreview(reader.result as string);
-            };
-            reader.readAsDataURL(file);
-        }
-    };
-
-    const handleQrChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if (file) {
-            setQrFile(file);
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setQrPreview(reader.result as string);
-            };
-            reader.readAsDataURL(file);
-        }
-    };
 
     const handleInputChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
