@@ -94,26 +94,6 @@ export default function Home() { // Changed function name from HomePage to Home
         },
     ];
 
-    const steps = [
-        {
-            number: "01",
-            title: "Create Invoice",
-            description: "Add client details and line items in under a minute.",
-        },
-        {
-            number: "02",
-            title: "Share on WhatsApp",
-            description:
-                "Instantly send invoice to client's WhatsApp with payment link.",
-        },
-        {
-            number: "03",
-            title: "Get Paid Fast",
-            description:
-                "Client scans QR code and pays instantly — money in your account.",
-        },
-    ];
-
     const jsonLd = {
         "@context": "https://schema.org",
         "@graph": [
@@ -339,162 +319,112 @@ export default function Home() { // Changed function name from HomePage to Home
 
                 {/* Product Screenshots Section */}
                 <section
-                    id="screenshots"
-                    className="py-24 lg:py-32 bg-secondary-900"
+                    id="how-it-works"
+                    className="py-24 lg:py-32 bg-secondary-900 relative overflow-hidden"
                 >
-                    <div className="container-wide">
-                        <div className="text-center max-w-3xl mx-auto mb-16">
-                            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
-                                See MsgBill in{" "}
-                                <span className="gradient-text-green">
-                                    Action
-                                </span>
+                    <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-blob" />
+                        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
+                    </div>
+
+                    <div className="container mx-auto px-4 relative z-10">
+                        <div className="max-w-3xl mx-auto text-center mb-20">
+                            <Badge variant="primary" size="lg" className="mb-6 animate-fade-in">
+                                <span className="mr-2">🚀</span> Simple Workflow
+                            </Badge>
+                            <h2 className="text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
+                                From Login to <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent-400">Paid</span> in Minutes
                             </h2>
-                            <p className="text-lg lg:text-xl text-secondary-400">
-                                Real screenshots from the MsgBill app. No
-                                mockups, no fake interfaces.
+                            <p className="text-xl text-secondary-400">
+                                Experience the fastest invoicing flow designed for modern businesses.
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {/* Login Page Screenshot */}
-                            <div className="glass-card p-6 rounded-2xl hover-lift transition-smooth">
-                                <div className="mb-4 p-4 bg-primary-500/10 rounded-xl">
-                                    <img
-                                        src="/artifacts/login_page_premium_1769528183310.png"
-                                        alt="Secure Login & Dashboard"
-                                        className="w-full h-auto rounded-lg shadow-lg"
-                                    />
+                        <div className="space-y-24">
+                            {/* Step 1: Login & Onboarding */}
+                            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+                                <div className="flex-1 space-y-8 text-center lg:text-left">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-500/20 text-primary-400 text-3xl font-black border border-primary-500/30">
+                                        1
+                                    </div>
+                                    <h3 className="text-3xl font-bold text-white">Login & Onboard</h3>
+                                    <p className="text-lg text-secondary-400 leading-relaxed">
+                                        Securely sign in and set up your business profile in seconds. Add your logo, signature, and bank details once to automate everything later.
+                                    </p>
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-2">
-                                    🔐 Secure Login
-                                </h3>
-                                <p className="text-secondary-400">
-                                    Secure and seamless access to your complete
-                                    business dashboard and analytics
-                                </p>
+                                <div className="flex-1 w-full">
+                                    <div className="glass-card p-4 rounded-2xl transform rotate-2 hover:rotate-0 transition-all duration-500 shadow-2xl shadow-primary-500/20">
+                                        <img
+                                            src="/artifacts/login_page_premium_1769528183310.png"
+                                            alt="Login Screen"
+                                            className="rounded-xl w-full shadow-lg border border-secondary-700/50"
+                                        />
+                                    </div>
+                                </div>
                             </div>
 
-                            {/* GST Calculator Screenshot */}
-                            <div className="glass-card p-6 rounded-2xl hover-lift transition-smooth">
-                                <div className="mb-4 p-4 bg-primary-500/10 rounded-xl">
-                                    <img
-                                        src="/artifacts/gst_auto_calculator_1769540067994.png"
-                                        alt="Automatic GST Calculation"
-                                        className="w-full h-auto rounded-lg shadow-lg"
-                                    />
+                            {/* Step 2: Create Clients */}
+                            <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
+                                <div className="flex-1 space-y-8 text-center lg:text-left">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent-500/20 text-accent-400 text-3xl font-black border border-accent-500/30">
+                                        2
+                                    </div>
+                                    <h3 className="text-3xl font-bold text-white">Add Clients</h3>
+                                    <p className="text-lg text-secondary-400 leading-relaxed">
+                                        Easily manage your client database. Save GSTIN, billing addresses, and contact info to auto-fill invoices instantly.
+                                    </p>
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-2">
-                                    📋 Smart GST Calculator
-                                </h3>
-                                <p className="text-secondary-400">
-                                    Auto-calculates CGST/SGST or IGST based on
-                                    state selection
-                                </p>
-                            </div>
-
-                            {/* Payment Link Screenshot */}
-                            <div className="glass-card p-6 rounded-2xl hover-lift transition-smooth">
-                                <div className="mb-4 p-4 bg-success-500/10 rounded-xl overflow-hidden relative group">
-                                    {/* CSS Mockup of UPI Payment Interface */}
-                                    <div className="bg-white rounded-lg shadow-md border border-secondary-100 p-4 w-full aspect-[4/3] flex flex-col items-center justify-center space-y-3 relative overflow-hidden">
-                                        <div className="absolute top-0 left-0 w-full h-1 bg-success-500">
-                                        </div>
-                                        <div className="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
-                                            <span className="text-2xl">🛍️</span>
-                                        </div>
-                                        <div className="text-center">
-                                            <p className="text-[10px] text-secondary-400 uppercase font-bold">
-                                                Total Amount
-                                            </p>
-                                            <p className="text-xl font-black text-secondary-900">
-                                                ₹11,800
-                                            </p>
-                                        </div>
-                                        <div className="w-24 h-24 bg-white border-2 border-dashed border-secondary-200 rounded-lg flex items-center justify-center relative">
-                                            {/* QR Pattern */}
-                                            <div className="w-20 h-20 bg-secondary-900 opacity-10 pattern-dots">
-                                            </div>
-                                            <span className="absolute text-xs font-bold bg-white px-2 py-1 rounded-full shadow-sm border border-secondary-100">
-                                                UPI QR
-                                            </span>
-                                        </div>
-                                        <div className="w-full bg-success-500 h-8 rounded-md flex items-center justify-center text-white text-xs font-bold shadow-sm">
-                                            Pay via UPI
+                                <div className="flex-1 w-full">
+                                    <div className="glass-card p-4 rounded-2xl transform -rotate-2 hover:rotate-0 transition-all duration-500 shadow-2xl shadow-accent-500/20">
+                                        <div className="aspect-video bg-secondary-800 rounded-xl flex items-center justify-center border border-secondary-700 text-secondary-500">
+                                            <span className="text-lg">Add Client Screenshot Placeholder</span>
                                         </div>
                                     </div>
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-2">
-                                    💳 Instant Payment Links
-                                </h3>
-                                <p className="text-secondary-400">
-                                    Generate UPI payment links in seconds, share
-                                    and get paid
-                                </p>
                             </div>
-                        </div>
 
-                        {/* Trust Signal */}
-                        <div className="mt-16 text-center">
-                            <div className="inline-flex items-center gap-3 glass-card px-6 py-3 rounded-full">
-                                <span className="text-2xl">🔒</span>
-                                <p className="text-sm text-secondary-400">
-                                    <span className="font-bold text-white">
-                                        100% Made for India
-                                    </span>{" "}
-                                    • Data stored securely in Indian servers •
-                                    Verified Security
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* How it Works */}
-                <section
-                    id="how-it-works"
-                    className="py-24 lg:py-32 bg-secondary-900 text-white"
-                >
-                    <div className="container-wide">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                            <div>
-                                <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                                    Simple process, <br />
-                                    <span className="text-primary-400">
-                                        significant results
-                                    </span>
-                                </h2>
-                                <p className="text-lg text-secondary-400 mb-12">
-                                    MsgBill is built to be intuitive. No complex
-                                    manuals or hours of training required.
-                                </p>
-                                <div className="space-y-8">
-                                    {steps.map((step, idx) => (
-                                        <div key={idx} className="flex gap-6">
-                                            <span className="text-2xl font-black text-primary-500/30">
-                                                {step.number}
-                                            </span>
-                                            <div>
-                                                <h4 className="text-xl font-bold mb-2">
-                                                    {step.title}
-                                                </h4>
-                                                <p className="text-secondary-400">
-                                                    {step.description}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    ))}
+                            {/* Step 3: Generate Invoice */}
+                            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+                                <div className="flex-1 space-y-8 text-center lg:text-left">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-success-500/20 text-success-400 text-3xl font-black border border-success-500/30">
+                                        3
+                                    </div>
+                                    <h3 className="text-3xl font-bold text-white">Generate Invoice</h3>
+                                    <p className="text-lg text-secondary-400 leading-relaxed">
+                                        Create professional GST/Non-GST invoices. Our auto-calculator handles taxes, discounts, and totals with zero errors.
+                                    </p>
+                                </div>
+                                <div className="flex-1 w-full">
+                                    <div className="glass-card p-4 rounded-2xl transform rotate-2 hover:rotate-0 transition-all duration-500 shadow-2xl shadow-success-500/20">
+                                        <img
+                                            src="/artifacts/gst_auto_calculator_1769540067994.png"
+                                            alt="Invoice Generation"
+                                            className="rounded-xl w-full shadow-lg border border-secondary-700/50"
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                            <div className="relative">
-                                <div className="aspect-video bg-secondary-800 rounded-2xl overflow-hidden shadow-2xl border border-secondary-700 flex items-center justify-center">
-                                    <span className="text-primary-400 text-lg font-mono">
-                                        Invoice Preview Animation Area
-                                    </span>
+
+                            {/* Step 4: Share & Pay */}
+                            <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
+                                <div className="flex-1 space-y-8 text-center lg:text-left">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-warning-500/20 text-warning-400 text-3xl font-black border border-warning-500/30">
+                                        4
+                                    </div>
+                                    <h3 className="text-3xl font-bold text-white">Share & Get Paid</h3>
+                                    <p className="text-lg text-secondary-400 leading-relaxed">
+                                        Send invoices directly via WhatsApp or Email. Include payment links and QR codes to get paid faster.
+                                    </p>
                                 </div>
-                                {/* Decorative dots */}
-                                <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary-600/20 rounded-full blur-2xl" />
-                                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary-400/20 rounded-full blur-2xl" />
+                                <div className="flex-1 w-full">
+                                    <div className="glass-card p-4 rounded-2xl transform -rotate-2 hover:rotate-0 transition-all duration-500 shadow-2xl shadow-warning-500/20">
+                                        <img
+                                            src="/artifacts/whatsapp_invoice_share_1769540045907.png"
+                                            alt="WhatsApp Share"
+                                            className="rounded-xl w-full shadow-lg border border-secondary-700/50"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
