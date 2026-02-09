@@ -8,6 +8,7 @@ import { User } from "@supabase/supabase-js";
 interface AuthContextType {
   user: User | null;
   loading: boolean;
+  profileLoading: boolean;
   profile: any | null;
   orgId: string | undefined;
   signOut: () => Promise<void>;
