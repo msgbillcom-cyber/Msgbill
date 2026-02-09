@@ -33,7 +33,7 @@ interface InvoiceItem {
 }
 
 export default function NewInvoicePage() {
-    const { profile } = useAuth();
+    const { user, profile } = useAuth();
     const supabase = createClientSideClient();
     const router = useRouter();
     const { addToast } = useToast();
@@ -90,24 +90,42 @@ export default function NewInvoicePage() {
         };
 
         const checkUsageAndFetch = async () => {
-            if (!profile?.org_id) return;
+            if (!user) return; // Need user at minimum
 
             setLoading(true);
             try {
+                // 0. Resolve Org ID (Robust Fallback)
+                let orgId = profile?.org_id;
+                if (!orgId) {
+                    const { data: member } = await supabase
+                        .from('organization_members')
+                        .select('org_id')
+                        .eq('user_id', user.id)
+                        .single();
+                    if (member) orgId = member.org_id;
+                }
+
+                if (!orgId) {
+                    // Fallback to legacy invoice number if no org found
+                     setInvoiceNumber(`INV-${Date.now().toString().slice(-6)}`);
+                     setLoading(false);
+                     return;
+                }
+
                 // 0. Fetch Invoice Number
-                await fetchNextInvoiceNumber(profile.org_id);
+                await fetchNextInvoiceNumber(orgId);
 
                 // 1. Check Invoice Count
                 const { count, error: countError } = await supabase
                     .from("invoices")
                     .select("*", { count: "exact", head: true })
-                    .eq("org_id", profile.org_id);
+                    .eq("org_id", orgId);
 
                 // 2. Fetch Clients
                 const { data, error } = await supabase
                     .from("clients")
                     .select("id, name, billing_state, gstin")
-                    .eq("org_id", profile.org_id)
+                    .eq("org_id", orgId)
                     .order("name");
                 if (!error) setClients(data || []);
 
@@ -115,41 +133,39 @@ export default function NewInvoicePage() {
                 const { data: prodData } = await supabase
                     .from("products")
                     .select("*")
-                    .eq("org_id", profile.org_id)
+                    .eq("org_id", orgId)
                     .order("name");
                 if (prodData) setProducts(prodData);
 
                 // 3. Pre-fill business details from profile/org
-                if (profile) {
-                    // If profile has business info, use it
+                // Priority: Org Table > Profile Table
+                const { data: org } = await supabase
+                    .from("organizations")
+                    .select("state, gstin, subscription_tier")
+                    .eq("id", orgId)
+                    .single();
+                
+                if (org) {
+                    if (org.state) setBusinessState(org.state);
+                    if (org.gstin) setBusinessGstin(org.gstin);
+                    
+                    // Check Limits with Plan
+                    const plan = org.subscription_tier?.toUpperCase() || 'FREE';
+                    // @ts-ignore
+                    const limit = LIMITS[plan]?.invoicesTotal || LIMITS.FREE.invoicesTotal;
+                    
+                    if (count !== null && count >= limit) {
+                        setIsLimitReached(true);
+                        setShowUpgrade(true);
+                    } else {
+                        // Reset if within limits (in case previously set)
+                        setIsLimitReached(false);
+                        setShowUpgrade(false);
+                    }
+                } else if (profile) {
+                    // Fallback to profile if org fetch failed
                     if (profile.state) setBusinessState(profile.state);
                     if (profile.gstin) setBusinessGstin(profile.gstin);
-                    
-                    // Also check organization table if needed
-                    const { data: org } = await supabase
-                        .from("organizations")
-                        .select("state, gstin, subscription_tier")
-                        .eq("id", profile.org_id)
-                        .single();
-                    
-                    if (org) {
-                        if (org.state) setBusinessState(org.state);
-                        if (org.gstin) setBusinessGstin(org.gstin);
-                        
-                        // Check Limits with Plan
-                        const plan = org.subscription_tier?.toUpperCase() || 'FREE';
-                        // @ts-ignore
-                        const limit = LIMITS[plan]?.invoicesTotal || LIMITS.FREE.invoicesTotal;
-                        
-                        if (count !== null && count >= limit) {
-                            setIsLimitReached(true);
-                            setShowUpgrade(true);
-                        } else {
-                            // Reset if within limits (in case previously set)
-                            setIsLimitReached(false);
-                            setShowUpgrade(false);
-                        }
-                    }
                 }
             } catch (error) {
                 console.error("Error fetching invoice data:", error);

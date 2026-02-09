@@ -45,16 +45,31 @@ export default function BusinessProfilePage() {
 
     useEffect(() => {
         const fetchOrganization = async () => {
-            if (!profile) {
+            if (!user) {
                 setFetching(false);
                 return;
             }
 
-            if (profile.org_id) {
+            let orgId = profile?.org_id;
+
+            // Fallback: If profile doesn't have org_id, try to find it in organization_members
+            if (!orgId) {
+                const { data: memberData } = await supabase
+                    .from("organization_members")
+                    .select("org_id")
+                    .eq("user_id", user.id)
+                    .single();
+                
+                if (memberData) {
+                    orgId = memberData.org_id;
+                }
+            }
+
+            if (orgId) {
                 const { data: org, error } = await supabase
                     .from("organizations")
                     .select("*")
-                    .eq("id", profile.org_id)
+                    .eq("id", orgId)
                     .single();
 
                 if (org && !error) {
@@ -78,7 +93,7 @@ export default function BusinessProfilePage() {
                     }
                 }
                 setFetching(false);
-            } else {
+            } else if (profile) {
                 // Fallback to profile data if org not found or not set
                  setFormData({
                     company_name: profile.company_name || "",
