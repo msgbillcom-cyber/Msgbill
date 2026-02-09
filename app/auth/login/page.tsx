@@ -31,11 +31,6 @@ function LoginContent() {
     }
   }, [searchParams, addToast]);
 
-  const [loginMethod, setLoginMethod] = useState<"password" | "otp">(
-    "password",
-  );
-  const [otpLoading, setOtpLoading] = useState(false);
-
   const handleGoogleSignIn = async () => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
@@ -51,35 +46,6 @@ function LoginContent() {
       if (error) throw error;
     } catch (error: any) {
       addToast({ title: "Error", type: "error", message: error.message });
-    }
-  };
-
-  const handleOtpLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setOtpLoading(true);
-
-    try {
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: `${window.location.origin}/auth/callback`,
-        },
-      });
-
-      if (error) throw error;
-
-      addToast({
-        title: "Code Sent",
-        type: "success",
-        message: "A verification code has been sent to your email.",
-      });
-      router.push(
-        `/auth/verify?email=${encodeURIComponent(email)}&type=magiclink`,
-      );
-    } catch (error: any) {
-      addToast({ title: "Error", type: "error", message: error.message });
-    } finally {
-      setOtpLoading(false);
     }
   };
 
@@ -178,33 +144,8 @@ function LoginContent() {
               </p>
             </div>
 
-            <div className="flex p-1 bg-secondary-100 rounded-xl mb-8">
-              <button
-                onClick={() => setLoginMethod("password")}
-                className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${
-                  loginMethod === "password"
-                    ? "bg-white text-primary-600 shadow-sm"
-                    : "text-secondary-500 hover:text-secondary-700"
-                }`}
-              >
-                Password
-              </button>
-              <button
-                onClick={() => setLoginMethod("otp")}
-                className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${
-                  loginMethod === "otp"
-                    ? "bg-white text-primary-600 shadow-sm"
-                    : "text-secondary-500 hover:text-secondary-700"
-                }`}
-              >
-                Email OTP
-              </button>
-            </div>
-
             <form
-              onSubmit={
-                loginMethod === "password" ? handleLogin : handleOtpLogin
-              }
+              onSubmit={handleLogin}
               className="space-y-5"
             >
               <div className="space-y-2">
@@ -222,90 +163,80 @@ function LoginContent() {
                 />
               </div>
 
-              {loginMethod === "password" && (
-                <div className="space-y-2">
-                  <div className="relative">
-                    <Input
-                      label="Password"
-                      type={showPassword ? "text" : "password"}
-                      placeholder="••••••••"
-                      required
-                      fullWidth
-                      value={password}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        setPassword(e.target.value)
-                      }
-                      className="h-12 px-4 pr-12 bg-white/80 backdrop-blur-sm border-2 border-secondary-200 focus:border-primary-400 focus:ring-4 focus:ring-primary-100 transition-all rounded-xl"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-10 text-secondary-400 hover:text-secondary-600 transition-colors"
-                    >
-                      {showPassword ? (
-                        <svg
-                          className="w-5 h-5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
-                          />
-                        </svg>
-                      ) : (
-                        <svg
-                          className="w-5 h-5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                          />
-                        </svg>
-                      )}
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {loginMethod === "password" && (
-                <div className="flex items-center justify-between text-sm">
-                  <Link
-                    href="/auth/forgot-password"
-                    className="text-primary-600 hover:text-primary-700 font-medium transition-colors"
+              <div className="space-y-2">
+                <div className="relative">
+                  <Input
+                    label="Password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="••••••••"
+                    required
+                    fullWidth
+                    value={password}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setPassword(e.target.value)
+                    }
+                    className="h-12 px-4 pr-12 bg-white/80 backdrop-blur-sm border-2 border-secondary-200 focus:border-primary-400 focus:ring-4 focus:ring-primary-100 transition-all rounded-xl"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-10 text-secondary-400 hover:text-secondary-600 transition-colors"
                   >
-                    Forgot password?
-                  </Link>
+                    {showPassword ? (
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                    )}
+                  </button>
                 </div>
-              )}
+              </div>
+
+              <div className="flex items-center justify-between text-sm">
+                <Link
+                  href="/auth/forgot-password"
+                  className="text-primary-600 hover:text-primary-700 font-medium transition-colors"
+                >
+                  Forgot password?
+                </Link>
+              </div>
 
               <Button
                 type="submit"
                 fullWidth
-                isLoading={loginMethod === "password" ? loading : otpLoading}
+                isLoading={loading}
                 className="h-12 bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-700 hover:to-primary-600 text-white font-semibold text-base shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50 transition-all rounded-xl"
               >
-                {loginMethod === "password"
-                  ? loading
-                    ? "Signing in..."
-                    : "Sign In"
-                  : otpLoading
-                    ? "Sending code..."
-                    : "Send Verification Code"}
+                {loading ? "Signing in..." : "Sign In"}
               </Button>
             </form>
 
