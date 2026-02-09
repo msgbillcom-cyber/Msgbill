@@ -107,6 +107,7 @@ export default function NewInvoicePage() {
                 const { data, error } = await supabase
                     .from("clients")
                     .select("id, name, billing_state, gstin")
+                    .eq("org_id", profile.org_id)
                     .order("name");
                 if (!error) setClients(data || []);
 

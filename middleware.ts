@@ -39,14 +39,21 @@ export async function middleware(req: NextRequest) {
   } else {
     // Session exists - fetch profile if accessing dashboard
     if (url.pathname.startsWith('/dashboard')) {
-      const { data: profile } = await supabase
+      const { data: profile, error } = await supabase
         .from('profiles')
         .select('onboarded, org_id')
         .eq('id', session.user.id)
         .maybeSingle();
 
+      if (error) {
+         console.error("Middleware profile fetch error:", error);
+         // Fail safe to login
+         const loginUrl = new URL('/auth/login', req.url);
+         loginUrl.searchParams.set('error', 'Authorization failed');
+         return NextResponse.redirect(loginUrl);
+      }
+
       if (!profile || !profile.onboarded || !profile.org_id) {
-        console.log('Middleware: Redirecting to onboarding from dashboard');
         return NextResponse.redirect(new URL('/onboarding', req.url));
       }
     }

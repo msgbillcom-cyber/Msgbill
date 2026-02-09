@@ -16,6 +16,17 @@ export async function GET(
             return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
+        // Verify user profile and organization
+        const { data: profile } = await supabase
+            .from('profiles')
+            .select('org_id')
+            .eq('id', session.user.id)
+            .single();
+
+        if (!profile || !profile.org_id) {
+             return NextResponse.json({ error: 'Unauthorized: Profile incomplete' }, { status: 403 });
+        }
+
         const key_id = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID?.trim();
         const key_secret = process.env.RAZORPAY_KEY_SECRET?.trim();
 
@@ -32,6 +43,40 @@ export async function GET(
 
         // Fetch payment link from Razorpay
         const paymentLink = await razorpay.paymentLink.fetch(paymentLinkId);
+
+        // Verify that this payment belongs to the user's organization
+        // Check if it is a subscription payment or an invoice payment
+        const referenceId = paymentLink.reference_id;
+        
+        if (!referenceId) {
+             return NextResponse.json({ error: 'Invalid payment link: missing reference ID' }, { status: 400 });
+        }
+
+        let isAuthorized = false;
+
+        if (referenceId.startsWith('sub_')) {
+            // Subscription payment: reference_id is "sub_{org_id}"
+            if (referenceId === `sub_${profile.org_id}`) {
+                isAuthorized = true;
+            }
+        } else {
+            // Invoice payment: reference_id is invoice ID
+            // Verify invoice belongs to user's org
+            const { data: invoice } = await supabase
+                .from('invoices')
+                .select('org_id')
+                .eq('id', referenceId)
+                .single();
+            
+            if (invoice && invoice.org_id === profile.org_id) {
+                isAuthorized = true;
+            }
+        }
+
+        if (!isAuthorized) {
+             console.error(`Security Warning: User ${session.user.id} (Org ${profile.org_id}) tried to access payment ${paymentLinkId} belonging to ${referenceId}`);
+             return NextResponse.json({ error: 'Unauthorized: Payment does not belong to your organization' }, { status: 403 });
+        }
 
         const isPaid = paymentLink.status === 'paid';
 
@@ -50,7 +95,7 @@ export async function GET(
     } catch (error: any) {
         console.error('Error fetching payment status:', error);
         return NextResponse.json(
-            { error: error.message || 'Failed to fetch payment status' },
+            { error: 'Failed to fetch payment status' },
             { status: 500 }
         );
     }

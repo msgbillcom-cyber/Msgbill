@@ -25,7 +25,7 @@ import RecordPaymentModal from "@/components/invoice/RecordPaymentModal";
 
 export default function InvoiceDetailPage() {
   const { id } = useParams();
-  const { profile } = useAuth();
+  const { profile, loading: authLoading } = useAuth();
   const supabase = createClientSideClient();
   const { addToast } = useToast();
   const router = useRouter();
@@ -189,9 +189,11 @@ export default function InvoiceDetailPage() {
     }
   };
 
-  if (loading) {
+  if (loading || authLoading) {
     return <div className="p-8 text-center">Loading invoice...</div>;
   }
+
+  if (!profile) return null;
 
   const getPaymentLink = () => {
     if (invoice.payment_link_url) return invoice.payment_link_url;

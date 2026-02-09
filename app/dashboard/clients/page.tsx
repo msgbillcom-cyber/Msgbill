@@ -151,8 +151,11 @@ export default function ClientsPage() {
                 // Edit mode: Update existing client
                 setClients(prev => prev.map(c => c.id === client.id ? client : c));
             } else {
-                // Add mode: Prepend new client
-                setClients(prev => [client, ...prev]);
+                // Add mode: Add and Sort
+                setClients(prev => {
+                    const newList = [client, ...prev];
+                    return newList.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+                });
                 setTotalCount(prev => prev + 1);
             }
         } else {

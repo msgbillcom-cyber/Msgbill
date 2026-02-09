@@ -40,7 +40,7 @@ function LoginContent() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${window.location.origin}/auth/callback?next=${next || "/dashboard/overview"}`,
+          redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next || "/dashboard/overview")}`,
           queryParams: {
             access_type: "offline",
             prompt: "consent",
@@ -66,7 +66,7 @@ function LoginContent() {
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: `${window.location.origin}/auth/callback`,
+          emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next || "/dashboard/overview")}`,
           shouldCreateUser: false, // Only allow existing users to login via OTP? Or true? Let's default to true/default behavior for flexibility.
         },
       });

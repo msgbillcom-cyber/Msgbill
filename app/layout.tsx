@@ -4,6 +4,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import "@/app/globals.css";
 import { Metadata } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
     title: {

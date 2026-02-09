@@ -25,6 +25,20 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        // Verify user belongs to the organization
+        const { data: profile } = await supabase
+            .from('profiles')
+            .select('org_id')
+            .eq('id', session.user.id)
+            .single();
+            
+        if (!profile || profile.org_id !== orgId) {
+             return NextResponse.json(
+                { error: 'Unauthorized: You do not have permission for this organization' },
+                { status: 403 }
+            );
+        }
+
         // Check and clean Razorpay credentials
         const key_id = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID?.trim();
         const key_secret = process.env.RAZORPAY_KEY_SECRET?.trim();

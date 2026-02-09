@@ -17,18 +17,48 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        const body = await request.json();
         const {
-            invoiceId,
-            amount,
             currency = 'INR',
             description,
-            customer,
             notify = { sms: true, email: true, whatsapp: false },
-        } = await request.json();
+        } = body;
+        
+        // Support both invoiceId and reference_id (legacy/Razorpay convention)
+        const invoiceId = body.invoiceId || body.reference_id;
 
-        if (!invoiceId || !amount || !customer) {
+        if (!invoiceId) {
             return NextResponse.json(
-                { error: 'Invoice ID, Amount, and Customer details are required' },
+                { error: 'Invoice ID is required' },
+                { status: 400 }
+            );
+        }
+
+        // Fetch invoice and client details from DB to prevent price manipulation
+        const { data: invoice, error: invoiceError } = await supabase
+            .from('invoices')
+            .select('*, clients(*)')
+            .eq('id', invoiceId)
+            .single();
+
+        if (invoiceError || !invoice) {
+            return NextResponse.json(
+                { error: 'Invoice not found or access denied' },
+                { status: 404 }
+            );
+        }
+
+        // Use trusted data from DB
+        const amount = invoice.grand_total;
+        const customer = {
+            name: invoice.clients?.name || 'Customer',
+            contact: invoice.clients?.phone || '',
+            email: invoice.clients?.email || ''
+        };
+
+        if (!amount) {
+             return NextResponse.json(
+                { error: 'Invalid invoice amount' },
                 { status: 400 }
             );
         }
