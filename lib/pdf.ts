@@ -134,7 +134,7 @@ export const generateInvoicePDF = async ({
             item.quantity,
             formatCurrency(item.rate),
             `${item.tax_percent}%`,
-            formatCurrency(item.quantity * item.rate * (1 + (invoice.is_gst_enabled ? item.tax_percent / 100 : 0)))
+            formatCurrency(item.quantity * item.rate * (1 + ((invoice.is_gst_invoice || invoice.is_gst_enabled) ? item.tax_percent / 100 : 0)))
         ]),
         theme: 'striped',
         headStyles: { fillColor: [79, 70, 229], textColor: 255 },
@@ -151,7 +151,7 @@ export const generateInvoicePDF = async ({
     doc.text('Subtotal:', summaryX, cursorY);
     doc.text(formatCurrency(invoice.subtotal), 190, cursorY, { align: 'right' });
 
-    if (invoice.is_gst_enabled) {
+    if (invoice.is_gst_invoice || invoice.is_gst_enabled) {
         cursorY += 7;
         doc.text('GST Total:', summaryX, cursorY);
         doc.text(formatCurrency(invoice.tax_total), 190, cursorY, { align: 'right' });
@@ -174,11 +174,12 @@ export const generateInvoicePDF = async ({
     }
 
     // 7. UPI QR Code
-    if (organization.upi_qr) {
+    const qrUrl = organization.upi_qr_url || organization.upi_qr;
+    if (qrUrl) {
         // Ensure we don't overlap with notes
         const qrY = invoice.notes ? cursorY + 20 : cursorY + 20;
         try {
-            const qrImg = await loadImage(organization.upi_qr);
+            const qrImg = await loadImage(qrUrl);
             doc.addImage(qrImg, 'PNG', 160, qrY, 30, 30);
             doc.setFontSize(8);
             doc.setTextColor(30);
