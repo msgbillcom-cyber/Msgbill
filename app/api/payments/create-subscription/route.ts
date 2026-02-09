@@ -32,12 +32,15 @@ export async function POST(request: NextRequest) {
             .eq('id', session.user.id)
             .single();
             
-        if (!profile || profile.org_id !== orgId) {
+        if (!profile || !profile.org_id) {
              return NextResponse.json(
-                { error: 'Unauthorized: You do not have permission for this organization' },
+                { error: 'Unauthorized: No organization found for user' },
                 { status: 403 }
             );
         }
+
+        // Use profile.org_id as the source of truth
+        const targetOrgId = profile.org_id;
 
         // Check and clean Razorpay credentials
         const key_id = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID?.trim();
@@ -62,7 +65,8 @@ export async function POST(request: NextRequest) {
             key_secret,
         });
 
-        const referenceId = `sub_${orgId}`; // sub_ + UUID = 4 + 36 = 40 characters (max limit)
+        // Create unique reference ID (timestamp + random) to avoid duplicates
+        const referenceId = `sub_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
         const amount = 499; // ₹499
 
         // Create payment link
@@ -74,6 +78,10 @@ export async function POST(request: NextRequest) {
                 name: userName || 'MsgBill User',
                 email: userEmail || session.user.email,
                 contact: userPhone || '',
+            },
+            notes: {
+                payment_type: 'subscription',
+                org_id: targetOrgId
             },
             notify: {
                 sms: !!userPhone,

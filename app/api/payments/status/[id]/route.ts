@@ -47,6 +47,7 @@ export async function GET(
         // Verify that this payment belongs to the user's organization
         // Check if it is a subscription payment or an invoice payment
         const referenceId = paymentLink.reference_id;
+        const notes = (paymentLink as any).notes || {};
         
         if (!referenceId) {
              return NextResponse.json({ error: 'Invalid payment link: missing reference ID' }, { status: 400 });
@@ -54,10 +55,23 @@ export async function GET(
 
         let isAuthorized = false;
 
-        if (referenceId.startsWith('sub_')) {
-            // Subscription payment: reference_id is "sub_{org_id}"
-            if (referenceId === `sub_${profile.org_id}`) {
+        // Check for subscription using notes (new method) or reference_id prefix (fallback)
+        if (notes.payment_type === 'subscription' || referenceId.startsWith('sub_')) {
+            // Subscription payment
+            // Priority: Check notes.org_id
+            if (notes.org_id && notes.org_id === profile.org_id) {
                 isAuthorized = true;
+            } 
+            // Fallback: Check reference_id format sub_{orgId} (legacy)
+            else if (referenceId === `sub_${profile.org_id}`) {
+                isAuthorized = true;
+            }
+            // Fallback: Check reference_id format sub_{orgId}_{timestamp} (transitional)
+            else {
+                 const parts = referenceId.split('_');
+                 if (parts.length >= 2 && parts[1] === profile.org_id) {
+                     isAuthorized = true;
+                 }
             }
         } else {
             // Invoice payment: reference_id is invoice ID

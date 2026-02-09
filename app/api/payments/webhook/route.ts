@@ -44,17 +44,27 @@ export async function POST(request: NextRequest) {
             const paymentLinkEntity = event.payload.payment_link.entity;
             const paymentLinkId = paymentLinkEntity.id;
             const referenceId = paymentLinkEntity.reference_id;
+            const notes = paymentLinkEntity.notes || {};
             const payment = event.payload.payment.entity;
-
+            
             // Check if it's a subscription payment
-            if (referenceId && referenceId.startsWith('sub_')) {
-                // referenceId format: sub_{orgId}_{timestamp}
+            let subscriptionOrgId: string | null = null;
+
+            if (notes.payment_type === 'subscription' && notes.org_id) {
+                subscriptionOrgId = notes.org_id;
+            } else if (referenceId && referenceId.startsWith('sub_')) {
+                // Fallback: referenceId format: sub_{orgId}_{timestamp} or sub_{orgId}
                 const parts = referenceId.split('_');
                 if (parts.length >= 2) {
-                    const orgId = parts[1];
-                    console.log(`Processing subscription for Org: ${orgId}`);
+                    subscriptionOrgId = parts[1];
+                }
+            }
 
-                    // Upgrade organization to PRO
+            if (subscriptionOrgId) {
+                const orgId = subscriptionOrgId;
+                console.log(`Processing subscription for Org: ${orgId}`);
+
+                // Upgrade organization to PRO
                     const { error: updateError } = await supabase
                         .from('organizations')
                         .update({
@@ -79,7 +89,6 @@ export async function POST(request: NextRequest) {
                     }
                     
                     return NextResponse.json({ received: true });
-                }
             }
 
             // Find invoice by payment link ID
