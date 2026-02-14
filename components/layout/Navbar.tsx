@@ -38,6 +38,13 @@ const Navbar: React.FC<NavbarProps> = ({
     React.useEffect(() => {
         let ticking = false;
 
+        // Lock body scroll when mobile menu is open
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+
         const handleScroll = () => {
             if (!ticking) {
                 window.requestAnimationFrame(() => {
@@ -49,8 +56,11 @@ const Navbar: React.FC<NavbarProps> = ({
         };
 
         window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            document.body.style.overflow = "";
+        };
+    }, [isMobileMenuOpen]);
 
     return (
         <nav
@@ -144,39 +154,31 @@ const Navbar: React.FC<NavbarProps> = ({
 
                 {/* Mobile Menu */}
                 {isMobileMenuOpen && (
-                    <div className="md:hidden py-4 border-t border-border animate-slide-in-from-top">
-                        <div className="flex flex-col gap-4">
+                    <div className="md:hidden fixed top-20 left-0 right-0 bottom-0 z-50 bg-white/95 backdrop-blur-md border-t border-border animate-slide-in-from-top">
+                        <div className="p-4 flex flex-col gap-4 overflow-y-auto h-full">
                             {links.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     className={cn(
-                                        "text-sm font-medium px-4 py-2 rounded-lg transition-colors",
+                                        "text-base font-medium px-4 py-3 rounded-lg transition-colors",
                                         pathname === link.href
                                             ? "bg-primary-50 text-primary-600"
-                                            : "text-secondary-700 hover:bg-secondary-50",
+                                            : "text-secondary-700 hover:bg-secondary-100",
                                     )}
                                 >
                                     {link.label}
                                 </Link>
                             ))}
-                            <div className="flex flex-col gap-2 px-4 pt-2 border-t border-border">
-                                <Link href="/auth/login">
-                                    <Button
-                                        variant="outline"
-                                        size="md"
-                                        fullWidth
-                                    >
+                            <div className="mt-auto flex flex-col gap-2 pt-2 border-t border-border">
+                                <Link href="/auth/login" onClick={() => setIsMobileMenuOpen(false)}>
+                                    <Button variant="outline" size="lg" fullWidth>
                                         Sign In
                                     </Button>
                                 </Link>
-                                <Link href={ctaHref}>
-                                    <Button
-                                        variant="primary"
-                                        size="md"
-                                        fullWidth
-                                    >
+                                <Link href={ctaHref} onClick={() => setIsMobileMenuOpen(false)}>
+                                    <Button variant="primary" size="lg" fullWidth>
                                         {ctaText}
                                     </Button>
                                 </Link>

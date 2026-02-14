@@ -7,28 +7,34 @@ import Link from "next/link";
 export default function HowItWorks() {
     const steps = [
         {
-            title: "Quick Account Setup",
-            desc:
-                "Join the platform for free in just 15 seconds. No credit card required.",
-            image: "🛡️",
+            title: "Login",
+            desc: "Secure sign-in to your MsgBill account.",
+            src: "/logo/how%20it%20works/1.png",
+            fallback: "/artifacts/login_page_premium_1769528183310.png",
         },
         {
-            title: "Organization Setup",
-            desc:
-                "Add your business logo, address, and GST details to personalize your invoices.",
-            image: "🏭",
+            title: "Onboarding",
+            desc: "Add business info, GSTIN, and banking once.",
+            src: "/logo/how%20it%20works/2.png",
+            fallback: "/artifacts/onboarding_business_profile.svg",
         },
         {
-            title: "Import Clients",
-            desc:
-                "Store your clients regular billing details so you never have to re-type them.",
-            image: "👤",
+            title: "Add Client",
+            desc: "Save client details to auto-fill invoices.",
+            src: "/logo/how%20it%20works/3.png",
+            fallback: "/artifacts/clients_add_modal.svg",
         },
         {
-            title: "Draft & Send",
-            desc:
-                "Use our powerful editor to build invoices and send them as clean PDFs via email or link.",
-            image: "🚀",
+            title: "Create Invoice",
+            desc: "Enter items and auto-calculate GST totals.",
+            src: "/logo/how%20it%20works/4.png",
+            fallback: "/artifacts/gst_auto_calculator_1769540067994.png",
+        },
+        {
+            title: "Share via WhatsApp",
+            desc: "Send the invoice link and get paid faster.",
+            src: "/logo/how%20it%20works/5.png",
+            fallback: "/artifacts/whatsapp_invoice_share_1769540045907.png",
         },
     ];
 
@@ -39,73 +45,44 @@ export default function HowItWorks() {
                 <div className="container-wide">
                     <div className="text-center max-w-3xl mx-auto mb-20">
                         <h1 className="text-4xl lg:text-6xl font-black mb-6">
-                            How simple is{" "}
-                            <span className="text-primary-600 italic">
-                                "MsgBill"
-                            </span>?
+                            How it works
                         </h1>
                         <p className="text-xl text-secondary-600">
-                            Built for speed. We stripped away the jargon to let
-                            you focus on your work.
+                            Real screenshots that show the exact flow your customers will follow.
                         </p>
                     </div>
 
-                    <div className="relative max-w-4xl mx-auto">
-                        {/* Timeline bar */}
-                        <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-primary-200 hidden md:block -translate-x-1/2" />
-
-                        <div className="space-y-24">
-                            {steps.map((step, idx) => (
-                                <div
-                                    key={idx}
-                                    className={`flex flex-col md:flex-row gap-12 items-center relative ${
-                                        idx % 2 === 1
-                                            ? "md:flex-row-reverse"
-                                            : ""
-                                    }`}
-                                >
-                                    {/* Circle marker */}
-                                    <div className="absolute left-1/2 top-0 w-8 h-8 rounded-full bg-primary-600 border-4 border-secondary-50 hidden md:block -translate-x-1/2 z-10" />
-
-                                    <div className="flex-1 text-center md:text-left space-y-4 pt-12 md:pt-0">
-                                        <span className="text-primary-600 font-black text-6xl opacity-20 block">
-                                            {idx + 1}
-                                        </span>
-                                        <h3 className="text-2xl font-bold">
-                                            {step.title}
-                                        </h3>
-                                        <p className="text-secondary-500 text-lg leading-relaxed">
-                                            {step.desc}
-                                        </p>
-                                    </div>
-
-                                    <div className="flex-1 w-full flex justify-center">
-                                        <div className="w-64 h-64 bg-white rounded-3xl shadow-xl flex items-center justify-center text-7xl transform hover:rotate-3 transition-transform">
-                                            {step.image}
-                                        </div>
-                                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {steps.map((s, idx) => (
+                            <div key={idx} className="glass-card rounded-2xl p-4 hover-lift transition-smooth">
+                                <div className="aspect-video w-full overflow-hidden rounded-xl border border-secondary-200 bg-white">
+                                    <img
+                                        src={s.src}
+                                        alt={s.title}
+                                        className="w-full h-full object-contain"
+                                    />
                                 </div>
-                            ))}
-                        </div>
+                                <div className="mt-4">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 rounded-lg bg-primary-100 text-primary-700 flex items-center justify-center font-bold">
+                                            {idx + 1}
+                                        </div>
+                                        <h3 className="text-lg font-semibold">{s.title}</h3>
+                                    </div>
+                                    <p className="text-secondary-600 mt-2">{s.desc}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
 
-                    <div className="mt-40 max-w-2xl mx-auto text-center">
+                    <div className="mt-16 max-w-2xl mx-auto text-center">
                         <Card className="bg-primary-600 text-white p-12 border-none shadow-glow">
                             <CardContent className="space-y-8">
-                                <h2 className="text-3xl font-bold">
-                                    Ready to send your first invoice?
-                                </h2>
-                                <p className="text-primary-100 italic">
-                                    Join 5,000+ invoices generated this month
-                                    alone.
-                                </p>
+                                <h2 className="text-3xl font-bold">Ready to send your first invoice?</h2>
+                                <p className="text-primary-100">Start free and upgrade anytime.</p>
                                 <Link href="/auth/signup">
-                                    <Button
-                                        variant="secondary"
-                                        size="lg"
-                                        className="w-full text-primary-900 font-bold"
-                                    >
-                                        Start Free – Create 3 Invoices
+                                    <Button variant="secondary" size="lg" className="w-full text-primary-900 font-bold">
+                                        Sign up free
                                     </Button>
                                 </Link>
                             </CardContent>

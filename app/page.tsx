@@ -206,7 +206,7 @@ export default function Home() { // Changed function name from HomePage to Home
                                         Start for Free - No Credit Card
                                     </Button>
                                 </Link>
-                                <Link href="#screenshots">
+                                <Link href="#how-it-works">
                                     <Button
                                         variant="outline"
                                         size="lg"
@@ -341,33 +341,55 @@ export default function Home() { // Changed function name from HomePage to Home
                         </div>
 
                         <div className="space-y-24">
-                            {/* Step 1: Login & Onboarding */}
+                            {/* Step 1: Login */}
                             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                                 <div className="flex-1 space-y-8 text-center lg:text-left">
                                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-500/20 text-primary-400 text-3xl font-black border border-primary-500/30">
                                         1
                                     </div>
-                                    <h3 className="text-3xl font-bold text-white">Login & Onboard</h3>
+                                    <h3 className="text-3xl font-bold text-white">Login</h3>
                                     <p className="text-lg text-secondary-400 leading-relaxed">
-                                        Securely sign in and set up your business profile in seconds. Add your logo, signature, and bank details once to automate everything later.
+                                        Securely sign in to your account.
                                     </p>
                                 </div>
                                 <div className="flex-1 w-full">
                                     <div className="glass-card p-4 rounded-2xl transform rotate-2 hover:rotate-0 transition-all duration-500 shadow-2xl shadow-primary-500/20">
                                         <img
-                                            src="/artifacts/login_page_premium_1769528183310.png"
-                                            alt="Login Screen"
+                                            src="/logo/how%20it%20works/1.png"
+                                            alt="Login"
                                             className="rounded-xl w-full shadow-lg border border-secondary-700/50"
                                         />
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Step 2: Create Clients */}
+                            {/* Step 2: Onboarding */}
                             <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
                                 <div className="flex-1 space-y-8 text-center lg:text-left">
                                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent-500/20 text-accent-400 text-3xl font-black border border-accent-500/30">
                                         2
+                                    </div>
+                                    <h3 className="text-3xl font-bold text-white">Onboard Your Business</h3>
+                                    <p className="text-lg text-secondary-400 leading-relaxed">
+                                        Add your company details, GSTIN, address and banking once. They auto-fill on every invoice.
+                                    </p>
+                                </div>
+                                <div className="flex-1 w-full">
+                                    <div className="glass-card p-4 rounded-2xl transform -rotate-2 hover:rotate-0 transition-all duration-500 shadow-2xl shadow-accent-500/20">
+                                        <img
+                                            src="/logo/how%20it%20works/2.png"
+                                            alt="Onboarding"
+                                            className="rounded-xl w-full shadow-lg border border-secondary-700/50"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Step 3: Create Clients */}
+                            <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
+                                <div className="flex-1 space-y-8 text-center lg:text-left">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent-500/20 text-accent-400 text-3xl font-black border border-accent-500/30">
+                                        3
                                     </div>
                                     <h3 className="text-3xl font-bold text-white">Add Clients</h3>
                                     <p className="text-lg text-secondary-400 leading-relaxed">
@@ -376,18 +398,20 @@ export default function Home() { // Changed function name from HomePage to Home
                                 </div>
                                 <div className="flex-1 w-full">
                                     <div className="glass-card p-4 rounded-2xl transform -rotate-2 hover:rotate-0 transition-all duration-500 shadow-2xl shadow-accent-500/20">
-                                        <div className="aspect-video bg-secondary-800 rounded-xl flex items-center justify-center border border-secondary-700 text-secondary-500">
-                                            <span className="text-lg">Add Client Screenshot Placeholder</span>
-                                        </div>
+                                        <img
+                                            src="/logo/how%20it%20works/3.png"
+                                            alt="Add Client"
+                                            className="rounded-xl w-full shadow-lg border border-secondary-700/50"
+                                        />
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Step 3: Generate Invoice */}
+                            {/* Step 4: Generate Invoice */}
                             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                                 <div className="flex-1 space-y-8 text-center lg:text-left">
                                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-success-500/20 text-success-400 text-3xl font-black border border-success-500/30">
-                                        3
+                                        4
                                     </div>
                                     <h3 className="text-3xl font-bold text-white">Generate Invoice</h3>
                                     <p className="text-lg text-secondary-400 leading-relaxed">
@@ -397,19 +421,21 @@ export default function Home() { // Changed function name from HomePage to Home
                                 <div className="flex-1 w-full">
                                     <div className="glass-card p-4 rounded-2xl transform rotate-2 hover:rotate-0 transition-all duration-500 shadow-2xl shadow-success-500/20">
                                         <img
-                                            src="/artifacts/gst_auto_calculator_1769540067994.png"
-                                            alt="Invoice Generation"
+                                            src="/logo/how%20it%20works/4.png"
+                                            alt="Create Invoice"
                                             className="rounded-xl w-full shadow-lg border border-secondary-700/50"
                                         />
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Step 4: Share & Pay */}
+                            {/* Step 5 is next; no extra steps in between */}
+
+                            {/* Step 5: Share & Pay */}
                             <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
                                 <div className="flex-1 space-y-8 text-center lg:text-left">
                                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-warning-500/20 text-warning-400 text-3xl font-black border border-warning-500/30">
-                                        4
+                                        5
                                     </div>
                                     <h3 className="text-3xl font-bold text-white">Share & Get Paid</h3>
                                     <p className="text-lg text-secondary-400 leading-relaxed">
@@ -419,13 +445,15 @@ export default function Home() { // Changed function name from HomePage to Home
                                 <div className="flex-1 w-full">
                                     <div className="glass-card p-4 rounded-2xl transform -rotate-2 hover:rotate-0 transition-all duration-500 shadow-2xl shadow-warning-500/20">
                                         <img
-                                            src="/artifacts/whatsapp_invoice_share_1769540045907.png"
-                                            alt="WhatsApp Share"
+                                            src="/logo/how%20it%20works/5.png"
+                                            alt="Share via WhatsApp"
                                             className="rounded-xl w-full shadow-lg border border-secondary-700/50"
                                         />
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Removed extra steps to keep exactly five items */}
                         </div>
                     </div>
                 </section>
