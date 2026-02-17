@@ -23,7 +23,11 @@ export async function middleware(req: NextRequest) {
 
   // 3. Route Protection (Server-Side)
   const isProtectedRoute = url.pathname.startsWith('/dashboard') || url.pathname.startsWith('/onboarding');
-  const isApiRoute = url.pathname.startsWith('/api') && !url.pathname.startsWith('/api/public');
+  // Exclude webhook and other public API routes - no user session for webhooks
+  const isPublicApiRoute =
+    url.pathname === '/api/payments/webhook' ||
+    url.pathname.startsWith('/api/public');
+  const isApiRoute = url.pathname.startsWith('/api') && !isPublicApiRoute;
   const isAuthRoute = url.pathname.startsWith('/auth');
   const isCallbackRoute = url.pathname === '/auth/callback';
 
