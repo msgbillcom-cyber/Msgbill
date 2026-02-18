@@ -50,8 +50,34 @@ serve(async (req) => {
         const paymentLink = payload.payload.payment_link.entity;
         const payment = payload.payload.payment.entity;
         const paymentLinkId = paymentLink.id;
+        const notes = paymentLink.notes || {};
+        const referenceId = paymentLink.reference_id || "";
 
-        // 1. Find the invoice linked to this payment link
+        // Subscription payment: upgrade org to pro and set 1-year retention
+        let subscriptionOrgId: string | null = null;
+        if (notes.payment_type === "subscription" && notes.org_id) {
+            subscriptionOrgId = notes.org_id;
+        } else if (referenceId.startsWith("sub_")) {
+            const parts = referenceId.split("_");
+            if (parts.length >= 2) subscriptionOrgId = parts[1];
+        }
+        if (subscriptionOrgId) {
+            const { error: updateError } = await supabase
+                .from("organizations")
+                .update({ subscription_tier: "pro" })
+                .eq("id", subscriptionOrgId);
+            if (!updateError) {
+                await supabase.rpc("update_invoice_retention", {
+                    org_uuid: subscriptionOrgId,
+                    retention_months: 12,
+                });
+            }
+            return new Response(JSON.stringify({ success: true }), {
+                headers: { "Content-Type": "application/json" },
+            });
+        }
+
+        // Invoice payment: find invoice and update
         const { data: invoice, error: fetchError } = await supabase
             .from("invoices")
             .select("*")
@@ -60,7 +86,7 @@ serve(async (req) => {
 
         if (fetchError || !invoice) {
             console.error("Invoice not found for payment link:", paymentLinkId);
-            return new Response("Invoice not found", { status: 404 });
+            return new Response(JSON.stringify({ success: true }), { status: 200 });
         }
 
         // 2. Update Invoice Status

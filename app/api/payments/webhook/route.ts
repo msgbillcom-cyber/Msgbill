@@ -74,8 +74,6 @@ export async function POST(request: NextRequest) {
 
                     if (updateError) {
                         console.error('Failed to upgrade subscription (org update):', updateError);
-                        
-                        // Fallback: update usage_limits directly if org update fails
                         await supabase
                             .from('usage_limits')
                             .update({
@@ -86,8 +84,12 @@ export async function POST(request: NextRequest) {
                             .eq('org_id', orgId);
                     } else {
                         console.log(`Organization ${orgId} upgraded to PRO`);
+                        // Recalculate invoice retention: paid = 1 year
+                        await supabase.rpc('update_invoice_retention', {
+                            org_uuid: orgId,
+                            retention_months: 12,
+                        });
                     }
-                    
                     return NextResponse.json({ received: true });
             }
 

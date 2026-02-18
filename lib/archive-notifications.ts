@@ -75,11 +75,11 @@ This is a friendly reminder that ${invoices.length} invoice(s) will be automatic
 
 ${invoiceList}
 
-🎁 FREE TRIAL RETENTION: We keep your invoices for 6 months, then archive them to keep MsgBill free for everyone.
+📋 RETENTION: We keep invoices for 6 months (free) or 1 year (paid), then archive them.
 
 OPTIONS:
 1. Download PDFs now (from your dashboard)
-2. Upgrade to Pro (₹499/month) - Unlimited invoices & 3 years retention
+2. Upgrade to Pro (₹499/month) - Unlimited invoices & 1 year retention
 
 [Download My Invoices] [Upgrade to Pro]
 
@@ -136,11 +136,12 @@ export async function dailyArchiveWarningJob() {
 export async function onSubscriptionUpgrade(orgId: string, newTier: string) {
     const supabase = createClientSideClient();
 
-    // Recalculate archive dates for all invoices
+    // Recalculate archive dates for all invoices (paid = 1 year, free = 6 months)
     const retentionMonths = {
         'free': 6,
-        'pro': 36,
-        'enterprise': 120
+        'starter': 12,
+        'pro': 12,
+        'enterprise': 12
     }[newTier] || 6;
 
     const { error } = await supabase.rpc('update_invoice_retention', {
