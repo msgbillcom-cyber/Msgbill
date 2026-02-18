@@ -26,8 +26,7 @@ function VerifyContent() {
       setEmail(emailParam);
     }
     const typeParam = searchParams.get("type");
-    if (typeParam === "magiclink") setType("magiclink");
-    if (typeParam === "email") setType("email");
+    if (typeParam === "magiclink" || typeParam === "email") setType("magiclink");
     if (typeParam === "signup") setType("signup");
   }, [searchParams]);
 

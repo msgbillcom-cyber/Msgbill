@@ -79,9 +79,9 @@ function LoginContent() {
         message: "A verification code has been sent to your email.",
       });
       
-      // Redirect to verify page
+      // Redirect to verify page (Supabase expects type=magiclink for OTP verification)
       router.push(
-        `/auth/verify?email=${encodeURIComponent(email)}&type=email`,
+        `/auth/verify?email=${encodeURIComponent(email)}&type=magiclink`,
       );
     } catch (error: any) {
       addToast({ title: "Error", type: "error", message: error.message });

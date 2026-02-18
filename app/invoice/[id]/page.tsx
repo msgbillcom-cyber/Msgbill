@@ -26,7 +26,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { data: invoice } = await supabaseAdmin
         .from("invoices")
-        .select("invoice_number, grand_total, organizations(company_name, logo_url)")
+        .select("invoice_number, grand_total, organizations(name, logo_url)")
         .eq("id", params.id)
         .single();
 
@@ -37,8 +37,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     const companyName = Array.isArray(invoice.organizations) 
-        ? invoice.organizations[0]?.company_name 
-        : (invoice.organizations as any)?.company_name || "Business";
+        ? invoice.organizations[0]?.name 
+        : (invoice.organizations as any)?.name || "Business";
     
     const logoUrl = Array.isArray(invoice.organizations)
         ? invoice.organizations[0]?.logo_url
