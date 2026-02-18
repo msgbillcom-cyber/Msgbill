@@ -3,6 +3,13 @@ import Navbar from "@/components/layout/Navbar";
 import Button from "@/components/ui/Button";
 import Card, { CardContent } from "@/components/ui/Card";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "How to Create Bill & Invoice on WhatsApp | MsgBill",
+    description: "Learn how to create bill and invoice on WhatsApp in 5 simple steps. WhatsApp bill maker & WhatsApp invoice maker for Indian businesses. Free to start.",
+    keywords: ["bill on whatsapp", "invoice on whatsapp", "whatsapp bill maker", "whatsapp invoice maker", "how to send invoice on whatsapp"],
+};
 
 export default function HowItWorks() {
     const steps = [

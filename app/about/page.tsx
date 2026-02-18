@@ -6,8 +6,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About Us - MsgBill | Empowering Indian Businesses",
-    description: "We are on a mission to simplify invoicing for millions of Indian small businesses and homepreneurs. Built for speed, simplicity, and growth.",
+    title: "About | Bill & Invoice on WhatsApp | MsgBill",
+    description: "MsgBill: WhatsApp bill maker and invoice maker for Indian businesses. We simplify bill and invoice on WhatsApp for homepreneurs and small businesses.",
+    keywords: ["bill on whatsapp", "invoice on whatsapp", "whatsapp bill maker", "whatsapp invoice maker", "about msgbill"],
 };
 
 export default function AboutPage() {

@@ -8,12 +8,20 @@ import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
     title: {
-        default: "MsgBill - #1 WhatsApp Invoicing Software for Indian Business",
+        default: "Bill & Invoice on WhatsApp | WhatsApp Bill Maker | MsgBill",
         template: "%s | MsgBill India",
     },
     description:
-        "Create professional GST invoices in 10 seconds and send via WhatsApp. The best free invoicing app for Indian small businesses, freelancers, and shop owners.",
+        "Create bill and invoice on WhatsApp in 10 seconds. WhatsApp invoice & WhatsApp bill maker for Indian businesses. Free GST billing, send invoice via WhatsApp.",
     keywords: [
+        "bill",
+        "invoice",
+        "whatsapp bill",
+        "whatsapp invoice",
+        "bill on whatsapp",
+        "invoice on whatsapp",
+        "whatsapp bill maker",
+        "whatsapp invoice maker",
         "invoice generator",
         "whatsapp invoicing",
         "gst billing software free",
@@ -36,9 +44,9 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_IN",
         url: "https://msgbill.com",
-        title: "MsgBill - Send GST Invoices on WhatsApp",
+        title: "Bill & Invoice on WhatsApp | WhatsApp Bill Maker | MsgBill",
         description:
-            "Get paid 3x faster with WhatsApp invoices. Free for small businesses.",
+            "Create bill and invoice on WhatsApp. WhatsApp invoice maker. Free GST billing, send invoice via WhatsApp. Get paid 3x faster.",
         siteName: "MsgBill",
         images: [{
             url: "/logo-final.png",
@@ -49,8 +57,8 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "MsgBill - WhatsApp Invoicing for India",
-        description: "Create and share GST invoices instantly on WhatsApp.",
+        title: "Bill & Invoice on WhatsApp | WhatsApp Bill Maker | MsgBill",
+        description: "Create bill and invoice on WhatsApp. WhatsApp invoice maker. Free GST billing.",
         images: ["/logo-final.png"],
     },
     icons: {

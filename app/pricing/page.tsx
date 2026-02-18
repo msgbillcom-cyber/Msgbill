@@ -9,6 +9,13 @@ import Card, {
 } from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Pricing | Bill & Invoice on WhatsApp | MsgBill",
+    description: "Free bill and invoice on WhatsApp. Start with 20 free invoices. Upgrade to Pro for unlimited WhatsApp bill maker. No credit card required.",
+    keywords: ["bill on whatsapp price", "invoice on whatsapp free", "whatsapp bill maker pricing"],
+};
 
 export default function PricingPage() {
     return (

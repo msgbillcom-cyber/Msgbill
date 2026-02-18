@@ -4,6 +4,13 @@ import PageHeader from "@/components/layout/PageHeader";
 import Card, { CardContent } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Bill & Invoice Features | WhatsApp Bill Maker | MsgBill",
+    description: "Create bill and invoice on WhatsApp with GST, UPI payment links, and instant sharing. WhatsApp bill maker features for Indian businesses.",
+    keywords: ["bill on whatsapp", "invoice on whatsapp", "whatsapp bill maker", "whatsapp invoice maker", "invoice features"],
+};
 
 export default function FeaturesPage() {
     const detailedFeatures = [

@@ -19,11 +19,59 @@ export const metadata: Metadata = {
 // Blog posts data - will be moved to CMS later
 const blogPosts = [
     {
+        slug: "bill-vs-invoice-difference",
+        title: "Bill vs Invoice: What's the Difference? (Explained for Indian Businesses)",
+        excerpt: "Learn the key differences between a bill and an invoice. Why it matters under GST and how to create both professionally.",
+        author: "MsgBill Team",
+        date: "2026-02-18",
+        readTime: "5 min read",
+        category: "Basics",
+        image: "/blog/bill-invoice.jpg",
+    },
+    {
+        slug: "how-to-create-bill-on-whatsapp",
+        title: "How to Create a Bill on WhatsApp: Step-by-Step Guide (2026)",
+        excerpt: "Create and send a bill on WhatsApp in 5 simple steps. Get paid faster with WhatsApp bill maker for Indian businesses.",
+        author: "MsgBill Team",
+        date: "2026-02-18",
+        readTime: "6 min read",
+        category: "WhatsApp Business",
+        image: "/blog/whatsapp-bill.jpg",
+    },
+    {
+        slug: "10-best-invoice-apps-india-2026",
+        title: "10 Best Invoice Apps for Indian Small Business 2026",
+        excerpt: "Compare MsgBill, Vyapar, Zoho, MyBillBook, and more. Find the right invoice app for your Indian business.",
+        author: "MsgBill Team",
+        date: "2026-02-18",
+        readTime: "8 min read",
+        category: "Software Comparison",
+        image: "/blog/invoice-apps.jpg",
+    },
+    {
+        slug: "upi-payment-link-get-paid-faster",
+        title: "UPI Payment Link: How to Get Paid Faster (2026 Guide)",
+        excerpt: "Learn how UPI payment links work and how to add them to your invoices. Get paid in minutes, not days.",
+        author: "MsgBill Team",
+        date: "2026-02-18",
+        readTime: "5 min read",
+        category: "Payments",
+        image: "/blog/upi-payment.jpg",
+    },
+    {
+        slug: "gst-invoice-rules-2026-indian-business",
+        title: "GST Invoice Rules 2026: What Every Indian Business Must Know",
+        excerpt: "Mandatory fields, CGST vs SGST vs IGST, and common mistakes. Stay GST-compliant and avoid penalties.",
+        author: "MsgBill Team",
+        date: "2026-02-18",
+        readTime: "7 min read",
+        category: "GST Compliance",
+        image: "/blog/gst-rules.jpg",
+    },
+    {
         slug: "whatsapp-invoice-guide",
-        title:
-            "How to Send Invoices on WhatsApp in India (2026 Complete Guide)",
-        excerpt:
-            "Learn how Indian businesses are getting paid 10x faster by sharing invoices on WhatsApp. Complete guide with free templates.",
+        title: "How to Send Invoices on WhatsApp in India (2026 Complete Guide)",
+        excerpt: "Learn how Indian businesses are getting paid 10x faster by sharing invoices on WhatsApp. Complete guide with free templates.",
         author: "MsgBill Team",
         date: "2026-01-28",
         readTime: "8 min read",
@@ -32,10 +80,8 @@ const blogPosts = [
     },
     {
         slug: "msgbill-vs-vyapar",
-        title:
-            "MsgBill vs Vyapar: Which is Better for Your Business? (Honest 2026 Comparison)",
-        excerpt:
-            "Detailed comparison of MsgBill and Vyapar. See which invoicing software is right for your Indian business.",
+        title: "MsgBill vs Vyapar: Which is Better for Your Business? (Honest 2026 Comparison)",
+        excerpt: "Detailed comparison of MsgBill and Vyapar. See which invoicing software is right for your Indian business.",
         author: "MsgBill Team",
         date: "2026-01-28",
         readTime: "6 min read",
@@ -44,10 +90,8 @@ const blogPosts = [
     },
     {
         slug: "gst-invoice-guide",
-        title:
-            "GST Invoice Format: Complete Guide for Indian Businesses (2026)",
-        excerpt:
-            "Everything you need to know about creating GST-compliant invoices. Free template included.",
+        title: "GST Invoice Format: Complete Guide for Indian Businesses (2026)",
+        excerpt: "Everything you need to know about creating GST-compliant invoices. Free template included.",
         author: "MsgBill Team",
         date: "2026-01-29",
         readTime: "10 min read",
@@ -134,11 +178,10 @@ export default function BlogPage() {
                             ))}
                         </div>
 
-                        {/* Coming Soon */}
+                        {/* Newsletter */}
                         <div className="mt-12 text-center">
                             <p className="text-secondary-600 mb-4">
-                                More invoicing tips coming soon! Subscribe to
-                                get notified.
+                                New invoicing and bill tips every week. Subscribe to get notified.
                             </p>
                             <div className="inline-flex gap-2 max-w-md">
                                 <input

@@ -17,28 +17,34 @@ import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
     title:
-        "MsgBill - WhatsApp Invoicing for Indian Businesses | GST Invoice Software",
+        "Bill & Invoice on WhatsApp | WhatsApp Bill Maker | Free Invoice Software India",
     description:
-        "Create GST-compliant invoices and share them on WhatsApp in 2 clicks. Generate payment links, track payments, and get paid 10x faster. Start for free. Made for Indian homepreneurs and small businesses.",
+        "Create bill and invoice on WhatsApp in 2 clicks. WhatsApp bill maker & WhatsApp invoice maker for Indian businesses. Free GST invoice, send bill via WhatsApp. Get paid faster.",
     keywords: [
+        "bill",
+        "invoice",
+        "whatsapp bill",
+        "whatsapp invoice",
+        "bill on whatsapp",
+        "invoice on whatsapp",
+        "whatsapp bill maker",
+        "whatsapp invoice maker",
         "invoice software India",
-        "WhatsApp invoice",
         "GST invoice generator",
         "free invoice software",
         "payment links India",
         "UPI invoice",
         "small business invoice",
         "homepreneur invoice",
-        "invoice on whatsapp",
         "Indian invoice software",
         "GST billing software",
         "online invoice maker",
         "message invoice",
     ],
     openGraph: {
-        title: "MsgBill - Invoice on WhatsApp, Get Paid Faster",
+        title: "Bill & Invoice on WhatsApp | WhatsApp Bill Maker | MsgBill",
         description:
-            "Invoicing software for Indian businesses. Share invoices on WhatsApp, collect payments via UPI, auto-calculate GST.",
+            "Create bill and invoice on WhatsApp. WhatsApp invoice maker. Free GST billing, send bill via WhatsApp. Get paid 3x faster.",
         type: "website",
         url: "https://msgbill.com",
         images: ["/logo-final.png"],
@@ -100,6 +106,7 @@ export default function Home() { // Changed function name from HomePage to Home
             {
                 "@type": "SoftwareApplication",
                 "name": "MsgBill",
+                "alternateName": ["WhatsApp Bill Maker", "WhatsApp Invoice Maker", "Bill on WhatsApp", "Invoice on WhatsApp"],
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "Web, Android, iOS",
                 "offers": {
@@ -109,13 +116,18 @@ export default function Home() { // Changed function name from HomePage to Home
                     "priceValidUntil": "2026-12-31",
                     "availability": "https://schema.org/InStock"
                 },
-                "description": "WhatsApp Invoicing Software for Indian Businesses. Create GST invoices, manage inventory, and collect payments.",
+                "description": "MsgBill: Create bill and invoice on WhatsApp. WhatsApp bill maker & WhatsApp invoice maker for Indian businesses. Free GST invoice, send bill via WhatsApp.",
+                "keywords": "bill, invoice, whatsapp bill, whatsapp invoice, bill on whatsapp, invoice on whatsapp, whatsapp bill maker, whatsapp invoice maker",
                 "aggregateRating": {
                     "@type": "AggregateRating",
                     "ratingValue": "4.8",
                     "ratingCount": "1250"
                 },
                 "featureList": [
+                    "Bill on WhatsApp",
+                    "Invoice on WhatsApp",
+                    "WhatsApp Bill Maker",
+                    "WhatsApp Invoice Maker",
                     "WhatsApp Invoicing",
                     "GST Billing",
                     "Inventory Management",
@@ -141,6 +153,35 @@ export default function Home() { // Changed function name from HomePage to Home
                     "areaServed": "IN",
                     "availableLanguage": "en"
                 }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How do I create a bill on WhatsApp?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Sign up for MsgBill, complete onboarding, add your business and client details. Create an invoice in 2 minutes and click Share via WhatsApp. The invoice link opens in WhatsApp—send it to your client."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do I send an invoice on WhatsApp?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "With MsgBill, create your invoice, then click Share via WhatsApp. A pre-filled message with the invoice link opens in WhatsApp. Send it to your client. They can view and pay from the link."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is there a WhatsApp bill maker for Indian businesses?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. MsgBill is the WhatsApp bill maker and invoice maker for Indian businesses. Create GST-compliant bills and invoices, share on WhatsApp, collect via UPI. Free for 20 invoices per month."
+                        }
+                    }
+                ]
             }
         ]
     };
@@ -183,12 +224,15 @@ export default function Home() { // Changed function name from HomePage to Home
                                 >
                                     WhatsApp
                                 </span>{" "}
-                                Your Invoices, <br />
+                                Your Bill & Invoice, <br />
                                 Get Paid{" "}
                                 <span className="gradient-text-purple">
                                     Faster
                                 </span>
                             </h1>
+                            <p className="sr-only">
+                                MsgBill is the WhatsApp bill maker and WhatsApp invoice maker for Indian businesses. Create bill and invoice on WhatsApp in seconds.
+                            </p>
                             <p className="text-xl lg:text-2xl text-secondary-600 max-w-3xl mx-auto leading-relaxed animate-slide-in-from-bottom animation-delay-200">
                                 For homepreneurs, small traders, and service
                                 businesses.
@@ -278,14 +322,10 @@ export default function Home() { // Changed function name from HomePage to Home
                     <div className="container-wide">
                         <div className="text-center max-w-3xl mx-auto mb-16 animate-slide-in-from-bottom">
                             <h2 className="text-3xl lg:text-5xl font-bold text-secondary-900 mb-6">
-                                Everything you need to get paid
-                                <span className="gradient-text-purple">
-                                    faster
-                                </span>
+                                WhatsApp Bill Maker & Invoice on WhatsApp
                             </h2>
                             <p className="text-lg lg:text-xl text-secondary-600 leading-relaxed">
-                                Powerful features designed to simplify your
-                                workflow and keep your finances in check.
+                                Create bill and invoice on WhatsApp in seconds. Powerful features to simplify your workflow and keep your finances in check.
                             </p>
                         </div>
 
