@@ -276,28 +276,6 @@ export default function NewInvoicePage() {
             setShowUpgrade(true);
             return;
         }
-        // #region agent log
-        fetch('http://127.0.0.1:7606/ingest/7884df9b-20e5-4e6a-9c30-7f64bd1074d0', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Debug-Session-Id': 'ead7d1',
-            },
-            body: JSON.stringify({
-                sessionId: 'ead7d1',
-                runId: 'pre-fix',
-                hypothesisId: 'H1',
-                location: 'app/dashboard/invoices/new/page.tsx:handleSubmit:start',
-                message: 'handleSubmit called',
-                data: {
-                    hasProfile: !!profile,
-                    orgId: profile?.org_id,
-                    itemsCount: items.length,
-                },
-                timestamp: Date.now(),
-            }),
-        }).catch(() => {});
-        // #endregion agent log
         if (!profile || !profile.org_id) {
             return addToast({
                 title: "Error",
@@ -323,29 +301,6 @@ export default function NewInvoicePage() {
         setLoading(true);
         try {
             // 1. Create Invoice
-            // #region agent log
-            fetch('http://127.0.0.1:7606/ingest/7884df9b-20e5-4e6a-9c30-7f64bd1074d0', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Debug-Session-Id': 'ead7d1',
-                },
-                body: JSON.stringify({
-                    sessionId: 'ead7d1',
-                    runId: 'pre-fix',
-                    hypothesisId: 'H2',
-                    location: 'app/dashboard/invoices/new/page.tsx:handleSubmit:beforeInsert',
-                    message: 'Before invoice insert',
-                    data: {
-                        orgId: profile.org_id,
-                        clientId,
-                        subtotal: totals.subtotal,
-                        grandTotal: totals.grandTotal,
-                    },
-                    timestamp: Date.now(),
-                }),
-            }).catch(() => {});
-            // #endregion agent log
             const { data: invoice, error: invError } = await supabase
                 .from("invoices")
                 .insert({

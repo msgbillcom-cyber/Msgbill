@@ -69,10 +69,30 @@ function SignupContent() {
 
             if (error) throw error;
 
+            const identitiesLength =
+                (data?.user as any)?.identities?.length ?? null;
+
+            // Supabase pattern: if user exists already, identities array is empty
+            if (data?.user && identitiesLength === 0) {
+                addToast({
+                    title: "Account Already Exists",
+                    type: "error",
+                    message:
+                        "An account with this email already exists. Please log in instead.",
+                });
+                router.push(
+                    `/auth/login?next=${encodeURIComponent(
+                        "/dashboard/overview",
+                    )}`,
+                );
+                return;
+            }
+
             addToast({
                 title: "Account Created",
                 type: "success",
-                message: "Please enter the verification code sent to your email.",
+                message:
+                    "Please enter the verification code sent to your email.",
             });
 
             router.push(`/auth/verify?email=${encodeURIComponent(email)}`);

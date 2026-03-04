@@ -84,9 +84,8 @@ function VerifyContent() {
 
     setLoading(true);
     try {
-      const resendType = type === "magiclink" ? "magiclink" : "signup";
       const { error } = await supabase.auth.resend({
-        type: resendType,
+        type: "signup",
         email,
       });
 
