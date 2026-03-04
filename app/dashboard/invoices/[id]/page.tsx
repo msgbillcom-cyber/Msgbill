@@ -73,10 +73,16 @@ export default function InvoiceDetailPage() {
     if (!invoice || !profile) return;
     setDownloading(true);
     try {
+      const organizationForPdf = {
+        ...profile,
+        logo_url:
+          profile.logo_url ||
+          profile.organization_members?.[0]?.organizations?.logo_url,
+      };
       const doc = await generateInvoicePDF({
         invoice,
         client: invoice.clients,
-        organization: profile,
+        organization: organizationForPdf,
         items,
       });
 
@@ -281,15 +287,20 @@ export default function InvoiceDetailPage() {
             <CardContent className="pt-8">
               <div className="flex justify-between mb-8">
                 <div>
-                  {profile.logo_url && (
+                  {profile.logo_url ||
+                  profile.organization_members?.[0]?.organizations?.logo_url ? (
                     <div className="mb-4">
                       <img
-                        src={profile.logo_url}
+                        src={
+                          profile.logo_url ||
+                          profile.organization_members?.[0]?.organizations
+                            ?.logo_url
+                        }
                         alt={profile.company_name}
                         className="h-16 w-auto object-contain"
                       />
                     </div>
-                  )}
+                  ) : null}
                   <h3 className="text-xl font-bold text-secondary-900">
                     {profile.company_name}
                   </h3>

@@ -64,14 +64,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         .from("profiles")
         .select(
           `
-                    *,
-                    organization_members (
-                        org_id,
-                        organizations (
-                            subscription_tier
-                        )
-                    )
-                `,
+            *,
+            organization_members (
+              org_id,
+              organizations (
+                subscription_tier,
+                logo_url
+              )
+            )
+          `,
         )
         .eq("id", userId)
         .single();
@@ -127,7 +128,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
           setProfile(null);
         } else {
           // Extract org_id and subscription_tier if present
-          let finalProfile = { ...data };
+          let finalProfile: any = { ...data };
           if (
             data.organization_members &&
             data.organization_members.length > 0
@@ -136,6 +137,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
             finalProfile.org_id = member.org_id;
             finalProfile.subscription_tier =
               member.organizations?.subscription_tier || "free";
+            // Prefer organization logo_url if profile logo is missing
+            if (!finalProfile.logo_url && member.organizations?.logo_url) {
+              finalProfile.logo_url = member.organizations.logo_url;
+            }
           }
 
           console.log(
