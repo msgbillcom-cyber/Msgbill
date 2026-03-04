@@ -84,12 +84,11 @@ function VerifyContent() {
 
     setLoading(true);
     try {
+      const resendType = type === "magiclink" ? "magiclink" : "signup";
       const { error } = await supabase.auth.resend({
-        type: type === "magiclink" ? "signup" : "signup", // Supabase resend type for OTP login is actually 'signup' or 'magiclink'
+        type: resendType,
         email,
       });
-      // Note: Supabase resend for passwordless is often 'signup' or 'magiclink'
-      // If type is magiclink, we should probably use 'signup' as fallback if 'magiclink' fails in some versions
 
       if (error) throw error;
 
