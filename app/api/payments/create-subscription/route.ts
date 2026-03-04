@@ -65,8 +65,30 @@ export async function POST(request: NextRequest) {
             key_secret,
         });
 
-        // Unique reference ID: sub_<orgId>_<timestamp> for traceability (webhook uses notes.org_id)
-        const referenceId = `sub_${targetOrgId}_${Date.now()}`;
+        // Unique reference ID: short but traceable (Razorpay max 40 chars)
+        const referenceId = `sub_${targetOrgId.slice(0, 8)}_${Date.now().toString(36)}`;
+        // #region agent log
+        fetch('http://127.0.0.1:7606/ingest/7884df9b-20e5-4e6a-9c30-7f64bd1074d0', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Debug-Session-Id': 'ead7d1',
+            },
+            body: JSON.stringify({
+                sessionId: 'ead7d1',
+                runId: 'subscription-pre-fix',
+                hypothesisId: 'R1',
+                location: 'app/api/payments/create-subscription/route.ts:referenceId',
+                message: 'Generated referenceId for subscription',
+                data: {
+                    referenceId,
+                    length: referenceId.length,
+                    orgId: targetOrgId,
+                },
+                timestamp: Date.now(),
+            }),
+        }).catch(() => {});
+        // #endregion agent log
         const amount = 499; // ₹499 per year
 
         // Create payment link (one-time payment for 1 year Pro)
@@ -101,6 +123,27 @@ export async function POST(request: NextRequest) {
 
     } catch (error: any) {
         console.error('Error creating subscription link:', error);
+        // #region agent log
+        fetch('http://127.0.0.1:7606/ingest/7884df9b-20e5-4e6a-9c30-7f64bd1074d0', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Debug-Session-Id': 'ead7d1',
+            },
+            body: JSON.stringify({
+                sessionId: 'ead7d1',
+                runId: 'subscription-pre-fix',
+                hypothesisId: 'R1',
+                location: 'app/api/payments/create-subscription/route.ts:catch',
+                message: 'Error creating subscription link',
+                data: {
+                    errorMessage: error?.error?.description || error?.message,
+                    name: error?.name,
+                },
+                timestamp: Date.now(),
+            }),
+        }).catch(() => {});
+        // #endregion agent log
         // Provide more detailed error message for debugging
         const errorMessage = error.error?.description || error.message || 'Failed to create subscription link';
         return NextResponse.json(
