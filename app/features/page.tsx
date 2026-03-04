@@ -164,9 +164,9 @@ export default function FeaturesPage() {
                                         "Help whenever you need it via chat or email.",
                                 },
                                 {
-                                    title: "Security First",
+                                    title: "Security & Retention",
                                     desc:
-                                        "Your data is encrypted and backed up daily.",
+                                        "Your data is encrypted, backed up daily, and invoices are kept safely for up to 1 year (plan-based).",
                                 },
                             ].map((item, i) => (
                                 <Card

@@ -47,50 +47,47 @@ export async function POST(request: NextRequest) {
             const notes = paymentLinkEntity.notes || {};
             const payment = event.payload.payment.entity;
             
-            // Check if it's a subscription payment
-            let subscriptionOrgId: string | null = null;
-
-            if (notes.payment_type === 'subscription' && notes.org_id) {
-                subscriptionOrgId = notes.org_id;
-            } else if (referenceId && referenceId.startsWith('sub_')) {
-                // Fallback: referenceId format: sub_{orgId}_{timestamp} or sub_{orgId}
-                const parts = referenceId.split('_');
-                if (parts.length >= 2) {
-                    subscriptionOrgId = parts[1];
-                }
-            }
+            // Subscription payment: only trust notes.org_id (referenceId is sub_timestamp_random)
+            const subscriptionOrgId =
+                notes.payment_type === 'subscription' && notes.org_id
+                    ? (notes.org_id as string)
+                    : null;
 
             if (subscriptionOrgId) {
                 const orgId = subscriptionOrgId;
                 console.log(`Processing subscription for Org: ${orgId}`);
 
-                // Upgrade organization to PRO
-                    const { error: updateError } = await supabase
-                        .from('organizations')
-                        .update({
-                            subscription_tier: 'pro'
-                        })
-                        .eq('id', orgId);
+                const { error: updateError } = await supabase
+                    .from('organizations')
+                    .update({ subscription_tier: 'pro' })
+                    .eq('id', orgId);
 
-                    if (updateError) {
-                        console.error('Failed to upgrade subscription (org update):', updateError);
-                        await supabase
-                            .from('usage_limits')
-                            .update({
-                                plan_type: 'pro',
-                                max_invoices: 2147483647,
-                                max_clients: 2147483647,
-                            })
-                            .eq('org_id', orgId);
-                    } else {
-                        console.log(`Organization ${orgId} upgraded to PRO`);
-                        // Recalculate invoice retention: paid = 1 year
-                        await supabase.rpc('update_invoice_retention', {
-                            org_uuid: orgId,
-                            retention_months: 12,
-                        });
-                    }
-                    return NextResponse.json({ received: true });
+                if (updateError) {
+                    console.error('Failed to upgrade subscription (org update):', updateError);
+                } else {
+                    console.log(`Organization ${orgId} upgraded to PRO`);
+                }
+
+                // Keep usage_limits in sync (trigger may do this; explicit update for reliability)
+                await supabase
+                    .from('usage_limits')
+                    .update({
+                        plan_type: 'pro',
+                        max_invoices: 2147483647,
+                        max_clients: 2147483647,
+                    })
+                    .eq('org_id', orgId);
+
+                try {
+                    await supabase.rpc('update_invoice_retention', {
+                        org_uuid: orgId,
+                        retention_months: 12,
+                    });
+                } catch (rpcErr) {
+                    console.warn('update_invoice_retention failed (non-blocking):', rpcErr);
+                }
+
+                return NextResponse.json({ received: true });
             }
 
             // Find invoice by payment link ID

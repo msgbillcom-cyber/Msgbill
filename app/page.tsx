@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title:
         "Bill & Invoice on WhatsApp | WhatsApp Bill Maker | Free Invoice Software India",
     description:
-        "Create bill and invoice on WhatsApp in 2 clicks. WhatsApp bill maker & WhatsApp invoice maker for Indian businesses. Free GST invoice, send bill via WhatsApp. Get paid faster.",
+        "Create bill and invoice on WhatsApp in 2 clicks. WhatsApp bill maker & WhatsApp invoice maker for Indian businesses. Free GST invoice, send bill via WhatsApp. Get paid faster. Your bills and invoices are stored safely for up to 1 year.",
     keywords: [
         "bill",
         "invoice",
@@ -116,7 +116,7 @@ export default function Home() { // Changed function name from HomePage to Home
                     "priceValidUntil": "2026-12-31",
                     "availability": "https://schema.org/InStock"
                 },
-                "description": "MsgBill: Create bill and invoice on WhatsApp. WhatsApp bill maker & WhatsApp invoice maker for Indian businesses. Free GST invoice, send bill via WhatsApp.",
+                "description": "MsgBill: Create bill and invoice on WhatsApp. WhatsApp bill maker & WhatsApp invoice maker for Indian businesses. Free GST invoice, send bill via WhatsApp. Your bills and invoices are stored safely for up to 1 year.",
                 "keywords": "bill, invoice, whatsapp bill, whatsapp invoice, bill on whatsapp, invoice on whatsapp, whatsapp bill maker, whatsapp invoice maker",
                 "aggregateRating": {
                     "@type": "AggregateRating",
@@ -238,7 +238,8 @@ export default function Home() { // Changed function name from HomePage to Home
                                 businesses.
                                 <br />
                                 Create GST invoices, share on WhatsApp, collect
-                                via UPI — all in 2 minutes.
+                                via UPI — all in 2 minutes. Your bills and invoices stay safely stored
+                                inside MsgBill for up to 1 year.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 animate-scale-in animation-delay-200">
                                 <Link href="/auth/signup">
@@ -594,10 +595,13 @@ export default function Home() { // Changed function name from HomePage to Home
                                                 ₹499
                                             </span>
                                             <span className="text-secondary-500 font-medium ml-2">
-                                                / month
+                                                / year
                                             </span>
                                         </div>
-                                        <p className="mt-4 text-sm text-secondary-500 font-medium">
+                                        <p className="mt-2 text-sm text-secondary-500 font-medium">
+                                            ~₹42/month. Full year of Pro.
+                                        </p>
+                                        <p className="mt-2 text-sm text-primary-600 font-semibold">
                                             For serious businesses.
                                         </p>
                                     </div>

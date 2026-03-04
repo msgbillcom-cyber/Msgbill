@@ -14,12 +14,14 @@ interface PublicInvoiceClientProps {
     invoice: any;
     items: any[];
     organization: any;
+    paymentSuccess?: boolean;
 }
 
 export default function PublicInvoiceClient({
     invoice,
     items,
     organization,
+    paymentSuccess = false,
 }: PublicInvoiceClientProps) {
     const [downloading, setDownloading] = useState(false);
 
@@ -62,6 +64,12 @@ export default function PublicInvoiceClient({
     return (
         <div className="min-h-screen bg-secondary-50 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto space-y-8">
+                {paymentSuccess && (
+                    <div className="rounded-xl bg-success-50 border border-success-200 px-4 py-3 text-center">
+                        <p className="text-success-800 font-semibold">✓ Payment received. Thank you!</p>
+                        <p className="text-success-600 text-sm mt-1">This invoice will be marked as paid shortly.</p>
+                    </div>
+                )}
                 {/* Public Header */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="flex items-center gap-3">
@@ -129,6 +137,11 @@ export default function PublicInvoiceClient({
                             >
                                 💳 Pay Now
                             </Button>
+                        )}
+                        {(organization?.upi_id || organization?.upi_qr_url || organization?.bank_account_number || organization?.account_number || organization?.bank_name) && invoice.status !== "paid" && (
+                            <p className="text-xs text-secondary-500 mt-2 w-full text-center sm:text-left">
+                                Prefer UPI or bank transfer? Use the details in the invoice below.
+                            </p>
                         )}
                     </div>
                 </div>
@@ -206,25 +219,45 @@ export default function PublicInvoiceClient({
                                         {invoice.clients?.email}
                                     </p>
                                 </div>
-                                <div className="space-y-1 md:text-right">
-                                    <p className="text-[10px] font-bold text-secondary-400 uppercase tracking-widest">
-                                        Payment Methods
-                                    </p>
-                                    <p className="text-sm text-secondary-900 font-medium">
-                                        {organization?.bank_name}
-                                    </p>
-                                    <p className="text-xs text-secondary-500">
-                                        A/C: {organization?.account_number}
-                                    </p>
-                                    <p className="text-xs text-secondary-500">
-                                        IFSC: {organization?.ifsc_code}
-                                    </p>
-                                    {organization?.upi_id && (
-                                        <p className="text-xs text-secondary-500 mt-1">
-                                            UPI: <span className="font-medium text-primary-600">{organization.upi_id}</span>
+                                {(organization?.bank_name || organization?.bank_account_number || organization?.account_number || organization?.upi_id || organization?.upi_qr_url) ? (
+                                    <div className="space-y-1 md:text-right">
+                                        <p className="text-[10px] font-bold text-secondary-400 uppercase tracking-widest">
+                                            Or pay via UPI / Bank
                                         </p>
-                                    )}
-                                </div>
+                                        {organization?.bank_name && (
+                                            <p className="text-sm text-secondary-900 font-medium">
+                                                {organization.bank_name}
+                                            </p>
+                                        )}
+                                        {(organization?.bank_account_number || organization?.account_number) && (
+                                            <p className="text-xs text-secondary-500">
+                                                A/C: {organization?.bank_account_number || organization?.account_number}
+                                            </p>
+                                        )}
+                                        {(organization?.bank_ifsc_code || organization?.ifsc_code) && (
+                                            <p className="text-xs text-secondary-500">
+                                                IFSC: {organization?.bank_ifsc_code || organization?.ifsc_code}
+                                            </p>
+                                        )}
+                                        {organization?.upi_id && (
+                                            <p className="text-xs text-secondary-500 mt-1">
+                                                UPI: <span className="font-medium text-primary-600">{organization.upi_id}</span>
+                                            </p>
+                                        )}
+                                        {organization?.upi_qr_url && (
+                                            <div className="mt-3 flex flex-col items-end gap-1">
+                                                <img
+                                                    src={organization.upi_qr_url}
+                                                    alt="Scan to pay via UPI"
+                                                    className="w-20 h-20 object-contain border border-secondary-200 rounded-lg bg-white"
+                                                />
+                                                <span className="text-[10px] font-medium text-secondary-500">Scan to pay</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                ) : (
+                                    <div className="space-y-1 md:text-right" />
+                                )}
                             </div>
                         </div>
 

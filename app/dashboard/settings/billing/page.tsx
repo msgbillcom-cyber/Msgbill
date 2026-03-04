@@ -72,7 +72,7 @@ export default function BillingSettingsPage() {
                         </CardDescription>
                         <div className="mt-4">
                             <span className="text-4xl font-black text-primary-600">₹499</span>
-                            <span className="text-secondary-400">/month</span>
+                            <span className="text-secondary-400">/year</span>
                         </div>
                     </CardHeader>
                     <CardContent className="space-y-4">

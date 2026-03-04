@@ -125,7 +125,7 @@ export default function UpgradeModal({
                                 className="shadow-glow font-bold bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-700 hover:to-primary-600"
                                 onClick={() => setShowPayment(true)}
                             >
-                                Upgrade to Pro (₹499/month)
+                                Upgrade to Pro (₹499/year)
                             </Button>
                             <Button variant="ghost" fullWidth onClick={onClose}>
                                 Maybe Later
@@ -151,7 +151,7 @@ export default function UpgradeModal({
                             </div>
                             <div className="flex justify-between items-center text-xl">
                                 <span className="text-secondary-600 font-medium">Total</span>
-                                <span className="font-black text-primary-600">₹499.00</span>
+                                <span className="font-black text-primary-600">₹499.00 / year</span>
                             </div>
                         </div>
 

@@ -48,6 +48,20 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        // Ensure invoice belongs to current user's organization
+        const { data: profile } = await supabase
+            .from('profiles')
+            .select('org_id')
+            .eq('id', session.user.id)
+            .single();
+
+        if (!profile?.org_id || invoice.org_id !== profile.org_id) {
+            return NextResponse.json(
+                { error: 'Invoice not found or access denied' },
+                { status: 403 }
+            );
+        }
+
         // Use trusted data from DB
         const amount = invoice.grand_total;
         const customer = {

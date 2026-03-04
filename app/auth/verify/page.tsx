@@ -62,10 +62,8 @@ function VerifyContent() {
         message: "Email verified successfully.",
       });
 
-      // Redirect through auth callback for consistency
-      router.push(
-        `/auth/callback?next=${type === "signup" ? "/onboarding" : "/dashboard/overview"}`,
-      );
+      // Session is already set by verifyOtp; go directly to destination (callback expects code, not needed after OTP)
+      router.push(type === "signup" ? "/onboarding" : "/dashboard/overview");
     } catch (error: any) {
       console.error("Verification error:", error);
       addToast({ title: "Error", type: "error", message: error.message });

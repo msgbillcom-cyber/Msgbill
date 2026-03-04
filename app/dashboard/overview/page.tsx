@@ -39,7 +39,7 @@ export default function DashboardOverview() {
       addToast({
         title: "Welcome to Pro! 🚀",
         type: "success",
-        message: "Your subscription is active. Enjoy unlimited access!",
+        message: "Pro activated! You have unlimited access for 1 year.",
       });
       // Remove the query param without full reload
       const newUrl = window.location.pathname;

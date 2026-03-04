@@ -65,15 +65,15 @@ export async function POST(request: NextRequest) {
             key_secret,
         });
 
-        // Create unique reference ID (timestamp + random) to avoid duplicates
-        const referenceId = `sub_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
-        const amount = 499; // ₹499
+        // Unique reference ID: sub_<orgId>_<timestamp> for traceability (webhook uses notes.org_id)
+        const referenceId = `sub_${targetOrgId}_${Date.now()}`;
+        const amount = 499; // ₹499 per year
 
-        // Create payment link
+        // Create payment link (one-time payment for 1 year Pro)
         const paymentLink = await razorpay.paymentLink.create({
             amount: formatRazorpayAmount(amount),
             currency: 'INR',
-            description: 'MsgBill Pro Subscription (Monthly)',
+            description: 'MsgBill Pro – 1 Year (Unlimited Invoices)',
             customer: {
                 name: userName || 'MsgBill User',
                 email: userEmail || session.user.email,

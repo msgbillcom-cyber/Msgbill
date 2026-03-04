@@ -20,6 +20,7 @@ const supabaseAdmin = createClient(
 
 interface Props {
     params: { id: string };
+    searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 // 1. Generate Metadata for WhatsApp Link Previews
@@ -58,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // 2. Server Component
-export default async function PublicInvoicePage({ params }: Props) {
+export default async function PublicInvoicePage({ params, searchParams }: Props) {
     // Fetch Data on Server
     const { data: invoice } = await supabaseAdmin
         .from("invoices")
@@ -95,12 +96,16 @@ export default async function PublicInvoicePage({ params }: Props) {
         .eq("id", invoice.org_id)
         .single();
 
-    // Pass data to Client Component for interactivity (Download, Pay)
+    const paymentSuccess =
+        searchParams?.payment === 'success' ||
+        (Array.isArray(searchParams?.payment) && searchParams.payment.includes('success'));
+
     return (
         <PublicInvoiceClient 
             invoice={invoice} 
             items={items || []} 
-            organization={organization} 
+            organization={organization}
+            paymentSuccess={paymentSuccess}
         />
     );
 }

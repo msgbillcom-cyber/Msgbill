@@ -13,8 +13,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Pricing | Bill & Invoice on WhatsApp | MsgBill",
-    description: "Free bill and invoice on WhatsApp. Start with 20 free invoices. Upgrade to Pro for unlimited WhatsApp bill maker. No credit card required.",
-    keywords: ["bill on whatsapp price", "invoice on whatsapp free", "whatsapp bill maker pricing"],
+    description: "Free bill and invoice on WhatsApp. Start with 20 free invoices. Pro at ₹499/year – unlimited invoices, full year. No credit card for free tier.",
+    keywords: ["bill on whatsapp price", "invoice on whatsapp free", "whatsapp bill maker pricing", "499 year invoicing"],
 };
 
 export default function PricingPage() {
@@ -29,7 +29,7 @@ export default function PricingPage() {
                             <span className="gradient-text">Growing Business</span>
                         </h1>
                         <p className="text-xl text-secondary-600">
-                            Start for free. Upgrade when you grow. No hidden fees.
+                                    Start for free. Pro at just ₹499/year. No hidden fees.
                         </p>
                     </div>
 
@@ -98,10 +98,13 @@ export default function PricingPage() {
                                         ₹499
                                     </span>
                                     <span className="text-secondary-500 font-medium ml-2">
-                                        / month
+                                        / year
                                     </span>
                                 </div>
-                                <p className="mt-4 text-sm text-secondary-500 font-medium">
+                                <p className="mt-2 text-sm text-secondary-500 font-medium">
+                                    ~₹42/month. One payment, full year of Pro.
+                                </p>
+                                <p className="mt-2 text-sm text-primary-600 font-semibold">
                                     For serious businesses.
                                 </p>
                             </CardHeader>
@@ -157,7 +160,7 @@ export default function PricingPage() {
                             <div>
                                 <h3 className="text-xl font-bold mb-2">Is the ₹499 fee monthly or yearly?</h3>
                                 <p className="text-secondary-600">
-                                    It's a monthly fee of ₹499. Cancel anytime.
+                                    It's ₹499 for the full year (one payment). That's about ₹42 per month. No recurring charge until you renew next year.
                                 </p>
                             </div>
                         </div>

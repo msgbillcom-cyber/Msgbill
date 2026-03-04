@@ -33,3 +33,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# LinkedIn marketing (personal, not for repo)
+/linkedin-marketing-msgbill/
+
+# LinkedIn marketing (local/personal - not for repo)
+/linkedin-marketing-msgbill/
+
