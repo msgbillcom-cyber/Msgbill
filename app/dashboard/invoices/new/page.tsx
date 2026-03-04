@@ -276,6 +276,13 @@ export default function NewInvoicePage() {
             setShowUpgrade(true);
             return;
         }
+        if (!profile || !profile.org_id) {
+            return addToast({
+                title: "Error",
+                type: "error",
+                message: "Your business profile is not loaded. Please refresh the page or complete onboarding before creating invoices.",
+            });
+        }
         if (!clientId) {
             return addToast({
                 title: "Error",
@@ -283,11 +290,11 @@ export default function NewInvoicePage() {
                 message: "Please select a client.",
             });
         }
-        if (items.some((i) => !i.description || i.rate <= 0)) {
+        if (items.some((i) => !i.description || i.quantity <= 0 || i.rate < 0)) {
             return addToast({
                 title: "Error",
                 type: "error",
-                message: "Please fill all item details.",
+                message: "Please fill all item details (quantity must be > 0 and rate cannot be negative).",
             });
         }
 
