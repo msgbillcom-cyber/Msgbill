@@ -63,9 +63,10 @@ export default function DashboardOverview() {
         // 1. Fetch Invoices
         const { data: invoices, error: invError } = await supabase
           .from("invoices")
-          .select("*, clients(name)")
+          .select("id, invoice_number, grand_total, status, due_date, created_at, clients(name)")
           .eq("org_id", profile.org_id)
-          .order("created_at", { ascending: false });
+          .order("created_at", { ascending: false })
+          .limit(200);
 
         if (invError) throw invError;
 
@@ -89,12 +90,11 @@ export default function DashboardOverview() {
           if (inv.status === "paid") {
             revenue += inv.grand_total;
             paid++;
-          } else {
+          } else if (inv.status === "sent" || inv.status === "overdue") {
             unpaid++;
             if (
               inv.due_date &&
-              new Date(inv.due_date) < now &&
-              inv.status !== "paid"
+              new Date(inv.due_date) < now
             ) {
               overdue.push(inv);
             }

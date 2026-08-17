@@ -29,6 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         .from("invoices")
         .select("invoice_number, grand_total, organizations(name, logo_url)")
         .eq("id", params.id)
+        .neq("status", "draft")
+        .neq("status", "cancelled")
         .single();
 
     if (!invoice) {
@@ -63,8 +65,31 @@ export default async function PublicInvoicePage({ params, searchParams }: Props)
     // Fetch Data on Server
     const { data: invoice } = await supabaseAdmin
         .from("invoices")
-        .select("*, clients (*)")
+        .select(`
+            id,
+            invoice_number,
+            issue_date,
+            due_date,
+            status,
+            currency,
+            subtotal,
+            tax_total,
+            grand_total,
+            notes,
+            terms,
+            is_gst_invoice,
+            cgst_amount,
+            sgst_amount,
+            igst_amount,
+            place_of_supply,
+            payment_link_url,
+            paid_at,
+            org_id,
+            clients (name, email, phone, address, gstin, billing_state)
+        `)
         .eq("id", params.id)
+        .neq("status", "draft")
+        .neq("status", "cancelled")
         .single();
 
     if (!invoice) {
@@ -92,13 +117,16 @@ export default async function PublicInvoicePage({ params, searchParams }: Props)
 
     const { data: organization } = await supabaseAdmin
         .from("organizations")
-        .select("*")
+        .select("id, name, logo_url, address, gstin, upi_id, upi_qr_url, bank_name, bank_account_number, bank_ifsc_code")
         .eq("id", invoice.org_id)
         .single();
 
+    const actuallyPaid = invoice.status === "paid" || Boolean(invoice.paid_at);
     const paymentSuccess =
-        searchParams?.payment === 'success' ||
-        (Array.isArray(searchParams?.payment) && searchParams.payment.includes('success'));
+        actuallyPaid && (
+            searchParams?.payment === 'success' ||
+            (Array.isArray(searchParams?.payment) && searchParams.payment.includes('success'))
+        );
 
     return (
         <PublicInvoiceClient 

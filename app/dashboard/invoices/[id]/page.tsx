@@ -146,25 +146,11 @@ export default function InvoiceDetailPage() {
   };
 
   const handleEmailSend = async () => {
-    setSendingEmail(true);
-    try {
-      // Simulate Edge Function call
-      await new Promise((r) => setTimeout(r, 1500));
-      addToast({
-        title: "Email Sent",
-        type: "success",
-        message: `Invoice sent to ${invoice.clients?.email}`,
-      });
-      markAsSent();
-    } catch (error: any) {
-      addToast({
-        title: "Error",
-        type: "error",
-        message: "Failed to send email.",
-      });
-    } finally {
-      setSendingEmail(false);
-    }
+    addToast({
+      title: "Email not available",
+      type: "error",
+      message: "Invoice email is not set up yet. Share via WhatsApp instead.",
+    });
   };
 
   const handleGeneratePaymentLink = async () => {

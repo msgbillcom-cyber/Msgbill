@@ -72,7 +72,7 @@ export default function NewInvoicePage() {
         // Fetch next invoice number
         const fetchNextInvoiceNumber = async (orgId: string) => {
             try {
-                const { data, error } = await supabase.rpc('get_next_invoice_number', {
+                const { data, error } = await supabase.rpc('peek_next_invoice_number', {
                     org_uuid: orgId
                 });
                 
@@ -301,12 +301,19 @@ export default function NewInvoicePage() {
         setLoading(true);
         try {
             // 1. Create Invoice
+            const { data: assignedNumber, error: numberError } = await supabase.rpc('get_next_invoice_number', {
+                org_uuid: profile.org_id,
+            });
+            if (numberError || !assignedNumber) {
+                throw new Error(numberError?.message || "Could not assign invoice number. Please try again.");
+            }
+
             const { data: invoice, error: invError } = await supabase
                 .from("invoices")
                 .insert({
                     org_id: profile.org_id,
                     client_id: clientId,
-                    invoice_number: invoiceNumber,
+                    invoice_number: assignedNumber,
                     issue_date: issueDate,
                     due_date: dueDate,
                     status: "draft",
@@ -340,20 +347,24 @@ export default function NewInvoicePage() {
             // We await this to ensure it completes before navigation
             const productItems = items.filter(i => i.productId && i.quantity > 0);
             if (productItems.length > 0) {
-                try {
-                    await fetch('/api/inventory/deduct', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            items: productItems.map(i => ({
-                                productId: i.productId,
-                                quantity: i.quantity
-                            }))
-                        })
+                const deductRes = await fetch('/api/inventory/deduct', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        items: productItems.map(i => ({
+                            productId: i.productId,
+                            quantity: i.quantity
+                        }))
+                    })
+                });
+                if (!deductRes.ok) {
+                    addToast({
+                        title: "Invoice created",
+                        type: "error",
+                        message: "Invoice was saved but stock could not be deducted. Check inventory.",
                     });
-                } catch (err) {
-                    console.error("Failed to deduct stock:", err);
-                    // Continue even if stock deduction fails
+                    router.push("/dashboard/invoices");
+                    return;
                 }
             }
 

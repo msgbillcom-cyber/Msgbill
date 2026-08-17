@@ -33,7 +33,8 @@ export default function InventoryPage() {
                 .from("products")
                 .select("*")
                 .eq("org_id", orgId)
-                .order("name");
+                .order("name")
+                .limit(200);
             
             if (searchQuery) {
                 query = query.ilike('name', `%${searchQuery}%`);

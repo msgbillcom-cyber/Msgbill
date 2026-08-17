@@ -4,11 +4,15 @@ import React, { useState } from "react";
 import PageHeader from "@/components/layout/PageHeader";
 import Card, { CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
-import Modal from "@/components/ui/Modal";
 import UpgradeModal from "@/components/dashboard/UpgradeModal";
+import { useAuth } from "@/components/auth/AuthProvider";
+import { formatDate } from "@/lib/utils";
 
 export default function BillingSettingsPage() {
     const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
+    const { profile } = useAuth();
+    const isPro = profile?.subscription_tier === "pro";
+    const expiresAt = profile?.subscription_expires_at;
 
     return (
         <div className="max-w-5xl mx-auto space-y-8">
@@ -18,11 +22,12 @@ export default function BillingSettingsPage() {
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Free Plan - Active */}
-                <Card className="border-2 border-primary-100 relative overflow-hidden">
+                <Card className={`relative overflow-hidden ${!isPro ? "border-2 border-primary-100" : ""}`}>
+                    {!isPro && (
                     <div className="absolute top-0 right-0 bg-primary-100 text-primary-700 text-xs font-bold px-3 py-1 rounded-bl-lg">
                         CURRENT PLAN
                     </div>
+                    )}
                     <CardHeader>
                         <CardTitle className="text-2xl">Free Plan</CardTitle>
                         <CardDescription>
@@ -37,7 +42,7 @@ export default function BillingSettingsPage() {
                         <ul className="space-y-3">
                             <li className="flex items-center gap-2 text-sm text-secondary-700">
                                 <span className="text-green-500">✓</span>
-                                20 Invoices / Month
+                                20 Invoices total
                             </li>
                             <li className="flex items-center gap-2 text-sm text-secondary-700">
                                 <span className="text-green-500">✓</span>
@@ -55,20 +60,21 @@ export default function BillingSettingsPage() {
                     </CardContent>
                     <CardFooter>
                         <Button variant="outline" fullWidth disabled>
-                            Current Plan
+                            {isPro ? "Previous plan" : "Current Plan"}
                         </Button>
                     </CardFooter>
                 </Card>
 
-                {/* Pro Plan */}
-                <Card className="border-2 border-primary-600 bg-white relative overflow-hidden shadow-xl transform hover:-translate-y-1 transition-transform duration-300">
+                <Card className="bg-white relative overflow-hidden border-2 border-primary-600">
                      <div className="absolute top-0 right-0 bg-primary-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-                        RECOMMENDED
+                        {isPro ? "CURRENT PLAN" : "RECOMMENDED"}
                     </div>
                     <CardHeader>
                         <CardTitle className="text-2xl text-primary-900">Pro Plan</CardTitle>
                         <CardDescription className="text-secondary-500">
-                            For growing businesses
+                            {isPro && expiresAt
+                                ? `Active until ${formatDate(expiresAt)}`
+                                : "For growing businesses"}
                         </CardDescription>
                         <div className="mt-4">
                             <span className="text-4xl font-black text-primary-600">₹499</span>
@@ -96,6 +102,11 @@ export default function BillingSettingsPage() {
                         </ul>
                     </CardContent>
                     <CardFooter>
+                        {isPro ? (
+                            <Button variant="outline" fullWidth disabled>
+                                Current Plan
+                            </Button>
+                        ) : (
                         <Button 
                             className="bg-primary-600 text-white hover:bg-primary-700 shadow-glow" 
                             fullWidth
@@ -103,6 +114,7 @@ export default function BillingSettingsPage() {
                         >
                             Upgrade Now
                         </Button>
+                        )}
                     </CardFooter>
                 </Card>
             </div>

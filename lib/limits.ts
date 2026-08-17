@@ -1,6 +1,6 @@
 export const LIMITS = {
     FREE: {
-        invoicesTotal: 20,
+        invoicesTotal: 20, // lifetime, not per month
         clientsMax: 5,
         advancedTemplates: false,
     },

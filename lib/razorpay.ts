@@ -119,12 +119,17 @@ export function verifyRazorpayWebhookSignature(
 ): boolean {
     const crypto = require('crypto');
 
-    const expectedSignature = crypto
-        .createHmac('sha256', secret)
-        .update(body)
-        .digest('hex');
-
-    return expectedSignature === signature;
+    const expected = crypto.createHmac('sha256', secret).update(body).digest();
+    let received: Buffer;
+    try {
+        received = Buffer.from(signature, 'hex');
+    } catch {
+        return false;
+    }
+    if (expected.length !== received.length) {
+        return false;
+    }
+    return crypto.timingSafeEqual(expected, received);
 }
 
 // Legacy function for backward compatibility

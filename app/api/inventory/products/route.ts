@@ -16,12 +16,32 @@ export async function POST(request: Request) {
         const body = await request.json();
         const { id, ...productData } = body;
 
-        // 2. Validate Org Access (Security Check)
-        // Ensure the user actually belongs to the org they are trying to create/edit products for
+        let targetOrgId = productData.org_id;
+
+        if (id) {
+            const { data: existing } = await supabaseAdmin
+                .from('products')
+                .select('org_id')
+                .eq('id', id)
+                .single();
+
+            if (!existing) {
+                return NextResponse.json({ error: 'Product not found' }, { status: 404 });
+            }
+            targetOrgId = existing.org_id;
+            if (productData.org_id && productData.org_id !== existing.org_id) {
+                return NextResponse.json({ error: 'Cannot move product to another organization' }, { status: 403 });
+            }
+        }
+
+        if (!targetOrgId) {
+            return NextResponse.json({ error: 'org_id is required' }, { status: 400 });
+        }
+
         const { data: membership } = await supabase
             .from('organization_members')
             .select('role')
-            .eq('org_id', productData.org_id)
+            .eq('org_id', targetOrgId)
             .eq('user_id', session.user.id)
             .single();
 
@@ -29,14 +49,14 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Forbidden: You are not a member of this organization' }, { status: 403 });
         }
 
-        // 3. Perform Operation using Admin Client (Bypassing RLS)
         let result;
         if (id) {
-            // UPDATE
+            const { org_id: _ignored, ...safeUpdate } = productData;
             result = await supabaseAdmin
                 .from('products')
-                .update(productData)
+                .update(safeUpdate)
                 .eq('id', id)
+                .eq('org_id', targetOrgId)
                 .select()
                 .single();
         } else {

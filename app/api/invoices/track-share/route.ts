@@ -24,7 +24,22 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Record share history
+        const { data: profile } = await supabase
+            .from('profiles')
+            .select('org_id')
+            .eq('id', session.user.id)
+            .single();
+
+        const { data: currentInvoice } = await supabase
+            .from('invoices')
+            .select('id, status, org_id')
+            .eq('id', invoiceId)
+            .single();
+
+        if (!currentInvoice || !profile?.org_id || currentInvoice.org_id !== profile.org_id) {
+            return NextResponse.json({ error: 'Invoice not found' }, { status: 404 });
+        }
+
         const { data, error } = await supabase
             .from('share_history')
             .insert({
@@ -46,13 +61,6 @@ export async function POST(request: NextRequest) {
 
         // Update invoice with latest share timestamp AND set status to 'sent' if it was 'draft'
         const updateField = shareType === 'whatsapp' ? 'whatsapp_shared_at' : 'email_sent_at';
-
-        // First fetch current status
-        const { data: currentInvoice } = await supabase
-            .from('invoices')
-            .select('status')
-            .eq('id', invoiceId)
-            .single();
 
         const updates: any = { [updateField]: new Date().toISOString() };
         

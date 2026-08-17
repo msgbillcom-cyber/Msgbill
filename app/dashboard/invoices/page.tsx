@@ -20,30 +20,40 @@ export default function InvoicesPage() {
     const [invoices, setInvoices] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
+    const [totalCount, setTotalCount] = useState(0);
+    const [page, setPage] = useState(0);
+    const pageSize = 20;
 
     const fetchInvoices = useCallback(async () => {
         if (!user || !orgId) return;
         setLoading(true);
 
         try {
-            const { data, error } = await supabase
+            let query = supabase
                 .from("invoices")
                 .select(`
-                  *,
+                  id, invoice_number, issue_date, grand_total, status,
                   clients (name)
-                `)
+                `, { count: "exact" })
                 .eq("org_id", orgId)
-                .ilike("invoice_number", `%${search}%`)
-                .order("created_at", { ascending: false });
+                .order("created_at", { ascending: false })
+                .range(page * pageSize, page * pageSize + pageSize - 1);
+
+            if (search.trim()) {
+                query = query.ilike("invoice_number", `%${search.trim()}%`);
+            }
+
+            const { data, error, count } = await query;
 
             if (error) throw error;
             setInvoices(data || []);
+            setTotalCount(count || 0);
         } catch (error: any) {
             addToast({ title: "Error", type: "error", message: error.message });
         } finally {
             setLoading(false);
         }
-    }, [user, search, addToast, supabase, orgId]);
+    }, [user, search, addToast, supabase, orgId, page]);
 
     useEffect(() => {
         fetchInvoices();
@@ -127,8 +137,10 @@ export default function InvoicesPage() {
                 <Input
                     placeholder="Search invoice number..."
                     value={search}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        setSearch(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setPage(0);
+                        setSearch(e.target.value);
+                    }}
                     leftIcon={<span>🔍</span>}
                 />
             </div>
@@ -151,6 +163,7 @@ export default function InvoicesPage() {
                     </Link>
                 </div>
             ) : (
+                <>
                 <Table headers={["Invoice #", "Client", "Date", "Amount", "Status", "Actions"]}>
                     {invoices.length === 0 && loading ? (
                         <tr>
@@ -194,6 +207,32 @@ export default function InvoicesPage() {
                     ))
                 )}
             </Table>
+            {totalCount > pageSize && (
+                <div className="flex items-center justify-between">
+                    <p className="text-sm text-secondary-500">
+                        Showing {page * pageSize + 1}–{Math.min((page + 1) * pageSize, totalCount)} of {totalCount}
+                    </p>
+                    <div className="flex gap-2">
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            disabled={page === 0}
+                            onClick={() => setPage((p) => Math.max(0, p - 1))}
+                        >
+                            Previous
+                        </Button>
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            disabled={(page + 1) * pageSize >= totalCount}
+                            onClick={() => setPage((p) => p + 1)}
+                        >
+                            Next
+                        </Button>
+                    </div>
+                </div>
+            )}
+                </>
             )}
         </div>
     );

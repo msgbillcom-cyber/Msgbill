@@ -48,7 +48,7 @@ export default function StorePage() {
             try {
                 // 1. Fetch Organization Details
                 const { data: orgData, error: orgError } = await supabase
-                    .from("organizations")
+                    .from("storefront_orgs")
                     .select("id, name, logo_url, address") // Fetch safe fields
                     .eq("id", orgId)
                     .single();

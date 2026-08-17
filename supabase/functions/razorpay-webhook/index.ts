@@ -64,7 +64,10 @@ serve(async (req) => {
         if (subscriptionOrgId) {
             const { error: updateError } = await supabase
                 .from("organizations")
-                .update({ subscription_tier: "pro" })
+                .update({
+                    subscription_tier: "pro",
+                    subscription_expires_at: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
+                })
                 .eq("id", subscriptionOrgId);
             if (!updateError) {
                 await supabase.rpc("update_invoice_retention", {

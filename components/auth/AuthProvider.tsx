@@ -69,7 +69,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
               org_id,
               organizations (
                 subscription_tier,
-                logo_url
+                logo_url,
+                subscription_expires_at
               )
             )
           `,
@@ -137,6 +138,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
             finalProfile.org_id = member.org_id;
             finalProfile.subscription_tier =
               member.organizations?.subscription_tier || "free";
+            finalProfile.subscription_expires_at =
+              member.organizations?.subscription_expires_at || null;
             // Prefer organization logo_url if profile logo is missing
             if (!finalProfile.logo_url && member.organizations?.logo_url) {
               finalProfile.logo_url = member.organizations.logo_url;
@@ -277,8 +280,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
           }
         }
       } else if (isAuthRoute) {
-        // Logged in user trying to access login/signup - redirect to dashboard
-        router.push("/dashboard/overview");
+        if (profileLoading && !profile) return;
+        if (profile && (!profile.onboarded || !profile.org_id)) {
+          router.push("/onboarding");
+        } else if (profile?.onboarded && profile?.org_id) {
+          router.push("/dashboard/overview");
+        }
       }
     } else {
       // No user logged in

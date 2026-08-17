@@ -26,6 +26,7 @@ export async function middleware(req: NextRequest) {
   // Exclude webhook and other public API routes - no user session for webhooks
   const isPublicApiRoute =
     url.pathname === '/api/payments/webhook' ||
+    url.pathname.startsWith('/api/cron') ||
     url.pathname.startsWith('/api/public');
   const isApiRoute = url.pathname.startsWith('/api') && !isPublicApiRoute;
   const isAuthRoute = url.pathname.startsWith('/auth');

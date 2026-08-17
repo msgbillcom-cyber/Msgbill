@@ -121,7 +121,7 @@ export async function POST(request: NextRequest) {
         const paymentLink = await razorpay.paymentLink.create({
             amount: formatRazorpayAmount(amount),
             currency,
-            description: description || `Payment for invoice`,
+            description: description || `Invoice ${invoice.invoice_number} – MsgBill`,
             customer: {
                 name: customer.name,
                 contact: customer.contact,
@@ -131,6 +131,12 @@ export async function POST(request: NextRequest) {
             callback_url: `${process.env.NEXT_PUBLIC_APP_URL}/invoice/${invoiceId}?payment=success`,
             callback_method: 'get',
             reference_id: invoiceId,
+            notes: {
+                payment_type: 'invoice',
+                invoice_id: invoiceId,
+                org_id: invoice.org_id,
+                invoice_number: invoice.invoice_number,
+            },
         });
 
         // Update invoice with payment link
