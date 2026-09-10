@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import { Metadata } from "next";
+import AdSenseAd from "@/components/ads/AdSenseAd";
 
 export const metadata: Metadata = {
     title: "Billing & Invoicing Blog for Indian Businesses | MsgBill",
@@ -218,6 +219,14 @@ export default function BlogPage() {
                             </article>
                         ))}
                     </div>
+                </section>
+
+                <section className="container-wide mt-12">
+                    <AdSenseAd
+                        slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_INDEX}
+                        format="horizontal"
+                        label="Advertisement"
+                    />
                 </section>
 
                 {/* Free Tool Callout */}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 interface AdSenseAdProps {
     slot?: string;
@@ -11,52 +11,50 @@ interface AdSenseAdProps {
 }
 
 /**
- * AdSenseAd Component
- * Fully compliant with Google AdSense Policies:
- * - Clear "Advertisement" labelling
- * - Responsive sizing and container safety
- * - Unobtrusive pre-approval placeholder for Google crawlers
+ * Public-surface AdSense unit only. Never import under /dashboard/*.
+ * Requires NEXT_PUBLIC_ADSENSE_CLIENT_ID and real data-ad-slot from AdSense console.
  */
 export default function AdSenseAd({
-    slot = "1234567890",
+    slot,
     format = "auto",
     responsive = true,
     className = "",
     label = "Advertisement",
 }: AdSenseAdProps) {
     const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
+    const pushed = useRef(false);
 
     useEffect(() => {
-        if (typeof window !== "undefined" && clientId) {
-            try {
-                // @ts-ignore
-                (window.adsbygoogle = window.adsbygoogle || []).push({});
-            } catch (err) {
-                console.error("AdSense push error:", err);
-            }
+        if (!clientId || !slot || pushed.current) return;
+        if (typeof window === "undefined") return;
+        try {
+            // @ts-expect-error adsbygoogle global
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+            pushed.current = true;
+        } catch (err) {
+            console.error("AdSense push error:", err);
         }
-    }, [clientId]);
+    }, [clientId, slot]);
 
     return (
         <div
-            className={`my-6 mx-auto w-full text-center overflow-hidden transition-all ${className}`}
-            style={{ minHeight: "90px" }}
+            className={`my-6 mx-auto w-full text-center overflow-hidden ${className}`}
+            style={{ minHeight: "100px" }}
         >
             <div className="text-[10px] uppercase tracking-wider text-secondary-400 font-semibold mb-1">
                 {label}
             </div>
 
-            {clientId ? (
+            {clientId && slot ? (
                 <ins
                     className="adsbygoogle"
-                    style={{ display: "block" }}
+                    style={{ display: "block", minHeight: "90px" }}
                     data-ad-client={clientId}
                     data-ad-slot={slot}
                     data-ad-format={format}
                     data-full-width-responsive={responsive ? "true" : "false"}
                 />
             ) : (
-                /* High-Utility AdSense Pre-Approval Placeholder */
                 <div className="w-full py-4 px-6 rounded-xl border border-dashed border-secondary-200 bg-secondary-50/70 dark:bg-secondary-800/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
                     <div className="flex items-center gap-3">
                         <div className="w-9 h-9 rounded-lg bg-primary-100 dark:bg-primary-950/50 flex items-center justify-center text-primary-600 font-bold text-sm">
@@ -64,10 +62,10 @@ export default function AdSenseAd({
                         </div>
                         <div>
                             <p className="text-xs font-semibold text-secondary-800 dark:text-secondary-200">
-                                Sponsor / Business Partner Offer
+                                Sponsor slot (AdSense pending config)
                             </p>
                             <p className="text-[11px] text-secondary-500">
-                                Create instant GST bills & share on WhatsApp with MsgBill Free.
+                                Free GST bills on WhatsApp — no login required on the generator.
                             </p>
                         </div>
                     </div>

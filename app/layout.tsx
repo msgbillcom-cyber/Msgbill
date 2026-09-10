@@ -127,6 +127,17 @@ export default function RootLayout({
                         `}
                     </Script>
                 )}
+
+                {/* Google AdSense — loaded site-wide; units only mount on public pages */}
+                {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && (
+                    <Script
+                        id="adsense-loader"
+                        async
+                        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
+                        strategy="afterInteractive"
+                        crossOrigin="anonymous"
+                    />
+                )}
                 <Script
                     id="msgbill-jsonld"
                     type="application/ld+json"

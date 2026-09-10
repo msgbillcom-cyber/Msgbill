@@ -266,7 +266,7 @@ export default function FreeInvoiceGenerator() {
             </div>
 
             {/* Top AdSense Ad Container */}
-            <AdSenseAd slot="9876543210" format="horizontal" label="Advertisement" />
+            <AdSenseAd slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_TOOL_TOP} format="horizontal" label="Advertisement" />
 
             {/* Main Generator Form Card */}
             <div className="bg-white dark:bg-secondary-900 rounded-3xl border border-secondary-200 dark:border-secondary-800 shadow-xl p-6 sm:p-10 space-y-8">
@@ -601,7 +601,7 @@ export default function FreeInvoiceGenerator() {
             </div>
 
             {/* Bottom AdSense Ad Container */}
-            <AdSenseAd slot="1122334455" format="horizontal" label="Sponsored Links" />
+            <AdSenseAd slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_TOOL_BOTTOM} format="horizontal" label="Sponsored Links" />
         </div>
     );
 }

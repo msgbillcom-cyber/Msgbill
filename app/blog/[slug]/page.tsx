@@ -14,30 +14,44 @@ const blogPosts: Record<string, any> = {
         author: "MsgBill Team",
         category: "WhatsApp Business",
         content: `
-            <p class="mb-6 text-lg">In 2026, WhatsApp is no longer just for chatting—it's the most powerful tool for Indian businesses to collect payments. If you're still emailing invoices or printing them out, you're losing time and money.</p>
-            
-            <h2 class="text-2xl font-bold mt-8 mb-4">Why WhatsApp Invoicing Wins</h2>
-            <p class="mb-4">Did you know that WhatsApp messages have a 98% open rate compared to just 20% for email? When you send an invoice on WhatsApp:</p>
+            <p class="mb-6 text-lg">Email invoices often sit unread. In India, WhatsApp is where customers respond — and where UPI payments happen on the same screen.</p>
+            <p class="mb-6">This guide covers a practical WhatsApp invoicing workflow for shops, freelancers, and GST-registered sellers. Educational only; not tax advice.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Key Takeaways</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li>Your client sees it instantly.</li>
-                <li>They can pay immediately using UPI.</li>
-                <li>You can track if they've read it (blue ticks).</li>
+                <li>Send a PDF + short payment message, not a notebook photo.</li>
+                <li>Put UPI ID or payment link in the first message.</li>
+                <li>Keep invoice numbers sequential if you are GST-registered.</li>
+                <li>Start free on the MsgBill generator; upgrade for history and reminders.</li>
             </ul>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">How to Create a WhatsApp Invoice with MsgBill</h2>
-            <p class="mb-4">We built MsgBill specifically to solve this problem. Here is how you can send your first invoice in 30 seconds:</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Why WhatsApp Beats Email for Collections</h2>
+            <p class="mb-4">Customers already chat with vendors on WhatsApp. Delivery ticks and instant UPI make same-day payment realistic for many small invoices.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">How to Create & Send with MsgBill</h2>
             <ol class="list-decimal pl-6 mb-6 space-y-2">
-                <li><strong>Sign Up</strong> for a free MsgBill account or use our Free Invoice Generator.</li>
-                <li><strong>Enter details:</strong> Input your client's name, items, and applicable GST rate.</li>
-                <li><strong>Hit "Send on WhatsApp"</strong>: We automatically format a professional message with a direct link and UPI QR details.</li>
+                <li>Open the <a href="/free-invoice-generator" class="text-emerald-600 underline font-semibold">free invoice generator</a> or sign in to the dashboard.</li>
+                <li>Enter business + client details, line items, and GST slab.</li>
+                <li>Choose intra-state (CGST+SGST) or inter-state (IGST).</li>
+                <li>Download PDF and/or tap Send to WhatsApp.</li>
+                <li>Add your UPI ID in the chat if it is not already on the PDF.</li>
             </ol>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">Is it Legal in India?</h2>
-            <p class="mb-4">Yes! Under GST laws, a digital invoice (PDF) sent via electronic means is perfectly valid. MsgBill ensures your invoices meet all GST requirements (Rule 46 of CGST Rules).</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Is a WhatsApp Invoice Legal?</h2>
+            <p class="mb-4">GST focuses on invoice content (Rule 46 fields, numbering, tax), not the chat app. Keep your own archive. MsgBill helps produce a clean PDF; you remain responsible for compliance.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Reminder Rhythm</h2>
+            <p class="mb-4">Day 0: send. Day 3: friendly nudge. Day 7: firm reminder. Day 14: final notice before pausing work.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Do I need WhatsApp Business API?</strong></p>
+            <p class="mb-4">Not for manual sends from your phone. API is for automated scale.</p>
+            <p class="mb-2"><strong>Can guests use MsgBill without signup?</strong></p>
+            <p class="mb-6">Yes. The free generator needs no login. Accounts remove ads and store invoices for 1 year.</p>
 
             <div class="bg-emerald-50 p-6 rounded-2xl my-8 border border-emerald-100">
                 <h3 class="font-bold text-emerald-900 mb-2">Ready to get paid faster?</h3>
-                <p class="text-emerald-800 mb-4">Join thousands of Indian business owners using MsgBill today.</p>
+                <p class="text-emerald-800 mb-4">Create a bill in seconds and share on WhatsApp.</p>
                 <a href="/free-invoice-generator" class="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-md">Try Free Invoice Generator →</a>
             </div>
         `
@@ -72,22 +86,43 @@ const blogPosts: Record<string, any> = {
         author: "MsgBill Team",
         category: "GST Compliance",
         content: `
-            <p class="mb-6 text-lg">Creating a GST-compliant invoice is mandatory for registered businesses in India. One clerical mistake can lead to tax penalties. Here is your official checklist.</p>
-            
-            <h2 class="text-2xl font-bold mt-8 mb-4">Mandatory Fields for a Valid GST Invoice</h2>
+            <p class="mb-6 text-lg">A GST tax invoice is the primary document for registered supplies in India. Wrong fields or tax splits create return mismatches and buyer ITC issues. Use this as a practical checklist — not a substitute for your CA.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Key Takeaways</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li><strong>Invoice Number & Date:</strong> Must be consecutive, unique, and contain only alphabets, numerals, or hyphens/slashes.</li>
-                <li><strong>Supplier Details:</strong> Name, Address, and 15-digit GSTIN.</li>
-                <li><strong>Customer Details:</strong> Name, Address, and GSTIN (if B2B registered).</li>
-                <li><strong>HSN/SAC Code:</strong> Mandatory 4-digit or 6-digit codes based on turnover.</li>
-                <li><strong>Tax Breakdown:</strong> CGST, SGST, and IGST must be itemized distinctly.</li>
+                <li>Rule 46-style fields: number, date, supplier/buyer, HSN/SAC, tax breakup.</li>
+                <li>Intra-state → CGST+SGST; inter-state → IGST (place of supply matters).</li>
+                <li>Keep a unique sequential series for the financial year.</li>
+                <li>Generate a draft fast with MsgBill, then verify before filing.</li>
             </ul>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes to Avoid</h2>
-            <p class="mb-4">1. <strong>Missing Place of Supply:</strong> Crucial for determining whether to charge IGST vs CGST/SGST.</p>
-            <p class="mb-4">2. <strong>Incorrect Tax Slabs:</strong> Charging 18% on food or essential items (5%) creates compliance audits.</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Mandatory Fields (Practical List)</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Invoice number & date</strong> — consecutive; letters/numbers/hyphen/slash only.</li>
+                <li><strong>Supplier</strong> — name, address, GSTIN.</li>
+                <li><strong>Recipient</strong> — name, address; GSTIN for typical B2B.</li>
+                <li><strong>HSN/SAC</strong> — digit rules depend on turnover; when in doubt, ask your CA.</li>
+                <li><strong>Tax breakup</strong> — CGST/SGST or IGST, rate and amount per line or summary.</li>
+                <li><strong>Place of supply</strong> — drives IGST vs CGST/SGST.</li>
+                <li><strong>Signature / digital acknowledgement</strong> as applicable to your process.</li>
+            </ul>
 
-            <p class="mb-6">MsgBill automates tax logic. Simply select your state and client state, and the engine calculates correct tax splits in real-time.</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">CGST + SGST vs IGST</h2>
+            <p class="mb-4">Same state supply usually splits the rate into CGST and SGST. Different state supply usually charges IGST at the full rate. Reverse charge and special categories need professional advice.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Missing place of supply.</li>
+                <li>Wrong slab (e.g. 18% on a 5% item).</li>
+                <li>Duplicate or reset invoice numbers mid-year.</li>
+                <li>Sending only a WhatsApp text without a proper PDF for B2B ITC.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">E-Invoice Note</h2>
+            <p class="mb-4">Businesses above the notified turnover threshold must generate IRN via the Invoice Registration Portal. Thresholds change — confirm the current limit before assuming you are exempt.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Create a Clean Format Fast</h2>
+            <p class="mb-6">Use the <a href="/free-invoice-generator" class="text-emerald-600 underline font-semibold">free GST invoice generator</a> to draft CGST/SGST or IGST bills, download PDF, and share on WhatsApp. Sign up later for ad-free storage.</p>
         `
     },
     "bill-vs-invoice-difference": {
@@ -96,25 +131,60 @@ const blogPosts: Record<string, any> = {
         author: "MsgBill Team",
         category: "Basics",
         content: `
-            <p class="mb-6 text-lg">"Bill" and "invoice" are often used interchangeably, but there are legal and operational differences under the Indian GST regime.</p>
-            
+            <p class="mb-6 text-lg">In everyday Hindi and English, people say “bill bhej do” for almost any payment request. Under GST, the document type matters: a retail <strong>bill</strong> or cash memo is not the same as a <strong>tax invoice</strong> that unlocks Input Tax Credit (ITC).</p>
+            <p class="mb-6">This guide explains the difference for Indian shops, freelancers, and registered businesses — without legalese. It is educational, not tax advice; confirm edge cases with your CA.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Key Takeaways</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>A <strong>bill / cash memo</strong> usually means pay-now retail (B2C).</li>
+                <li>A <strong>tax invoice</strong> is the GST document for registered supplies and ITC.</li>
+                <li>Buyers need a proper tax invoice (with GSTIN where required) to claim ITC.</li>
+                <li>You can create either format online with MsgBill’s <a href="/free-invoice-generator" class="text-emerald-600 underline font-semibold">free invoice generator</a> (no login).</li>
+            </ul>
+
             <h2 class="text-2xl font-bold mt-8 mb-4">What is a Bill?</h2>
-            <p class="mb-4">A <strong>bill</strong> is typically used in B2C or retail environments where goods or services are delivered with immediate payment (cash memos, restaurant chits, supermarket receipts).</p>
-            
-            <h2 class="text-2xl font-bold mt-8 mb-4">What is an Invoice?</h2>
-            <p class="mb-4">An <strong>invoice</strong> is a commercial document issued under Rule 46 of CGST Rules specifying terms of credit (e.g. Net 15, Net 30), enabling the recipient to claim Input Tax Credit (ITC).</p>
-            
+            <p class="mb-4">A <strong>bill</strong> is commonly used when goods or services are delivered with immediate payment: kirana counters, restaurants, salons, hardware shops. Payment is often cash, UPI, or card at the counter. Many unregistered sellers also issue simple commercial bills.</p>
+            <p class="mb-4">Under GST, small-value retail supplies may use a consolidated cash memo in limited situations (for example where the law allows for low-value B2C supplies). For day-to-day practice, think of a bill as a customer-facing receipt of what was sold and what was paid.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">What is an Invoice (Tax Invoice)?</h2>
+            <p class="mb-4">An <strong>invoice</strong> — specifically a <strong>tax invoice</strong> — is the commercial document registered persons issue under the CGST Rules (including Rule 46 mandatory fields). It records the supply, tax breakup (CGST/SGST or IGST), and often credit terms (Net 7 / Net 15 / Net 30).</p>
+            <p class="mb-4">B2B buyers typically need this document to claim ITC in their returns. Missing GSTIN, wrong place of supply, or broken invoice numbering can create notices later.</p>
+
             <h2 class="text-2xl font-bold mt-8 mb-4">Key Differences at a Glance</h2>
             <table class="w-full text-left border-collapse my-6 border border-slate-200">
                 <thead>
-                    <tr class="bg-slate-100"><th class="p-3 border">Feature</th><th class="p-3 border">Bill</th><th class="p-3 border">Tax Invoice</th></tr>
+                    <tr class="bg-slate-100"><th class="p-3 border">Feature</th><th class="p-3 border">Bill / Cash Memo</th><th class="p-3 border">Tax Invoice</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td class="p-3 border font-semibold">Primary Use</td><td class="p-3 border">Retail, B2C, immediate payment</td><td class="p-3 border">B2B, credit terms, services</td></tr>
-                    <tr><td class="p-3 border font-semibold">Input Tax Credit</td><td class="p-3 border">No (typically)</td><td class="p-3 border">Yes, mandatory for buyer</td></tr>
-                    <tr><td class="p-3 border font-semibold">Customer GSTIN</td><td class="p-3 border">Optional</td><td class="p-3 border">Mandatory for B2B sales</td></tr>
+                    <tr><td class="p-3 border font-semibold">Primary use</td><td class="p-3 border">Retail, B2C, immediate pay</td><td class="p-3 border">B2B, credit sales, registered supplies</td></tr>
+                    <tr><td class="p-3 border font-semibold">Input Tax Credit</td><td class="p-3 border">Usually not claimed</td><td class="p-3 border">Buyer may claim if eligible</td></tr>
+                    <tr><td class="p-3 border font-semibold">Customer GSTIN</td><td class="p-3 border">Often optional</td><td class="p-3 border">Required for typical B2B tax invoices</td></tr>
+                    <tr><td class="p-3 border font-semibold">Tax lines</td><td class="p-3 border">May be nil / inclusive</td><td class="p-3 border">CGST+SGST or IGST shown clearly</td></tr>
+                    <tr><td class="p-3 border font-semibold">Numbering</td><td class="p-3 border">Shop series</td><td class="p-3 border">Unique sequential series for the FY</td></tr>
                 </tbody>
             </table>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Which One Should You Send on WhatsApp?</h2>
+            <p class="mb-4">If the customer paid at the counter, a clear bill/receipt with UPI reference is enough for most retail disputes. If the buyer is a registered business that needs ITC, send a <strong>tax invoice PDF</strong> with GSTIN, HSN/SAC, place of supply, and tax split — then share on WhatsApp so it is opened on mobile.</p>
+            <p class="mb-4">MsgBill is built for that WhatsApp-first workflow: generate → PDF → <code>wa.me</code> share. Guests can try it free; accounts keep history for a year without ads.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Calling every PDF an “invoice” when it lacks Rule 46 fields.</li>
+                <li>Reusing the same invoice number after edits.</li>
+                <li>Charging IGST on an intra-state supply (or the reverse).</li>
+                <li>Promising ITC on a document that is only a commercial estimate or proforma.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Is a WhatsApp PDF legally valid?</strong></p>
+            <p class="mb-4">Digital invoices are widely used; validity depends on content and your registration status, not the chat app. Keep your own copy for records.</p>
+            <p class="mb-2"><strong>Do I need GST registration to make a bill?</strong></p>
+            <p class="mb-4">No. Unregistered sellers still issue commercial bills. Tax invoices with GST charge apply once you are registered (subject to thresholds and exemptions).</p>
+            <p class="mb-2"><strong>Proforma vs tax invoice?</strong></p>
+            <p class="mb-6">A proforma is a quotation-style document before supply; it is not a tax invoice for ITC. See our proforma vs tax invoice guide for details.</p>
+
+            <p class="mb-4">Create a clean bill or GST-style invoice in minutes on the <a href="/free-invoice-generator" class="text-emerald-600 underline font-semibold">free generator</a>, or <a href="/auth/signup" class="text-emerald-600 underline font-semibold">sign up</a> for an ad-free dashboard with 1-year storage.</p>
         `
     },
     "how-to-create-bill-on-whatsapp": {
@@ -123,16 +193,52 @@ const blogPosts: Record<string, any> = {
         author: "MsgBill Team",
         category: "WhatsApp Business",
         content: `
-            <p class="mb-6 text-lg">Sending bills directly over WhatsApp gets invoices cleared up to 3x faster than email in India.</p>
-            
-            <h2 class="text-2xl font-bold mt-8 mb-4">Step-by-Step Guide</h2>
+            <p class="mb-6 text-lg">Most Indian customers check WhatsApp before email. Sending a clear bill with amount, UPI, and PDF on chat often gets you paid the same day.</p>
+            <p class="mb-6">Here is a practical workflow you can run from a phone — no desktop software required.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Key Takeaways</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Create the bill in a browser tool, then open WhatsApp with one tap.</li>
+                <li>Include amount, due date, and UPI ID in the message body.</li>
+                <li>Attach or link a PDF for GST-registered buyers who need records.</li>
+                <li>Use reminders (friendly → firm) if payment slips.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Step-by-Step: Bill on WhatsApp in 5 Minutes</h2>
             <ol class="list-decimal pl-6 mb-6 space-y-3">
-                <li><strong>Step 1:</strong> Open the <a href="/free-invoice-generator" class="text-emerald-600 underline font-bold">MsgBill Free Invoice Generator</a>.</li>
-                <li><strong>Step 2:</strong> Enter your store name and customer details.</li>
-                <li><strong>Step 3:</strong> Add items, quantities, and rates.</li>
-                <li><strong>Step 4:</strong> Click "Send to WhatsApp". A pre-formatted message opens in your WhatsApp app ready to send to your client.</li>
+                <li><strong>Open</strong> the <a href="/free-invoice-generator" class="text-emerald-600 underline font-bold">MsgBill Free Invoice Generator</a> (no login).</li>
+                <li><strong>Enter</strong> your business name, phone, and GSTIN if you have one.</li>
+                <li><strong>Add</strong> the customer name and phone (WhatsApp number).</li>
+                <li><strong>List</strong> items with qty, rate, and GST % if applicable. Choose intra-state or inter-state tax.</li>
+                <li><strong>Tap Send to WhatsApp</strong> — review the pre-filled text, pick the chat, send. Optionally download PDF first and attach.</li>
             </ol>
-            <p class="mb-4">Clients can click to download the PDF or pay directly to your UPI ID without typing bank account numbers.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">What to Put in the WhatsApp Message</h2>
+            <p class="mb-4">A good message is short:</p>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Invoice / bill number and date</li>
+                <li>Total payable in ₹</li>
+                <li>UPI ID or payment link</li>
+                <li>One-line description of work/goods</li>
+                <li>Polite due date (“Kindly pay by Friday”)</li>
+            </ul>
+            <p class="mb-4">Avoid long paragraphs. Customers decide on mobile screens.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">UPI + WhatsApp = Faster Collection</h2>
+            <p class="mb-4">When the chat includes your UPI ID or a Razorpay payment link, the customer does not hunt for bank details. They pay in GPay / PhonePe / Paytm and reply “paid” with a screenshot.</p>
+            <p class="mb-4">Logged-in MsgBill users can store invoices and run structured reminders later. Guests still get the free one-off PDF + WhatsApp share.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">GST Tip for WhatsApp Bills</h2>
+            <p class="mb-4">If you are GST-registered, ensure the PDF shows tax breakup and consecutive numbering. WhatsApp is only the delivery channel — the PDF is the record.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Do I need WhatsApp Business API?</strong></p>
+            <p class="mb-4">No for manual sending from your phone. API is for automated bulk messaging at scale.</p>
+            <p class="mb-2"><strong>Can I send without GST?</strong></p>
+            <p class="mb-4">Yes — use 0% tax lines for a commercial bill. Register when your turnover/category requires it.</p>
+            <p class="mb-6"><strong>Will ads appear?</strong> On the free public tool, yes. Sign up for an ad-free dashboard.</p>
+
+            <p class="mb-4">Try it now: <a href="/free-invoice-generator" class="text-emerald-600 underline font-semibold">free bill generator</a> → WhatsApp. Or <a href="/auth/signup" class="text-emerald-600 underline font-semibold">create a free account</a> to save invoices for 1 year.</p>
         `
     },
     "10-best-invoice-apps-india-2026": {
@@ -141,14 +247,38 @@ const blogPosts: Record<string, any> = {
         author: "MsgBill Team",
         category: "Software Comparison",
         content: `
-            <p class="mb-6 text-lg">A comprehensive comparison of the top invoicing tools for Indian businesses in 2026.</p>
+            <p class="mb-6 text-lg">Indian SMBs need GST fields, UPI, and WhatsApp — not US-only tools. Below is a practical shortlist for 2026. Features change; verify pricing on each vendor’s site before you buy.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">How We Compared</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li><strong>1. MsgBill:</strong> Best for WhatsApp-native sharing, instant free billing, and UPI payment recovery.</li>
-                <li><strong>2. Vyapar:</strong> Popular desktop software for retail shops needing inventory management.</li>
-                <li><strong>3. Zoho Invoice:</strong> Free invoicing tool for IT agencies and consultants.</li>
-                <li><strong>4. MyBillBook:</strong> Mobile-friendly POS app for local grocery and hardware stores.</li>
-                <li><strong>5. ClearTax:</strong> Enterprise-focused tax filing and e-invoicing suite.</li>
+                <li>WhatsApp / mobile sharing ease</li>
+                <li>GST (CGST/SGST/IGST) support</li>
+                <li>UPI / payment collection</li>
+                <li>Free tier usefulness for micro businesses</li>
+                <li>Fit for shops vs freelancers vs agencies</li>
             </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">The 10 Apps</h2>
+            <ol class="list-decimal pl-6 mb-6 space-y-3">
+                <li><strong>MsgBill</strong> — Best for WhatsApp-native bills, free no-login generator, UPI-oriented collection. Pro ₹499/year.</li>
+                <li><strong>Vyapar</strong> — Strong for retail inventory and desktop POS-style workflows.</li>
+                <li><strong>MyBillBook</strong> — Popular mobile billing for local stores.</li>
+                <li><strong>Zoho Invoice</strong> — Clean cloud invoicing for consultants and agencies.</li>
+                <li><strong>Refrens</strong> — Freelancer proposals + invoices.</li>
+                <li><strong>Busy</strong> — Accounting-heavy GST books for growing traders.</li>
+                <li><strong>TallyPrime</strong> — Deep accounting; steeper learning curve.</li>
+                <li><strong>Clear (ClearTax) Invoice / GST suite</strong> — Strong around compliance and larger GST ops.</li>
+                <li><strong>QuickBooks Online</strong> — Cross-border freelancers; check India GST fit for your case.</li>
+                <li><strong>Marg ERP / similar retail ERPs</strong> — Distribution and pharma-style inventory (heavier setups).</li>
+            </ol>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Who Should Pick What</h2>
+            <p class="mb-4"><strong>Kirana / salon / local services:</strong> MsgBill or MyBillBook for speed on phone.</p>
+            <p class="mb-4"><strong>Inventory-heavy retail:</strong> Vyapar, Busy, or Marg-class tools.</p>
+            <p class="mb-4"><strong>Agency / IT:</strong> Zoho Invoice or MsgBill if WhatsApp collection matters most.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Try Before You Commit</h2>
+            <p class="mb-6">Generate one GST-style bill free on <a href="/free-invoice-generator" class="text-emerald-600 underline font-semibold">msgbill.com/free-invoice-generator</a>, share on WhatsApp, and see if the flow fits your customers. No card required.</p>
         `
     },
     "upi-payment-link-get-paid-faster": {
@@ -436,7 +566,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                     </header>
 
                     {/* Top AdSense Container for Blog */}
-                    <AdSenseAd slot="3344556677" format="horizontal" label="Advertisement" />
+                    <AdSenseAd slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_TOP} format="horizontal" label="Advertisement" />
 
                     {/* Article Content Card */}
                     <div className="bg-white dark:bg-secondary-900 p-8 sm:p-12 rounded-3xl border border-secondary-200 dark:border-secondary-800 shadow-sm">
@@ -447,7 +577,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                     </div>
 
                     {/* Mid/Bottom AdSense Container */}
-                    <AdSenseAd slot="8899001122" format="rectangle" label="Sponsored Content" />
+                    <AdSenseAd slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOG_BOTTOM} format="rectangle" label="Sponsored Content" />
 
                     {/* Interactive Free Generator CTA Box */}
                     <div className="mt-12 p-8 bg-gradient-to-br from-emerald-600 to-teal-700 text-white rounded-3xl text-center shadow-xl space-y-4">

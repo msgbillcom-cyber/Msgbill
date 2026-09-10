@@ -1,0 +1,42 @@
+---
+description: MsgBill dual-engine architecture — guest AdSense utility vs ad-free SaaS dashboard monetization rules
+alwaysApply: true
+---
+
+# MsgBill Master Blueprint (msgbill.com)
+
+## Dual engines
+
+1. **Public utility & AdSense (guest / no login)**  
+   Free GST bill generator + SEO guides. Monetize via AdSense + affiliates. Conversion CTA to signup.
+
+2. **Private SaaS (logged-in)**  
+   100% ad-free dashboard: cloud invoices, WhatsApp reminders, Razorpay UPI links, clients, inventory. Free → Pro ₹499/year.
+
+## Non-negotiable rules
+
+1. **Never gate** `/free-invoice-generator` behind auth. Guests must create/download/share bills without login.
+2. **Never render ads** inside `/dashboard/*`. Suppress all AdSense/affiliate tags for logged-in SaaS.
+3. **GST math**: exact rounded decimals (Rate × Qty + Tax); no float drift. Preserve CGST+SGST vs IGST slabs (0/5/12/18/28).
+4. **Build clean**: `npm run build` must pass; new public routes stay statically generable where intended.
+5. **SEO**: every new public page/blog needs JSON-LD + entry in `app/sitemap.ts`.
+
+## Key files to maintain
+
+- `components/generator/FreeInvoiceGenerator.tsx` — client-side jspdf/wa.me tool
+- `app/free-invoice-generator/page.tsx` — SEO landing + WebApplication/FAQ schema + AdSense slots
+- `components/ads/AdSenseAd.tsx` — reads `NEXT_PUBLIC_ADSENSE_CLIENT_ID`; never use under dashboard
+- `app/contact/page.tsx`, `components/contact/ContactForm.tsx` — AdSense compliance
+- `app/privacy/page.tsx` — DART / third-party ad disclosure
+- `app/blog/page.tsx`, `app/blog/[slug]/page.tsx` — pillar guides (ads OK on public blog)
+- `app/sitemap.ts` — tools, compliance, all blog slugs
+
+## Monetization copy anchors
+
+- Guest CTA: "Want an ad-free experience and save your invoices for 1 year? Sign Up Free — No Credit Card Required"
+- Pro: ₹499/year via Razorpay (not ₹10; not monthly unless product changes)
+- Free SaaS tier limits live in `lib/limits.ts` — keep marketing copy aligned with code
+
+## Out of scope for guest engine
+
+Do not add login walls, payment collection SaaS features, or org RLS on the free generator. Keep it client-side and zero-friction.
