@@ -67,6 +67,9 @@ export const metadata: Metadata = {
     },
     verification: {
         google: "RAF69EU6exWaFlGZGCU0W2hQp19TFauMlbrT9lsKKjc",
+        other: {
+            "google-adsense-account": "ca-pub-2707130870413244",
+        },
     },
     alternates: {
         canonical: "https://msgbill.com",
@@ -92,6 +95,18 @@ export default function RootLayout({
                     content="default"
                 />
                 <meta name="apple-mobile-web-app-title" content="MsgBill" />
+                <meta
+                    name="google-adsense-account"
+                    content="ca-pub-2707130870413244"
+                />
+                {/* AdSense loader in initial HTML for ownership verification */}
+                <Script
+                    id="adsense-loader"
+                    async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2707130870413244"
+                    strategy="beforeInteractive"
+                    crossOrigin="anonymous"
+                />
                 {/* Google Analytics 4 */}
                 {process.env.NEXT_PUBLIC_GA_ID && (
                     <>
@@ -128,16 +143,6 @@ export default function RootLayout({
                     </Script>
                 )}
 
-                {/* Google AdSense — loaded site-wide; units only mount on public pages */}
-                {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && (
-                    <Script
-                        id="adsense-loader"
-                        async
-                        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
-                        strategy="afterInteractive"
-                        crossOrigin="anonymous"
-                    />
-                )}
                 <Script
                     id="msgbill-jsonld"
                     type="application/ld+json"
