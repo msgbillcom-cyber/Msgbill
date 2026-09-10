@@ -99,14 +99,12 @@ export default function RootLayout({
                     name="google-adsense-account"
                     content="ca-pub-2707130870413244"
                 />
-                {/* AdSense loader in initial HTML for ownership verification */}
-                <Script
-                    id="adsense-loader"
+                {/* Raw script — AdSense crawler requires classic <script>, not next/script */}
+                <script
                     async
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2707130870413244"
-                    strategy="beforeInteractive"
                     crossOrigin="anonymous"
-                />
+                ></script>
                 {/* Google Analytics 4 */}
                 {process.env.NEXT_PUBLIC_GA_ID && (
                     <>
