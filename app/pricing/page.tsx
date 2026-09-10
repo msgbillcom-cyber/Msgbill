@@ -17,9 +17,36 @@ export const metadata: Metadata = {
     keywords: ["bill on whatsapp price", "invoice on whatsapp free", "whatsapp bill maker pricing", "499 year invoicing"],
 };
 
+const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+        {
+            "@type": "Question",
+            name: "Is MsgBill Pro ₹499 per month or per year?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "₹499 is for the full year, one payment. There is no ₹10 yearly plan. Free tier is 20 invoices total.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "How do I pay for MsgBill Pro?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Upgrade inside the app. Payment is via Razorpay (UPI, cards). The amount charged for Pro is ₹499, not ₹10.",
+            },
+        },
+    ],
+};
+
 export default function PricingPage() {
     return (
         <div className="min-h-screen bg-white">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+            />
             <Navbar />
             <main className="pt-32 pb-24">
                 <div className="container-wide">

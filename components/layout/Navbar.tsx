@@ -23,6 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({
     logo,
     links = [
         { label: "Home", href: "/" },
+        { label: "Free Generator", href: "/free-invoice-generator" },
         { label: "Features", href: "/features" },
         { label: "Pricing", href: "/pricing" },
         { label: "Blog", href: "/blog" },

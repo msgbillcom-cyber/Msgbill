@@ -68,6 +68,13 @@ export const metadata: Metadata = {
     verification: {
         google: "RAF69EU6exWaFlGZGCU0W2hQp19TFauMlbrT9lsKKjc",
     },
+    alternates: {
+        canonical: "https://msgbill.com",
+        languages: {
+            "en-IN": "https://msgbill.com",
+            "hi-IN": "https://msgbill.com",
+        },
+    },
 };
 
 export default function RootLayout({
@@ -76,7 +83,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
+        <html lang="en-IN">
             <head>
                 <meta name="theme-color" content="#0ea5e9" />
                 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -120,6 +127,43 @@ export default function RootLayout({
                         `}
                     </Script>
                 )}
+                <Script
+                    id="msgbill-jsonld"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@graph": [
+                                {
+                                    "@type": "SoftwareApplication",
+                                    name: "MsgBill",
+                                    applicationCategory: "BusinessApplication",
+                                    operatingSystem: "Web",
+                                    url: "https://msgbill.com",
+                                    areaServed: {
+                                        "@type": "Country",
+                                        name: "India",
+                                    },
+                                    offers: {
+                                        "@type": "Offer",
+                                        price: "499",
+                                        priceCurrency: "INR",
+                                        description:
+                                            "MsgBill Pro, billed ₹499 once per year. Not a ₹10 plan.",
+                                    },
+                                    description:
+                                        "GST invoice and WhatsApp billing software for Indian small businesses. Free to start. Pro is ₹499 per year.",
+                                },
+                                {
+                                    "@type": "Organization",
+                                    name: "MsgBill",
+                                    url: "https://msgbill.com",
+                                    logo: "https://msgbill.com/logo-final.png",
+                                },
+                            ],
+                        }),
+                    }}
+                />
             </head>
             <body>
                 <ErrorBoundary>

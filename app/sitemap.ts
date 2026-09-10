@@ -3,12 +3,36 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://msgbill.com'
 
+  const blogSlugs = [
+    'bill-vs-invoice-difference',
+    'how-to-create-bill-on-whatsapp',
+    '10-best-invoice-apps-india-2026',
+    'upi-payment-link-get-paid-faster',
+    'gst-invoice-rules-2026-indian-business',
+    'whatsapp-invoice-guide',
+    'msgbill-vs-vyapar',
+    'gst-invoice-guide',
+    'cash-memo-format-retail-shops-india',
+    'gst-invoice-coaching-classes-tuitions',
+    'medical-clinic-doctor-billing-receipt-format',
+    'freelance-invoice-foreign-clients-firc',
+    'proforma-invoice-vs-tax-invoice',
+    'delivery-challan-vs-tax-invoice-gst',
+    'how-to-recover-overdue-payments-whatsapp',
+  ];
+
   return [
     {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: 'daily',
-      priority: 1,
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/free-invoice-generator`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/how-it-works`,
@@ -29,16 +53,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/auth/signup`,
@@ -52,21 +94,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    // Blog posts (for SEO & AdSense)
-    ...[
-      'bill-vs-invoice-difference',
-      'how-to-create-bill-on-whatsapp',
-      '10-best-invoice-apps-india-2026',
-      'upi-payment-link-get-paid-faster',
-      'gst-invoice-rules-2026-indian-business',
-      'whatsapp-invoice-guide',
-      'msgbill-vs-vyapar',
-      'gst-invoice-guide',
-    ].map(slug => ({
+    ...blogSlugs.map((slug) => ({
       url: `${baseUrl}/blog/${slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
-      priority: 0.7,
+      priority: 0.8,
     })),
   ]
 }

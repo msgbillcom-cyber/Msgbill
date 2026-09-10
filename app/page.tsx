@@ -242,6 +242,15 @@ export default function Home() { // Changed function name from HomePage to Home
                                 inside MsgBill for up to 1 year.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 animate-scale-in animation-delay-200">
+                                <Link href="/free-invoice-generator">
+                                    <Button
+                                        size="lg"
+                                        className="shadow-glow bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-bold"
+                                        leftIcon={<span>⚡</span>}
+                                    >
+                                        Free Instant Bill Maker (No Login)
+                                    </Button>
+                                </Link>
                                 <Link href="/auth/signup">
                                     <Button
                                         size="lg"
