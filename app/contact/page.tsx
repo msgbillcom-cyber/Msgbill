@@ -52,10 +52,15 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-secondary-900 dark:text-white text-base">WhatsApp Support</h3>
-                                    <p className="text-xs text-secondary-500 mt-1">Instant chat support for active business users.</p>
-                                    <span className="text-sm font-semibold text-[#25D366] mt-2 inline-block">
-                                        +91 98765 43210
-                                    </span>
+                                    <p className="text-xs text-secondary-500 mt-1">Direct chat support for active business users.</p>
+                                    <a
+                                        href="https://wa.me/919900000000?text=Hi%20MsgBill%20Team%2C%20I%20need%20help%20with%20my%20account"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-sm font-semibold text-[#25D366] hover:underline mt-2 inline-block"
+                                    >
+                                        Chat with MsgBill Desk →
+                                    </a>
                                 </div>
                             </div>
 
