@@ -5,9 +5,9 @@ export default function Footer() {
     return (
         <footer className="py-14 bg-secondary-50 dark:bg-secondary-900 border-t border-secondary-200 dark:border-secondary-800">
             <div className="container-wide">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
                     {/* Brand column */}
-                    <div className="space-y-4 md:col-span-1">
+                    <div className="space-y-4 sm:col-span-2 lg:col-span-1">
                         <Image
                             src="/logo-final.png"
                             alt="MsgBill"
@@ -28,17 +28,46 @@ export default function Footer() {
                         <ul className="space-y-2 text-xs text-secondary-600 dark:text-secondary-400">
                             <li>
                                 <Link href="/free-invoice-generator" className="hover:text-emerald-600 transition-colors font-medium">
-                                    Free Invoice Generator (No Login)
+                                    WhatsApp Invoice Generator
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/free-invoice-generator" className="hover:text-emerald-600 transition-colors">
-                                    GST Bill Maker Online
+                                    Free GST Bill Maker
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/free-invoice-generator" className="hover:text-emerald-600 transition-colors">
                                     Cash Memo & Receipt Maker
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Popular Guides Column (Internal Link Equity) */}
+                    <div className="space-y-3">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-secondary-900 dark:text-white">
+                            Popular Guides
+                        </h4>
+                        <ul className="space-y-2 text-xs text-secondary-600 dark:text-secondary-400">
+                            <li>
+                                <Link href="/blog/whatsapp-invoice-guide" className="hover:text-emerald-600 transition-colors">
+                                    WhatsApp Invoicing Guide
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/blog/e-invoicing-rules-2026-msme-threshold" className="hover:text-emerald-600 transition-colors">
+                                    e-Invoicing Rules 2026
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/blog/kirana-store-bill-format-upi-qr-code" className="hover:text-emerald-600 transition-colors">
+                                    Kirana Store Bill Format
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/blog/free-vyapar-app-alternative-pc-mobile" className="hover:text-emerald-600 transition-colors">
+                                    Free Vyapar Alternative
                                 </Link>
                             </li>
                         </ul>
@@ -67,7 +96,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <Link href="/blog" className="hover:text-emerald-600 transition-colors">
-                                    Billing & GST Blog Guides
+                                    All 20+ Blog Guides
                                 </Link>
                             </li>
                         </ul>

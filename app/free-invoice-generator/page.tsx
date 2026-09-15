@@ -5,16 +5,20 @@ import FreeInvoiceGenerator from "@/components/generator/FreeInvoiceGenerator";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Free Invoice Generator India | Online GST Bill Maker (No Login) | MsgBill",
+    title: "WhatsApp Invoice Generator & Free GST Bill Maker (No Login) | MsgBill",
     description:
-        "Create free GST invoices & bills online in 10 seconds without logging in. Download professional PDF or share directly on WhatsApp with UPI payment details. 100% free tool for Indian businesses, freelancers & shops.",
+        "Create and send bills on WhatsApp in 10 seconds. Free WhatsApp invoice generator and online GST bill maker for Indian businesses, shops, and freelancers. Download PDF with dynamic UPI QR code. No signup required.",
     keywords: [
+        "whatsapp invoice generator",
+        "whatsapp bill generator",
+        "whatsapp billing system",
         "free invoice generator india",
         "online bill maker no login",
         "free gst invoice generator",
         "whatsapp bill maker",
         "cash memo maker free",
         "receipt generator online",
+        "send invoice on whatsapp",
         "freelancer bill maker india",
         "free invoicing tool",
     ],
