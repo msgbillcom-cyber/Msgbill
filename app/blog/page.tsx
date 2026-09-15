@@ -154,7 +154,53 @@ const blogPosts = [
         "date": "2026-03-07",
         "readTime": "6 min read",
         "category": "Payments"
-    }
+    },
+    {
+        "slug": "e-invoicing-rules-2026-msme-threshold",
+        "title": "e-Invoicing Rules 2026 for MSMEs: Mandatory Thresholds, B2B QR Code & Free Generator",
+        "excerpt": "Complete guide to e-invoicing applicability under GST in 2026. Turnover limits, mandatory B2B IRN generation, penalties, and how small businesses stay compliant.",
+        "author": "MsgBill Team",
+        "date": "2026-03-10",
+        "readTime": "9 min read",
+        "category": "GST Compliance"
+    },    {
+        "slug": "kirana-store-bill-format-upi-qr-code",
+        "title": "Kirana & Retail Store Bill Format (2026 Guide): Mandatory GST Fields, UPI QR Code & Free Bill Maker",
+        "excerpt": "How retail and kirana shops generate fast customer bills with dynamic UPI QR codes. Legal GST requirements, thermal printer receipt sizes, and free WhatsApp billing templates.",
+        "author": "MsgBill Team",
+        "date": "2026-03-12",
+        "readTime": "7 min read",
+        "category": "Retail & GST"
+    },    {
+        "slug": "free-vyapar-app-alternative-pc-mobile",
+        "title": "Top Free Vyapar Alternatives for PC & Mobile in 2026 (No Cost Comparison)",
+        "excerpt": "Looking for a free alternative to Vyapar without paying ₹2,399/year? Compare the best free cloud billing software and WhatsApp bill makers for Indian SMEs.",
+        "author": "MsgBill Team",
+        "date": "2026-03-13",
+        "readTime": "8 min read",
+        "category": "Software Comparison"
+    },    {
+        "slug": "garment-shop-cash-memo-format-gst",
+        "title": "Garment & Clothing Store Cash Memo Format (2026 GST Retail Guide)",
+        "excerpt": "Complete billing and cash memo format for garment boutiques, clothing retailers, and textile shops under GST. HSN codes, size/color variant lines, and free templates.",
+        "author": "MsgBill Team",
+        "date": "2026-03-14",
+        "readTime": "7 min read",
+        "category": "Retail & GST"
+    },    {
+        "slug": "freelance-developer-gst-exemption-under-20-lakhs",
+        "title": "Freelance Developer & Creator GST Exemption: 20 Lakhs Limit, LUT & Export Rules (2026)",
+        "excerpt": "Do freelance software engineers, designers, and creators need GST in India? Complete 2026 guide on the ₹20 Lakhs turnover threshold, Letter of Undertaking (LUT), and zero-rated exports.",
+        "author": "MsgBill Team",
+        "date": "2026-03-15",
+        "readTime": "10 min read",
+        "category": "Freelancing"
+    },
+
+
+
+
+
 ];
 
 export default function BlogPage() {

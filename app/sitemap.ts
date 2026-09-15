@@ -18,7 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'freelance-invoice-foreign-clients-firc',
     'proforma-invoice-vs-tax-invoice',
     'delivery-challan-vs-tax-invoice-gst',
-    'how-to-recover-overdue-payments-whatsapp',
+    'how-to-recover-overdue-payments-whatsapp',    'e-invoicing-rules-2026-msme-threshold',    'kirana-store-bill-format-upi-qr-code',    'free-vyapar-app-alternative-pc-mobile',    'garment-shop-cash-memo-format-gst',    'freelance-developer-gst-exemption-under-20-lakhs',
+
+
+
+
+
   ];
 
   return [

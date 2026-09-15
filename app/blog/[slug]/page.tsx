@@ -776,7 +776,230 @@ const blogPosts: Record<string, any> = {
             <h2 class="text-2xl font-bold mt-8 mb-4">Automate Your WhatsApp Payment Chasing</h2>
             <p class="mb-4">Instead of copying and pasting templates manually, MsgBill's Payment Collection agent automates friendly, firm, and urgent WhatsApp reminders based on real-time due dates.</p>
         `
-    }
+    },
+    "e-invoicing-rules-2026-msme-threshold": {
+        title: "e-Invoicing Rules 2026 for MSMEs: Mandatory Thresholds, B2B QR Code & Free Generator",
+        date: "2026-03-10",
+        author: "MsgBill Team",
+        category: "GST Compliance",
+        content: `
+            <p class="mb-6 text-lg">As GST compliance digitizes across India, the Central Board of Indirect Taxes and Customs (CBIC) continues to tighten the electronic invoicing (e-invoicing) net. If your business sells to other GST-registered businesses (B2B), knowing whether you fall under mandatory e-invoicing is critical to avoid severe penalties and frozen Input Tax Credit (ITC) for your buyers.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">What is e-Invoicing Under GST?</h2>
+            <p class="mb-4">e-Invoicing is not creating invoices on a computer or emailing a PDF. Under GST Rule 48(4), e-invoicing means electronically authenticating your B2B invoice data on the government's <strong>Invoice Registration Portal (IRP)</strong> (such as einvoice1.gst.gov.in).</p>
+            <p class="mb-4">Once authenticated, the IRP generates two mandatory security elements:</p>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>IRN (Invoice Reference Number):</strong> A unique 64-character alphanumeric hash code.</li>
+                <li><strong>Digitally Signed QR Code:</strong> Contains key invoice details readable offline by tax officers.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Mandatory Threshold Limits & Applicability (2026)</h2>
+            <p class="mb-4">e-Invoicing applies to any GST-registered entity whose <strong>Aggregate Annual Turnover (AATO)</strong> exceeded the specified limit in <em>any</em> preceding financial year from 2017-18 onwards.</p>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Phase</th>
+                            <th class="p-3 border border-slate-200">Turnover Threshold</th>
+                            <th class="p-3 border border-slate-200">Status in 2026</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-3 border border-slate-200 font-medium">Phase I - IV</td>
+                            <td class="p-3 border border-slate-200">Above ₹20 Crores</td>
+                            <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">Fully Mandatory</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-3 border border-slate-200 font-medium">Phase V</td>
+                            <td class="p-3 border border-slate-200">Above ₹10 Crores</td>
+                            <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">Fully Mandatory</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 border border-slate-200 font-medium">Phase VI</td>
+                            <td class="p-3 border border-slate-200">Above ₹5 Crores</td>
+                            <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">Mandatory for all B2B & Exports</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Are B2C (Consumer) Invoices Subject to e-Invoicing?</h2>
+            <p class="mb-4">No. <strong>e-Invoicing applies strictly to B2B supplies, supplies to SEZs, Deemed Exports, and Export invoices.</strong> If you sell directly to end consumers (B2C), you do not need an IRN from the IRP, but large entities require dynamic B2C UPI QR codes for digital payment collection.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">What Happens if You Issue an Invoice Without an IRN?</h2>
+            <p class="mb-4">Under Section 122 of the CGST Act, an invoice issued without a valid IRN (when mandated) is legally considered <strong>invalid</strong>:</p>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Penalty on Seller:</strong> 100% of the tax due or ₹10,000 (whichever is higher) for every incorrect invoice.</li>
+                <li><strong>Loss of ITC for Buyer:</strong> Your customer cannot legally claim Input Tax Credit on an invoice lacking a validated IRN QR code.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">How Small Businesses & MSMEs Can Prepare</h2>
+            <p class="mb-4">For small businesses, freelancers, and growing suppliers, maintaining clean sequential invoicing records is the first defense. Use MsgBill's free invoice generator to generate compliant, beautifully structured tax invoices with all statutory Rule 46 fields, GSTINs, HSN codes, and instant UPI payment links.</p>
+
+            <div class="bg-emerald-50 dark:bg-emerald-950/40 p-6 rounded-2xl my-8 border border-emerald-100 dark:border-emerald-800">
+                <h3 class="font-bold text-emerald-900 dark:text-emerald-200 mb-2">Create a 100% Compliant GST Invoice in 10 Seconds</h3>
+                <p class="text-emerald-800 dark:text-emerald-300 text-sm mb-4">No login required. Generate professional PDF invoices with automatic CGST, SGST, and IGST calculations, plus instant WhatsApp sharing.</p>
+                <a href="/free-invoice-generator" class="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-md text-sm">Open Free Invoice Generator →</a>
+            </div>
+        `
+    },
+
+    "kirana-store-bill-format-upi-qr-code": {
+        title: "Kirana & Retail Store Bill Format (2026 Guide): Mandatory GST Fields, UPI QR Code & Free Bill Maker",
+        date: "2026-03-12",
+        author: "MsgBill Team",
+        category: "Retail & GST",
+        content: `
+            <p class="mb-6 text-lg">In Indian retail, customer speed at the counter is everything. Whether you run a neighborhood Kirana store, a provision mart, or a busy supermarket, giving customers a quick, professional receipt with an instant UPI QR code cuts billing time in half and eliminates cash change disputes.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Do Kirana Stores Need to Issue GST Invoices?</h2>
+            <p class="mb-4">Under Section 31(3)(b) of the CGST Act, a registered retail shopkeeper is not required to issue a tax invoice if the sale value is less than <strong>₹200</strong>, provided the customer does not ask for one. However, if the purchase exceeds ₹200 or the buyer specifically requests a receipt, issuing a clean bill or cash memo is legally required.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Key Elements of a Modern Retail Receipt</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Store Identity:</strong> Shop Name, address, and contact number.</li>
+                <li><strong>GSTIN:</strong> Mandatory if your shop is registered under regular or composition GST.</li>
+                <li><strong>Date & Bill Number:</strong> Consecutive serial numbering for audit compliance.</li>
+                <li><strong>Line Items:</strong> Item description, quantity, rate, and net total.</li>
+                <li><strong>Dynamic UPI QR Code:</strong> Allows the customer to scan directly from the receipt or phone screen to pay via Google Pay, PhonePe, or Paytm in 3 seconds.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Why Paperless WhatsApp Receipts Beat Thermal Paper</h2>
+            <p class="mb-4">Traditional POS thermal rolls cost ₹30 to ₹60 per roll, fade within weeks, and get discarded by customers immediately. Forward-thinking Indian retailers now offer WhatsApp receipts:</p>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li>Save hundreds of rupees monthly on paper rolls and printer maintenance.</li>
+                <li>Capture the customer's mobile number legitimately for repeat offers and festival greetings.</li>
+                <li>Customers love having digital receipts saved permanently on their phones.</li>
+            </ol>
+
+            <div class="bg-emerald-50 dark:bg-emerald-950/40 p-6 rounded-2xl my-8 border border-emerald-100 dark:border-emerald-800">
+                <h3 class="font-bold text-emerald-900 dark:text-emerald-200 mb-2">Create Retail Bills on Any Phone or PC with MsgBill</h3>
+                <p class="text-emerald-800 dark:text-emerald-300 text-sm mb-4">Zero hardware setup needed. Open the free generator, enter items, and send digital bills directly to your customer's WhatsApp.</p>
+                <a href="/free-invoice-generator" class="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-md text-sm">Generate Free Retail Bill →</a>
+            </div>
+        `
+    },
+
+    "free-vyapar-app-alternative-pc-mobile": {
+        title: "Top Free Vyapar Alternatives for PC & Mobile in 2026 (No Cost Comparison)",
+        date: "2026-03-13",
+        author: "MsgBill Team",
+        category: "Software Comparison",
+        content: `
+            <p class="mb-6 text-lg">Vyapar has long been a popular desktop billing software for Indian small businesses. However, with their annual subscription prices rising to ₹2,399 – ₹3,299 per device and strict hardware locking, thousands of small business owners, freelancers, and retail shops are actively looking for lightweight, modern, and free alternatives.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Why Indian Businesses Are Looking Beyond Desktop Software</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Hardware Traps:</strong> Traditional desktop apps trap your financial data on a single Windows PC. If the PC crashes, billing stops.</li>
+                <li><strong>Heavy Installation:</strong> Desktop accounting suites require high RAM, frequent updates, and manual backup setups.</li>
+                <li><strong>No Real-Time WhatsApp Delivery:</strong> Exporting PDFs from desktop software to manually attach in WhatsApp Web wastes precious customer minutes.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Top 3 Free Alternatives in 2026</h2>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Software</th>
+                            <th class="p-3 border border-slate-200">Starting Price</th>
+                            <th class="p-3 border border-slate-200">Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-3 border border-slate-200 font-semibold text-emerald-600">MsgBill.com</td>
+                            <td class="p-3 border border-slate-200 font-bold">100% Free Instant Generator</td>
+                            <td class="p-3 border border-slate-200">Fast 10-second WhatsApp bills & UPI payments on any device</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-3 border border-slate-200 font-semibold">Zoho Invoice</td>
+                            <td class="p-3 border border-slate-200">Free (Complex Setup)</td>
+                            <td class="p-3 border border-slate-200">Service companies needing time-tracking and project billing</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 border border-slate-200 font-semibold">MyBillBook</td>
+                            <td class="p-3 border border-slate-200">Paid after trial (₹1,500+)</td>
+                            <td class="p-3 border border-slate-200">Wholesale distributors needing warehouse inventory sync</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">The Verdict: Why MsgBill Wins on Mobile Speed</h2>
+            <p class="mb-4">If you need double-entry accounting with audit trails, heavy desktop software makes sense. But if your goal is to generate clean GST bills, get paid instantly via UPI, and share receipts directly on WhatsApp without paying expensive renewal fees, MsgBill provides the fastest solution in Bharat.</p>
+
+            <div class="bg-emerald-50 dark:bg-emerald-950/40 p-6 rounded-2xl my-8 border border-emerald-100 dark:border-emerald-800">
+                <h3 class="font-bold text-emerald-900 dark:text-emerald-200 mb-2">Try the 100% Free Invoice Generator Today</h3>
+                <p class="text-emerald-800 dark:text-emerald-300 text-sm mb-4">No software download, no credit card, and no signup needed to create your first bill.</p>
+                <a href="/free-invoice-generator" class="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-md text-sm">Open Free Generator →</a>
+            </div>
+        `
+    },
+
+    "garment-shop-cash-memo-format-gst": {
+        title: "Garment & Clothing Store Cash Memo Format (2026 GST Retail Guide)",
+        date: "2026-03-14",
+        author: "MsgBill Team",
+        category: "Retail & GST",
+        content: `
+            <p class="mb-6 text-lg">Running a clothing store, boutique, or textile showroom in India requires fast counter billing with accurate apparel HSN codes and GST slab calculation. Giving customers a professional cash memo builds trust and streamlines size exchange requests.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">GST Slabs & HSN Codes for Garments in 2026</h2>
+            <p class="mb-4">Apparel items fall under Chapter 61 (knitted) and Chapter 62 (not knitted) of the GST tariff:</p>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Sale Value Up to ₹1,000 per piece:</strong> 5% GST (2.5% CGST + 2.5% SGST).</li>
+                <li><strong>Sale Value Exceeding ₹1,000 per piece:</strong> 12% GST (6% CGST + 6% SGST).</li>
+                <li><strong>Custom Tailoring & Job Work:</strong> 5% or 12% depending on whether materials are supplied by the customer or boutique.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Essential Fields on a Clothing Store Cash Memo</h2>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li><strong>Store Branding:</strong> Boutique Name, address, phone number, and Instagram handle.</li>
+                <li><strong>Item Breakdown:</strong> Apparel category, size, color, quantity, unit price, and discount percentage.</li>
+                <li><strong>Clear Return / Exchange Policy:</strong> E.g., "Exchange allowed within 7 days with original cash memo and tags attached."</li>
+                <li><strong>Payment Mode:</strong> Cash, Card, or UPI Reference ID.</li>
+            </ol>
+
+            <div class="bg-emerald-50 dark:bg-emerald-950/40 p-6 rounded-2xl my-8 border border-emerald-100 dark:border-emerald-800">
+                <h3 class="font-bold text-emerald-900 dark:text-emerald-200 mb-2">Generate Instant Clothing Bills with MsgBill</h3>
+                <p class="text-emerald-800 dark:text-emerald-300 text-sm mb-4">Support 5% and 12% GST slabs with automatic tax splits. Print A4, thermal, or send directly to customer's WhatsApp.</p>
+                <a href="/free-invoice-generator" class="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-md text-sm">Create Free Garment Bill →</a>
+            </div>
+        `
+    },
+
+    "freelance-developer-gst-exemption-under-20-lakhs": {
+        title: "Freelance Developer & Creator GST Exemption: 20 Lakhs Limit, LUT & Export Rules (2026)",
+        date: "2026-03-15",
+        author: "MsgBill Team",
+        category: "Freelancing",
+        content: `
+            <p class="mb-6 text-lg">If you are a remote software engineer, UI/UX designer, digital marketer, or content creator in India earning income from domestic or overseas clients, understanding GST applicability is critical to prevent unexpected tax notices and bank freezes.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">The ₹20 Lakh Exemption Threshold (Domestic Clients)</h2>
+            <p class="mb-4">Under Section 22 of the CGST Act, service providers whose aggregate annual turnover is below <strong>₹20 Lakhs</strong> (₹10 Lakhs in special category states) are <strong>not legally required to register for GST</strong> for intra-state supplies.</p>
+            <p class="mb-4">If you bill domestic clients in India and stay below ₹20 Lakhs, you can issue standard non-GST commercial invoices or bills of supply without charging tax.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Export of Services to Foreign Clients (Zero-Rated Supply)</h2>
+            <p class="mb-4">When you work with foreign clients (US, UK, Europe, UAE) on Upwork, Fiverr, or direct contracts and receive payment in convertible foreign exchange (via Wise, Stripe, PayPal, or Bank Wire), your work is classified as <strong>Export of Services</strong> under Section 2(6) of the IGST Act.</p>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Export of services is treated as a <strong>Zero-Rated Supply</strong> (0% tax).</li>
+                <li>By filing an annual online <strong>Letter of Undertaking (LUT)</strong> on the GST portal (Form GST RFD-11), you can invoice international clients legally with 0% IGST without paying tax upfront.</li>
+                <li>Always request a <strong>FIRC (Foreign Inward Remittance Certificate)</strong> or e-BRC from your receiving bank as proof of export.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Professional Invoicing for Tech Freelancers</h2>
+            <p class="mb-4">Foreign clients expect clean, structured PDF invoices detailing project milestones, hourly rates, wire routing numbers (SWIFT/BIC codes), and payment terms. MsgBill allows tech professionals to create polished, international-grade invoices in seconds.</p>
+
+            <div class="bg-emerald-50 dark:bg-emerald-950/40 p-6 rounded-2xl my-8 border border-emerald-100 dark:border-emerald-800">
+                <h3 class="font-bold text-emerald-900 dark:text-emerald-200 mb-2">Create Professional Freelance Invoices for Free</h3>
+                <p class="text-emerald-800 dark:text-emerald-300 text-sm mb-4">Generate international invoices with 0% LUT or standard domestic GST in seconds. Download clean PDFs ready for client delivery.</p>
+                <a href="/free-invoice-generator" class="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-md text-sm">Generate Free Freelance Invoice →</a>
+            </div>
+        `
+    },
+
 };
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
