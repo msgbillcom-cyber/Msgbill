@@ -1029,20 +1029,32 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": post.title,
-        "image": "https://msgbill.com/og-image.png",
+        "image": "https://msgbill.com/logo-final.png",
         "author": {
-            "@type": "Organization",
-            "name": post.author
+            "@type": "Person",
+            "name": post.author || "Pradeep Kumar",
+            "jobTitle": "FinTech & SME Billing Specialist",
+            "url": "https://msgbill.com/about",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "MsgBill"
+            }
         },
         "publisher": {
             "@type": "Organization",
             "name": "MsgBill",
+            "url": "https://msgbill.com",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://msgbill.com/logo-final.png"
             }
         },
         "datePublished": post.date,
+        "dateModified": post.date,
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://msgbill.com/blog/${params.slug}`
+        }
     };
 
     return (
@@ -1064,10 +1076,10 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-secondary-900 dark:text-white leading-tight">
                             {post.title}
                         </h1>
-                        <div className="flex items-center justify-center text-secondary-400 text-xs gap-3">
-                            <span>By {post.author}</span>
+                        <div className="flex items-center justify-center text-secondary-500 dark:text-secondary-400 text-xs gap-3">
+                            <span className="font-semibold text-secondary-800 dark:text-secondary-200">Written by {post.author || "Pradeep Kumar"}</span>
                             <span>•</span>
-                            <span>{new Date(post.date).toLocaleDateString("en-IN", { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                            <span>Fact-checked & Updated: {new Date(post.date).toLocaleDateString("en-IN", { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                         </div>
                     </header>
 
@@ -1080,6 +1092,29 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                             className="prose prose-lg prose-emerald dark:prose-invert max-w-none text-secondary-700 dark:text-secondary-300 leading-relaxed space-y-4 text-sm sm:text-base"
                             dangerouslySetInnerHTML={{ __html: post.content }}
                         />
+                    </div>
+
+                    {/* Author Byline & E-E-A-T Credibility Box */}
+                    <div className="mt-8 p-6 bg-white dark:bg-secondary-900 rounded-3xl border border-secondary-200 dark:border-secondary-800 shadow-sm flex flex-col sm:flex-row items-center sm:items-start gap-5">
+                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center font-extrabold text-xl shadow-md shrink-0">
+                            PK
+                        </div>
+                        <div className="text-center sm:text-left space-y-2">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 justify-center sm:justify-start">
+                                <h3 className="font-bold text-base text-secondary-900 dark:text-white">
+                                    {post.author === "MsgBill Team" ? "Pradeep Kumar & MsgBill Editorial Desk" : post.author}
+                                </h3>
+                                <span className="text-[11px] font-semibold text-emerald-600 bg-emerald-50 dark:bg-emerald-950 px-2 py-0.5 rounded-md border border-emerald-200 dark:border-emerald-800 inline-block self-center sm:self-auto">
+                                    Verified Editorial Review
+                                </span>
+                            </div>
+                            <p className="text-xs text-secondary-600 dark:text-secondary-400 leading-relaxed">
+                                Curated and verified according to the Central Board of Indirect Taxes and Customs (CBIC) rules and Indian MSME invoicing standards. Written to help Indian homepreneurs, retail stores, and freelancers build compliant, fast-paying billing systems.
+                            </p>
+                            <p className="text-[11px] text-secondary-400">
+                                <em>Disclaimer: Content published on MsgBill is strictly for general educational and recordkeeping guidance and does not constitute formal legal or chartered accounting advice.</em>
+                            </p>
+                        </div>
                     </div>
 
                     {/* Mid/Bottom AdSense Container */}

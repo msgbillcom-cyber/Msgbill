@@ -55,25 +55,25 @@ export default function AdSenseAd({
                     data-full-width-responsive={responsive ? "true" : "false"}
                 />
             ) : (
-                <div className="w-full py-4 px-6 rounded-xl border border-dashed border-secondary-200 bg-secondary-50/70 dark:bg-secondary-800/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
+                <div className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-primary-500/10 border border-emerald-200/60 dark:border-emerald-800/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
                     <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-lg bg-primary-100 dark:bg-primary-950/50 flex items-center justify-center text-primary-600 font-bold text-sm">
-                            AD
+                        <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shadow-sm">
+                            ₹
                         </div>
                         <div>
-                            <p className="text-xs font-semibold text-secondary-800 dark:text-secondary-200">
-                                Sponsor slot (AdSense pending config)
+                            <p className="text-xs font-bold text-secondary-900 dark:text-white">
+                                Instant GST Invoicing for Indian SMBs
                             </p>
-                            <p className="text-[11px] text-secondary-500">
-                                Free GST bills on WhatsApp — no login required on the generator.
+                            <p className="text-[11px] text-secondary-600 dark:text-secondary-400">
+                                Create GST invoices and cash memos in seconds. Send directly over WhatsApp.
                             </p>
                         </div>
                     </div>
                     <a
-                        href="/auth/signup"
-                        className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-white dark:bg-secondary-900 border border-secondary-200 hover:border-primary-500 text-primary-600 transition-colors shadow-sm whitespace-nowrap"
+                        href="/free-invoice-generator"
+                        className="text-xs font-bold px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white transition-all shadow-sm whitespace-nowrap"
                     >
-                        Sign Up Free (No Ads) →
+                        Try Free Bill Generator →
                     </a>
                 </div>
             )}

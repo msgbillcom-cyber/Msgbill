@@ -51,15 +51,15 @@ export default function ContactPage() {
                                     <MessageSquare className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-secondary-900 dark:text-white text-base">WhatsApp Support</h3>
-                                    <p className="text-xs text-secondary-500 mt-1">Direct chat support for active business users.</p>
+                                    <h3 className="font-bold text-secondary-900 dark:text-white text-base">WhatsApp Desk</h3>
+                                    <p className="text-xs text-secondary-500 mt-1">Direct inquiries & feedback for registered businesses.</p>
                                     <a
-                                        href="https://wa.me/919900000000?text=Hi%20MsgBill%20Team%2C%20I%20need%20help%20with%20my%20account"
+                                        href="https://wa.me/?text=Hi%20MsgBill%20Team%2C%20I%20have%20an%20inquiry%20regarding%20MsgBill"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-sm font-semibold text-[#25D366] hover:underline mt-2 inline-block"
                                     >
-                                        Chat with MsgBill Desk →
+                                        Message MsgBill Desk →
                                     </a>
                                 </div>
                             </div>

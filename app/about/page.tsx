@@ -34,25 +34,22 @@ export default function AboutPage() {
                 </section>
 
                 {/* Our Story Section */}
-                <section className="py-20 lg:py-32">
+                <section className="py-20 lg:py-28">
                     <div className="container-wide">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div className="space-y-6">
                                 <h2 className="text-3xl font-bold text-secondary-900">
-                                    The Problem
+                                    Why We Built MsgBill
                                 </h2>
                                 <p className="text-lg text-secondary-600 leading-relaxed">
                                     In India, business happens on WhatsApp. Deals are struck, orders are taken, 
                                     and relationships are built—all in chat.
                                 </p>
                                 <p className="text-lg text-secondary-600 leading-relaxed">
-                                    But when it comes to asking for payment, the flow breaks. 
-                                    Business owners have to switch to complex accounting software, 
-                                    create a PDF, download it, and send it back to WhatsApp. 
-                                    Or worse, they scribble on paper and send a photo.
+                                    Yet traditional accounting software like Tally or heavy desktop ERPs were never designed for modern mobile-first Indian commerce. Small merchants, home bakers, coaches, clinics, and freelance developers spend hours wrestling with confusing software just to send a basic bill.
                                 </p>
                                 <p className="text-lg text-secondary-900 font-medium leading-relaxed">
-                                    It's slow, unprofessional, and hurts cash flow.
+                                    MsgBill bridges this gap by providing instant, 10-second GST-compliant billing, dynamic UPI QR codes, and seamless WhatsApp delivery with zero complex setup.
                                 </p>
                             </div>
                             <div className="bg-primary-50 p-8 rounded-3xl border border-primary-100">
@@ -66,15 +63,15 @@ export default function AboutPage() {
                                     <ul className="space-y-4">
                                         <li className="flex items-start gap-3">
                                             <span className="text-2xl">⚡</span>
-                                            <span className="text-secondary-700 font-medium">Create invoices in under 60 seconds</span>
+                                            <span className="text-secondary-700 font-medium">Create invoices in under 60 seconds with no signup required</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <span className="text-2xl">💬</span>
-                                            <span className="text-secondary-700 font-medium">Share directly via WhatsApp</span>
+                                            <span className="text-secondary-700 font-medium">Share clean PDF invoices and UPI deep links directly via WhatsApp</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <span className="text-2xl">🇮🇳</span>
-                                            <span className="text-secondary-700 font-medium">100% compliant with Indian GST laws</span>
+                                            <span className="text-secondary-700 font-medium">Fully aligned with Indian GST Rule 46, CGST/SGST/IGST slabs, and MSME thresholds</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -83,8 +80,49 @@ export default function AboutPage() {
                     </div>
                 </section>
 
+                {/* Editorial & Authorship Standards (E-E-A-T for AdSense) */}
+                <section className="py-16 bg-slate-50 border-y border-slate-200">
+                    <div className="container-wide">
+                        <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
+                            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/70 px-3 py-1 rounded-full">
+                                Editorial Transparency & Standards
+                            </span>
+                            <h2 className="text-3xl font-extrabold text-secondary-900">
+                                Trust, Research & Subject-Matter Expertise
+                            </h2>
+                            <p className="text-secondary-600 text-sm">
+                                Every guide, comparison, and invoice template on MsgBill is researched and reviewed against official Central Board of Indirect Taxes and Customs (CBIC) notifications and RBI digital payment standards.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                            <div className="bg-white p-8 rounded-3xl border border-secondary-200 shadow-sm space-y-4">
+                                <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">
+                                    PK
+                                </div>
+                                <h3 className="text-xl font-bold text-secondary-900">Pradeep Kumar</h3>
+                                <p className="text-xs font-semibold text-emerald-600">Lead Product Architect & SME FinTech Specialist</p>
+                                <p className="text-xs text-secondary-600 leading-relaxed">
+                                    Passionate about streamlining business operations for Indian entrepreneurs. Pradeep oversees the product development and tax research desk at MsgBill, ensuring that every invoice structure adheres strictly to the GST Act.
+                                </p>
+                            </div>
+
+                            <div className="bg-white p-8 rounded-3xl border border-secondary-200 shadow-sm space-y-4">
+                                <div className="w-12 h-12 rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-lg">
+                                    📝
+                                </div>
+                                <h3 className="text-xl font-bold text-secondary-900">Our Editorial Guarantee</h3>
+                                <p className="text-xs font-semibold text-teal-600">Fact-Checked & Regularly Updated</p>
+                                <p className="text-xs text-secondary-600 leading-relaxed">
+                                    We do not publish auto-generated thin content or unverified tips. Our articles feature real-world calculation tables, SAC/HSN codes, and actionable walk-throughs to protect small business owners from tax filing penalties and late payment traps.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Values Section */}
-                <section className="py-20 lg:py-32 bg-secondary-900 text-white">
+                <section className="py-20 lg:py-28 bg-secondary-900 text-white">
                     <div className="container-wide">
                         <div className="text-center max-w-3xl mx-auto mb-16">
                             <h2 className="text-3xl lg:text-4xl font-bold mb-6">
