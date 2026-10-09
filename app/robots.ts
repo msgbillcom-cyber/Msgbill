@@ -4,8 +4,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      allow: ['/', '/blog/', '/blog/*'],
-      disallow: ['/dashboard/', '/api/', '/auth/'],
+      allow: '/',
+      disallow: ['/dashboard/', '/api/', '/auth/callback'],
     },
     sitemap: 'https://msgbill.com/sitemap.xml',
   };
