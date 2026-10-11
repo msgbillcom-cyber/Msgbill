@@ -21,6 +21,15 @@ export const metadata: Metadata = {
         "send invoice on whatsapp",
         "freelancer bill maker india",
         "free invoicing tool",
+        "bill kaise banaye",
+        "gst bill maker online",
+        "quotation maker free",
+        "estimate bill maker",
+        "upi qr code bill maker",
+        "kirana bill format",
+        "billing app for small business",
+        "tax invoice format india",
+        "thermal receipt maker"
     ],
     openGraph: {
         title: "Free GST Invoice Generator (No Sign Up Needed) | MsgBill",
