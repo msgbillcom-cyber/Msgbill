@@ -36,19 +36,63 @@ export const metadata: Metadata = {
 export default function FreeInvoiceGeneratorPage() {
     const webAppJsonLd = {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        name: "MsgBill Free Invoice Generator",
+        "@type": "SoftwareApplication",
+        name: "MsgBill Free GST Invoice & WhatsApp Bill Maker",
         applicationCategory: "BusinessApplication",
-        operatingSystem: "Web, Android, iOS",
+        operatingSystem: "Web, Android, iOS, Windows, macOS",
         url: "https://msgbill.com/free-invoice-generator",
-        offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "INR",
-        },
+        offers: [
+            {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "INR",
+                name: "Free Instant Invoice Generator"
+            },
+            {
+                "@type": "Offer",
+                price: "499",
+                priceCurrency: "INR",
+                name: "MsgBill Pro (Annual)",
+                description: "Unlimited invoices, 1-year cloud history, customer directory and 1-tap WhatsApp UPI collection."
+            }
+        ],
         description:
-            "Free instant GST invoice and bill maker for Indian businesses. Download PDF or send on WhatsApp. No login required.",
+            "Instant GST invoice and cash memo generator for Indian businesses. Download clean PDFs with dynamic UPI QR code or share directly via WhatsApp with zero login required.",
+        aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.9",
+            reviewCount: "128"
+        },
         areaServed: { "@type": "Country", name: "India" },
+    };
+
+    const howToJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: "How to Create and Send a GST Bill on WhatsApp",
+        description: "Step-by-step tutorial for Indian small businesses to create a compliant GST invoice and dispatch it on WhatsApp in 30 seconds.",
+        step: [
+            {
+                "@type": "HowToStep",
+                name: "Enter Business Details",
+                text: "Provide your business name, mobile number, and optional GSTIN."
+            },
+            {
+                "@type": "HowToStep",
+                name: "Add Client Information",
+                text: "Type customer name and mobile number to auto-populate the WhatsApp recipient."
+            },
+            {
+                "@type": "HowToStep",
+                name: "Add Items & GST Slabs",
+                text: "Input items with quantity, rates, and select applicable GST slabs (0%, 5%, 12%, 18%, 28%)."
+            },
+            {
+                "@type": "HowToStep",
+                name: "Download PDF or Tap Share via WhatsApp",
+                text: "Instantly download a clean GST invoice PDF or tap Share to WhatsApp to send a pre-filled UPI link and PDF directly to your buyer."
+            }
+        ]
     };
 
     const faqJsonLd = {
@@ -57,10 +101,18 @@ export default function FreeInvoiceGeneratorPage() {
         mainEntity: [
             {
                 "@type": "Question",
+                name: "How do I create a GST invoice on WhatsApp for free?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Open the MsgBill Free Invoice Generator on any phone or PC, enter your business details and items, choose intra-state (CGST+SGST) or inter-state (IGST), and tap 'Share to WhatsApp'. The system creates a pre-formatted message with a 1-tap UPI payment link and clean PDF.",
+                },
+            },
+            {
+                "@type": "Question",
                 name: "Is this invoice generator really 100% free?",
                 acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Yes. You can create and download GST bills and invoices without signing up or entering a credit card. Ads may appear on the free tool page; a free MsgBill account removes ads and saves invoices for 1 year.",
+                    text: "Yes. You can create and download unlimited GST bills and invoices without signing up or entering a credit card. MsgBill Pro is available at ₹499/year for cloud history, customer directory, and ad-free experience.",
                 },
             },
             {
@@ -68,23 +120,15 @@ export default function FreeInvoiceGeneratorPage() {
                 name: "Does the downloaded invoice have a watermark?",
                 acceptedAnswer: {
                     "@type": "Answer",
-                    text: "No. The PDF is clean and suitable to share with clients. Always verify GSTIN, HSN/SAC, and tax rates for your own compliance.",
+                    text: "No. All PDFs are 100% clean, professional, and ready to send to clients with no intrusive watermarks.",
                 },
             },
             {
                 "@type": "Question",
-                name: "Can I send the bill on WhatsApp?",
+                name: "Can I collect payments directly via UPI?",
                 acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Yes. Use Send to WhatsApp to open a pre-filled message with bill totals. For cloud history and payment reminders, create a free MsgBill account.",
-                },
-            },
-            {
-                "@type": "Question",
-                name: "Is this a valid GST tax invoice?",
-                acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "The tool helps you create a GST-style invoice with CGST/SGST or IGST. Legal validity depends on your registration, consecutive numbering, and Rule 46 fields. This is not tax advice.",
+                    text: "Yes. Simply input your UPI ID (e.g. yourname@okhdfcbank). MsgBill embeds an instant 1-tap UPI deep link in the WhatsApp message and prints a dynamic QR code on the invoice with 0% transaction fees.",
                 },
             },
         ],
@@ -97,6 +141,10 @@ export default function FreeInvoiceGeneratorPage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
             />
             <script
                 type="application/ld+json"

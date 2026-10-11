@@ -461,24 +461,29 @@ export default function FreeInvoiceGenerator() {
 
     return (
         <div className="w-full max-w-5xl mx-auto space-y-8">
-            {/* Conversion Banner: Log in to remove ads */}
-            <div className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-2xl p-5 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
-                        <Sparkles className="w-5 h-5 text-emerald-200" />
+            {/* Conversion Banner: Upgrade to Pro & Save Bills */}
+            <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-primary-700 text-white rounded-2xl p-5 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4 border border-emerald-400/30">
+                <div className="flex items-center gap-3.5">
+                    <div className="w-11 h-11 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center shrink-0 border border-white/25">
+                        <Sparkles className="w-6 h-6 text-emerald-200" />
                     </div>
                     <div>
-                        <h3 className="font-bold text-base">Want an Ad-Free Invoicing Experience?</h3>
-                        <p className="text-xs text-emerald-100">
-                            Create a Free MsgBill Account to save your clients, store invoices for 1 year, and send 1-click WhatsApp bills with UPI QR codes.
+                        <div className="flex items-center gap-2">
+                            <h3 className="font-bold text-base">Save Clients & Store Invoices for 1 Year</h3>
+                            <span className="bg-amber-400 text-slate-950 text-[10px] font-black uppercase px-2 py-0.5 rounded-full tracking-wider shadow-sm">
+                                ₹499/Year Flat
+                            </span>
+                        </div>
+                        <p className="text-xs text-emerald-100 mt-0.5">
+                            Upgrade to MsgBill Pro: Unlimited GST invoices, customer directory, ad-free experience & 1-tap WhatsApp UPI collection.
                         </p>
                     </div>
                 </div>
                 <Link
-                    href="/auth/signup"
-                    className="px-5 py-2.5 bg-white text-emerald-800 font-bold rounded-xl text-xs hover:bg-emerald-50 transition-all shadow-md shrink-0 whitespace-nowrap"
+                    href="/pricing"
+                    className="px-5 py-2.5 bg-white text-emerald-800 font-extrabold rounded-xl text-xs hover:bg-emerald-50 transition-all shadow-md shrink-0 whitespace-nowrap"
                 >
-                    Sign Up Free (No Ads) →
+                    Get MsgBill Pro →
                 </Link>
             </div>
 
