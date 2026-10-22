@@ -28,7 +28,7 @@ software still relies on email—which your clients rarely check.
 
 ### Step 1: Create Your Invoice
 
-Use any tool - Excel, Word, Google Docs, or [MsgBill](https://invoiceease.in)
+Use any tool - Excel, Word, Google Docs, or [MsgBill](https://msgbill.com)
 
 ### Step 2: Save as PDF
 
@@ -68,7 +68,7 @@ sharing
 
 #### Step 1: Create Invoice (30 seconds)
 
-1. Go to [MsgBill Dashboard](https://invoiceease.in/dashboard)
+1. Go to [MsgBill Dashboard](https://msgbill.com/dashboard)
 2. Click "New Invoice"
 3. Fill client details
 4. Add items/services
@@ -94,7 +94,7 @@ sharing
 auto-included** (Instant Payments) ✅ **Track when client views** invoice ✅
 **GST auto-calculated** (CGST/SGST/IGST) ✅ **Unlimited Free Invoices**
 
-[Try MsgBill Free →](https://invoiceease.in/auth/signup)
+[Try MsgBill Free →](https://msgbill.com/auth/signup)
 
 ---
 
@@ -301,7 +301,7 @@ read messages. However:
 
 Get our professionally designed, GST-compliant invoice template for Excel:
 
-[Download Free Template →](https://invoiceease.in/templates/gst-invoice)
+[Download Free Template →](https://msgbill.com/free-invoice-generator)
 
 **Includes:**
 
@@ -325,22 +325,22 @@ use MsgBill, the key is meeting your clients where they already are—on WhatsAp
 
 **Ready to get paid 10x faster?**
 
-[Start Free Trial - No Credit Card Required →](https://invoiceease.in/auth/signup)
+[Start Free Trial - No Credit Card Required →](https://msgbill.com/auth/signup)
 
 ---
 
 ## Related Articles
 
-- [MsgBill vs Vyapar: Which is Better?](https://invoiceease.in/blog/msgbill-vs-vyapar)
-- [GST Invoice Format: Complete Guide](https://invoiceease.in/blog/gst-invoice-guide)
-- [How to Collect Payments Faster in India](https://invoiceease.in/blog/payment-collection)
+- [MsgBill vs Vyapar: Which is Better?](https://msgbill.com/blog/msgbill-vs-vyapar)
+- [GST Invoice Format: Complete Guide](https://msgbill.com/blog/gst-invoice-guide)
+- [How to Collect Payments Faster in India](https://msgbill.com/blog/whatsapp-invoice-guide)
 
 ---
 
 **Was this helpful? Share with other business owners on WhatsApp!** 👆
 
-**Questions? Comment below or [contact us](https://invoiceease.in/contact)** 💬
+**Questions? Comment below or [contact us](https://msgbill.com/contact)** 💬
 
 ---
 
-_Last updated: January 28, 2026 | [MsgBill Blog](https://invoiceease.in/blog)_
+_Last updated: January 28, 2026 | [MsgBill Blog](https://msgbill.com/blog)_

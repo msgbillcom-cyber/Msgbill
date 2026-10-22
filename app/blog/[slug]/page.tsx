@@ -1002,6 +1002,12 @@ const blogPosts: Record<string, any> = {
 
 };
 
+export async function generateStaticParams() {
+    return Object.keys(blogPosts).map((slug) => ({
+        slug,
+    }));
+}
+
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
     const post = blogPosts[params.slug];
     if (!post) return { title: "Post Not Found | MsgBill Blog" };
