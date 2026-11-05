@@ -6,6 +6,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
+export const dynamicParams = false;
+
 // Master Blog Content Dictionary (15 In-Depth Articles)
 const blogPosts: Record<string, any> = {
     "salon-spa-gst-invoice-format-india": {
@@ -2023,14 +2025,17 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
     const post = blogPosts[params.slug];
-    if (!post) return { title: "Post Not Found | MsgBill Blog" };
+    if (!post) return { title: "Post Not Found | MsgBill Blog", robots: { index: false, follow: false } };
 
+    const url = `https://msgbill.com/blog/${params.slug}`;
     return {
         title: `${post.title} | MsgBill Blog`,
         description: `Read: ${post.title}. Comprehensive ${post.category} guide for Indian businesses by MsgBill.`,
+        alternates: { canonical: url },
         openGraph: {
             title: post.title,
             type: "article",
+            url,
             publishedTime: post.date,
             authors: [post.author],
         }
