@@ -20,6 +20,78 @@ export const metadata: Metadata = {
 };
 
 const blogPosts = [
+{
+        "slug": "salon-spa-gst-invoice-format-india",
+        "title": "Salon & Spa GST Invoice Format in India (2026 Guide with SAC Codes)",
+        "excerpt": "Clean GST invoice format for salons, spas and beauty parlours: SAC codes, product vs service lines, membership advances, and WhatsApp billing tips.",
+        "author": "MsgBill Team",
+        "date": "2026-11-06",
+        "readTime": "12 min read",
+        "category": "Retail & GST"
+    },
+    {
+        "slug": "hsn-sac-codes-common-indian-businesses",
+        "title": "HSN & SAC Codes for Common Indian Businesses (Practical 2026 List)",
+        "excerpt": "What HSN and SAC codes mean, how many digits to show on invoices, and commonly used codes for shops, freelancers and service MSMEs — confirm with your CA.",
+        "author": "MsgBill Team",
+        "date": "2026-11-07",
+        "readTime": "11 min read",
+        "category": "GST Compliance"
+    },
+    {
+        "slug": "how-to-add-upi-qr-code-on-invoice",
+        "title": "How to Add a UPI QR Code on an Invoice (Static vs Dynamic Guide)",
+        "excerpt": "Add static or dynamic UPI QR codes to PDF invoices and WhatsApp bills so customers pay the right amount with the invoice reference attached.",
+        "author": "MsgBill Team",
+        "date": "2026-11-08",
+        "readTime": "10 min read",
+        "category": "Payments"
+    },
+    {
+        "slug": "gst-composition-scheme-billing-rules",
+        "title": "GST Composition Scheme Billing Rules: Bill of Supply Format for MSMEs",
+        "excerpt": "Who can opt for composition, why you must not charge GST on bills, bill of supply fields, and when switching to regular GST makes sense.",
+        "author": "MsgBill Team",
+        "date": "2026-11-09",
+        "readTime": "11 min read",
+        "category": "GST Compliance"
+    },
+    {
+        "slug": "restaurant-cafe-bill-format-gst",
+        "title": "Restaurant & Café Bill Format under GST (Dine-In, Takeaway & Cloud Kitchen)",
+        "excerpt": "Practical GST bill format for restaurants and cafés: tax breakup, service charge vs tips, composition vs regular scheme, and thermal/WhatsApp receipts.",
+        "author": "MsgBill Team",
+        "date": "2026-11-10",
+        "readTime": "11 min read",
+        "category": "Retail & GST"
+    },
+    {
+        "slug": "whatsapp-business-catalog-orders-invoicing",
+        "title": "WhatsApp Business Catalog Orders to GST Invoice: Step-by-Step Workflow",
+        "excerpt": "Turn WhatsApp catalog orders into sequential GST invoices with UPI collection, labels, refunds and B2B GSTIN capture for Indian MSMEs.",
+        "author": "MsgBill Team",
+        "date": "2026-11-11",
+        "readTime": "10 min read",
+        "category": "WhatsApp Business"
+    },
+    {
+        "slug": "input-tax-credit-checklist-small-business",
+        "title": "Input Tax Credit Checklist for Small Businesses (GSTR-2B Habit Guide)",
+        "excerpt": "A practical ITC checklist for MSMEs: invoice quality, GSTR-2B reconciliation, blocked credits, reverse charge and year-end hygiene — confirm with your CA.",
+        "author": "MsgBill Team",
+        "date": "2026-11-12",
+        "readTime": "11 min read",
+        "category": "GST Compliance"
+    },
+    {
+        "slug": "late-payment-interest-invoice-india",
+        "title": "Late Payment Interest on Invoices in India: MSME Terms & Collection Tips",
+        "excerpt": "How to print due dates and interest clauses on invoices, high-level MSME delayed-payment orientation, interest math examples, and polite WhatsApp recovery steps.",
+        "author": "MsgBill Team",
+        "date": "2026-11-13",
+        "readTime": "10 min read",
+        "category": "Payments"
+    },
     {
         "slug": "bill-vs-invoice-difference",
         "title": "Bill vs Invoice: What's the Difference? (Explained for Indian Businesses)",
