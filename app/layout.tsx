@@ -114,13 +114,8 @@ export const metadata: Metadata = {
             "google-adsense-account": "ca-pub-2707130870413244",
         },
     },
-    alternates: {
-        canonical: "https://msgbill.com",
-        languages: {
-            "en-IN": "https://msgbill.com",
-            "hi-IN": "https://msgbill.com",
-        },
-    },
+    // Per-page canonicals live on each route (do NOT set a sitewide homepage canonical here —
+    // it made Google treat every blog post as a duplicate of /).
 };
 
 export default function RootLayout({
