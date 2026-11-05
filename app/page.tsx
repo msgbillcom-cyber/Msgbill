@@ -57,18 +57,6 @@ export const metadata: Metadata = {
 export default function Home() { // Changed function name from HomePage to Home
     const features = [
         {
-            title: "WhatsApp Store",
-            description:
-                "Create a product catalog link and let customers order via WhatsApp.",
-            icon: "🛍️",
-        },
-        {
-            title: "Payment Collections",
-            description:
-                "Send automated friendly reminders to recover overdue payments faster.",
-            icon: "🔔",
-        },
-        {
             title: "WhatsApp Invoice Sharing",
             description:
                 "Share invoices directly to your client's WhatsApp in seconds.",
@@ -118,11 +106,6 @@ export default function Home() { // Changed function name from HomePage to Home
                 },
                 "description": "MsgBill: Create bill and invoice on WhatsApp. WhatsApp bill maker & WhatsApp invoice maker for Indian businesses. Free GST invoice, send bill via WhatsApp. Your bills and invoices are stored safely for up to 1 year.",
                 "keywords": "bill, invoice, whatsapp bill, whatsapp invoice, bill on whatsapp, invoice on whatsapp, whatsapp bill maker, whatsapp invoice maker",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.8",
-                    "ratingCount": "1250"
-                },
                 "featureList": [
                     "Bill on WhatsApp",
                     "Invoice on WhatsApp",
@@ -211,7 +194,7 @@ export default function Home() { // Changed function name from HomePage to Home
                                         <span className="relative inline-flex rounded-full h-2 w-2 bg-success-500">
                                         </span>
                                     </span>
-                                    🚀 Start for Free - Upgrade Anytime
+                                    Free GST invoices • No login needed to start
                                 </Badge>
                             </div>
                             <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-secondary-900 animate-slide-in-from-bottom leading-tight">
@@ -248,42 +231,18 @@ export default function Home() { // Changed function name from HomePage to Home
                                         className="shadow-glow bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-700 hover:to-teal-800 text-white font-bold"
                                         leftIcon={<span>⚡</span>}
                                     >
-                                        Free Instant Bill Maker (No Login)
+                                        Make a free GST invoice — no login
                                     </Button>
                                 </Link>
-                                <Link href="/auth/signup">
-                                    <Button
-                                        size="lg"
-                                        className="shadow-glow bg-gradient-to-r from-[#10B981] to-[#059669] hover:from-[#059669] hover:to-[#047857]"
-                                        leftIcon={<span>🚀</span>}
-                                    >
-                                        Start for Free - No Credit Card
-                                    </Button>
-                                </Link>
-                                <Link href="#how-it-works">
-                                    <Button
-                                        variant="outline"
-                                        size="lg"
-                                        leftIcon={<span>📱</span>}
-                                    >
-                                        View Screenshots
-                                    </Button>
-                                </Link>
-                                <Link href="/how-it-works">
-                                    <Button
-                                        variant="outline"
-                                        size="lg"
-                                        className="px-8 py-4 glass-card hover-lift border-2 border-primary-200 hover:border-primary-400 transition-smooth"
-                                    >
-                                        <span className="flex items-center gap-2">
-                                            <span className="text-2xl">▶</span>
-                                            See How it Works
-                                        </span>
-                                    </Button>
+                                <Link
+                                    href="/how-it-works"
+                                    className="text-secondary-700 font-semibold underline underline-offset-4 hover:text-primary-600"
+                                >
+                                    See how it works →
                                 </Link>
                             </div>
                             <p className="text-sm text-secondary-500 animate-fade-in animation-delay-500">
-                                No credit card required • Free 20 invoices/month
+                                No login for the free generator • Free account: 20 invoices/month, no credit card
                             </p>
                         </div>
                     </div>
@@ -305,7 +264,7 @@ export default function Home() { // Changed function name from HomePage to Home
                 <section className="py-12 bg-secondary-50 border-y border-border">
                     <div className="container-wide">
                         <p className="text-center text-sm font-semibold text-secondary-500 uppercase tracking-widest mb-8">
-                            Trusted by 1,000+ Indian entrepreneurs
+                            Built for Indian small businesses
                         </p>
                         <div className="flex flex-wrap items-center justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
                             <span className="text-xl font-bold">
@@ -383,7 +342,7 @@ export default function Home() { // Changed function name from HomePage to Home
                                 <span className="mr-2">🚀</span> Simple Workflow
                             </Badge>
                             <h2 className="text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
-                                From Login to <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent-400">Paid</span> in Minutes
+                                From First Bill to <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent-400">Paid</span> in Minutes
                             </h2>
                             <p className="text-xl text-secondary-400">
                                 Experience the fastest invoicing flow designed for modern businesses.
@@ -391,22 +350,22 @@ export default function Home() { // Changed function name from HomePage to Home
                         </div>
 
                         <div className="space-y-24">
-                            {/* Step 1: Login */}
+                            {/* Step 1: Create a bill (no login) */}
                             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                                 <div className="flex-1 space-y-8 text-center lg:text-left">
                                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-500/20 text-primary-400 text-3xl font-black border border-primary-500/30">
                                         1
                                     </div>
-                                    <h3 className="text-3xl font-bold text-white">Login</h3>
+                                    <h3 className="text-3xl font-bold text-white">Create Your First Bill</h3>
                                     <p className="text-lg text-secondary-400 leading-relaxed">
-                                        Securely sign in to your account.
+                                        Open the free invoice generator and make a GST bill instantly — no login. Sign up later to save clients and history.
                                     </p>
                                 </div>
                                 <div className="flex-1 w-full">
                                     <div className="glass-card p-4 rounded-2xl transform rotate-2 hover:rotate-0 transition-all duration-500 shadow-2xl shadow-primary-500/20">
                                         <img
                                             src="/logo/how%20it%20works/1.png"
-                                            alt="Login"
+                                            alt="Create your first bill"
                                             className="rounded-xl w-full shadow-lg border border-secondary-700/50"
                                         />
                                     </div>
@@ -686,14 +645,14 @@ export default function Home() { // Changed function name from HomePage to Home
                                 MsgBill.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <Link href="/auth/signup">
+                                <Link href="/free-invoice-generator">
                                     <Button
                                         size="lg"
                                         variant="secondary"
                                         className="px-12 py-4 text-lg font-bold hover-scale ripple text-primary-900 shadow-premium group"
                                     >
                                         <span className="flex items-center gap-2">
-                                            Start Free Trial - No Credit Card
+                                            Make a free GST invoice — no login
                                             <span className="group-hover:translate-x-1 transition-transform">
                                                 →
                                             </span>
@@ -702,8 +661,7 @@ export default function Home() { // Changed function name from HomePage to Home
                                 </Link>
                             </div>
                             <p className="mt-8 text-sm text-primary-200">
-                                No credit card required • Cancel anytime • 20
-                                Free Invoices
+                                Free account: 20 invoices/month • No credit card
                             </p>
                         </div>
                     </div>
