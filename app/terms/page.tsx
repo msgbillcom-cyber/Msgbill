@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   title: "Terms of Service | MsgBill",
   description:
     "MsgBill Terms of Service: acceptable use, accounts, invoices, subscriptions, liability, governing law (Karnataka, India), and contact at support@msgbill.com.",
+  alternates: {
+    canonical: "https://msgbill.com/terms",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "MsgBill",
+    url: "https://msgbill.com/terms",
+    title: "Terms of Service | MsgBill",
+    description:
+      "MsgBill Terms of Service: acceptable use, accounts, invoices, subscriptions, liability, governing law (Karnataka, India), and contact at support@msgbill.com.",
+    images: ["/logo-final.png"],
+  },
 };
 
 export default function TermsPage() {
