@@ -1100,8 +1100,8 @@ const blogPosts: Record<string, any> = {
             </ul>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
-            <p class="mb-2"><strong>Do I need WhatsApp Business API?</strong></p>
-            <p class="mb-4">Not for manual sends from your phone. API is for automated scale.</p>
+            <p class="mb-2"><strong>Can I send invoices from WhatsApp Web on a computer?</strong></p>
+            <p class="mb-4">Yes. Download the invoice PDF and attach it to the customer's chat in WhatsApp Web or the WhatsApp desktop app. The customer receives the same file as when you share from your phone.</p>
             <p class="mb-2"><strong>Can guests use MsgBill without signup?</strong></p>
             <p class="mb-4">Yes. The free generator needs no login. A free account stores your invoices for 6 months, and Pro keeps them for 12 months, with no ads in the dashboard.</p>
             <p class="mb-2"><strong>Should I use the WhatsApp Business app or regular WhatsApp?</strong></p>
@@ -1154,7 +1154,7 @@ const blogPosts: Record<string, any> = {
                         <tr class="bg-slate-50">
                             <td class="p-3 border border-slate-200 font-medium">Annual Pro Pricing</td>
                             <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">₹499 / year flat</td>
-                            <td class="p-3 border border-slate-200">₹2,399 – ₹3,299 / year per device</td>
+                            <td class="p-3 border border-slate-200">Paid annual plans (check current pricing on Vyapar's website)</td>
                         </tr>
                         <tr>
                             <td class="p-3 border border-slate-200 font-medium">Customer Payment Flow</td>
@@ -1170,7 +1170,7 @@ const blogPosts: Record<string, any> = {
                 </table>
             </div>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">1. Speed of Invoicing: 10 Seconds vs 3 Minutes</h2>
+            <h2 class="text-2xl font-bold mt-8 mb-4">1. Speed of Invoicing: Quick Bills vs Full Accounting Entries</h2>
             <p class="mb-4">Vyapar requires you to set up opening balances, create ledgers, add party masters, and navigate multiple dropdowns before clicking "Save & Print". This makes sense if you run a distributor business with 5,000 SKUs, but it is painfully slow if you just repaired an air conditioner, delivered 10 custom cakes, or billed a client for graphic design services.</p>
             <p class="mb-4"><strong>MsgBill</strong> is engineered specifically around the "quick bill" philosophy. You open the app, enter the item name, quantity, and GST slab, and tap "Share to WhatsApp". The client receives a professional PDF along with an embedded 1-tap UPI payment link directly inside their chat window within seconds.</p>
 
@@ -1178,8 +1178,8 @@ const blogPosts: Record<string, any> = {
             <p class="mb-4">One of the most frequent complaints about legacy desktop billing software like Vyapar is syncing issues between your desktop shop counter and your mobile phone when you are out meeting suppliers. If your hard drive crashes or an update corrupts the database, data recovery can require technical support.</p>
             <p class="mb-4">MsgBill is 100% cloud-hosted. Your invoices, client records, and collection statuses are accessible securely from any browser — whether you are on your laptop at your desk, on an iPad at an exhibition, or on your phone while traveling.</p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">3. Pricing Comparison: Why Pay ₹3,000 When You Need Fast Billing?</h2>
-            <p class="mb-4">Vyapar's annual subscription costs between ₹2,399 and ₹3,299 per year for desktop licenses. For micro-businesses, solo entrepreneurs, home bakers, coaches, and boutique retailers, paying thousands of rupees every year for accounting features they never touch is unnecessary.</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">3. Pricing Comparison: Do You Need a Full Accounting Licence?</h2>
+            <p class="mb-4">Vyapar's paid plans typically cost a few thousand rupees a year, depending on the plan and number of devices (check Vyapar's website for current pricing). For micro-businesses, solo entrepreneurs, home bakers, coaches, and boutique retailers, paying thousands of rupees every year for accounting features they never touch is unnecessary.</p>
             <p class="mb-4">MsgBill offers a completely free guest generator for one-off bills, and an ad-free Pro SaaS tier at just <strong>₹499 per year</strong> — less than ₹42 per month — complete with WhatsApp payment reminders, UPI link generation, cloud invoice history, and client directories.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">When Should You Choose Vyapar?</h2>
@@ -1192,7 +1192,7 @@ const blogPosts: Record<string, any> = {
             <h2 class="text-2xl font-bold mt-8 mb-4">When Should You Choose MsgBill?</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
                 <li>Your primary sales channel is WhatsApp, Instagram, or direct client communication.</li>
-                <li>You want to get paid 3x faster via direct 1-tap UPI links without 2% payment gateway deductions.</li>
+                <li>You want to get paid faster via direct 1-tap UPI links instead of a payment gateway that deducts a fee.</li>
                 <li>You want a lightning-fast bill maker that works on any phone or laptop without installing software.</li>
                 <li>You want an affordable, modern, professional billing system at ₹499/year rather than costly desktop software.</li>
             </ul>
@@ -1236,13 +1236,13 @@ const blogPosts: Record<string, any> = {
                 <li><strong>Invoice number & date</strong> — consecutive, unique for the financial year, up to 16 characters; letters/numbers/hyphen/slash only (for example <code>MB/26-27/0042</code>).</li>
                 <li><strong>Supplier</strong> — name, address, GSTIN.</li>
                 <li><strong>Recipient</strong> — name, address; GSTIN for typical B2B. For an unregistered buyer, name and address (and delivery address) are required when the invoice value is ₹50,000 or more.</li>
-                <li><strong>HSN/SAC</strong> — businesses with aggregate turnover up to ₹5 crore in the previous year must show at least 4 digits on B2B invoices; above ₹5 crore, 6 digits on all invoices. When in doubt, ask your CA.</li>
+                <li><strong>HSN/SAC</strong> — the number of digits (4 or 6) depends on your turnover in the previous year. Our <a href="/blog/hsn-sac-codes-common-indian-businesses" class="text-emerald-600 underline font-semibold">HSN and SAC codes guide</a> explains the rule and lists common codes.</li>
                 <li><strong>Description, quantity and unit</strong> — for goods, quantity with a unit (Nos, Kg, Mtr); for services, a clear description of the work.</li>
                 <li><strong>Taxable value</strong> — after discounts that are shown on the invoice.</li>
                 <li><strong>Tax breakup</strong> — CGST/SGST or IGST, rate and amount per line or summary.</li>
                 <li><strong>Place of supply</strong> — state name and code; it drives IGST vs CGST/SGST.</li>
-                <li><strong>Reverse charge</strong> — a line stating whether tax is payable on reverse charge.</li>
-                <li><strong>Signature / digital acknowledgement</strong> as applicable to your process.</li>
+                <li><strong>Reverse charge</strong> — whether the recipient, not you, pays the GST on this supply (write Yes or No).</li>
+                <li><strong>Signature</strong> — signed by you or an authorised person, by hand or with a digital signature.</li>
             </ul>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">CGST + SGST vs IGST</h2>
@@ -1304,7 +1304,7 @@ const blogPosts: Record<string, any> = {
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Create a Clean Format Fast</h2>
             <p class="mb-6">Use the <a href="/free-invoice-generator" class="text-emerald-600 underline font-semibold">free GST invoice generator</a> to draft CGST/SGST or IGST bills, download PDF, and share on WhatsApp. Sign up later for ad-free storage.</p>
-            <p class="mb-4 text-sm text-slate-500"><em>Disclaimer: This article is for general education only and reflects our understanding of GST rules as of the date of publishing. It is not tax or legal advice. Please confirm the current rules with a qualified Chartered Accountant.</em></p>
+            <p class="mb-4 text-sm text-slate-500"><em>Disclaimer: General information only, based on the CGST Rules as we read them on the date shown above. Rates, thresholds and HSN requirements change through notifications, so have your Chartered Accountant review your invoice format before you rely on it.</em></p>
         `
     },
     "bill-vs-invoice-difference": {
@@ -1375,54 +1375,98 @@ const blogPosts: Record<string, any> = {
         date: "2026-02-18",
         author: "MsgBill Team",
         category: "WhatsApp Business",
-        description: "How to create a bill and send it on WhatsApp from your phone: step-by-step with a free bill maker, UPI payment details and record-keeping tips.",
+        description: "How to create a bill on WhatsApp from your phone: which bill you need with or without GST, a step-by-step workflow, two worked examples and record tips.",
         content: `
-            <p class="mb-6 text-lg">Most Indian customers check WhatsApp before email. Sending a clear bill with amount, UPI, and PDF on chat often gets you paid the same day.</p>
-            <p class="mb-6">Here is a practical workflow you can run from a phone — no desktop software required.</p>
+            <p class="mb-6 text-lg">Many small sellers in India — home bakers, tailors, tutors, repair technicians, tiffin services — take orders on WhatsApp but still write bills in a notebook, or skip the bill altogether. A proper bill sent in the same chat looks professional, reduces "how much was it again?" messages, and gives both sides a record.</p>
+            <p class="mb-6">This guide focuses on making the bill itself on your phone: what to put on it if you are not GST-registered, what changes if you are, a step-by-step workflow, two worked examples and how to keep your records in order. For message wording and reminder timing, see our companion guide on <a href="/blog/whatsapp-invoice-guide" class="text-emerald-600 underline font-semibold">sending invoices on WhatsApp</a>.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Key Takeaways</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li>Create the bill in a browser tool, then open WhatsApp with one tap.</li>
-                <li>Include amount, due date, and UPI ID in the message body.</li>
-                <li>Attach or link a PDF for GST-registered buyers who need records.</li>
-                <li>Use reminders (friendly → firm) if payment slips.</li>
+                <li>You can make and send a bill entirely from a phone browser — no app install needed.</li>
+                <li>Not GST-registered? Issue a simple bill with no GST lines. Do not add GST you are not registered to collect.</li>
+                <li>GST-registered? The bill must be a tax invoice with your GSTIN, HSN/SAC and the tax split.</li>
+                <li>Number every bill in sequence and keep the PDF, not just the chat.</li>
             </ul>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">Step-by-Step: Bill on WhatsApp in 5 Minutes</h2>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Step 1: Decide Which Kind of Bill You Need</h2>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Your situation</th>
+                            <th class="p-3 border border-slate-200">Document to send</th>
+                            <th class="p-3 border border-slate-200">Tax lines</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200">Not registered under GST</td><td class="p-3 border border-slate-200">Simple bill or cash memo</td><td class="p-3 border border-slate-200">None — set GST to 0%</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Registered under the composition scheme</td><td class="p-3 border border-slate-200">Bill of supply</td><td class="p-3 border border-slate-200">No GST charged to the customer</td></tr>
+                        <tr><td class="p-3 border border-slate-200">Registered under the regular scheme</td><td class="p-3 border border-slate-200">Tax invoice</td><td class="p-3 border border-slate-200">CGST + SGST or IGST at the correct rate</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-4">If you are unsure, our guide on the <a href="/blog/bill-vs-invoice-difference" class="text-emerald-600 underline font-semibold">difference between a bill and an invoice</a> explains each document.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Step 2: Gather the Details Before You Start</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Your business name, phone number and address (city is enough for many small sellers).</li>
+                <li>The customer's name and WhatsApp number.</li>
+                <li>What you sold, the quantity and the price per unit.</li>
+                <li>Any delivery charge or discount you agreed in the chat.</li>
+                <li>Your UPI ID, so the customer can pay straight away.</li>
+                <li>If registered: your GSTIN, the HSN or SAC code and the GST rate for each item.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Step 3: Create the Bill on Your Phone</h2>
             <ol class="list-decimal pl-6 mb-6 space-y-3">
-                <li><strong>Open</strong> the <a href="/free-invoice-generator" class="text-emerald-600 underline font-bold">MsgBill Free Invoice Generator</a> (no login).</li>
-                <li><strong>Enter</strong> your business name, phone, and GSTIN if you have one.</li>
-                <li><strong>Add</strong> the customer name and phone (WhatsApp number).</li>
-                <li><strong>List</strong> items with qty, rate, and GST % if applicable. Choose intra-state or inter-state tax.</li>
-                <li><strong>Tap Send to WhatsApp</strong> — review the pre-filled text, pick the chat, send. Optionally download PDF first and attach.</li>
+                <li>Open the <a href="/free-invoice-generator" class="text-emerald-600 underline font-bold">MsgBill Free Invoice Generator</a> in your phone browser. No login is needed.</li>
+                <li>Fill in your business details once. The generator remembers your seller profile on that device for next time.</li>
+                <li>Add the customer's name and number.</li>
+                <li>Add each item with quantity and rate. Leave GST at 0% if you are not registered; otherwise pick the rate and choose intra-state (CGST + SGST) or inter-state (IGST).</li>
+                <li>Check the bill number, date and total on the preview.</li>
+                <li>Download the PDF, then share it to the customer's chat using your phone's share option, or tap Send to WhatsApp.</li>
             </ol>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">What to Put in the WhatsApp Message</h2>
-            <p class="mb-4">A good message is short:</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example 1: Home Baker, Not Registered</h2>
+            <p class="mb-4">Meera bakes cakes from home in Pune and is not GST-registered because her turnover is well below the limit. A customer orders on WhatsApp:</p>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li>Invoice / bill number and date</li>
-                <li>Total payable in ₹</li>
-                <li>UPI ID or payment link</li>
-                <li>One-line description of work/goods</li>
-                <li>Polite due date (“Kindly pay by Friday”)</li>
+                <li>1 kg chocolate truffle cake — ₹1,200</li>
+                <li>12 cupcakes at ₹60 — ₹720</li>
+                <li>Delivery — ₹80</li>
             </ul>
-            <p class="mb-4">Avoid long paragraphs. Customers decide on mobile screens.</p>
+            <p class="mb-4">Her bill MB/26-27/031 shows a total of <strong>₹2,000</strong> with no GST lines, and her UPI ID at the bottom. She sends the PDF in the order chat right after delivery, and the customer pays by UPI the same evening.</p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">UPI + WhatsApp = Faster Collection</h2>
-            <p class="mb-4">When the chat includes your UPI ID or a Razorpay payment link, the customer does not hunt for bank details. They pay in GPay / PhonePe / Paytm and reply “paid” with a screenshot.</p>
-            <p class="mb-4">Logged-in MsgBill users can store invoices and run structured reminders later. Guests still get the free one-off PDF + WhatsApp share.</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example 2: AC Technician, GST-Registered</h2>
+            <p class="mb-4">Imran runs a registered AC repair service in Lucknow. For a service visit with a gas top-up for a local office, he bills ₹2,500 for service charges at 18% GST: ₹2,500 + CGST ₹225 + SGST ₹225 = <strong>₹2,950</strong>. Because the office is GST-registered and will claim input tax credit, his bill shows his GSTIN, the customer's GSTIN, the SAC code and the tax split. The rate for any parts he supplies depends on their classification, so he checks it for each part.</p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">GST Tip for WhatsApp Bills</h2>
-            <p class="mb-4">If you are GST-registered, ensure the PDF shows tax breakup and consecutive numbering. WhatsApp is only the delivery channel — the PDF is the record.</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Step 4: After the Customer Pays</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Reply in the same chat confirming the payment, for example "Received ₹2,000, thank you".</li>
+                <li>Match the UPI credit in your bank app with the bill number.</li>
+                <li>Save the PDF in a folder by month, or use an account that stores bills for you.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Adding "GST 18%" when you are not registered — you cannot collect GST without registration.</li>
+                <li>Restarting bill numbers every month instead of running one series for the financial year.</li>
+                <li>Sending only a screenshot of a calculator total.</li>
+                <li>Forgetting delivery charges, then asking for them separately later.</li>
+            </ul>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
-            <p class="mb-2"><strong>Do I need WhatsApp Business API?</strong></p>
-            <p class="mb-4">No for manual sending from your phone. API is for automated bulk messaging at scale.</p>
+            <p class="mb-2"><strong>Is a bill sent on WhatsApp valid?</strong></p>
+            <p class="mb-4">Yes. What matters is the content of the bill and that you keep a record. WhatsApp is only how it reaches the customer.</p>
             <p class="mb-2"><strong>Can I send without GST?</strong></p>
-            <p class="mb-4">Yes — use 0% tax lines for a commercial bill. Register when your turnover/category requires it.</p>
-            <p class="mb-6"><strong>Will ads appear?</strong> On the free public tool, yes. Sign up for an ad-free dashboard.</p>
+            <p class="mb-4">Yes, if you are not registered. Set every line to 0% and do not mention GST. Register when your turnover or business type requires it.</p>
+            <p class="mb-2"><strong>Will ads appear?</strong></p>
+            <p class="mb-4">The free public generator shows ads. The signed-in dashboard is ad-free.</p>
 
-            <p class="mb-4">Try it now: <a href="/free-invoice-generator" class="text-emerald-600 underline font-semibold">free bill generator</a> → WhatsApp. Or <a href="/auth/signup" class="text-emerald-600 underline font-semibold">create a free account</a> to save invoices for 1 year.</p>
+            <div class="bg-emerald-50 p-6 rounded-2xl my-8 border border-emerald-100">
+                <h3 class="font-bold text-emerald-900 mb-2">Make your first WhatsApp bill now</h3>
+                <p class="text-emerald-800 mb-4">Free, on your phone, no login. <a href="/auth/signup" class="underline font-semibold">Create a free account</a> if you want your bills saved (6 months on Free, 12 months on Pro).</p>
+                <a href="/free-invoice-generator" class="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-md">Open Free Bill Generator →</a>
+            </div>
         `
     },
     "10-best-invoice-apps-india-2026": {
@@ -2070,9 +2114,10 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-05",
         author: "MsgBill Team",
         category: "Basics",
-        description: "Proforma invoice vs tax invoice in India: what each document is for, its status under GST, and when you should issue a proforma or a tax invoice.",
+        description: "Proforma invoice vs tax invoice in India: GST status, ITC, what to include, when each is required and a worked example of a 50% advance payment.",
         content: `
-            <p class="mb-6 text-lg">Indian business owners, consultants, and contractors frequently confuse a proforma invoice with a tax invoice. This common mistake can trigger premature GST liabilities before money has even been received, or cause your client to improperly claim Input Tax Credit (ITC) that gets flagged during department audits.</p>
+            <p class="mb-6 text-lg">Indian business owners, consultants, and contractors frequently confuse a proforma invoice with a tax invoice. Treating a quotation as a final bill can make you report GST too early, or lead your client to claim Input Tax Credit (ITC) on a document that does not support it.</p>
+            <p class="mb-6">This guide explains what each document is for, how they differ under GST, when to send a proforma, how to convert it into a tax invoice once the deal happens, and a worked example for an advance payment. It is general guidance, not tax advice.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Core Comparison: Proforma Invoice vs Tax Invoice</h2>
             <div class="overflow-x-auto my-6">
@@ -2086,29 +2131,29 @@ const blogPosts: Record<string, any> = {
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="p-3 border border-slate-200 font-medium">Definition</td>
-                            <td class="p-3 border border-slate-200">Preliminary estimate / quotation sent prior to delivery</td>
-                            <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">Legally binding tax document for supply of goods/services</td>
+                            <td class="p-3 border border-slate-200 font-medium">Purpose</td>
+                            <td class="p-3 border border-slate-200">A priced offer sent before supply so the buyer can approve, budget or arrange payment</td>
+                            <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">The GST document that records an actual supply of goods or services</td>
                         </tr>
                         <tr class="bg-slate-50">
-                            <td class="p-3 border border-slate-200 font-medium">GST Tax Liability</td>
-                            <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">Zero tax liability triggered</td>
-                            <td class="p-3 border border-slate-200 text-rose-600">Immediate obligation to deposit GST via GSTR-3B</td>
+                            <td class="p-3 border border-slate-200 font-medium">GST liability</td>
+                            <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">Issuing it does not by itself create a GST liability</td>
+                            <td class="p-3 border border-slate-200 text-rose-600">Tax is reported in GSTR-1 and paid through GSTR-3B for that period</td>
                         </tr>
                         <tr>
-                            <td class="p-3 border border-slate-200 font-medium">Buyer ITC Claim</td>
-                            <td class="p-3 border border-slate-200 text-rose-600 font-semibold">Cannot claim Input Tax Credit</td>
-                            <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">Mandatory proof for claiming ITC under Section 16</td>
+                            <td class="p-3 border border-slate-200 font-medium">Buyer ITC claim</td>
+                            <td class="p-3 border border-slate-200 text-rose-600 font-semibold">Not a valid document for ITC</td>
+                            <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">Required document for claiming ITC under Section 16</td>
                         </tr>
                         <tr class="bg-slate-50">
-                            <td class="p-3 border border-slate-200 font-medium">Accounting Entry</td>
-                            <td class="p-3 border border-slate-200">Memo entry only (not posted to sales ledger)</td>
-                            <td class="p-3 border border-slate-200">Official credit to Sales Account & debtor debit</td>
+                            <td class="p-3 border border-slate-200 font-medium">Accounting entry</td>
+                            <td class="p-3 border border-slate-200">Not posted to the sales ledger</td>
+                            <td class="p-3 border border-slate-200">Recorded as a sale and a receivable from the customer</td>
                         </tr>
                         <tr>
-                            <td class="p-3 border border-slate-200 font-medium">Legal Enforceability</td>
-                            <td class="p-3 border border-slate-200">Quotation / commercial offer</td>
-                            <td class="p-3 border border-slate-200">Legally enforceable debt admissible in court</td>
+                            <td class="p-3 border border-slate-200 font-medium">Numbering</td>
+                            <td class="p-3 border border-slate-200">Own series, for example PI/26-27/014</td>
+                            <td class="p-3 border border-slate-200">Unique consecutive tax invoice series for the financial year</td>
                         </tr>
                     </tbody>
                 </table>
@@ -2116,29 +2161,63 @@ const blogPosts: Record<string, any> = {
 
             <h2 class="text-2xl font-bold mt-8 mb-4">When Should You Issue a Proforma Invoice?</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li><strong>Advance Payment Collection:</strong> When you require an advance deposit before starting manufacturing or ordering raw materials.</li>
-                <li><strong>Custom Fabrication or Milestones:</strong> Before executing design, interior decoration, or custom software stages.</li>
-                <li><strong>Import / Export Clearances:</strong> Overseas buyers and customs brokers require a proforma invoice to open Letters of Credit (LC) or arrange bank guarantees.</li>
-                <li><strong>Government Tender Approvals:</strong> Institutional procurement teams need a formal price commitment before releasing purchase orders (PO).</li>
+                <li><strong>Advance payment collection:</strong> when you need a deposit before buying raw material or blocking production time.</li>
+                <li><strong>Custom fabrication or project milestones:</strong> before starting design, interiors, signage or software stages, so the client approves scope and price.</li>
+                <li><strong>Import and export paperwork:</strong> overseas buyers and banks often ask for a proforma to open a Letter of Credit or remit an advance.</li>
+                <li><strong>Purchase order approvals:</strong> institutional and government buyers usually need a priced document before releasing a PO.</li>
+                <li><strong>Loan or subsidy files:</strong> banks and scheme offices often accept a proforma as a supplier quotation for equipment.</li>
             </ul>
 
+            <h2 class="text-2xl font-bold mt-8 mb-4">What to Put on a Proforma Invoice</h2>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li>A clear heading: <strong>"Proforma Invoice — Not a Tax Invoice"</strong>.</li>
+                <li>Your business name, address and GSTIN (if registered).</li>
+                <li>Buyer name and address, and their GSTIN if they will want ITC later.</li>
+                <li>Proforma number from a separate series, and the date.</li>
+                <li>Item or service description, HSN/SAC, quantity, rate and indicative GST.</li>
+                <li>Validity of the offer, for example "Prices valid for 15 days".</li>
+                <li>Payment terms: advance percentage, balance terms, bank or UPI details.</li>
+                <li>Expected delivery or completion date.</li>
+            </ol>
+
             <h2 class="text-2xl font-bold mt-8 mb-4">When Must You Issue a Tax Invoice?</h2>
-            <p class="mb-4">Under Section 31 of the CGST Act, you MUST issue a final Tax Invoice:</p>
+            <p class="mb-4">Under Section 31 of the CGST Act, the proforma does not replace the tax invoice. You must issue the final tax invoice:</p>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li><strong>Supply of Goods:</strong> Before or at the time of removal of goods for transportation to the buyer.</li>
-                <li><strong>Supply of Services:</strong> Within <strong>30 days</strong> from the date of completion of the service (or 45 days for banks and NBFCs).</li>
+                <li><strong>Supply of goods:</strong> before or at the time of removal or delivery of the goods.</li>
+                <li><strong>Supply of services:</strong> within <strong>30 days</strong> of completing the service (45 days for banks and NBFCs).</li>
+                <li><strong>Advances for services:</strong> GST generally becomes payable when the advance is received, so issue a <strong>receipt voucher</strong> at that time. Advances received for goods generally do not attract GST at the time of receipt.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example: A 50% Advance on a Website Project</h2>
+            <p class="mb-4">A registered web agency in Chennai quotes a Chennai retailer ₹80,000 + 18% GST for a new e-commerce website.</p>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li><strong>Day 1 — Proforma PI/26-27/014:</strong> ₹80,000 + CGST ₹7,200 + SGST ₹7,200 = ₹94,400, with 50% advance terms. No GST is reported yet.</li>
+                <li><strong>Day 5 — Advance of ₹47,200 received:</strong> the agency issues a receipt voucher. Treating the amount as GST-inclusive, the taxable value is ₹40,000 with CGST ₹3,600 and SGST ₹3,600, reported for that month.</li>
+                <li><strong>Day 40 — Website delivered:</strong> the agency issues tax invoice INV/26-27/112 for the full ₹80,000 + ₹14,400 GST, shows the advance already received and taxed, and the client pays the balance of ₹47,200.</li>
+            </ol>
+            <p class="mb-4">The client claims ITC only from the tax invoice, not from the proforma or the receipt voucher.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Using the same number series for proformas and tax invoices, which leaves gaps in the GST series.</li>
+                <li>Forgetting the "Not a Tax Invoice" label, so the buyer books it as a purchase.</li>
+                <li>Never issuing the final tax invoice after the advance, because "the client already has the bill".</li>
+                <li>Changing prices on the tax invoice without telling the buyer that the proforma has lapsed.</li>
             </ul>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
             <p class="mb-2"><strong>Can I write GSTIN on a proforma invoice?</strong></p>
             <p class="mb-4">Yes, you may include your GSTIN and indicative GST rates for quotation clarity, but clearly label the document header as <strong>"PROFORMA INVOICE - NOT A TAX INVOICE"</strong> to avoid audit confusion.</p>
-
+            <p class="mb-2"><strong>Is a proforma the same as a quotation or estimate?</strong></p>
+            <p class="mb-4">They serve a similar purpose. A proforma usually looks like the final invoice and includes payment terms, which is why banks and importers prefer it.</p>
             <p class="mb-2"><strong>Can a customer claim GST input credit on a proforma invoice?</strong></p>
-            <p class="mb-4">Absolutely not. Under Section 16(2) of the CGST Act, possession of a valid tax invoice or debit note is a mandatory prerequisite for claiming ITC. Claiming ITC against a proforma invoice will lead to notices and interest charges.</p>
+            <p class="mb-4">No. Section 16(2) of the CGST Act requires the buyer to hold a tax invoice or debit note. Wait for the final tax invoice before booking ITC.</p>
+            <p class="mb-2"><strong>What if the deal is cancelled after I receive an advance?</strong></p>
+            <p class="mb-4">For services, issue a refund voucher against the receipt voucher when you return the money, and ask your CA how to adjust the GST already paid.</p>
 
             <div class="bg-emerald-50 p-6 rounded-2xl my-8 border border-emerald-100">
-                <h3 class="font-bold text-emerald-900 mb-2">Create professional invoices in seconds</h3>
-                <p class="text-emerald-800 mb-4">Generate clean, compliant tax invoices with automatic GST calculations on MsgBill.</p>
+                <h3 class="font-bold text-emerald-900 mb-2">Turn the approved quote into a tax invoice</h3>
+                <p class="text-emerald-800 mb-4">When the work is done, create the final GST invoice on MsgBill with CGST/SGST or IGST worked out for you.</p>
                 <a href="/free-invoice-generator" class="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-md">Create Free Invoice Now →</a>
             </div>
         `
@@ -2149,36 +2228,74 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-06",
         author: "MsgBill Team",
         category: "GST Compliance",
-        description: "Delivery challan vs tax invoice under GST: when goods can move on a challan under Rule 55, required copies and when an e-way bill is also needed.",
+        description: "Delivery challan vs tax invoice under GST: Rule 55 cases, required fields and copies, e-way bill rules, job work and approval-basis worked examples.",
         content: `
-            <p class="mb-6 text-lg">Transporting commercial goods across India without the proper statutory paperwork can lead to vehicle detention, consignment confiscation, and a 100% tax penalty under Section 129 of the CGST Act. Understanding exactly when to issue a Delivery Challan versus a Tax Invoice protects your business from expensive transit disruptions.</p>
+            <p class="mb-6 text-lg">Moving goods across India without the right paperwork can lead to the vehicle being stopped, the goods being detained and a penalty linked to the tax involved under Section 129 of the CGST Act. Knowing when a delivery challan is enough and when you need a tax invoice keeps your consignments moving.</p>
+            <p class="mb-6">This guide explains the situations Rule 55 covers, the fields and copies a challan needs, how e-way bills apply, and two worked examples. It is general information for small manufacturers and traders, not legal advice.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">The Basic Rule</h2>
+            <p class="mb-4">If goods move because they have been <strong>sold</strong>, a tax invoice (or a bill of supply) must travel with them. A delivery challan is for movements where an invoice cannot be issued at the time, or where there is no sale at all.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">What is a Delivery Challan Under Rule 55?</h2>
-            <p class="mb-4">Under Rule 55 of the CGST Rules, 2017, a registered supplier may issue a <strong>Delivery Challan</strong> instead of a Tax Invoice in specific business circumstances where goods are removed or transported without an immediate sale taking place:</p>
+            <p class="mb-4">Under Rule 55 of the CGST Rules, 2017, a challan can be issued instead of a tax invoice in situations such as:</p>
             <ul class="list-disc pl-6 mb-6 space-y-3">
-                <li><strong>1. Supply of Liquid Gas:</strong> Where the exact quantity at the time of removal from the supplier's warehouse or refinery is not known.</li>
-                <li><strong>2. Transportation for Job Work:</strong> Sending raw materials, intermediate components, or semi-finished goods to an external processor for dyeing, cutting, assembly, or plating.</li>
-                <li><strong>3. Goods on Approval or Return Basis:</strong> Where goods are sent to a customer for inspection, trial, or approval before final sale commitment (must be sold or returned within 6 months under Section 31(7)).</li>
-                <li><strong>4. Non-Sale Movements & Exhibitions:</strong> Transporting inventory to trade expos, promotional events, or between branches of the same entity within the same state.</li>
+                <li><strong>Supply of liquid gas</strong> where the exact quantity is not known when it leaves the supplier's premises.</li>
+                <li><strong>Job work:</strong> sending raw materials or semi-finished goods to a job worker for processing such as dyeing, cutting, plating or assembly, and receiving them back.</li>
+                <li><strong>Movement for reasons other than supply:</strong> for example, goods sent for repair, for exhibition, or as samples that remain your property.</li>
+                <li><strong>Goods sent in batches:</strong> when a single consignment, such as machinery, is sent in completely or semi-knocked-down condition across several vehicles, with the full invoice issued before the first lot.</li>
+                <li><strong>Goods sent on approval or sale-or-return basis:</strong> the invoice is issued when the buyer accepts, or within six months of removal if they have not returned the goods (Section 31(7)).</li>
             </ul>
+            <p class="mb-4"><strong>Branch transfers:</strong> moving stock between your own godowns under the same GSTIN is not a supply and usually travels on a challan. Moving stock to your branch in another state (a different GSTIN) is treated as a supply between distinct persons and generally needs a tax invoice.</p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">Mandatory Delivery Challan Copies and Rules</h2>
-            <p class="mb-4">Delivery challans must be generated in triplicate (three copies) with consecutive serial numbers unique for each financial year:</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Fields Required on a Delivery Challan</h2>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li>Date and challan number (consecutive, up to 16 characters, unique for the financial year).</li>
+                <li>Name, address and GSTIN of the consigner.</li>
+                <li>Name, address and GSTIN (if registered) of the consignee.</li>
+                <li>HSN code and description of goods.</li>
+                <li>Quantity, including provisional quantity for liquid gas.</li>
+                <li>Taxable value.</li>
+                <li>Tax rate and amount (CGST/SGST or IGST) where the goods are being sent as a supply.</li>
+                <li>Place of supply, for inter-state movement.</li>
+                <li>Signature.</li>
+            </ol>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Mandatory Delivery Challan Copies</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li><strong>Original for Consignee:</strong> Handed over to the receiving party or job worker.</li>
-                <li><strong>Duplicate for Transporter:</strong> Accompanies the vehicle driver during transit for highway inspection.</li>
-                <li><strong>Triplicate for Consignor:</strong> Retained by the sending supplier for company audit records.</li>
+                <li><strong>Original for Consignee:</strong> handed over to the receiving party or job worker.</li>
+                <li><strong>Duplicate for Transporter:</strong> travels with the vehicle for inspection.</li>
+                <li><strong>Triplicate for Consigner:</strong> kept by the sender for records.</li>
             </ul>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">E-Way Bill Requirement with Delivery Challan</h2>
-            <p class="mb-4">A common misconception among traders is that an E-Way Bill is only needed for Tax Invoices. In reality, under Rule 138 of the CGST Rules, an <strong>E-Way Bill is mandatory for ANY movement of goods exceeding ₹50,000 consignment value</strong> (or designated inter-state thresholds), even when transported under a Delivery Challan or for job work.</p>
+            <p class="mb-4">An e-way bill is about the <strong>movement</strong> of goods, not the type of document. Under Rule 138, it is generally required when the consignment value exceeds ₹50,000, whether the goods move on a tax invoice or a delivery challan. Some states set different limits for movement within the state.</p>
+            <p class="mb-4">Two cases are stricter: goods sent by a principal to a job worker in <strong>another state</strong>, and inter-state movement of certain handicraft goods, need an e-way bill whatever the value. The consignment value on a challan is the value of the goods even if no sale is happening.</p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">Key Takeaway for Indian SMBs</h2>
-            <p class="mb-4">If ownership of goods is transferring to a buyer in exchange for payment, always issue a formal <strong>Tax Invoice</strong>. If goods are simply moving physical locations for job work, demo, or storage without title transfer, always issue a <strong>Delivery Challan</strong> accompanied by an E-Way Bill.</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example 1: Job Work</h2>
+            <p class="mb-4">A Ludhiana garment maker sends 2,000 metres of fabric worth ₹1,60,000 to a dyeing unit in Amritsar (same state, Punjab). It issues challan DC/26-27/045 showing HSN, quantity and value, and generates an e-way bill because the value is above the e-way bill limit. No GST is charged because nothing is sold. When the dyed fabric comes back, the dyeing unit issues a tax invoice only for its dyeing charges.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example 2: Goods on Approval</h2>
+            <p class="mb-4">A Jaipur jeweller sends three necklaces worth ₹2,40,000 to a retailer in Delhi on approval. They travel on a delivery challan with an e-way bill. The retailer keeps one necklace worth ₹80,000 and returns two within a month. The jeweller now issues a tax invoice for ₹80,000 with IGST and records the return of the other two against the challan.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Sending sold goods on a challan "to invoice later".</li>
+                <li>Not generating an e-way bill because "there is no sale".</li>
+                <li>Forgetting the six-month rule for approval goods.</li>
+                <li>Not tracking goods with job workers. Inputs not returned within the permitted time can be treated as supplied.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Can an unregistered business issue a delivery challan?</strong></p>
+            <p class="mb-4">Yes, as a commercial document. Rule 55 is written for registered persons, but any business can use a challan to record goods leaving the premises.</p>
+            <p class="mb-2"><strong>Does a challan need GST amounts?</strong></p>
+            <p class="mb-4">Only when the goods are being sent as a supply, such as liquid gas or knocked-down machinery. For job work and samples, show the value without charging tax.</p>
+            <p class="mb-2"><strong>Is a challan needed for services?</strong></p>
+            <p class="mb-4">No. Challans are for the movement of goods.</p>
 
             <div class="bg-emerald-50 p-6 rounded-2xl my-8 border border-emerald-100">
-                <h3 class="font-bold text-emerald-900 mb-2">Need to create a fast GST bill?</h3>
-                <p class="text-emerald-800 mb-4">MsgBill generates clean, compliant GST bills in under 30 seconds with automatic tax calculation.</p>
+                <h3 class="font-bold text-emerald-900 mb-2">Billing once the goods are sold?</h3>
+                <p class="text-emerald-800 mb-4">Raise the final GST invoice on MsgBill with HSN codes and the right tax split, then share it with the buyer on WhatsApp.</p>
                 <a href="/free-invoice-generator" class="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-md">Try Free Generator →</a>
             </div>
         `
@@ -2292,65 +2409,88 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-10",
         author: "MsgBill Team",
         category: "GST Compliance",
-        description: "E-invoicing rules for MSMEs in 2026: the turnover threshold, whether B2C invoices are covered, what happens without an IRN and how to get ready.",
+        description: "E-invoicing rules for MSMEs in 2026: the ₹5 crore threshold, the 30-day IRP reporting limit, covered documents, exemptions and a readiness checklist.",
         content: `
-            <p class="mb-6 text-lg">As GST compliance digitizes across India, the Central Board of Indirect Taxes and Customs (CBIC) continues to tighten the electronic invoicing (e-invoicing) net. If your business sells to other GST-registered businesses (B2B), knowing whether you fall under mandatory e-invoicing is critical to avoid severe penalties and frozen Input Tax Credit (ITC) for your buyers.</p>
+            <p class="mb-6 text-lg">As GST compliance becomes more digital, the e-invoicing net has widened step by step from very large companies to mid-sized businesses. If you sell to other GST-registered businesses (B2B), you need to know whether e-invoicing applies to you, because an invoice that should have been e-invoiced but was not is not treated as a valid tax invoice — and your buyer's ITC is at risk.</p>
+            <p class="mb-6">This guide explains what e-invoicing actually is, the current turnover threshold, which invoices are covered, the 30-day reporting limit, who is exempt, and a simple checklist for MSMEs approaching the limit. It reflects the position at the time of writing; confirm the latest notifications with your CA.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">What is e-Invoicing Under GST?</h2>
-            <p class="mb-4">e-Invoicing is not creating invoices on a computer or emailing a PDF. Under GST Rule 48(4), e-invoicing means electronically authenticating your B2B invoice data on the government's <strong>Invoice Registration Portal (IRP)</strong> (such as einvoice1.gst.gov.in).</p>
-            <p class="mb-4">Once authenticated, the IRP generates two mandatory security elements:</p>
+            <p class="mb-4">e-Invoicing is not simply creating invoices on a computer or emailing a PDF. Under Rule 48(4) of the CGST Rules, notified businesses must report the details of each covered invoice to an <strong>Invoice Registration Portal (IRP)</strong>, such as einvoice1.gst.gov.in, in a standard format.</p>
+            <p class="mb-4">The IRP validates the data and returns:</p>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li><strong>IRN (Invoice Reference Number):</strong> A unique 64-character alphanumeric hash code.</li>
-                <li><strong>Digitally Signed QR Code:</strong> Contains key invoice details readable offline by tax officers.</li>
+                <li><strong>IRN (Invoice Reference Number):</strong> a unique 64-character hash for the invoice.</li>
+                <li><strong>Signed QR code:</strong> carrying key invoice details, which must be printed on the invoice you give the buyer.</li>
             </ul>
+            <p class="mb-4">The IRP also passes the data to the GST system, which auto-fills your GSTR-1 and, where details are provided, the e-way bill.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Mandatory Threshold Limits & Applicability (2026)</h2>
-            <p class="mb-4">e-Invoicing applies to any GST-registered entity whose <strong>Aggregate Annual Turnover (AATO)</strong> exceeded the specified limit in <em>any</em> preceding financial year from 2017-18 onwards.</p>
+            <p class="mb-4">e-Invoicing applies to a registered business whose <strong>aggregate turnover exceeded the notified limit in any financial year from 2017-18 onwards</strong>. Once you cross it in any year, it applies from then on, even if turnover later falls.</p>
             <div class="overflow-x-auto my-6">
                 <table class="w-full text-left border-collapse border border-slate-200 text-sm">
                     <thead>
                         <tr class="bg-slate-100 text-slate-800 font-bold">
-                            <th class="p-3 border border-slate-200">Phase</th>
-                            <th class="p-3 border border-slate-200">Turnover Threshold</th>
-                            <th class="p-3 border border-slate-200">Status in 2026</th>
+                            <th class="p-3 border border-slate-200">From</th>
+                            <th class="p-3 border border-slate-200">Aggregate turnover above</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="p-3 border border-slate-200 font-medium">Phase I - IV</td>
-                            <td class="p-3 border border-slate-200">Above ₹20 Crores</td>
-                            <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">Fully Mandatory</td>
-                        </tr>
-                        <tr class="bg-slate-50">
-                            <td class="p-3 border border-slate-200 font-medium">Phase V</td>
-                            <td class="p-3 border border-slate-200">Above ₹10 Crores</td>
-                            <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">Fully Mandatory</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 border border-slate-200 font-medium">Phase VI</td>
-                            <td class="p-3 border border-slate-200">Above ₹5 Crores</td>
-                            <td class="p-3 border border-slate-200 text-emerald-600 font-semibold">Mandatory for all B2B & Exports</td>
-                        </tr>
+                        <tr><td class="p-3 border border-slate-200">1 October 2020</td><td class="p-3 border border-slate-200">₹500 crore</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">1 January 2021</td><td class="p-3 border border-slate-200">₹100 crore</td></tr>
+                        <tr><td class="p-3 border border-slate-200">1 April 2021</td><td class="p-3 border border-slate-200">₹50 crore</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">1 April 2022</td><td class="p-3 border border-slate-200">₹20 crore</td></tr>
+                        <tr><td class="p-3 border border-slate-200">1 October 2022</td><td class="p-3 border border-slate-200">₹10 crore</td></tr>
+                        <tr class="bg-slate-50 font-semibold"><td class="p-3 border border-slate-200">1 August 2023 (current)</td><td class="p-3 border border-slate-200">₹5 crore</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">Are B2C (Consumer) Invoices Subject to e-Invoicing?</h2>
-            <p class="mb-4">No. <strong>e-Invoicing applies strictly to B2B supplies, supplies to SEZs, Deemed Exports, and Export invoices.</strong> If you sell directly to end consumers (B2C), you do not need an IRN from the IRP, but large entities require dynamic B2C UPI QR codes for digital payment collection.</p>
+            <h3 class="text-xl font-semibold mt-6 mb-3">The 30-Day Reporting Limit</h3>
+            <p class="mb-4">Businesses with aggregate turnover of ₹10 crore or more must report each invoice to the IRP within 30 days of the invoice date (from 1 April 2025, this applies to them; earlier it applied to ₹100 crore and above). After 30 days, the IRP will not accept the invoice. Businesses between ₹5 crore and ₹10 crore are not under this time limit at the time of writing, but reporting promptly is still good practice.</p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">What Happens if You Issue an Invoice Without an IRN?</h2>
-            <p class="mb-4">Under Section 122 of the CGST Act, an invoice issued without a valid IRN (when mandated) is legally considered <strong>invalid</strong>:</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Which Documents Are Covered?</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li><strong>Penalty on Seller:</strong> 100% of the tax due or ₹10,000 (whichever is higher) for every incorrect invoice.</li>
-                <li><strong>Loss of ITC for Buyer:</strong> Your customer cannot legally claim Input Tax Credit on an invoice lacking a validated IRN QR code.</li>
+                <li>Tax invoices, credit notes and debit notes for <strong>B2B</strong> supplies.</li>
+                <li>Exports and supplies to SEZ units or developers.</li>
+                <li>Deemed exports.</li>
+                <li>B2B supplies under reverse charge.</li>
             </ul>
 
+            <h2 class="text-2xl font-bold mt-8 mb-4">Are B2C (Consumer) Invoices Subject to e-Invoicing?</h2>
+            <p class="mb-4">No. Invoices to unregistered customers do not need an IRN. Separately, very large businesses (aggregate turnover above ₹500 crore) must print a dynamic QR code on B2C invoices so customers can pay digitally.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Who Is Exempt?</h2>
+            <p class="mb-4">Certain categories are excluded regardless of turnover, including banks, insurers and NBFCs, goods transport agencies, passenger transport services, cinema admission services, SEZ units (but not SEZ developers) and government departments and local authorities. Check the current list if you fall near one of these categories.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">What Happens if You Issue an Invoice Without an IRN?</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Not a valid tax invoice:</strong> under Rule 48(5), an invoice issued without following the e-invoicing process is not treated as a valid invoice.</li>
+                <li><strong>Penalties:</strong> the supplier can face penalties under Section 122 of the CGST Act; for invoicing failures this is typically ₹10,000 or the tax involved, whichever is higher. Smaller procedural lapses can attract the general penalty under Section 125.</li>
+                <li><strong>Buyer's ITC at risk:</strong> your customer may not be able to claim credit on an invoice without a valid IRN, which damages your relationship with B2B clients.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example</h2>
+            <p class="mb-4">A Coimbatore pump-parts trader had turnover of ₹4.1 crore in FY 2024-25 and ₹5.6 crore in FY 2025-26. Because turnover crossed ₹5 crore in FY 2025-26, e-invoicing applies to his B2B invoices from 1 April 2026. His retail counter sales to unregistered customers continue without an IRN. As his turnover is below ₹10 crore, the 30-day reporting limit does not yet apply, but his accountant reports invoices daily to avoid backlogs.</p>
+
             <h2 class="text-2xl font-bold mt-8 mb-4">How Small Businesses & MSMEs Can Prepare</h2>
-            <p class="mb-4">For small businesses, freelancers, and growing suppliers, maintaining clean sequential invoicing records is the first defense. Use MsgBill's free invoice generator to generate compliant, beautifully structured tax invoices with all statutory Rule 46 fields, GSTINs, HSN codes, and instant UPI payment links.</p>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li>Track aggregate turnover across all GSTINs on your PAN every quarter.</li>
+                <li>Clean up customer masters: correct GSTINs, legal names, state codes and PIN codes. The IRP rejects invalid data.</li>
+                <li>Use correct HSN codes with the required number of digits.</li>
+                <li>Choose your method: the free government IRP portal or offline utility for low volumes, or billing/accounting software with direct IRP integration for higher volumes.</li>
+                <li>Decide who in your team generates IRNs and who cancels them (cancellation is allowed only within 24 hours on the IRP).</li>
+            </ol>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Is e-invoicing the same as an e-way bill?</strong></p>
+            <p class="mb-4">No. The e-invoice registers the invoice; the e-way bill covers movement of goods. The IRP can generate both from the same data.</p>
+            <p class="mb-2"><strong>Does MsgBill generate IRNs?</strong></p>
+            <p class="mb-4">No. MsgBill is designed for businesses below the e-invoicing threshold. If you are covered, generate the IRN on the IRP or through software integrated with it.</p>
+            <p class="mb-2"><strong>Do I need to e-invoice exports?</strong></p>
+            <p class="mb-4">Yes, export invoices are covered once you cross the threshold.</p>
 
             <div class="bg-emerald-50 dark:bg-emerald-950/40 p-6 rounded-2xl my-8 border border-emerald-100 dark:border-emerald-800">
-                <h3 class="font-bold text-emerald-900 dark:text-emerald-200 mb-2">Create a 100% Compliant GST Invoice in 10 Seconds</h3>
-                <p class="text-emerald-800 dark:text-emerald-300 text-sm mb-4">No login required. Generate professional PDF invoices with automatic CGST, SGST, and IGST calculations, plus instant WhatsApp sharing.</p>
+                <h3 class="font-bold text-emerald-900 dark:text-emerald-200 mb-2">Below ₹5 crore? Keep billing simply</h3>
+                <p class="text-emerald-800 dark:text-emerald-300 text-sm mb-4">No login required. Create GST invoices with automatic CGST, SGST and IGST, download the PDF and share it on WhatsApp.</p>
                 <a href="/free-invoice-generator" class="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-md text-sm">Open Free Invoice Generator →</a>
             </div>
         `
@@ -2627,10 +2767,10 @@ const blogPosts: Record<string, any> = {
             <p class="mb-4">Sets and multi-piece items need care: the value is generally considered for the item as sold. Ask your CA how to bill sets sold at one price.</p>
             <p class="mb-2"><strong>Are sarees covered by the same rule?</strong></p>
             <p class="mb-4">Sarees are usually classified as fabric rather than apparel, so a different rate may apply. Check the HSN for your product.</p>
-            <p class="mb-2"><strong>Can I show prices inclusive of GST on the bill?</strong></p>
-            <p class="mb-4">You can display inclusive prices, but a registered regular taxpayer's invoice must still show the taxable value and GST separately.</p>
-            <p class="mb-2"><strong>Do I need HSN codes on retail memos?</strong></p>
-            <p class="mb-4">For shops with turnover up to ₹5 crore, HSN is mandatory on B2B invoices and optional on bills to walk-in customers. Printing it anyway makes it easier to apply the right rate and to fill the HSN summary in your GST return.</p>
+            <p class="mb-2"><strong>Can my memo show only the final price including GST?</strong></p>
+            <p class="mb-4">Your price tags can, but if you are on the regular scheme, the memo itself should split each amount into taxable value, CGST and SGST so it can be matched with your GST return.</p>
+            <p class="mb-2"><strong>Can I charge for alterations on the same memo?</strong></p>
+            <p class="mb-4">Yes. Add alterations as a separate line. Alteration work is a service, not a garment, so it uses a SAC code and the rate for that service rather than the garment rate. Confirm the current rate with your CA.</p>
 
             <div class="bg-emerald-50 dark:bg-emerald-950/40 p-6 rounded-2xl my-8 border border-emerald-100 dark:border-emerald-800">
                 <h3 class="font-bold text-emerald-900 dark:text-emerald-200 mb-2">Generate Instant Clothing Bills with MsgBill</h3>
@@ -2730,6 +2870,38 @@ const blogPosts: Record<string, any> = {
 
 };
 
+// Hand-picked related guides shown at the end of each post (internal navigation).
+const relatedGuides: Record<string, string[]> = {
+    "salon-spa-gst-invoice-format-india": ["gst-invoice-guide", "hsn-sac-codes-common-indian-businesses", "upi-payment-link-get-paid-faster", "medical-clinic-doctor-billing-receipt-format"],
+    "hsn-sac-codes-common-indian-businesses": ["gst-invoice-rules-2026-indian-business", "gst-invoice-guide", "garment-shop-cash-memo-format-gst", "input-tax-credit-checklist-small-business"],
+    "how-to-add-upi-qr-code-on-invoice": ["upi-payment-link-get-paid-faster", "kirana-store-bill-format-upi-qr-code", "how-to-recover-overdue-payments-whatsapp", "whatsapp-invoice-guide"],
+    "gst-composition-scheme-billing-rules": ["bill-vs-invoice-difference", "cash-memo-format-retail-shops-india", "kirana-store-bill-format-upi-qr-code", "restaurant-cafe-bill-format-gst"],
+    "restaurant-cafe-bill-format-gst": ["gst-composition-scheme-billing-rules", "cash-memo-format-retail-shops-india", "how-to-add-upi-qr-code-on-invoice", "hsn-sac-codes-common-indian-businesses"],
+    "whatsapp-business-catalog-orders-invoicing": ["how-to-create-bill-on-whatsapp", "upi-payment-link-get-paid-faster", "garment-shop-cash-memo-format-gst", "whatsapp-invoice-guide"],
+    "input-tax-credit-checklist-small-business": ["gst-invoice-rules-2026-indian-business", "e-invoicing-rules-2026-msme-threshold", "proforma-invoice-vs-tax-invoice", "hsn-sac-codes-common-indian-businesses"],
+    "late-payment-interest-invoice-india": ["how-to-recover-overdue-payments-whatsapp", "upi-payment-link-get-paid-faster", "freelance-invoice-foreign-clients-firc", "proforma-invoice-vs-tax-invoice"],
+    "whatsapp-invoice-guide": ["how-to-create-bill-on-whatsapp", "whatsapp-business-catalog-orders-invoicing", "upi-payment-link-get-paid-faster", "how-to-recover-overdue-payments-whatsapp"],
+    "msgbill-vs-vyapar": ["free-vyapar-app-alternative-pc-mobile", "10-best-invoice-apps-india-2026", "whatsapp-invoice-guide"],
+    "gst-invoice-guide": ["gst-invoice-rules-2026-indian-business", "hsn-sac-codes-common-indian-businesses", "bill-vs-invoice-difference", "e-invoicing-rules-2026-msme-threshold"],
+    "bill-vs-invoice-difference": ["cash-memo-format-retail-shops-india", "gst-invoice-guide", "proforma-invoice-vs-tax-invoice", "delivery-challan-vs-tax-invoice-gst"],
+    "how-to-create-bill-on-whatsapp": ["whatsapp-invoice-guide", "how-to-add-upi-qr-code-on-invoice", "whatsapp-business-catalog-orders-invoicing", "freelance-developer-gst-exemption-under-20-lakhs"],
+    "10-best-invoice-apps-india-2026": ["msgbill-vs-vyapar", "free-vyapar-app-alternative-pc-mobile", "how-to-create-bill-on-whatsapp"],
+    "upi-payment-link-get-paid-faster": ["how-to-add-upi-qr-code-on-invoice", "how-to-recover-overdue-payments-whatsapp", "late-payment-interest-invoice-india", "whatsapp-invoice-guide"],
+    "gst-invoice-rules-2026-indian-business": ["gst-invoice-guide", "e-invoicing-rules-2026-msme-threshold", "input-tax-credit-checklist-small-business", "hsn-sac-codes-common-indian-businesses"],
+    "cash-memo-format-retail-shops-india": ["bill-vs-invoice-difference", "kirana-store-bill-format-upi-qr-code", "garment-shop-cash-memo-format-gst", "gst-composition-scheme-billing-rules"],
+    "gst-invoice-coaching-classes-tuitions": ["freelance-developer-gst-exemption-under-20-lakhs", "medical-clinic-doctor-billing-receipt-format", "gst-invoice-guide", "upi-payment-link-get-paid-faster"],
+    "medical-clinic-doctor-billing-receipt-format": ["salon-spa-gst-invoice-format-india", "gst-invoice-coaching-classes-tuitions", "how-to-add-upi-qr-code-on-invoice", "bill-vs-invoice-difference"],
+    "freelance-invoice-foreign-clients-firc": ["freelance-developer-gst-exemption-under-20-lakhs", "late-payment-interest-invoice-india", "proforma-invoice-vs-tax-invoice", "gst-invoice-rules-2026-indian-business"],
+    "proforma-invoice-vs-tax-invoice": ["delivery-challan-vs-tax-invoice-gst", "bill-vs-invoice-difference", "gst-invoice-guide", "input-tax-credit-checklist-small-business"],
+    "delivery-challan-vs-tax-invoice-gst": ["proforma-invoice-vs-tax-invoice", "e-invoicing-rules-2026-msme-threshold", "gst-invoice-rules-2026-indian-business", "bill-vs-invoice-difference"],
+    "how-to-recover-overdue-payments-whatsapp": ["late-payment-interest-invoice-india", "upi-payment-link-get-paid-faster", "whatsapp-invoice-guide"],
+    "e-invoicing-rules-2026-msme-threshold": ["gst-invoice-rules-2026-indian-business", "input-tax-credit-checklist-small-business", "delivery-challan-vs-tax-invoice-gst", "hsn-sac-codes-common-indian-businesses"],
+    "kirana-store-bill-format-upi-qr-code": ["cash-memo-format-retail-shops-india", "how-to-add-upi-qr-code-on-invoice", "gst-composition-scheme-billing-rules", "garment-shop-cash-memo-format-gst"],
+    "free-vyapar-app-alternative-pc-mobile": ["msgbill-vs-vyapar", "10-best-invoice-apps-india-2026", "how-to-create-bill-on-whatsapp"],
+    "garment-shop-cash-memo-format-gst": ["cash-memo-format-retail-shops-india", "kirana-store-bill-format-upi-qr-code", "hsn-sac-codes-common-indian-businesses", "whatsapp-business-catalog-orders-invoicing"],
+    "freelance-developer-gst-exemption-under-20-lakhs": ["freelance-invoice-foreign-clients-firc", "gst-invoice-coaching-classes-tuitions", "gst-invoice-guide", "late-payment-interest-invoice-india"],
+};
+
 export async function generateStaticParams() {
     return Object.keys(blogPosts).map((slug) => ({
         slug,
@@ -2795,6 +2967,20 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         }
     };
 
+    const breadcrumbLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://msgbill.com" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://msgbill.com/blog" },
+            { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://msgbill.com/blog/${params.slug}` }
+        ]
+    };
+
+    const related = (relatedGuides[params.slug] || [])
+        .filter((s) => blogPosts[s])
+        .map((s) => ({ slug: s, title: blogPosts[s].title as string, category: blogPosts[s].category as string }));
+
     return (
         <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-secondary-950">
             <Navbar />
@@ -2803,9 +2989,24 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+            />
 
             <main className="flex-1 pt-32 pb-20">
                 <article className="container max-w-3xl mx-auto px-4">
+                    {/* Breadcrumb */}
+                    <nav aria-label="Breadcrumb" className="mb-6 text-xs text-secondary-500 dark:text-secondary-400">
+                        <ol className="flex flex-wrap items-center gap-1.5">
+                            <li><Link href="/" className="hover:text-emerald-600 hover:underline">Home</Link></li>
+                            <li aria-hidden="true">›</li>
+                            <li><Link href="/blog" className="hover:text-emerald-600 hover:underline">Blog</Link></li>
+                            <li aria-hidden="true">›</li>
+                            <li aria-current="page" className="font-semibold text-secondary-700 dark:text-secondary-200 line-clamp-1">{post.title}</li>
+                        </ol>
+                    </nav>
+
                     {/* Header */}
                     <header className="mb-10 text-center space-y-4">
                         <span className="inline-block px-4 py-1.5 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 rounded-full text-xs font-bold uppercase tracking-wider border border-emerald-200 dark:border-emerald-800">
@@ -2831,6 +3032,26 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                             dangerouslySetInnerHTML={{ __html: post.content }}
                         />
                     </div>
+
+                    {/* Related guides (internal navigation) */}
+                    {related.length > 0 && (
+                        <section aria-labelledby="related-guides" className="mt-8 p-6 sm:p-8 bg-white dark:bg-secondary-900 rounded-3xl border border-secondary-200 dark:border-secondary-800 shadow-sm">
+                            <h2 id="related-guides" className="text-lg font-bold text-secondary-900 dark:text-white mb-4">Related guides</h2>
+                            <ul className="grid gap-3 sm:grid-cols-2">
+                                {related.map((r) => (
+                                    <li key={r.slug}>
+                                        <Link href={`/blog/${r.slug}`} className="block h-full p-4 rounded-2xl border border-secondary-200 dark:border-secondary-800 hover:border-emerald-400 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/30 transition-colors">
+                                            <span className="block text-[11px] font-bold uppercase tracking-wider text-emerald-600 mb-1">{r.category}</span>
+                                            <span className="block text-sm font-semibold text-secondary-900 dark:text-white leading-snug">{r.title}</span>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                            <p className="mt-4 text-xs text-secondary-500 dark:text-secondary-400">
+                                <Link href="/blog" className="text-emerald-600 font-semibold hover:underline">Browse all billing & GST guides →</Link>
+                            </p>
+                        </section>
+                    )}
 
                     {/* Author Byline & E-E-A-T Credibility Box */}
                     <div className="mt-8 p-6 bg-white dark:bg-secondary-900 rounded-3xl border border-secondary-200 dark:border-secondary-800 shadow-sm flex flex-col sm:flex-row items-center sm:items-start gap-5">
