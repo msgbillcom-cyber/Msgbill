@@ -4,6 +4,7 @@ import { formatCurrency, formatDate } from "@/lib/utils";
 import GSTCalculator from "@/components/invoice/GSTCalculator";
 import Link from "next/link";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import PublicInvoiceClient from "@/components/invoice/PublicInvoiceClient";
 
 // Initialize Supabase Admin Client for Server-Side Fetching
@@ -36,6 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!invoice) {
         return {
             title: "Invoice Not Found | MsgBill",
+            robots: { index: false, follow: false },
         };
     }
 
@@ -52,6 +54,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         title: `Invoice ${invoice.invoice_number} from ${companyName}`,
         description: `View and pay invoice for ${amount}. Powered by MsgBill.`,
+        // Private customer invoices must never be indexed by search engines.
+        robots: { index: false, follow: false },
         openGraph: {
             title: `Invoice ${invoice.invoice_number} from ${companyName}`,
             description: `Total Amount: ${amount}`,
@@ -93,20 +97,8 @@ export default async function PublicInvoicePage({ params, searchParams }: Props)
         .single();
 
     if (!invoice) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-secondary-50">
-                <div className="max-w-md w-full text-center p-12 bg-white rounded-xl shadow-lg">
-                    <span className="text-6xl mb-6 block">🚫</span>
-                    <h1 className="text-2xl font-bold mb-2">Invoice Not Found</h1>
-                    <p className="text-secondary-500 mb-8">
-                        This invoice might have been deleted or the link is incorrect.
-                    </p>
-                    <Link href="/" className="text-primary-600 hover:underline">
-                        Go to Homepage
-                    </Link>
-                </div>
-            </div>
-        );
+        // Return a real HTTP 404 (renders app/not-found.tsx) instead of a 200 "not found" page.
+        notFound();
     }
 
     // Fetch related data
