@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import PageHeader from "@/components/layout/PageHeader";
 import Card, { CardContent } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
@@ -10,7 +11,38 @@ export const metadata: Metadata = {
     title: "Bill & Invoice Features | WhatsApp Bill Maker | MsgBill",
     description: "Create bill and invoice on WhatsApp with GST, UPI payment links, and instant sharing. WhatsApp bill maker features for Indian businesses.",
     keywords: ["bill on whatsapp", "invoice on whatsapp", "whatsapp bill maker", "whatsapp invoice maker", "invoice features"],
+    alternates: {
+        canonical: "https://msgbill.com/features",
+    },
+    openGraph: {
+        type: "website",
+        locale: "en_IN",
+        siteName: "MsgBill",
+        url: "https://msgbill.com/features",
+        title: "Bill & Invoice Features | WhatsApp Bill Maker | MsgBill",
+        description: "Create bill and invoice on WhatsApp with GST, UPI payment links, and instant sharing. WhatsApp bill maker features for Indian businesses.",
+        images: ["/logo-final.png"],
+    },
 };
+
+const businessTools = [
+    {
+        title: "Inventory with automatic stock deduction",
+        desc: "Save your products with price, unit, GST rate and stock quantity. When you add a saved product to an invoice, the price and GST rate fill in, and the sold quantity is deducted from stock when the invoice is saved.",
+    },
+    {
+        title: "WhatsApp store link",
+        desc: "Share one link to a simple online catalogue of your in-stock products. Customers add items to a cart and WhatsApp opens with the full order written out, ready to send to you, so you can confirm it and raise the invoice.",
+    },
+    {
+        title: "Collection desk for overdue invoices",
+        desc: "See every unpaid invoice that is past its due date, the total amount overdue and how many days late each one is. One tap prepares a WhatsApp reminder in a friendly, firm or urgent tone with the invoice link and your UPI ID.",
+    },
+    {
+        title: "Expenses and profit & loss",
+        desc: "Record business expenses alongside your invoices. The reports page shows total revenue, total expenses, net profit, profit margin and a month-by-month breakdown, so you know where the business stands without a spreadsheet.",
+    },
+];
 
 export default function FeaturesPage() {
     const detailedFeatures = [
@@ -34,7 +66,7 @@ export default function FeaturesPage() {
                 "Client history tracking",
                 "Billing address management",
                 "Contact shortcuts",
-                "Quick import/export",
+                "Saved GSTIN & state",
             ],
             bg: "bg-secondary-50",
         },
@@ -146,12 +178,12 @@ export default function FeaturesPage() {
                                 {
                                     title: "Payment Reminders",
                                     desc:
-                                        "Coming soon: Automated follow-ups for unpaid invoices.",
+                                        "Ready-made WhatsApp reminders for overdue invoices in a friendly, firm or urgent tone.",
                                 },
                                 {
-                                    title: "Data Export",
+                                    title: "PDF Downloads",
                                     desc:
-                                        "Download your data in CSV for bookkeeping.",
+                                        "Download any invoice as a PDF for your records, your accountant or a printout.",
                                 },
                                 {
                                     title: "Mobile Friendly",
@@ -159,9 +191,9 @@ export default function FeaturesPage() {
                                         "Access and create invoices on any device.",
                                 },
                                 {
-                                    title: "Instant Support",
+                                    title: "Real Support",
                                     desc:
-                                        "Help whenever you need it via chat or email.",
+                                        "Help from the MsgBill team on WhatsApp (+91 9148868413) or at support@msgbill.com.",
                                 },
                                 {
                                     title: "Security & Retention",
@@ -186,6 +218,50 @@ export default function FeaturesPage() {
                         </div>
                     </div>
 
+                    {/* Business tools */}
+                    <div className="mt-32 pt-24 border-t">
+                        <h2 className="text-3xl font-bold text-center mb-6">
+                            Tools for running the business, not just billing
+                        </h2>
+                        <p className="text-lg text-secondary-600 text-center max-w-3xl mx-auto mb-16">
+                            Sending the invoice is only half the job. These tools help you keep stock right, take orders and actually collect the money.
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {businessTools.map((tool) => (
+                                <Card key={tool.title} className="bg-secondary-50 border-none">
+                                    <CardContent className="pt-6">
+                                        <h3 className="font-bold text-lg mb-2">{tool.title}</h3>
+                                        <p className="text-secondary-600 text-sm leading-relaxed">{tool.desc}</p>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* How GST works in MsgBill */}
+                    <div className="mt-32 pt-24 border-t max-w-3xl mx-auto space-y-6">
+                        <h2 className="text-3xl font-bold text-center">
+                            How MsgBill handles GST
+                        </h2>
+                        <p className="text-secondary-600 leading-relaxed">
+                            You enter your business state and GSTIN once. For each invoice, MsgBill compares your state with your client&apos;s state. If both are the same, the GST on each line is split equally into CGST and SGST; if they are different, the full rate is charged as IGST and the client&apos;s state is recorded as the place of supply. Each line item can carry its own HSN or SAC code and GST rate, so a bill that mixes goods and services stays correct.
+                        </p>
+                        <p className="text-secondary-600 leading-relaxed">
+                            Not registered under GST yet? Turn GST off for the invoice and MsgBill produces a clean bill without any tax lines. MsgBill calculates and presents tax based on the details you enter; please confirm the right rate for your goods or services with your Chartered Accountant. Our{" "}
+                            <Link href="/blog/gst-invoice-guide" className="text-primary-600 font-semibold hover:underline">
+                                GST invoice format guide
+                            </Link>{" "}
+                            explains every mandatory field.
+                        </p>
+                        <p className="text-secondary-600 leading-relaxed">
+                            The free plan includes 20 invoices and up to 5 saved clients. Pro is ₹499 for a full year and removes both limits.{" "}
+                            <Link href="/pricing" className="text-primary-600 font-semibold hover:underline">
+                                Compare plans
+                            </Link>
+                            .
+                        </p>
+                    </div>
+
                     <div className="mt-32 text-center bg-primary-50 rounded-3xl py-20 px-6">
                         <h2 className="text-3xl font-bold mb-6">
                             Experience the power of MsgBill
@@ -195,12 +271,13 @@ export default function FeaturesPage() {
                                 size="lg"
                                 className="shadow-lg hover:scale-105 transition-transform"
                             >
-                                Start Free Trial – Create 10 Invoices
+                                Start Free – 20 Invoices Included
                             </Button>
                         </Link>
                     </div>
                 </div>
             </main>
+            <Footer />
         </div>
     );
 }
