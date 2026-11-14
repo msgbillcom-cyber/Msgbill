@@ -25,7 +25,7 @@ interface InvoiceItem {
     hsn: string;
     quantity: number;
     rate: number;
-    taxRate: number; // GST percentage (0, 5, 12, 18, 28)
+    taxRate: number; // GST percentage (0, 3, 5, 18, 28, 40) - slabs in force from 22 Sep 2025
 }
 
 export default function FreeInvoiceGenerator() {
@@ -775,10 +775,11 @@ export default function FreeInvoiceGenerator() {
                                                     className="w-full px-2 py-1.5 text-sm bg-white dark:bg-secondary-900 border border-secondary-200 dark:border-secondary-700 rounded-lg outline-none focus:border-emerald-500"
                                                 >
                                                     <option value={0}>0%</option>
+                                                    <option value={3}>3%</option>
                                                     <option value={5}>5%</option>
-                                                    <option value={12}>12%</option>
                                                     <option value={18}>18%</option>
                                                     <option value={28}>28%</option>
+                                                    <option value={40}>40%</option>
                                                 </select>
                                             </td>
                                             <td className="py-2 px-2 text-right font-semibold text-secondary-800 dark:text-secondary-200">
