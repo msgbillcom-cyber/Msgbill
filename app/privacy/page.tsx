@@ -6,6 +6,19 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Privacy Policy | MsgBill - Data Protection & Cookie Policy",
     description: "MsgBill Privacy Policy: How we protect your data, handle cookies, Google AdSense advertising, and maintain GST invoice privacy.",
+    alternates: {
+        canonical: "https://msgbill.com/privacy",
+    },
+    openGraph: {
+        type: "website",
+        locale: "en_IN",
+        siteName: "MsgBill",
+        url: "https://msgbill.com/privacy",
+        title: "Privacy Policy | MsgBill",
+        description:
+            "MsgBill Privacy Policy: How we protect your data, handle cookies, Google AdSense advertising, and maintain GST invoice privacy.",
+        images: ["/logo-final.png"],
+    },
 };
 
 export default function PrivacyPage() {
@@ -92,7 +105,9 @@ export default function PrivacyPage() {
                             If you have questions about this Privacy Policy or our advertising practices, please contact us at:
                             <br />
                             <strong>MsgBill Financial Technologies</strong><br />
+                            Bengaluru, Karnataka, India<br />
                             Email: <a href="mailto:support@msgbill.com" className="text-emerald-600 underline">support@msgbill.com</a><br />
+                            WhatsApp: <a href="https://wa.me/919148868413" target="_blank" rel="noopener noreferrer" className="text-emerald-600 underline">+91 9148868413</a><br />
                             Website: <a href="https://msgbill.com" className="text-emerald-600 underline">https://msgbill.com</a>
                         </p>
                     </div>
