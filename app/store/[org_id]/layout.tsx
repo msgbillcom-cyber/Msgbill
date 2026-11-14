@@ -13,7 +13,7 @@ import { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-    title: "Online Store",
+    title: "Online Store | MsgBill",
     robots: { index: false, follow: false },
 };
 
