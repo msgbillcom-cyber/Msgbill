@@ -7,13 +7,36 @@ export default function ContactForm() {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    // MsgBill WhatsApp support desk (+91 9148868413).
+    const SUPPORT_WHATSAPP = "919148868413";
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-            setSubmitted(true);
-        }, 600);
+
+        // There is no backend inbox for this form, so hand the message to the
+        // support desk on WhatsApp (pre-filled) instead of silently dropping it.
+        const data = new FormData(e.currentTarget);
+        const name = String(data.get("name") || "").trim();
+        const email = String(data.get("email") || "").trim();
+        const phone = String(data.get("phone") || "").trim();
+        const message = String(data.get("message") || "").trim();
+
+        const text =
+            `Hi MsgBill Team, I have a query.\n\n` +
+            `Name: ${name}\n` +
+            `Email: ${email}\n` +
+            (phone ? `Phone: ${phone}\n` : "") +
+            `\n${message}`;
+
+        const url = `https://wa.me/${SUPPORT_WHATSAPP}?text=${encodeURIComponent(text)}`;
+        const win = window.open(url, "_blank");
+        if (!win) {
+            window.location.href = url;
+        }
+
+        setLoading(false);
+        setSubmitted(true);
     };
 
     if (submitted) {
@@ -23,10 +46,11 @@ export default function ContactForm() {
                     <CheckCircle className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-emerald-900 dark:text-emerald-200">
-                    Message Received!
+                    Almost done!
                 </h3>
                 <p className="text-xs text-emerald-700 dark:text-emerald-400 max-w-sm mx-auto">
-                    Thank you for reaching out. Our support team will review your inquiry and reply to your email within 24 hours.
+                    We opened WhatsApp with your message to MsgBill support (+91 9148868413). Tap Send in WhatsApp to deliver it. Prefer email? Write to{" "}
+                    <a href="mailto:support@msgbill.com" className="underline font-semibold">support@msgbill.com</a>.
                 </p>
                 <button
                     onClick={() => setSubmitted(false)}
@@ -46,6 +70,7 @@ export default function ContactForm() {
                 </label>
                 <input
                     type="text"
+                    name="name"
                     required
                     placeholder="e.g. Ramesh Patel"
                     className="w-full px-4 py-2.5 text-sm bg-slate-50 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-xl outline-none focus:border-emerald-500"
@@ -58,6 +83,7 @@ export default function ContactForm() {
                 </label>
                 <input
                     type="email"
+                    name="email"
                     required
                     placeholder="ramesh@example.com"
                     className="w-full px-4 py-2.5 text-sm bg-slate-50 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-xl outline-none focus:border-emerald-500"
@@ -70,6 +96,7 @@ export default function ContactForm() {
                 </label>
                 <input
                     type="tel"
+                    name="phone"
                     placeholder="+91 98765 43210"
                     className="w-full px-4 py-2.5 text-sm bg-slate-50 dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-xl outline-none focus:border-emerald-500"
                 />
@@ -80,6 +107,7 @@ export default function ContactForm() {
                     Message / Question *
                 </label>
                 <textarea
+                    name="message"
                     required
                     rows={4}
                     placeholder="How can we help your business?"
@@ -92,7 +120,7 @@ export default function ContactForm() {
                 disabled={loading}
                 className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-50"
             >
-                <Send className="w-4 h-4" /> {loading ? "Sending..." : "Send Message"}
+                <Send className="w-4 h-4" /> {loading ? "Opening WhatsApp..." : "Send via WhatsApp"}
             </button>
         </form>
     );
