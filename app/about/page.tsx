@@ -9,6 +9,19 @@ export const metadata: Metadata = {
     title: "About | Bill & Invoice on WhatsApp | MsgBill",
     description: "MsgBill: WhatsApp bill maker and invoice maker for Indian businesses. We simplify bill and invoice on WhatsApp for homepreneurs and small businesses.",
     keywords: ["bill on whatsapp", "invoice on whatsapp", "whatsapp bill maker", "whatsapp invoice maker", "about msgbill"],
+    alternates: {
+        canonical: "https://msgbill.com/about",
+    },
+    openGraph: {
+        type: "website",
+        locale: "en_IN",
+        siteName: "MsgBill",
+        url: "https://msgbill.com/about",
+        title: "About MsgBill | WhatsApp Billing for Indian Businesses",
+        description:
+            "MsgBill: WhatsApp bill maker and invoice maker for Indian businesses. We simplify bill and invoice on WhatsApp for homepreneurs and small businesses.",
+        images: ["/logo-final.png"],
+    },
 };
 
 export default function AboutPage() {
@@ -159,6 +172,49 @@ export default function AboutPage() {
                                 </p>
                             </div>
                         </div>
+                    </div>
+                </section>
+
+                {/* Contact Section */}
+                <section className="py-16 bg-slate-50 border-y border-slate-200">
+                    <div className="container-wide">
+                        <div className="max-w-3xl mx-auto text-center mb-10 space-y-3">
+                            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/70 px-3 py-1 rounded-full">
+                                Talk to a real person
+                            </span>
+                            <h2 className="text-3xl font-extrabold text-secondary-900">
+                                Where to find us
+                            </h2>
+                            <p className="text-secondary-600 text-sm">
+                                MsgBill is built and supported from Bengaluru. Questions about GST invoices, your account, or a Pro payment? Reach the team directly.
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                            <div className="bg-white p-6 rounded-3xl border border-secondary-200 shadow-sm space-y-2 text-center">
+                                <h3 className="text-base font-bold text-secondary-900">WhatsApp Support</h3>
+                                <a
+                                    href="https://wa.me/919148868413"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm font-semibold text-emerald-600 hover:underline"
+                                >
+                                    +91 9148868413
+                                </a>
+                            </div>
+                            <div className="bg-white p-6 rounded-3xl border border-secondary-200 shadow-sm space-y-2 text-center">
+                                <h3 className="text-base font-bold text-secondary-900">Email</h3>
+                                <a href="mailto:support@msgbill.com" className="text-sm font-semibold text-emerald-600 hover:underline">
+                                    support@msgbill.com
+                                </a>
+                            </div>
+                            <div className="bg-white p-6 rounded-3xl border border-secondary-200 shadow-sm space-y-2 text-center">
+                                <h3 className="text-base font-bold text-secondary-900">Location</h3>
+                                <p className="text-sm text-secondary-600">Bengaluru, Karnataka, India</p>
+                            </div>
+                        </div>
+                        <p className="text-center text-xs text-secondary-500 mt-6">
+                            Support hours: Monday – Saturday, 9:00 AM – 6:00 PM IST. See the <Link href="/contact" className="text-emerald-600 underline">contact page</Link> for more ways to reach us.
+                        </p>
                     </div>
                 </section>
 
