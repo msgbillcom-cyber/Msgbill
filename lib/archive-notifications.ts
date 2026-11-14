@@ -79,7 +79,7 @@ ${invoiceList}
 
 OPTIONS:
 1. Download PDFs now (from your dashboard)
-2. Upgrade to Pro (₹499/month) - Unlimited invoices & 1 year retention
+2. Upgrade to Pro (₹499/year) - Unlimited invoices & 1 year retention
 
 [Download My Invoices] [Upgrade to Pro]
 
