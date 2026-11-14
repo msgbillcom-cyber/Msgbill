@@ -9,7 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 export const metadata: Metadata = {
     title: {
         default: "Bill & Invoice on WhatsApp | WhatsApp Bill Maker | MsgBill",
-        template: "%s | MsgBill India",
+        template: "%s",
     },
     description:
         "Create bill and invoice on WhatsApp in 10 seconds. WhatsApp invoice & WhatsApp bill maker for Indian businesses. Free GST billing, send invoice via WhatsApp.",
