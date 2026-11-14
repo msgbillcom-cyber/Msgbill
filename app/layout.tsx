@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         locale: "en_IN",
-        url: "https://msgbill.com",
+        // og:url is set per page (with alternates.canonical) so pages don't all point at the homepage.
         title: "Bill & Invoice on WhatsApp | WhatsApp Bill Maker | MsgBill",
         description:
             "Create bill and invoice on WhatsApp. WhatsApp invoice maker. Free GST billing, send invoice via WhatsApp. Get paid 3x faster.",
@@ -211,6 +211,20 @@ export default function RootLayout({
                                     name: "MsgBill",
                                     url: "https://msgbill.com",
                                     logo: "https://msgbill.com/logo-final.png",
+                                    email: "support@msgbill.com",
+                                    address: {
+                                        "@type": "PostalAddress",
+                                        addressLocality: "Bengaluru",
+                                        addressRegion: "Karnataka",
+                                        addressCountry: "IN",
+                                    },
+                                    contactPoint: {
+                                        "@type": "ContactPoint",
+                                        telephone: "+91-9148868413",
+                                        contactType: "customer support",
+                                        areaServed: "IN",
+                                        email: "support@msgbill.com",
+                                    },
                                 },
                             ],
                         }),
