@@ -8,13 +8,14 @@ import { Metadata } from "next";
 
 export const dynamicParams = false;
 
-// Master Blog Content Dictionary (15 In-Depth Articles)
+// Master Blog Content Dictionary (28 In-Depth Articles). Each post has its own meta description.
 const blogPosts: Record<string, any> = {
     "salon-spa-gst-invoice-format-india": {
         title: "Salon & Spa GST Invoice Format in India (2026 Guide with SAC Codes)",
         date: "2026-11-06",
         author: "MsgBill Team",
         category: "Retail & GST",
+        description: "Salon and spa GST invoice format for India: 5% rate without ITC since Sept 2025, SAC codes, separate product lines, packages and a worked bill example.",
         content: `
             <p class="mb-6 text-lg">A salon bill looks simple: a haircut, a facial, maybe a bottle of shampoo. But since the GST rate changes of September 2025, many salons and spas are still printing old formats with 18% GST, mixing products and services on one line, or skipping the SAC code altogether. This guide shows a clean, GST-ready invoice format for salons, spas, barbershops and beauty parlours in India.</p>
             <p class="mb-6">This is educational content written for small business owners, not legal or tax advice. GST rates and notifications change — always confirm the current position with your Chartered Accountant (CA) before you change your billing.</p>
@@ -145,6 +146,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-11-07",
         author: "MsgBill Team",
         category: "GST Compliance",
+        description: "What HSN and SAC codes mean, how many digits your invoice needs by turnover, and commonly used codes for shops, freelancers and service businesses.",
         content: `
             <p class="mb-6 text-lg">"What is the HSN code for this?" is one of the most common questions small business owners ask their accountant. HSN and SAC codes look like a bureaucratic detail, but a wrong or missing code can cause mismatches in your GST returns, confuse your buyers' input tax credit, and make your invoices look unprofessional.</p>
             <p class="mb-6">This guide explains what HSN and SAC codes are, how many digits you need to show, and lists commonly used codes for typical Indian small businesses. It is a starting point for your research — always confirm the exact code and current GST rate for your product or service with your CA or the official CBIC rate schedule.</p>
@@ -304,6 +306,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-11-08",
         author: "MsgBill Team",
         category: "Payments",
+        description: "How to add a UPI QR code or UPI ID to your invoice, static vs dynamic QR, where to place it on the bill, and how to match payments to invoices.",
         content: `
             <p class="mb-6 text-lg">A UPI QR code on an invoice turns "I'll pay later" into "paid" in under a minute. The customer opens any UPI app, scans, and the amount and reference can already be filled in. Yet many businesses either skip the QR or paste a random screenshot that does not match the bill.</p>
             <p class="mb-6">This guide covers every practical way to add a UPI QR code to your invoice — whether you print bills, send PDFs, or share invoices on WhatsApp — and how to set it up so every payment is easy to match with the right invoice.</p>
@@ -430,6 +433,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-11-09",
         author: "MsgBill Team",
         category: "GST Compliance",
+        description: "GST composition scheme billing rules: who can opt in, turnover limits, bill of supply format, the mandatory declaration and mistakes to avoid.",
         content: `
             <p class="mb-6 text-lg">The GST composition scheme is designed for small businesses that want simpler compliance: pay tax at a fixed low rate on turnover, file returns less often, and skip the complexity of regular GST invoices. But the scheme also comes with hard limits — you cannot charge GST on bills, your buyers cannot claim ITC, and you cannot make inter-state supplies.</p>
             <p class="mb-6">This guide explains who can opt for composition, the current rates, how a bill of supply looks, and the billing mistakes that get composition dealers into trouble. Educational only — confirm eligibility and rates with your CA before you opt in or out.</p>
@@ -549,6 +553,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-11-10",
         author: "MsgBill Team",
         category: "Retail & GST",
+        description: "Restaurant and cafe bill format under GST: regular vs composition scheme, mandatory fields, service charge, packaging, FSSAI number and a sample bill.",
         content: `
             <p class="mb-6 text-lg">A restaurant bill is one of the most familiar documents in India — yet GST on food service still confuses many café and cloud-kitchen owners. Is dine-in the same as takeaway? What about alcohol? How do you show CGST and SGST on a thermal receipt? This guide walks through a practical GST bill format for restaurants, cafés, bakeries and cloud kitchens.</p>
             <p class="mb-6">Educational content for MSME owners — not tax advice. Restaurant GST rates and composition options have changed more than once; confirm the current slab and scheme with your CA before you reprint menus or reconfigure POS.</p>
@@ -682,6 +687,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-11-11",
         author: "MsgBill Team",
         category: "WhatsApp Business",
+        description: "Turn WhatsApp Business catalogue orders into proper invoices: order-to-bill flow, confirmation messages, B2C vs B2B, returns and record-keeping.",
         content: `
             <p class="mb-6 text-lg">WhatsApp Business catalogs let customers browse your products inside chat and place orders without visiting a website. That is powerful for Indian MSMEs — but an order chat is not automatically a GST-compliant invoice. This guide shows how to connect catalog orders to proper invoicing, UPI collection and record-keeping.</p>
             <p class="mb-6">Educational workflow content for shop owners and home businesses. Not tax or Meta policy advice; WhatsApp product features and GST rules both change.</p>
@@ -808,6 +814,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-11-12",
         author: "MsgBill Team",
         category: "GST Compliance",
+        description: "Input tax credit checklist for small businesses: what to verify before each return, GSTR-2B matching, blocked credits, reverse charge and vendor checks.",
         content: `
             <p class="mb-6 text-lg">Input Tax Credit (ITC) is the GST you paid on purchases that you can set off against the GST you collect on sales — if you meet the conditions. For small businesses, ITC mistakes are expensive: blocked credit, interest, and notices. This checklist helps MSME owners understand what to verify before claiming ITC in their returns.</p>
             <p class="mb-6">This is educational material for business owners, not a filing manual. ITC rules are technical; always work with your CA or GST practitioner before you claim or reverse credit.</p>
@@ -918,6 +925,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-11-13",
         author: "MsgBill Team",
         category: "Payments",
+        description: "How to add late payment interest terms to invoices in India, the MSME delayed payment rules, an interest calculation example and wording you can use.",
         content: `
             <p class="mb-6 text-lg">Late payments hurt MSME cash flow more than almost any other operational issue. Indian law gives suppliers tools — including interest on delayed payments under the MSMED Act for registered micro and small enterprises — but your invoice wording, contract and follow-up discipline decide whether you can actually collect that interest.</p>
             <p class="mb-6">This guide explains how to show payment terms and late-payment interest on invoices in a clear, professional way, what MSME buyers/sellers should know at a high level, and how to chase dues without burning relationships. Educational only — not legal advice.</p>
@@ -1028,6 +1036,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-01-28",
         author: "MsgBill Team",
         category: "WhatsApp Business",
+        description: "How to send invoices on WhatsApp in India: what the message should include, legal validity, a step-by-step MsgBill workflow and reminder timing.",
         content: `
             <p class="mb-6 text-lg">Email invoices often sit unread. In India, WhatsApp is where customers respond — and where UPI payments happen on the same screen.</p>
             <p class="mb-6">This guide covers a practical WhatsApp invoicing workflow for shops, freelancers, and GST-registered sellers. Educational only; not tax advice.</p>
@@ -1037,32 +1046,68 @@ const blogPosts: Record<string, any> = {
                 <li>Send a PDF + short payment message, not a notebook photo.</li>
                 <li>Put UPI ID or payment link in the first message.</li>
                 <li>Keep invoice numbers sequential if you are GST-registered.</li>
-                <li>Start free on the MsgBill generator; upgrade for history and reminders.</li>
+                <li>Confirm the customer's number before you send — invoices contain names, amounts and sometimes GSTINs.</li>
+                <li>Start free on the MsgBill generator; sign up for invoice history and reminders.</li>
             </ul>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Why WhatsApp Beats Email for Collections</h2>
             <p class="mb-4">Customers already chat with vendors on WhatsApp. Delivery ticks and instant UPI make same-day payment realistic for many small invoices.</p>
+            <p class="mb-4">There is also less friction. A customer who has to find an email, download an attachment and then open a banking app often postpones payment. A customer who receives the bill in the same chat where they placed the order can tap a UPI link or scan a QR code in under a minute.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">What a Good WhatsApp Invoice Message Contains</h2>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li><strong>Greeting with the customer's name</strong> — so it does not look like spam.</li>
+                <li><strong>Invoice number and amount</strong> — the two things the customer will search for later.</li>
+                <li><strong>Due date</strong> — even "due today" helps.</li>
+                <li><strong>A link to the invoice or the PDF itself</strong> — not a photo of a handwritten bill.</li>
+                <li><strong>How to pay</strong> — UPI ID, QR code or a payment link.</li>
+                <li><strong>Your business name</strong> at the end.</li>
+            </ol>
+            <p class="mb-4">A message that works well looks like this:</p>
+            <div class="bg-slate-100 p-4 rounded-xl font-mono text-xs my-3 text-slate-800">
+                Hi Anita, your invoice MB-0142 is ready.<br />Amount: ₹4,720 | Due: 20 Nov<br />View invoice: [link]<br />Pay via UPI: yourshop@okbank<br />Thank you for your business! – Sharma Electricals
+            </div>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">How to Create & Send with MsgBill</h2>
             <ol class="list-decimal pl-6 mb-6 space-y-2">
                 <li>Open the <a href="/free-invoice-generator" class="text-emerald-600 underline font-semibold">free invoice generator</a> or sign in to the dashboard.</li>
                 <li>Enter business + client details, line items, and GST slab.</li>
                 <li>Choose intra-state (CGST+SGST) or inter-state (IGST).</li>
-                <li>Download PDF and/or tap Send to WhatsApp.</li>
+                <li>Download PDF and/or tap Send to WhatsApp. On a phone, the PDF is attached through your phone's share sheet; on a computer, the PDF downloads and WhatsApp Web opens so you can attach it.</li>
                 <li>Add your UPI ID in the chat if it is not already on the PDF.</li>
             </ol>
+            <p class="mb-4">From the dashboard, the share button prepares a message with the invoice number, amount, due date and a link to an online copy of the invoice, plus your UPI ID or a Razorpay payment link if you have added one. The customer can open the link on any phone without installing anything.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example: A Freelance Designer</h2>
+            <p class="mb-4">Rahul, a GST-registered designer in Hyderabad, finishes a logo project for a café in the same city. Fee: ₹12,000 + 18% GST (CGST ₹1,080 + SGST ₹1,080) = ₹14,160. He creates the invoice in the evening and sends it on WhatsApp with his UPI ID. The café owner sees it, opens the link, scans the QR code and pays the next morning. Rahul records the payment against the invoice, so it no longer appears in his overdue list.</p>
+            <p class="mb-4">Compare that with emailing a PDF to a generic café inbox, where it may not be seen for a week.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Is a WhatsApp Invoice Legal?</h2>
             <p class="mb-4">GST focuses on invoice content (Rule 46 fields, numbering, tax), not the chat app. Keep your own archive. MsgBill helps produce a clean PDF; you remain responsible for compliance.</p>
+            <p class="mb-4">If you are covered by e-invoicing, the invoice must first be reported to the Invoice Registration Portal and carry the IRN and QR code; you can still deliver the final PDF on WhatsApp.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Reminder Rhythm</h2>
             <p class="mb-4">Day 0: send. Day 3: friendly nudge. Day 7: firm reminder. Day 14: final notice before pausing work.</p>
+            <p class="mb-4">Keep every reminder in the same chat thread as the original invoice, so the customer can scroll up and pay without asking for the details again. Our guide to <a href="/blog/how-to-recover-overdue-payments-whatsapp" class="text-emerald-600 underline font-semibold">recovering overdue payments on WhatsApp</a> has ready-to-use templates.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Sending to a group:</strong> invoices belong in a one-to-one chat. Group chats expose amounts and GSTINs to people who should not see them.</li>
+                <li><strong>Only sending a photo:</strong> photos are hard to read, cannot be searched and are not a proper record.</li>
+                <li><strong>No due date:</strong> without one, "pay later" becomes "pay never".</li>
+                <li><strong>Changing UPI IDs often:</strong> customers save your ID; keep one business ID on every bill.</li>
+                <li><strong>Relying on WhatsApp as your only archive:</strong> chats get deleted and phones get replaced. Keep the PDFs or use software that stores them.</li>
+            </ul>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
             <p class="mb-2"><strong>Do I need WhatsApp Business API?</strong></p>
             <p class="mb-4">Not for manual sends from your phone. API is for automated scale.</p>
             <p class="mb-2"><strong>Can guests use MsgBill without signup?</strong></p>
-            <p class="mb-6">Yes. The free generator needs no login. Accounts remove ads and store invoices for 1 year.</p>
+            <p class="mb-4">Yes. The free generator needs no login. A free account stores your invoices for 6 months, and Pro keeps them for 12 months, with no ads in the dashboard.</p>
+            <p class="mb-2"><strong>Should I use the WhatsApp Business app or regular WhatsApp?</strong></p>
+            <p class="mb-4">Either works for sending invoices. The Business app adds a business profile, catalogue and quick replies, which many shops find useful.</p>
+            <p class="mb-2"><strong>What if the customer says they never received the invoice?</strong></p>
+            <p class="mb-6">The delivery ticks show whether it reached their phone. Resend the link in the same chat and confirm they can open it.</p>
 
             <div class="bg-emerald-50 p-6 rounded-2xl my-8 border border-emerald-100">
                 <h3 class="font-bold text-emerald-900 mb-2">Ready to get paid faster?</h3>
@@ -1076,6 +1121,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-01-28",
         author: "MsgBill Team",
         category: "Software Comparison",
+        description: "MsgBill vs Vyapar compared for Indian small businesses: WhatsApp sharing, GST invoices, inventory, pricing and which one suits your workflow.",
         content: `
             <p class="mb-6 text-lg">Choosing the right billing software can make or break your small business operations. While Vyapar has long been a household name in Indian desktop accounting, modern homepreneurs, freelancers, and service providers often find traditional accounting software too heavy and complicated for their daily workflow. Enter MsgBill: the streamlined, WhatsApp-native invoicing tool engineered for speed.</p>
 
@@ -1163,44 +1209,102 @@ const blogPosts: Record<string, any> = {
         date: "2026-01-29",
         author: "MsgBill Team",
         category: "GST Compliance",
+        description: "GST invoice format guide for India: every mandatory Rule 46 field, CGST/SGST vs IGST with a worked example, HSN digits, e-invoicing and mistakes.",
         content: `
             <p class="mb-6 text-lg">A GST tax invoice is the primary document for registered supplies in India. Wrong fields or tax splits create return mismatches and buyer ITC issues. Use this as a practical checklist — not a substitute for your CA.</p>
+            <p class="mb-6">This guide walks through every field a tax invoice needs, shows a worked example for a same-state and an other-state customer, and lists the mistakes that most often cause trouble when your buyer tries to claim input tax credit.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Key Takeaways</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
                 <li>Rule 46-style fields: number, date, supplier/buyer, HSN/SAC, tax breakup.</li>
                 <li>Intra-state → CGST+SGST; inter-state → IGST (place of supply matters).</li>
                 <li>Keep a unique sequential series for the financial year.</li>
+                <li>Unregistered businesses and composition dealers do not issue tax invoices with GST — they issue a plain bill or a bill of supply.</li>
                 <li>Generate a draft fast with MsgBill, then verify before filing.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Tax Invoice, Bill of Supply or Plain Bill?</h2>
+            <p class="mb-4">Before you worry about format, check which document you are allowed to issue:</p>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Tax invoice:</strong> issued by a regular GST-registered business for taxable supplies. This is the only document on which GST is charged and on which a registered buyer can claim ITC.</li>
+                <li><strong>Bill of supply:</strong> issued by a composition taxpayer, or by a registered business for exempt or nil-rated supplies. It must not show any GST amount.</li>
+                <li><strong>Plain bill / cash memo:</strong> issued by a business that is not registered under GST. It must not mention GST or a GSTIN.</li>
             </ul>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Mandatory Fields (Practical List)</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li><strong>Invoice number & date</strong> — consecutive; letters/numbers/hyphen/slash only.</li>
+                <li><strong>Invoice number & date</strong> — consecutive, unique for the financial year, up to 16 characters; letters/numbers/hyphen/slash only (for example <code>MB/26-27/0042</code>).</li>
                 <li><strong>Supplier</strong> — name, address, GSTIN.</li>
-                <li><strong>Recipient</strong> — name, address; GSTIN for typical B2B.</li>
-                <li><strong>HSN/SAC</strong> — digit rules depend on turnover; when in doubt, ask your CA.</li>
+                <li><strong>Recipient</strong> — name, address; GSTIN for typical B2B. For an unregistered buyer, name and address (and delivery address) are required when the invoice value is ₹50,000 or more.</li>
+                <li><strong>HSN/SAC</strong> — businesses with aggregate turnover up to ₹5 crore in the previous year must show at least 4 digits on B2B invoices; above ₹5 crore, 6 digits on all invoices. When in doubt, ask your CA.</li>
+                <li><strong>Description, quantity and unit</strong> — for goods, quantity with a unit (Nos, Kg, Mtr); for services, a clear description of the work.</li>
+                <li><strong>Taxable value</strong> — after discounts that are shown on the invoice.</li>
                 <li><strong>Tax breakup</strong> — CGST/SGST or IGST, rate and amount per line or summary.</li>
-                <li><strong>Place of supply</strong> — drives IGST vs CGST/SGST.</li>
+                <li><strong>Place of supply</strong> — state name and code; it drives IGST vs CGST/SGST.</li>
+                <li><strong>Reverse charge</strong> — a line stating whether tax is payable on reverse charge.</li>
                 <li><strong>Signature / digital acknowledgement</strong> as applicable to your process.</li>
             </ul>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">CGST + SGST vs IGST</h2>
             <p class="mb-4">Same state supply usually splits the rate into CGST and SGST. Different state supply usually charges IGST at the full rate. Reverse charge and special categories need professional advice.</p>
+            <p class="mb-4">The deciding factor is the <strong>place of supply</strong>, not where the buyer's office happens to be. For goods it is generally where delivery ends; for most services to a registered buyer it is the buyer's registered location. Exports and supplies to SEZ units are treated as inter-state.</p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">Worked Example</h3>
+            <p class="mb-4">A Bengaluru IT consultant (registered in Karnataka) bills 20 hours of IT consulting (SAC 998313) at ₹1,500 per hour, at 18% GST.</p>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Client location</th>
+                            <th class="p-3 border border-slate-200">Taxable value</th>
+                            <th class="p-3 border border-slate-200">CGST 9%</th>
+                            <th class="p-3 border border-slate-200">SGST 9%</th>
+                            <th class="p-3 border border-slate-200">IGST 18%</th>
+                            <th class="p-3 border border-slate-200">Invoice total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200">Mysuru, Karnataka</td><td class="p-3 border border-slate-200">₹30,000</td><td class="p-3 border border-slate-200">₹2,700</td><td class="p-3 border border-slate-200">₹2,700</td><td class="p-3 border border-slate-200">—</td><td class="p-3 border border-slate-200">₹35,400</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Pune, Maharashtra</td><td class="p-3 border border-slate-200">₹30,000</td><td class="p-3 border border-slate-200">—</td><td class="p-3 border border-slate-200">—</td><td class="p-3 border border-slate-200">₹5,400</td><td class="p-3 border border-slate-200">₹35,400</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-4">The total tax is the same; only the split changes. Getting the split wrong means the buyer's GSTR-2B shows the wrong tax head, and correcting it usually requires a credit note and a fresh invoice.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">When to Issue the Invoice</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Goods:</strong> on or before removal or delivery of the goods.</li>
+                <li><strong>Services:</strong> generally within 30 days of completing the service.</li>
+                <li><strong>Advances:</strong> for services, issue a receipt voucher when you receive an advance, then adjust it in the final invoice.</li>
+            </ul>
+            <p class="mb-4">For goods, the original copy goes to the buyer, the duplicate travels with the transporter and the triplicate stays with you. For services, an original and a duplicate are enough. A PDF you keep in your records works as your copy.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
                 <li>Missing place of supply.</li>
-                <li>Wrong slab (e.g. 18% on a 5% item).</li>
+                <li>Wrong slab (e.g. 18% on a 5% item). Rates were rationalised from 22 September 2025, so old rate cards may be out of date.</li>
                 <li>Duplicate or reset invoice numbers mid-year.</li>
+                <li>Typing the buyer's GSTIN wrongly — their ITC will not appear until you amend it.</li>
+                <li>Showing a discount after tax instead of reducing the taxable value.</li>
                 <li>Sending only a WhatsApp text without a proper PDF for B2B ITC.</li>
             </ul>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">E-Invoice Note</h2>
-            <p class="mb-4">Businesses above the notified turnover threshold must generate IRN via the Invoice Registration Portal. Thresholds change — confirm the current limit before assuming you are exempt.</p>
+            <p class="mb-4">Businesses above the notified turnover threshold must generate IRN via the Invoice Registration Portal. At the time of writing, e-invoicing applies to B2B invoices of businesses whose aggregate turnover exceeded ₹5 crore in any financial year, and businesses above ₹10 crore must report invoices within 30 days. Thresholds change — confirm the current limit before assuming you are exempt.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Can I write the invoice in a foreign currency?</strong></p>
+            <p class="mb-4">For exports, yes, but you report the value in rupees in your GST returns. For domestic B2B sales, invoice in rupees.</p>
+            <p class="mb-2"><strong>Is a handwritten tax invoice valid?</strong></p>
+            <p class="mb-4">A handwritten invoice with all the required fields is valid unless you are covered by e-invoicing. In practice, a digital invoice is easier to number correctly and to search later.</p>
+            <p class="mb-2"><strong>Do I need a signature on a PDF invoice?</strong></p>
+            <p class="mb-4">The rules call for a signature or digital signature of the supplier or authorised person. Many businesses add a scanned signature or a digital signature to the PDF; ask your CA what suits your process.</p>
+            <p class="mb-2"><strong>What if I make a mistake after sending the invoice?</strong></p>
+            <p class="mb-4">Do not edit the old number. Issue a credit note or debit note against the original invoice, or cancel it before it is reported in your return and issue a fresh one.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Create a Clean Format Fast</h2>
             <p class="mb-6">Use the <a href="/free-invoice-generator" class="text-emerald-600 underline font-semibold">free GST invoice generator</a> to draft CGST/SGST or IGST bills, download PDF, and share on WhatsApp. Sign up later for ad-free storage.</p>
+            <p class="mb-4 text-sm text-slate-500"><em>Disclaimer: This article is for general education only and reflects our understanding of GST rules as of the date of publishing. It is not tax or legal advice. Please confirm the current rules with a qualified Chartered Accountant.</em></p>
         `
     },
     "bill-vs-invoice-difference": {
@@ -1208,6 +1312,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-02-18",
         author: "MsgBill Team",
         category: "Basics",
+        description: "Bill vs invoice: the practical difference for Indian businesses, when each is used, GST implications and which document your customer needs.",
         content: `
             <p class="mb-6 text-lg">In everyday Hindi and English, people say “bill bhej do” for almost any payment request. Under GST, the document type matters: a retail <strong>bill</strong> or cash memo is not the same as a <strong>tax invoice</strong> that unlocks Input Tax Credit (ITC).</p>
             <p class="mb-6">This guide explains the difference for Indian shops, freelancers, and registered businesses — without legalese. It is educational, not tax advice; confirm edge cases with your CA.</p>
@@ -1270,6 +1375,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-02-18",
         author: "MsgBill Team",
         category: "WhatsApp Business",
+        description: "How to create a bill and send it on WhatsApp from your phone: step-by-step with a free bill maker, UPI payment details and record-keeping tips.",
         content: `
             <p class="mb-6 text-lg">Most Indian customers check WhatsApp before email. Sending a clear bill with amount, UPI, and PDF on chat often gets you paid the same day.</p>
             <p class="mb-6">Here is a practical workflow you can run from a phone — no desktop software required.</p>
@@ -1324,8 +1430,10 @@ const blogPosts: Record<string, any> = {
         date: "2026-02-18",
         author: "MsgBill Team",
         category: "Software Comparison",
+        description: "10 invoice apps for Indian small businesses in 2026 compared: GST support, WhatsApp sharing, UPI collection, free tiers and who each app suits best.",
         content: `
             <p class="mb-6 text-lg">Indian SMBs need GST fields, UPI, and WhatsApp — not US-only tools. Below is a practical shortlist for 2026. Features change; verify pricing on each vendor’s site before you buy.</p>
+            <p class="mb-6">We have kept the descriptions factual and avoided quoting competitors' prices, because plans and offers change every few months. Use this list to decide which three apps are worth a trial for your type of business.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">How We Compared</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
@@ -1334,29 +1442,79 @@ const blogPosts: Record<string, any> = {
                 <li>UPI / payment collection</li>
                 <li>Free tier usefulness for micro businesses</li>
                 <li>Fit for shops vs freelancers vs agencies</li>
+                <li>How much accounting knowledge you need to use it day to day</li>
             </ul>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">The 10 Apps</h2>
             <ol class="list-decimal pl-6 mb-6 space-y-3">
-                <li><strong>MsgBill</strong> — Best for WhatsApp-native bills, free no-login generator, UPI-oriented collection. Pro ₹499/year.</li>
-                <li><strong>Vyapar</strong> — Strong for retail inventory and desktop POS-style workflows.</li>
-                <li><strong>MyBillBook</strong> — Popular mobile billing for local stores.</li>
-                <li><strong>Zoho Invoice</strong> — Clean cloud invoicing for consultants and agencies.</li>
-                <li><strong>Refrens</strong> — Freelancer proposals + invoices.</li>
-                <li><strong>Busy</strong> — Accounting-heavy GST books for growing traders.</li>
-                <li><strong>TallyPrime</strong> — Deep accounting; steeper learning curve.</li>
-                <li><strong>Clear (ClearTax) Invoice / GST suite</strong> — Strong around compliance and larger GST ops.</li>
-                <li><strong>QuickBooks Online</strong> — Cross-border freelancers; check India GST fit for your case.</li>
-                <li><strong>Marg ERP / similar retail ERPs</strong> — Distribution and pharma-style inventory (heavier setups).</li>
+                <li><strong>MsgBill</strong> — Best for WhatsApp-native bills, free no-login generator, UPI-oriented collection. Invoices go out as a WhatsApp message with a link, CGST/SGST or IGST is applied from the client's state, and overdue invoices get one-tap WhatsApp reminders. Free plan: 20 invoices; Pro ₹499/year. It is a billing tool, not full double-entry accounting.</li>
+                <li><strong>Vyapar</strong> — Strong for retail inventory and desktop POS-style workflows. Popular with traders who want stock, purchase and sales registers alongside billing, on Windows and Android.</li>
+                <li><strong>MyBillBook</strong> — Popular mobile billing for local stores. Covers GST invoices, inventory and basic reports, with apps for phone and desktop.</li>
+                <li><strong>Zoho Invoice</strong> — Clean cloud invoicing for consultants and agencies. Good for recurring invoices, time tracking and client portals; Zoho Books adds full accounting if you outgrow it.</li>
+                <li><strong>Refrens</strong> — Freelancer proposals + invoices. Useful if you send quotations and proposals before billing, and for invoicing foreign clients.</li>
+                <li><strong>Busy</strong> — Accounting-heavy GST books for growing traders. Suits businesses with a dedicated accountant, multiple godowns or wholesale workflows.</li>
+                <li><strong>TallyPrime</strong> — Deep accounting; steeper learning curve. Widely used by Chartered Accountants, which makes year-end handover easy.</li>
+                <li><strong>Clear (ClearTax) Invoice / GST suite</strong> — Strong around compliance and larger GST ops, including e-invoicing and return filing at scale.</li>
+                <li><strong>Swipe</strong> — A mobile-first GST billing app aimed at small businesses. Check its current feature list for payment links, inventory and e-way bills against what you need.</li>
+                <li><strong>Marg ERP / similar retail ERPs</strong> — Distribution and pharma-style inventory (heavier setups), including batch and expiry tracking.</li>
             </ol>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Quick Comparison by Need</h2>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Your main need</th>
+                            <th class="p-3 border border-slate-200">Shortlist</th>
+                            <th class="p-3 border border-slate-200">Why</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200">Bill fast on phone, get paid on WhatsApp/UPI</td><td class="p-3 border border-slate-200">MsgBill, MyBillBook, Swipe</td><td class="p-3 border border-slate-200">Short setup, mobile-first sharing</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Stock, purchases and many SKUs</td><td class="p-3 border border-slate-200">Vyapar, Busy, Marg</td><td class="p-3 border border-slate-200">Inventory and purchase registers</td></tr>
+                        <tr><td class="p-3 border border-slate-200">Services, retainers, foreign clients</td><td class="p-3 border border-slate-200">Zoho Invoice, Refrens, MsgBill</td><td class="p-3 border border-slate-200">Recurring work, proposals, clean PDFs</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Full books for your CA</td><td class="p-3 border border-slate-200">TallyPrime, Busy, Zoho Books</td><td class="p-3 border border-slate-200">Ledgers, balance sheet, audit trail</td></tr>
+                        <tr><td class="p-3 border border-slate-200">High-volume GST compliance</td><td class="p-3 border border-slate-200">Clear</td><td class="p-3 border border-slate-200">E-invoicing and returns at scale</td></tr>
+                    </tbody>
+                </table>
+            </div>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Who Should Pick What</h2>
             <p class="mb-4"><strong>Kirana / salon / local services:</strong> MsgBill or MyBillBook for speed on phone.</p>
             <p class="mb-4"><strong>Inventory-heavy retail:</strong> Vyapar, Busy, or Marg-class tools.</p>
             <p class="mb-4"><strong>Agency / IT:</strong> Zoho Invoice or MsgBill if WhatsApp collection matters most.</p>
+            <p class="mb-4"><strong>Already working with a CA who uses Tally:</strong> keep your books in Tally, and use a lightweight billing app only if it saves time at the counter. Ask your CA what export format they need before you choose.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">A 30-Minute Test Before You Commit</h2>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li>Create your real business profile with GSTIN, state and UPI ID.</li>
+                <li>Make one same-state invoice and one other-state invoice. Check that CGST+SGST and IGST appear correctly.</li>
+                <li>Add an item with an HSN/SAC code and a discount, and check the taxable value.</li>
+                <li>Send the invoice to your own WhatsApp. Open it as a customer would. Is it readable on a small phone?</li>
+                <li>Mark it paid and see how easy it is to find unpaid invoices afterwards.</li>
+                <li>Check how you get your data out — PDFs, reports or exports — before you have hundreds of invoices inside.</li>
+            </ol>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes When Choosing</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Buying a full accounting suite when you only need to send 30 bills a month.</li>
+                <li>Choosing an app that cannot split IGST correctly for other-state customers.</li>
+                <li>Ignoring how your customers pay — if they pay by UPI, the bill should make UPI easy.</li>
+                <li>Not checking per-device or per-user limits on paid plans.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Is a free invoice app enough for a GST-registered business?</strong></p>
+            <p class="mb-4">For billing, often yes, as long as the invoices contain all the required fields. You will still need someone to file returns, either yourself on the GST portal or your CA.</p>
+            <p class="mb-2"><strong>Can I use two apps together?</strong></p>
+            <p class="mb-4">Yes. Many shops bill in a mobile app and give their CA a monthly summary for the books. Just make sure each invoice number series lives in only one app.</p>
+            <p class="mb-2"><strong>Do I need e-invoicing support?</strong></p>
+            <p class="mb-4">Only if your aggregate turnover crosses the notified threshold (₹5 crore at the time of writing). Most micro businesses are below it.</p>
+            <p class="mb-2"><strong>Can I switch apps in the middle of the financial year?</strong></p>
+            <p class="mb-4">Yes, but plan the invoice numbers. Either continue the same running series in the new app, or start a new series with a different prefix and tell your CA. Download PDFs of all old invoices before your old subscription ends, because you must keep GST records for several years.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Try Before You Commit</h2>
-            <p class="mb-6">Generate one GST-style bill free on <a href="/free-invoice-generator" class="text-emerald-600 underline font-semibold">msgbill.com/free-invoice-generator</a>, share on WhatsApp, and see if the flow fits your customers. No card required.</p>
+            <p class="mb-6">Generate one GST-style bill free on <a href="/free-invoice-generator" class="text-emerald-600 underline font-semibold">msgbill.com/free-invoice-generator</a>, share on WhatsApp, and see if the flow fits your customers. No card required. For a closer look at one alternative, read our <a href="/blog/msgbill-vs-vyapar" class="text-emerald-600 underline font-semibold">MsgBill vs Vyapar comparison</a>.</p>
         `
     },
     "upi-payment-link-get-paid-faster": {
@@ -1364,6 +1522,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-02-18",
         author: "MsgBill Team",
         category: "Payments",
+        description: "Use UPI payment links on invoices to get paid faster: why bank transfers stall, how UPI deep links work, payment methods compared and setup in MsgBill.",
         content: `
             <p class="mb-6 text-lg">In India, the Unified Payments Interface (UPI) processes more than 14 billion financial transactions every month. Yet thousands of small business owners, freelancers, and service providers continue to experience payment delays because they ask clients to manually copy 16-digit bank account numbers and IFSC codes. Adding a direct, 1-tap UPI payment link to your invoices eliminates friction and reduces payment collection time from 15 days to under 5 minutes.</p>
 
@@ -1453,6 +1612,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-02-18",
         author: "MsgBill Team",
         category: "GST Compliance",
+        description: "GST invoice rules for 2026: the mandatory particulars under Rule 46, 4 vs 6-digit HSN codes, e-invoicing, CGST/SGST vs IGST and Section 122 penalties.",
         content: `
             <p class="mb-6 text-lg">Issuing an invalid or non-compliant invoice under the Central Goods and Services Tax (CGST) Act can lead to severe penalties, vehicle interception during transport, and disqualification of your buyer's Input Tax Credit (ITC). In 2026, the GST Council and Central Board of Indirect Taxes and Customs (CBIC) have stepped up automated return matching, making invoice accuracy mandatory for every registered business in India.</p>
 
@@ -1541,14 +1701,36 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-01",
         author: "MsgBill Team",
         category: "Retail & GST",
+        description: "Cash memo format for retail shops in India: when GST needs a tax invoice, the ₹200 rule, required fields and a filled-in sample memo to copy.",
         content: `
             <p class="mb-6 text-lg">For retail shop owners, grocery merchants, garment outlets, and small traders in India, issuing a clear, legal <strong>cash memo</strong> is essential for bookkeeping and customer trust.</p>
+            <p class="mb-6">This guide explains what a cash memo is, when GST law requires a proper tax invoice instead, the exact fields to print, and a filled-in example you can copy. It is general guidance, not tax advice.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">What is a Cash Memo?</h2>
             <p class="mb-4">A cash memo is a commercial document issued by a seller to a buyer when goods or services are sold for immediate cash, UPI, or card payment. Unlike a credit invoice where payment is delayed, a cash memo proves that payment was completed simultaneously with the transaction.</p>
+            <p class="mb-4">It protects both sides: the customer has proof of purchase for exchanges and warranties, and the shop has a numbered record that matches the cash in the drawer and the UPI credits in the bank account.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Cash Memo vs Tax Invoice vs Bill of Supply</h2>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Your situation</th>
+                            <th class="p-3 border border-slate-200">Document to issue</th>
+                            <th class="p-3 border border-slate-200">Shows GST?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200">Not registered under GST</td><td class="p-3 border border-slate-200">Cash memo / plain bill</td><td class="p-3 border border-slate-200">No — never</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Registered, composition scheme</td><td class="p-3 border border-slate-200">Bill of supply</td><td class="p-3 border border-slate-200">No</td></tr>
+                        <tr><td class="p-3 border border-slate-200">Registered, regular scheme, taxable goods</td><td class="p-3 border border-slate-200">Tax invoice (may be titled "Cash Memo / Tax Invoice")</td><td class="p-3 border border-slate-200">Yes</td></tr>
+                    </tbody>
+                </table>
+            </div>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Is a Cash Memo Required Under GST?</h2>
-            <p class="mb-4">Under Section 31(3)(b) of the CGST Act, if the value of goods or services supplied is less than ₹200 and the buyer does not require a tax invoice, a registered person can issue a consolidated daily cash memo. However, for any sale above ₹200, an itemized cash receipt or invoice is mandatory.</p>
+            <p class="mb-4">GST law has a small relief for low-value retail sales. Under Section 31(3)(b) of the CGST Act and Rule 46, a registered person need not issue a separate tax invoice when the value of a supply is less than ₹200, the buyer is unregistered and the buyer does not ask for an invoice. In that case, the shop must issue one <strong>consolidated tax invoice</strong> for all such sales at the end of each day.</p>
+            <p class="mb-4">For any sale of ₹200 or more, a registered regular taxpayer must issue a tax invoice (or a bill of supply if under composition). Many shops simply print "Cash Memo / Tax Invoice" at the top of the same format so one document satisfies both purposes. If you are not registered, GST law does not prescribe a format, but a numbered cash memo is still good practice for income tax records.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Mandatory Elements of a Valid Cash Memo</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
@@ -1558,11 +1740,58 @@ const blogPosts: Record<string, any> = {
                 <li><strong>Item Description & Quantity:</strong> Name of goods sold with piece or weight count.</li>
                 <li><strong>Rate & Total Amount:</strong> Unit price multiplied by quantity.</li>
                 <li><strong>Payment Mode:</strong> Cash, UPI (GPay/PhonePe), or Debit Card.</li>
-                <li><strong>GST Details (If Registered):</strong> Applicable CGST and SGST rates.</li>
+                <li><strong>GST Details (If Registered):</strong> GSTIN, HSN code, taxable value, and CGST and SGST rates and amounts.</li>
+                <li><strong>Customer details:</strong> optional for small sales; for an unregistered buyer, name and address are required on a tax invoice of ₹50,000 or more.</li>
             </ul>
 
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example: An Unregistered Shop</h2>
+            <p class="mb-4">Lakshmi Stores, a small provision shop that is not registered under GST, sells the following to a walk-in customer paying by UPI:</p>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Item</th>
+                            <th class="p-3 border border-slate-200">Qty</th>
+                            <th class="p-3 border border-slate-200">Rate</th>
+                            <th class="p-3 border border-slate-200">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200">Sona masoori rice</td><td class="p-3 border border-slate-200">5 kg</td><td class="p-3 border border-slate-200">₹62</td><td class="p-3 border border-slate-200">₹310</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Toor dal</td><td class="p-3 border border-slate-200">1 kg</td><td class="p-3 border border-slate-200">₹150</td><td class="p-3 border border-slate-200">₹150</td></tr>
+                        <tr><td class="p-3 border border-slate-200">Sugar</td><td class="p-3 border border-slate-200">2 kg</td><td class="p-3 border border-slate-200">₹46</td><td class="p-3 border border-slate-200">₹92</td></tr>
+                        <tr class="bg-slate-50 font-semibold"><td class="p-3 border border-slate-200" colspan="3">Total (paid by UPI, ref. 4182…)</td><td class="p-3 border border-slate-200">₹552</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-4">Header: "Lakshmi Stores, 12 Market Road, Madurai. Cash Memo No. LS-2611-0087, Date 14-11-2026." There is no GSTIN and no tax line, because the shop is not registered. If the same shop were registered, each item would carry its HSN code and the applicable GST rate — many basic food items are nil-rated or taxed at 5%, so check the current rate for each item.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Numbering and Record-Keeping Tips</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Use one running series per financial year, for example <code>LS-2627-0001</code> onwards.</li>
+                <li>Never tear out or reuse a number. Mark mistakes "Cancelled" and keep the copy.</li>
+                <li>Match the day's memos to cash in hand and UPI credits every evening.</li>
+                <li>Keep copies for at least as long as your CA advises — GST records generally need to be kept for about six years.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Writing "GST included" on memos when the shop is not registered.</li>
+                <li>Skipping the consolidated daily invoice for sales under ₹200 when registered.</li>
+                <li>Using memo books from a stationery shop with no serial numbers.</li>
+                <li>Not recording the payment mode, which makes UPI reconciliation painful.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Can a cash memo be handwritten?</strong></p>
+            <p class="mb-4">Yes, as long as it is numbered, dated and legible. Digital memos are easier to search and harder to lose.</p>
+            <p class="mb-2"><strong>Do I need the customer's name?</strong></p>
+            <p class="mb-4">Not for small walk-in sales. Large-value bills to unregistered buyers need the name and address on the tax invoice.</p>
+            <p class="mb-2"><strong>Is a WhatsApp cash memo valid?</strong></p>
+            <p class="mb-4">A digital memo with the same details is as valid as a paper one. Keep your own copy.</p>
+
             <h2 class="text-2xl font-bold mt-8 mb-4">How to Create Cash Memos on Your Phone</h2>
-            <p class="mb-4">Paper cash memo books are prone to tearing, ink fading, and math mistakes. With <a href="/free-invoice-generator" class="text-emerald-600 underline font-bold">MsgBill's Free Bill Maker</a>, you can enter items on your smartphone in 10 seconds, calculate totals automatically, and send a digital cash memo directly to your customer's WhatsApp.</p>
+            <p class="mb-4">Paper cash memo books are prone to tearing, ink fading, and math mistakes. With <a href="/free-invoice-generator" class="text-emerald-600 underline font-bold">MsgBill's Free Bill Maker</a>, you can enter items on your smartphone, calculate totals automatically, and send a digital cash memo directly to your customer's WhatsApp. For grocery-specific tips, see our <a href="/blog/kirana-store-bill-format-upi-qr-code" class="text-emerald-600 underline font-bold">kirana store bill format guide</a>.</p>
         `
     },
 
@@ -1571,23 +1800,84 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-02",
         author: "MsgBill Team",
         category: "Education & Coaching",
+        description: "GST on coaching and tuition fees: 18% rate, SAC 999293, the ₹20 lakh threshold, fee invoice format, instalments and online students in other states.",
         content: `
             <p class="mb-6 text-lg">Coaching centers, competitive exam tutors (IIT-JEE, NEET, UPSC), and edtech educators across India frequently struggle with GST applicability on student fees.</p>
+            <p class="mb-6">This guide explains when coaching fees attract GST, how to calculate it on a fee with a worked example, what a compliant fee receipt or invoice must show, and how to handle instalments and online students from other states. It is general guidance; confirm your specific case with a Chartered Accountant.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Are Coaching Classes Exempt from GST?</h2>
-            <p class="mb-4"><strong>No.</strong> Unlike formal educational institutions (schools, recognized colleges offering degrees), private coaching centers, tuition classes, and vocational training institutes are <strong>NOT exempt from GST</strong>. They are categorized as commercial training and coaching services.</p>
+            <p class="mb-4"><strong>No.</strong> Unlike formal educational institutions (schools, recognized colleges offering degrees), private coaching centers, tuition classes, and vocational training institutes are generally <strong>NOT exempt from GST</strong>. They are categorized as commercial training and coaching services.</p>
+            <p class="mb-4">The education exemption covers services by an educational institution to its students as part of a curriculum leading to a qualification recognised by law (for example, a school up to higher secondary, or a degree programme), plus certain approved vocational courses. A private tuition centre preparing students for board exams or entrance tests is not itself awarding a recognised qualification, so its fees are normally taxable once it is registered.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">GST Rate and SAC Code for Education</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
                 <li><strong>Applicable GST Rate:</strong> 18% (9% CGST + 9% SGST for intra-state students).</li>
-                <li><strong>SAC Code:</strong> <code>9992</code> (Commercial training and coaching services) or <code>999293</code> (Commercial coaching services).</li>
+                <li><strong>SAC Code:</strong> <code>9992</code> (Education services) — commercial coaching is typically shown as <code>999293</code> (Commercial training and coaching services).</li>
                 <li><strong>Registration Threshold:</strong> If your aggregate fee collection exceeds ₹20 Lakhs per financial year (₹10 Lakhs in Special Category States), GST registration is mandatory.</li>
             </ul>
+            <p class="mb-4">Below the threshold, a home tutor or small academy does not need to register and must not charge GST. Aggregate turnover is counted across all your branches under the same PAN, including any exempt income.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example: Fee Plus GST vs GST-Inclusive Fee</h2>
+            <p class="mb-4">A registered coaching centre in Kota charges ₹30,000 for a six-month JEE crash course to a student living in Rajasthan.</p>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Pricing method</th>
+                            <th class="p-3 border border-slate-200">Taxable value</th>
+                            <th class="p-3 border border-slate-200">CGST 9%</th>
+                            <th class="p-3 border border-slate-200">SGST 9%</th>
+                            <th class="p-3 border border-slate-200">Parent pays</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200">₹30,000 + GST</td><td class="p-3 border border-slate-200">₹30,000.00</td><td class="p-3 border border-slate-200">₹2,700.00</td><td class="p-3 border border-slate-200">₹2,700.00</td><td class="p-3 border border-slate-200">₹35,400.00</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">₹30,000 inclusive of GST</td><td class="p-3 border border-slate-200">₹25,423.73</td><td class="p-3 border border-slate-200">₹2,288.14</td><td class="p-3 border border-slate-200">₹2,288.13</td><td class="p-3 border border-slate-200">₹30,000.00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-4">To back-calculate an inclusive fee, divide by 1.18. Decide which method you use and state it clearly in your brochure, because "₹30,000" means a ₹5,400 difference to a parent.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Student Fee Receipt Format</h2>
-            <p class="mb-4">When parents pay course fees, an official receipt must detail: Course Name (e.g. Class 10 Science Batch), Term Duration, Base Tuition Fee, and 18% GST itemized separately.</p>
+            <p class="mb-4">When parents pay course fees, an official receipt must detail: Course Name (e.g. Class 10 Science Batch), Term Duration, Base Tuition Fee, and 18% GST itemized separately. A registered centre's tax invoice should show:</p>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li>Institute's legal name, address and GSTIN.</li>
+                <li>Invoice number (sequential, up to 16 characters) and date.</li>
+                <li>Student name, parent's name and address; the parent's state determines the place of supply.</li>
+                <li>Course, batch, duration and SAC code.</li>
+                <li>Fee, any scholarship or discount, and the taxable value after discount.</li>
+                <li>CGST and SGST (or IGST) rate and amount.</li>
+                <li>Total in figures and words, payment mode and transaction reference.</li>
+            </ol>
 
-            <p class="mb-4">MsgBill allows coaching academies to generate student fee receipts with installment schedules and send them directly to parents' WhatsApp numbers with UPI payment links.</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Instalments, Advances and Study Material</h2>
+            <p class="mb-4"><strong>Instalments:</strong> For services, GST generally becomes due on the earlier of the invoice date or the date you receive payment. If a parent pays ₹10,000 per quarter, issue an invoice (or a receipt voucher) for each instalment when it is received, rather than one invoice for the full year on day one.</p>
+            <p class="mb-4"><strong>Advance registration fees:</strong> GST is generally payable when the advance is received. Refunds of an advance can be adjusted with a refund voucher.</p>
+            <p class="mb-4"><strong>Study material:</strong> printed books on their own may be taxed differently from coaching. When material is supplied as part of the course for one price, the whole bundle is usually taxed as the main supply (coaching). Get your CA's view before splitting the fee to reduce tax.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Online Students in Other States</h2>
+            <p class="mb-4">For online classes to individual students, the place of supply is generally the location of the student as per your records. If your centre is in Karnataka and the student's address is in Kerala, charge IGST at 18% instead of CGST + SGST. Collect the student's state at admission so your invoices are correct.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Charging GST before registering, or not charging it after crossing ₹20 lakh.</li>
+                <li>Issuing a single "admission receipt" with no GST break-up.</li>
+                <li>Charging CGST + SGST to online students in other states.</li>
+                <li>Treating scholarships given after billing as a reduction without issuing a credit note.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Is a home tutor earning ₹6 lakh a year liable for GST?</strong></p>
+            <p class="mb-4">No registration is required below the ₹20 lakh threshold (₹10 lakh in special category states), and an unregistered tutor must not charge GST.</p>
+            <p class="mb-2"><strong>Do schools charge GST on fees?</strong></p>
+            <p class="mb-4">Core education by schools to their own students is exempt. Some services bought by schools, and some extras, may be taxable.</p>
+            <p class="mb-2"><strong>Can I show a single all-inclusive fee?</strong></p>
+            <p class="mb-4">You can quote an inclusive fee, but the invoice must still show the taxable value and the GST separately.</p>
+            <p class="mb-2"><strong>Do I need the parent's GSTIN?</strong></p>
+            <p class="mb-4">Only if a company or registered business is paying the fee and wants to record it.</p>
+
+            <p class="mb-4">MsgBill allows coaching academies to generate fee invoices for each instalment and send them directly to parents' WhatsApp numbers with UPI payment details. Overdue instalments show up on the Collection page with one-tap WhatsApp reminders.</p>
+            <p class="mb-4 text-sm text-slate-500"><em>Disclaimer: This article is for general education only and is not tax advice. Please confirm exemptions, rates and place of supply with a qualified Chartered Accountant.</em></p>
         `
     },
 
@@ -1596,24 +1886,98 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-03",
         author: "MsgBill Team",
         category: "Healthcare",
+        description: "Doctor and clinic receipt format: which health care services are GST-exempt, what is taxable, required OPD receipt fields and a worked example.",
         content: `
-            <p class="mb-6 text-lg">Healthcare professionals, doctors, dental clinics, and physiotherapists require a specialized billing format to maintain compliance with both the Indian Medical Council and GST laws.</p>
+            <p class="mb-6 text-lg">Healthcare professionals, doctors, dental clinics, and physiotherapists require a clear billing format that satisfies patients, insurers and tax rules at the same time.</p>
+            <p class="mb-6">This guide covers when clinic services are exempt from GST, which items are still taxable, the fields every OPD receipt should carry, and a worked example. It is general information for clinic owners and their staff, not tax or medical-legal advice.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">GST Exemption on Doctor Consultation Fees</h2>
-            <p class="mb-4">Under Notification No. 12/2017-Central Tax (Rate), health care services provided by a clinical establishment or an authorized medical practitioner are <strong>exempt from GST (0% Nil Rated)</strong>.</p>
-            <p class="mb-4">However, this exemption applies strictly to diagnosis, treatment, or care for illness, injury, or deformity. Aesthetic or cosmetic surgery that is not reconstructive is taxable at 18% GST.</p>
+            <p class="mb-4">Under Notification No. 12/2017-Central Tax (Rate), health care services provided by a clinical establishment or an authorized medical practitioner are <strong>exempt from GST</strong>.</p>
+            <p class="mb-4">However, this exemption applies strictly to diagnosis, treatment, or care for illness, injury, deformity, abnormality or pregnancy. Cosmetic or plastic surgery that is not done to restore or reconstruct anatomy or functions affected by a congenital defect, injury, trauma or disease is taxable at 18% GST.</p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">What Is Usually Exempt vs Taxable</h3>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Item on the bill</th>
+                            <th class="p-3 border border-slate-200">Typical GST position</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200">Consultation, diagnosis, treatment, minor procedures</td><td class="p-3 border border-slate-200">Exempt (health care service)</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Diagnostic tests done by the clinic or lab</td><td class="p-3 border border-slate-200">Generally exempt as health care</td></tr>
+                        <tr><td class="p-3 border border-slate-200">Medicines and consumables used during treatment</td><td class="p-3 border border-slate-200">Generally part of the exempt treatment</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Medicines sold over the counter from an attached pharmacy</td><td class="p-3 border border-slate-200">Taxable as goods — most medicines are 5% from 22 September 2025, some life-saving drugs nil</td></tr>
+                        <tr><td class="p-3 border border-slate-200">Purely cosmetic procedures</td><td class="p-3 border border-slate-200">Taxable, 18%</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Hospital room (non-ICU) above ₹5,000 per day</td><td class="p-3 border border-slate-200">Taxable at 5% without ITC (hospitals)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-4">A clinic that supplies only exempt health care services does not need GST registration. If you also run a pharmacy or offer cosmetic services and the taxable part crosses the threshold, you will need to register and issue tax invoices for those items.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">What to Include in a Clinic OPD Receipt</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li>Doctor's Name & Medical Registration Number (MCI / State Medical Council).</li>
+                <li>Doctor's Name, qualification & Medical Registration Number (State Medical Council / NMC).</li>
                 <li>Clinic Name, OPD Address, and Contact Number.</li>
                 <li>Patient Details: Full Name, Age, Gender, Patient ID (UHID).</li>
-                <li>Date and Time of Consultation.</li>
+                <li>Receipt number (sequential) and Date of Consultation.</li>
                 <li>Itemized Services: Consultation Fee, Diagnostic Tests (ECG/Blood), Minor Procedure.</li>
-                <li>Medicine Charges (Note: Sale of medicines from an attached pharmacy is taxable at 5% or 12% GST).</li>
+                <li>Medicine Charges, shown separately if sold from an attached pharmacy (taxable as goods, with HSN and GST if registered).</li>
+                <li>Amount received, payment mode (cash, UPI, card) and transaction reference.</li>
+                <li>Signature or stamp of the doctor or authorised staff.</li>
+            </ul>
+            <p class="mb-4">Insurance and employer reimbursement desks often reject receipts that lack the registration number, the patient's name or a breakdown of charges, so these fields matter even though GST is not charged.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example: A Physiotherapy Visit</h2>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Description</th>
+                            <th class="p-3 border border-slate-200">Amount</th>
+                            <th class="p-3 border border-slate-200">GST</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200">Initial assessment</td><td class="p-3 border border-slate-200">₹600</td><td class="p-3 border border-slate-200">Exempt</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Physiotherapy session (IFT + exercises) × 3</td><td class="p-3 border border-slate-200">₹1,500</td><td class="p-3 border border-slate-200">Exempt</td></tr>
+                        <tr><td class="p-3 border border-slate-200">Lumbar support belt (sold to take home)</td><td class="p-3 border border-slate-200">₹900</td><td class="p-3 border border-slate-200">Taxable as goods if the clinic is registered; check HSN rate</td></tr>
+                        <tr class="bg-slate-50 font-semibold"><td class="p-3 border border-slate-200">Total received by UPI</td><td class="p-3 border border-slate-200">₹3,000</td><td class="p-3 border border-slate-200"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-4">If the clinic is unregistered because its taxable sales are small, the belt is billed without GST. Once registered, it would move to a separate tax invoice or a separate taxable section of the bill.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Cash, Packages and Record-Keeping</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Cash limit:</strong> Section 269ST of the Income-tax Act bars receiving ₹2 lakh or more in cash from one person for a single day, transaction or event. Larger procedures should be paid by UPI, card or bank transfer.</li>
+                <li><strong>Treatment packages:</strong> If a patient pays upfront for 10 sessions, issue one receipt for the advance and record each visit against it.</li>
+                <li><strong>Patient privacy:</strong> Do not write diagnoses on a receipt that will be shared with an employer unless the patient asks. Send receipts only to the patient's own number.</li>
             </ul>
 
-            <p class="mb-6">Use MsgBill's free receipt generator to issue professional, printable OPD consultation receipts in under 30 seconds.</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Adding GST to consultation fees "to look professional" — exempt services must not carry GST.</li>
+                <li>Mixing pharmacy sales into the consultation total.</li>
+                <li>Receipts without a serial number, which makes accounts and audits difficult.</li>
+                <li>Forgetting the registration number, which insurers need.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Does a doctor need GST registration?</strong></p>
+            <p class="mb-4">Not if all services are exempt health care. Registration is needed if taxable supplies, such as cosmetic services or pharmacy sales, cross the threshold.</p>
+            <p class="mb-2"><strong>Are online video consultations exempt?</strong></p>
+            <p class="mb-4">Consultation for diagnosis or treatment by a registered practitioner is generally treated the same way whether in person or online. Confirm with your CA if you consult patients abroad.</p>
+            <p class="mb-2"><strong>Can I send receipts on WhatsApp?</strong></p>
+            <p class="mb-4">Yes. A digital receipt with the same details is valid. Send it only to the patient or the person who paid.</p>
+            <p class="mb-2"><strong>Should the receipt say "GST exempt"?</strong></p>
+            <p class="mb-4">It is not compulsory, but a short note such as "Health care services — exempt from GST" helps patients and insurers who ask why no tax is shown. If your clinic is registered because of a pharmacy or cosmetic services, the note also makes clear which lines are exempt and which are taxable.</p>
+            <p class="mb-2"><strong>How long should a clinic keep billing records?</strong></p>
+            <p class="mb-4">Keep receipts and payment records for at least as long as your CA advises for income tax purposes, and longer if your state's clinical establishment rules or insurers require it. Digital copies are easier to store and search than receipt books.</p>
+
+            <p class="mb-6">Use MsgBill's free receipt generator to issue professional, printable OPD consultation receipts in under a minute, with the GST rate set to 0% for exempt services and shared straight to the patient's WhatsApp.</p>
+            <p class="mb-4 text-sm text-slate-500"><em>Disclaimer: This article is general information about billing formats and GST, not legal, medical or tax advice. Please confirm the treatment of your services with a qualified Chartered Accountant.</em></p>
         `
     },
 
@@ -1622,8 +1986,10 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-04",
         author: "MsgBill Team",
         category: "Freelancing",
+        description: "Invoicing foreign clients as an Indian freelancer: export of services rules, LUT for 0% IGST, export invoice fields, FIRC/FIRA proof and an example.",
         content: `
             <p class="mb-6 text-lg">Indian software developers, UI/UX designers, and copywriters working with US, UK, and international clients can legally bill with <strong>0% GST</strong> if they follow export rules correctly.</p>
+            <p class="mb-6">This guide covers the five export conditions, the Letter of Undertaking (LUT), what a compliant export invoice looks like field by field, how FIRC/FIRA proof works with banks and payment platforms, and a worked example in dollars and rupees. It is general information; confirm your situation with a Chartered Accountant.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">The 5 Conditions for 'Export of Services'</h2>
             <p class="mb-4">Under Section 2(6) of the IGST Act, your work qualifies as a zero-rated export only when:</p>
@@ -1631,15 +1997,71 @@ const blogPosts: Record<string, any> = {
                 <li>The supplier of service is located in India.</li>
                 <li>The recipient of service is located outside India.</li>
                 <li>The place of supply of service is outside India.</li>
-                <li>Payment is received in <strong>convertible foreign exchange</strong> (or INR via authorized Vostro accounts).</li>
+                <li>Payment is received in <strong>convertible foreign exchange</strong> (or in Indian rupees where permitted by RBI).</li>
                 <li>The supplier and recipient are not merely establishments of a distinct person.</li>
             </ol>
+            <p class="mb-4">If any condition fails — for example, a foreign client pays you from an Indian rupee account, or the service is performed on goods physically in India — the supply may not be an export, and normal GST can apply.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Do You Even Need GST Registration?</h2>
+            <p class="mb-4">Export turnover counts towards your aggregate turnover. If your total income from all clients, Indian and foreign, stays below ₹20 lakh a year (₹10 lakh in special category states), registration is generally not mandatory, and you can invoice foreign clients without GST and without an LUT. Once you cross the limit, you must register within 30 days. See our guide on the <a href="/blog/freelance-developer-gst-exemption-under-20-lakhs" class="text-emerald-600 underline font-semibold">₹20 lakh threshold for freelancers</a>.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">How to Avoid 18% IGST: File an LUT (Letter of Undertaking)</h2>
             <p class="mb-4">If you are GST registered, you must file a <strong>Letter of Undertaking (Form GST RFD-11)</strong> on the GST portal at the beginning of each financial year. An LUT allows you to export services without paying 18% IGST upfront.</p>
+            <p class="mb-4">Without an LUT, you would have to pay IGST on each export invoice and then claim a refund, which locks up cash for months. Filing is online, free and usually approved instantly. Put the LUT reference number on every export invoice for that year.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Export Invoice: Field by Field</h2>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li>Your name, address and GSTIN (if registered); PAN is helpful for unregistered freelancers.</li>
+                <li>A unique invoice number and date.</li>
+                <li>Client's legal name and full overseas address, including country.</li>
+                <li>Description of the service with SAC code (for example, 998314 for IT design and development services).</li>
+                <li>Amount in the invoiced currency, such as USD 2,000.00.</li>
+                <li>Place of supply: "Outside India" or the client's country.</li>
+                <li>The endorsement: <em>"Supply meant for export of services under LUT without payment of IGST"</em> with the LUT ARN.</li>
+                <li>Bank details for a SWIFT wire, or your payment platform's link.</li>
+                <li>Payment terms, for example "Net 15".</li>
+            </ol>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">What is a FIRC / FIRA?</h2>
-            <p class="mb-4">A Foreign Inward Remittance Certificate (FIRC) or Advice (FIRA) is issued by your authorized dealer bank (or payment processors like Stripe, Wise, or PayPal) proving that funds came from abroad. You must preserve FIRCs for 6 years for income tax and GST audits.</p>
+            <p class="mb-4">A Foreign Inward Remittance Certificate (FIRC) or Advice (FIRA) is issued by your authorized dealer bank (or via payment processors like Stripe, Wise, Payoneer or PayPal through their banking partners) proving that funds came from abroad and showing the purpose of the payment. Keep these documents with your invoices for GST and income tax records.</p>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Bank wire:</strong> ask your bank's forex desk for a FIRA or FIRC against each credit, and give the correct purpose code (for example, a software services code) when they ask.</li>
+                <li><strong>Payment platforms:</strong> most provide a downloadable FIRA or payment advice in the dashboard. Download it monthly.</li>
+                <li><strong>Timing:</strong> for exports under LUT, payment should generally be received within one year of the invoice date (or a longer period if allowed), otherwise IGST with interest may become payable.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example</h2>
+            <p class="mb-4">Neha, a GST-registered developer in Pune with an LUT on file, invoices a US startup USD 2,000 for a month of React development. The client pays by wire.</p>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200 font-medium">Invoice value</td><td class="p-3 border border-slate-200">USD 2,000.00</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200 font-medium">IGST</td><td class="p-3 border border-slate-200">0% (export under LUT)</td></tr>
+                        <tr><td class="p-3 border border-slate-200 font-medium">Exchange rate on invoice date (illustrative)</td><td class="p-3 border border-slate-200">₹85.00 per USD</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200 font-medium">Value reported in GST return</td><td class="p-3 border border-slate-200">₹1,70,000</td></tr>
+                        <tr><td class="p-3 border border-slate-200 font-medium">Amount credited after bank charges (illustrative)</td><td class="p-3 border border-slate-200">₹1,68,900</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-4">Neha reports ₹1,70,000 as a zero-rated export in GSTR-1, keeps the FIRA showing the inward remittance, and records the ₹1,100 difference as bank charges. Exchange rate conventions for GST and income tax can differ; ask your CA which rate to use.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Forgetting to renew the LUT on 1 April.</li>
+                <li>Leaving out the LUT endorsement on the invoice.</li>
+                <li>Billing a foreign client's Indian subsidiary as an "export" — that is usually a domestic supply.</li>
+                <li>Not downloading FIRAs until year end, when the platform may make old ones hard to find.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Is income from foreign clients tax-free?</strong></p>
+            <p class="mb-4">No. Zero-rating is about GST only. The income is taxable under the Income-tax Act like any other professional income.</p>
+            <p class="mb-2"><strong>Can I invoice in USD?</strong></p>
+            <p class="mb-4">Yes. Invoice in the currency agreed with the client and convert to rupees for your GST returns.</p>
+            <p class="mb-2"><strong>Do Upwork or Fiverr payments count as exports?</strong></p>
+            <p class="mb-4">Often yes, when the end client is abroad and you receive foreign exchange, but platform structures vary. Keep the platform's statements and FIRAs and confirm the treatment with your CA.</p>
+            <p class="mb-2"><strong>What if I am not registered under GST?</strong></p>
+            <p class="mb-4">Below the threshold, you can invoice without GST and without an LUT. Keep FIRAs anyway for income tax and for the day you register.</p>
         `
     },
 
@@ -1648,6 +2070,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-05",
         author: "MsgBill Team",
         category: "Basics",
+        description: "Proforma invoice vs tax invoice in India: what each document is for, its status under GST, and when you should issue a proforma or a tax invoice.",
         content: `
             <p class="mb-6 text-lg">Indian business owners, consultants, and contractors frequently confuse a proforma invoice with a tax invoice. This common mistake can trigger premature GST liabilities before money has even been received, or cause your client to improperly claim Input Tax Credit (ITC) that gets flagged during department audits.</p>
 
@@ -1726,6 +2149,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-06",
         author: "MsgBill Team",
         category: "GST Compliance",
+        description: "Delivery challan vs tax invoice under GST: when goods can move on a challan under Rule 55, required copies and when an e-way bill is also needed.",
         content: `
             <p class="mb-6 text-lg">Transporting commercial goods across India without the proper statutory paperwork can lead to vehicle detention, consignment confiscation, and a 100% tax penalty under Section 129 of the CGST Act. Understanding exactly when to issue a Delivery Challan versus a Tax Invoice protects your business from expensive transit disruptions.</p>
 
@@ -1765,8 +2189,18 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-07",
         author: "MsgBill Team",
         category: "Payments",
+        description: "Recover overdue payments on WhatsApp with 7 polite reminder templates, a day-by-day follow-up schedule and MSME protections when buyers pay late.",
         content: `
-            <p class="mb-6 text-lg">Calling clients to ask for overdue payments is awkward and time-consuming. Because WhatsApp has a 98% open rate, using polite, structured reminder templates recovers payments in hours without harming your client relationships.</p>
+            <p class="mb-6 text-lg">Calling clients to ask for overdue payments is awkward and time-consuming. Because almost every customer in India reads WhatsApp messages quickly, polite, structured reminder templates often recover payments in hours without harming your client relationships.</p>
+            <p class="mb-6">Below are seven templates for each stage of a late payment, a simple follow-up schedule, and the legal protections that small suppliers registered as MSMEs can use when a buyer simply refuses to pay.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Before You Send Any Reminder</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Check the invoice is correct.</strong> A wrong GSTIN, amount or PO number is the most common reason a company holds a payment.</li>
+                <li><strong>Agree the due date in writing.</strong> "Payment within 15 days" on the invoice gives every reminder a clear reference.</li>
+                <li><strong>Make paying easy.</strong> Every reminder should include the amount, the invoice number and a UPI ID or payment link.</li>
+                <li><strong>Message the person who pays,</strong> not just the person who ordered. In companies, that is usually accounts.</li>
+            </ul>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Template 1: The Gentle Day-Before Reminder</h2>
             <div class="bg-slate-100 p-4 rounded-xl font-mono text-xs my-3 text-slate-800">
@@ -1788,8 +2222,69 @@ const blogPosts: Record<string, any> = {
                 "Dear [Client Name], our finance team noticed that payment of Rs. [Amount] for Invoice #[Number] is now 7 days overdue. Kindly settle this by 5:00 PM today via [UPI Link] to avoid any interruption in your active services."
             </div>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">Automate Your WhatsApp Payment Chasing</h2>
-            <p class="mb-4">Instead of copying and pasting templates manually, MsgBill's Payment Collection agent automates friendly, firm, and urgent WhatsApp reminders based on real-time due dates.</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Template 5: The Part-Payment Offer (10 Days Overdue)</h2>
+            <div class="bg-slate-100 p-4 rounded-xl font-mono text-xs my-3 text-slate-800">
+                "Hi [Client Name], I understand cash flow can be tight. If it helps, you can pay Rs. [Part Amount] today and the balance of Rs. [Balance] by [Date]. Please confirm which works for you. UPI: [UPI ID]."
+            </div>
+            <p class="mb-4">Offering a plan is often faster than waiting for the full amount. Confirm the plan in writing in the same chat.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Template 6: The Final Notice (14+ Days Overdue)</h2>
+            <div class="bg-slate-100 p-4 rounded-xl font-mono text-xs my-3 text-slate-800">
+                "Dear [Client Name], Invoice #[Number] for Rs. [Amount] remains unpaid [X] days after the due date despite earlier reminders. Please clear it by [Date]. After that, we will pause further work and may charge interest as per our terms. We would much rather settle this amicably."
+            </div>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Template 7: The Thank-You and Receipt</h2>
+            <div class="bg-slate-100 p-4 rounded-xl font-mono text-xs my-3 text-slate-800">
+                "Thank you, [Client Name]! We have received Rs. [Amount] against Invoice #[Number]. Your receipt is attached. Looking forward to working with you again."
+            </div>
+            <p class="mb-4">This message is easy to forget, but it closes the loop and makes the next invoice easier to collect.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">A Simple Follow-Up Schedule</h2>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Day</th>
+                            <th class="p-3 border border-slate-200">Action</th>
+                            <th class="p-3 border border-slate-200">Tone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200">Due date − 1</td><td class="p-3 border border-slate-200">Template 1</td><td class="p-3 border border-slate-200">Friendly</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Due date</td><td class="p-3 border border-slate-200">Template 2</td><td class="p-3 border border-slate-200">Friendly</td></tr>
+                        <tr><td class="p-3 border border-slate-200">+3 days</td><td class="p-3 border border-slate-200">Template 3, then a short call if unread</td><td class="p-3 border border-slate-200">Friendly</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">+7 days</td><td class="p-3 border border-slate-200">Template 4</td><td class="p-3 border border-slate-200">Firm</td></tr>
+                        <tr><td class="p-3 border border-slate-200">+10 days</td><td class="p-3 border border-slate-200">Template 5</td><td class="p-3 border border-slate-200">Firm</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">+14 days</td><td class="p-3 border border-slate-200">Template 6, pause new work</td><td class="p-3 border border-slate-200">Urgent</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example</h2>
+            <p class="mb-4">A Surat textile trader has invoiced a retailer ₹84,000 with 15-day terms. Day 15 passes. On day 18 the trader sends Template 3 and learns the retailer's accountant never received the invoice. He resends the PDF in the same chat; ₹50,000 arrives that day. On day 25 he offers Template 5 for the balance of ₹34,000, and it is paid in two weeks. No call, no argument, and the chat now holds a complete record of what was agreed.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">When Reminders Are Not Enough: MSME Protections</h2>
+            <p class="mb-4">If you are a micro or small enterprise registered on the Udyam portal, the MSMED Act, 2006 requires buyers to pay you within the agreed period, which cannot exceed 45 days, or within 15 days if nothing was agreed. Late payment attracts compound interest at three times the bank rate notified by RBI. You can file a case on the MSME Samadhaan portal for the MSE Facilitation Council to resolve.</p>
+            <p class="mb-4">For buyers, the Income-tax Act also disallows a deduction for amounts owed to micro and small enterprises that are not paid within these time limits (Section 43B(h)). Mentioning your Udyam registration on your invoices reminds business customers of this. Our <a href="/blog/late-payment-interest-invoice-india" class="text-emerald-600 underline font-semibold">late payment interest guide</a> explains how to word these terms.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Sending angry messages at night — keep reminders to business hours.</li>
+                <li>Starting a new chat for every reminder, so the history is scattered.</li>
+                <li>Threatening actions you will not take. Only mention interest or pausing work if your terms say so.</li>
+                <li>Forgetting to mark the invoice paid, then sending a reminder to a customer who already paid.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>How many reminders are too many?</strong></p>
+            <p class="mb-4">Four to five messages over two weeks is reasonable for a business debt. More than one a day starts to feel like harassment.</p>
+            <p class="mb-2"><strong>Can I charge interest on late payments?</strong></p>
+            <p class="mb-4">If your invoice terms state it, or if you are a registered micro or small enterprise covered by the MSMED Act. Confirm the details with your CA or lawyer.</p>
+            <p class="mb-2"><strong>Is a WhatsApp chat valid evidence of a payment promise?</strong></p>
+            <p class="mb-4">Electronic records can be used as evidence in India, but keep the original phone and backups. For large amounts, also send a formal email or letter.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Speed Up Your WhatsApp Payment Chasing</h2>
+            <p class="mb-4">Instead of copying and pasting templates manually, MsgBill's Collection page lists every overdue invoice with the days late. Tap Remind, pick a friendly, firm or urgent tone, and WhatsApp opens with the message, invoice link and your UPI ID filled in — you just review and send.</p>
         `
     },
     "e-invoicing-rules-2026-msme-threshold": {
@@ -1797,6 +2292,7 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-10",
         author: "MsgBill Team",
         category: "GST Compliance",
+        description: "E-invoicing rules for MSMEs in 2026: the turnover threshold, whether B2C invoices are covered, what happens without an IRN and how to get ready.",
         content: `
             <p class="mb-6 text-lg">As GST compliance digitizes across India, the Central Board of Indirect Taxes and Customs (CBIC) continues to tighten the electronic invoicing (e-invoicing) net. If your business sells to other GST-registered businesses (B2B), knowing whether you fall under mandatory e-invoicing is critical to avoid severe penalties and frozen Input Tax Credit (ITC) for your buyers.</p>
 
@@ -1865,28 +2361,92 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-12",
         author: "MsgBill Team",
         category: "Retail & GST",
+        description: "Kirana store bill format: GST registration limits, composition scheme bills, the ₹200 rule, adding a UPI QR code and a worked bill with GST.",
         content: `
-            <p class="mb-6 text-lg">In Indian retail, customer speed at the counter is everything. Whether you run a neighborhood Kirana store, a provision mart, or a busy supermarket, giving customers a quick, professional receipt with an instant UPI QR code cuts billing time in half and eliminates cash change disputes.</p>
+            <p class="mb-6 text-lg">In Indian retail, customer speed at the counter is everything. Whether you run a neighborhood Kirana store, a provision mart, or a busy supermarket, giving customers a quick, professional bill with a UPI QR code shortens the queue and avoids cash-change disputes.</p>
+            <p class="mb-6">This guide covers when a kirana store must issue a GST bill, the composition scheme many small grocers use, the fields every bill needs, how to add a UPI QR code, and a worked example. It is general guidance, not tax advice.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Does Your Kirana Store Need GST Registration?</h2>
+            <p class="mb-4">A store that sells only goods must register once its aggregate turnover crosses <strong>₹40 lakh</strong> a year in most states. Some states, including the north-eastern and hill states, have lower limits of ₹10 lakh or ₹20 lakh, so check the limit for your state. Turnover includes nil-rated items like loose grains and fresh vegetables, not just taxable items.</p>
+            <p class="mb-4">Below the limit, you are not required to register, and your bill must not show GST or a GSTIN.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Composition Scheme: The Common Choice for Kirana Stores</h2>
+            <p class="mb-4">Registered traders with turnover up to ₹1.5 crore (lower in some special category states) can opt for the composition scheme. Traders pay a flat 1% of turnover (0.5% CGST + 0.5% SGST) on taxable sales, file simpler returns and cannot claim input tax credit.</p>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Issue a <strong>bill of supply</strong>, not a tax invoice.</li>
+                <li>Do not collect GST from customers or show any tax amount on the bill.</li>
+                <li>Print "Composition taxable person, not eligible to collect tax on supplies" on the bill, and display "Composition Taxable Person" on your signboard.</li>
+            </ul>
+            <p class="mb-4">Read our <a href="/blog/gst-composition-scheme-billing-rules" class="text-emerald-600 underline font-semibold">composition scheme billing guide</a> for more detail.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Do Kirana Stores Need to Issue GST Invoices?</h2>
-            <p class="mb-4">Under Section 31(3)(b) of the CGST Act, a registered retail shopkeeper is not required to issue a tax invoice if the sale value is less than <strong>₹200</strong>, provided the customer does not ask for one. However, if the purchase exceeds ₹200 or the buyer specifically requests a receipt, issuing a clean bill or cash memo is legally required.</p>
+            <p class="mb-4">For regular registered stores, Section 31(3)(b) of the CGST Act and Rule 46 allow a relief: you need not issue a separate tax invoice for a sale below <strong>₹200</strong> to an unregistered customer who does not ask for one, as long as you issue one consolidated tax invoice for all such sales at the end of the day. For sales of ₹200 or more, or when the customer asks, a proper tax invoice is required.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Key Elements of a Modern Retail Receipt</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
                 <li><strong>Store Identity:</strong> Shop Name, address, and contact number.</li>
                 <li><strong>GSTIN:</strong> Mandatory if your shop is registered under regular or composition GST.</li>
                 <li><strong>Date & Bill Number:</strong> Consecutive serial numbering for audit compliance.</li>
-                <li><strong>Line Items:</strong> Item description, quantity, rate, and net total.</li>
-                <li><strong>Dynamic UPI QR Code:</strong> Allows the customer to scan directly from the receipt or phone screen to pay via Google Pay, PhonePe, or Paytm in 3 seconds.</li>
+                <li><strong>Line Items:</strong> Item description, quantity with unit (kg, pcs, ltr), rate, and net total.</li>
+                <li><strong>Tax details (regular scheme only):</strong> HSN code, taxable value, CGST and SGST per item or in a summary.</li>
+                <li><strong>UPI QR Code:</strong> Allows the customer to scan directly from the receipt or phone screen to pay via Google Pay, PhonePe, Paytm or any UPI app.</li>
             </ul>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">Why Paperless WhatsApp Receipts Beat Thermal Paper</h2>
-            <p class="mb-4">Traditional POS thermal rolls cost ₹30 to ₹60 per roll, fade within weeks, and get discarded by customers immediately. Forward-thinking Indian retailers now offer WhatsApp receipts:</p>
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example: A Regular-Scheme Store</h2>
+            <p class="mb-4">A registered store in Indore bills a customer for loose rice, a packet of biscuits and detergent. Rates below are illustrative — always check the current rate for each HSN, as many items changed on 22 September 2025.</p>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Item</th>
+                            <th class="p-3 border border-slate-200">Taxable value</th>
+                            <th class="p-3 border border-slate-200">GST rate</th>
+                            <th class="p-3 border border-slate-200">CGST</th>
+                            <th class="p-3 border border-slate-200">SGST</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200">Loose rice, 5 kg (unbranded)</td><td class="p-3 border border-slate-200">₹300.00</td><td class="p-3 border border-slate-200">Nil</td><td class="p-3 border border-slate-200">—</td><td class="p-3 border border-slate-200">—</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Biscuits, 4 packets</td><td class="p-3 border border-slate-200">₹100.00</td><td class="p-3 border border-slate-200">5%</td><td class="p-3 border border-slate-200">₹2.50</td><td class="p-3 border border-slate-200">₹2.50</td></tr>
+                        <tr><td class="p-3 border border-slate-200">Detergent powder, 1 kg</td><td class="p-3 border border-slate-200">₹120.00</td><td class="p-3 border border-slate-200">18%</td><td class="p-3 border border-slate-200">₹10.80</td><td class="p-3 border border-slate-200">₹10.80</td></tr>
+                        <tr class="bg-slate-50 font-semibold"><td class="p-3 border border-slate-200">Total</td><td class="p-3 border border-slate-200">₹520.00</td><td class="p-3 border border-slate-200"></td><td class="p-3 border border-slate-200">₹13.30</td><td class="p-3 border border-slate-200">₹13.30</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-4">Grand total: ₹520.00 + ₹26.60 = <strong>₹546.60</strong>, rounded to ₹547 with a ₹0.40 round-off line. A composition-scheme store would simply bill ₹520 (its own selling prices) with no tax lines.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Adding a UPI QR Code to Your Bill</h2>
             <ol class="list-decimal pl-6 mb-6 space-y-2">
-                <li>Save hundreds of rupees monthly on paper rolls and printer maintenance.</li>
-                <li>Capture the customer's mobile number legitimately for repeat offers and festival greetings.</li>
-                <li>Customers love having digital receipts saved permanently on their phones.</li>
+                <li>Download the merchant QR from your UPI or bank app (a static QR works for every bill).</li>
+                <li>Add your UPI ID and upload the QR image in your billing tool's business profile.</li>
+                <li>Check that the QR appears on the bill PDF with a "Scan to Pay" label.</li>
+                <li>Test it by paying ₹1 from another phone before showing it to customers.</li>
             </ol>
+            <p class="mb-4">A static QR asks the customer to type the amount, so print the total right next to it. Ask the customer to show the payment success screen, and match UPI credits to bill numbers at day end.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Why Paperless WhatsApp Receipts Beat Thermal Paper</h2>
+            <p class="mb-4">Thermal receipts fade within weeks and are often thrown away at the door. Many Indian retailers now offer WhatsApp receipts:</p>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li>Save on paper rolls and printer maintenance.</li>
+                <li>Capture the customer's mobile number with consent for repeat offers and festival greetings.</li>
+                <li>Customers can find the bill in their chat when they need an exchange or warranty claim.</li>
+            </ol>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Composition dealers showing GST on bills.</li>
+                <li>Applying 5% to every item instead of checking each HSN.</li>
+                <li>No end-of-day consolidated invoice for small sales.</li>
+                <li>Sending promotional messages without the customer's permission.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Is UPI payment proof enough without a bill?</strong></p>
+            <p class="mb-4">No. A UPI screenshot proves payment, not what was sold. Registered stores still need the bill or the daily consolidated invoice.</p>
+            <p class="mb-2"><strong>Can I give a bill without a printer?</strong></p>
+            <p class="mb-4">Yes. A digital bill on WhatsApp or SMS is valid if it contains the required details.</p>
+            <p class="mb-2"><strong>Do I need HSN codes on retail bills?</strong></p>
+            <p class="mb-4">For businesses with turnover up to ₹5 crore, HSN is mandatory on B2B invoices and optional on B2C bills. Adding it anyway helps you apply the right rate.</p>
 
             <div class="bg-emerald-50 dark:bg-emerald-950/40 p-6 rounded-2xl my-8 border border-emerald-100 dark:border-emerald-800">
                 <h3 class="font-bold text-emerald-900 dark:text-emerald-200 mb-2">Create Retail Bills on Any Phone or PC with MsgBill</h3>
@@ -1901,15 +2461,28 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-13",
         author: "MsgBill Team",
         category: "Software Comparison",
+        description: "Free Vyapar alternatives for PC and mobile in 2026: what to look for, an honest comparison, when Vyapar still fits and how to switch safely.",
         content: `
-            <p class="mb-6 text-lg">Vyapar has long been a popular desktop billing software for Indian small businesses. However, with their annual subscription prices rising to ₹2,399 – ₹3,299 per device and strict hardware locking, thousands of small business owners, freelancers, and retail shops are actively looking for lightweight, modern, and free alternatives.</p>
+            <p class="mb-6 text-lg">Vyapar has long been a popular billing software for Indian small businesses. But many small business owners, freelancers and retail shops only need fast GST bills and WhatsApp sharing — so they look for lightweight, free alternatives that work on any phone or PC.</p>
+            <p class="mb-6">This guide explains when an alternative makes sense, compares the main options honestly, and shows how to switch without breaking your invoice numbering. Prices change often, so we do not quote competitors' plan prices here; always check the vendor's current pricing page.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Why Indian Businesses Are Looking Beyond Desktop Software</h2>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li><strong>Hardware Traps:</strong> Traditional desktop apps trap your financial data on a single Windows PC. If the PC crashes, billing stops.</li>
-                <li><strong>Heavy Installation:</strong> Desktop accounting suites require high RAM, frequent updates, and manual backup setups.</li>
-                <li><strong>No Real-Time WhatsApp Delivery:</strong> Exporting PDFs from desktop software to manually attach in WhatsApp Web wastes precious customer minutes.</li>
+                <li><strong>Device lock-in:</strong> When billing data lives on a single Windows PC, a crash or a stolen laptop can stop billing for days unless you have tested backups.</li>
+                <li><strong>Heavy installation:</strong> Desktop suites need updates, backups and sometimes a dedicated machine at the counter.</li>
+                <li><strong>No real-time WhatsApp delivery:</strong> Exporting a PDF and then attaching it manually in WhatsApp Web wastes time with every customer.</li>
+                <li><strong>Paying for features you do not use:</strong> A home baker or a freelancer rarely needs godown management or multi-firm accounting.</li>
             </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">What to Look for in an Alternative</h2>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li><strong>GST done right:</strong> CGST+SGST for same-state customers, IGST for other states, HSN/SAC per item.</li>
+                <li><strong>Works in a browser:</strong> so the same account opens on your phone, a shop PC or a laptop at home.</li>
+                <li><strong>WhatsApp sharing:</strong> one tap to send the bill, ideally with a link the customer can open without an app.</li>
+                <li><strong>UPI on the bill:</strong> UPI ID or QR code printed so customers can pay immediately.</li>
+                <li><strong>A useful free tier:</strong> enough invoices to run a real test with real customers.</li>
+                <li><strong>An exit route:</strong> PDFs or reports you can hand to your CA.</li>
+            </ol>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Top 3 Free Alternatives in 2026</h2>
             <div class="overflow-x-auto my-6">
@@ -1917,32 +2490,59 @@ const blogPosts: Record<string, any> = {
                     <thead>
                         <tr class="bg-slate-100 text-slate-800 font-bold">
                             <th class="p-3 border border-slate-200">Software</th>
-                            <th class="p-3 border border-slate-200">Starting Price</th>
+                            <th class="p-3 border border-slate-200">Free option</th>
                             <th class="p-3 border border-slate-200">Best For</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="p-3 border border-slate-200 font-semibold text-emerald-600">MsgBill.com</td>
-                            <td class="p-3 border border-slate-200 font-bold">100% Free Instant Generator</td>
-                            <td class="p-3 border border-slate-200">Fast 10-second WhatsApp bills & UPI payments on any device</td>
+                            <td class="p-3 border border-slate-200 font-bold">No-login generator + 20 free invoices in an account (Pro ₹499/year)</td>
+                            <td class="p-3 border border-slate-200">Fast WhatsApp bills & UPI payments on any device</td>
                         </tr>
                         <tr class="bg-slate-50">
                             <td class="p-3 border border-slate-200 font-semibold">Zoho Invoice</td>
-                            <td class="p-3 border border-slate-200">Free (Complex Setup)</td>
+                            <td class="p-3 border border-slate-200">Free plan (more setup)</td>
                             <td class="p-3 border border-slate-200">Service companies needing time-tracking and project billing</td>
                         </tr>
                         <tr>
                             <td class="p-3 border border-slate-200 font-semibold">MyBillBook</td>
-                            <td class="p-3 border border-slate-200">Paid after trial (₹1,500+)</td>
-                            <td class="p-3 border border-slate-200">Wholesale distributors needing warehouse inventory sync</td>
+                            <td class="p-3 border border-slate-200">Check current plans</td>
+                            <td class="p-3 border border-slate-200">Shops that want billing plus inventory in a mobile app</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
+            <h2 class="text-2xl font-bold mt-8 mb-4">When Vyapar Is Still the Right Choice</h2>
+            <p class="mb-4">Be honest about your needs. If you manage hundreds of SKUs, track purchases and stock across godowns, print on a thermal printer at a busy counter, or want accounting reports in the same tool, Vyapar or a similar inventory-first product may suit you better. A WhatsApp-first tool like MsgBill is designed for businesses whose main problem is sending bills quickly and getting paid, not running a warehouse.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">How to Switch Without Breaking Your Books</h2>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li><strong>Pick a clean cut-over date.</strong> The start of a month (ideally 1 April) keeps your GST returns simple.</li>
+                <li><strong>Export from the old app.</strong> Download PDFs and any sales reports for the current financial year and give a copy to your CA.</li>
+                <li><strong>Continue your invoice series.</strong> If your last invoice was <code>INV/26-27/0318</code>, start the new app at 0319, or use a new prefix and note it.</li>
+                <li><strong>Re-enter regular clients and products.</strong> Add GSTIN and state for each client so tax splits correctly.</li>
+                <li><strong>Run both for a week.</strong> Compare totals before you stop using the old tool.</li>
+            </ol>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example</h2>
+            <p class="mb-4">A Jaipur handicraft seller sends about 40 invoices a month, mostly to repeat buyers who pay by UPI. She used a desktop app on one shop PC, which meant bills could only go out when she was at the counter. After moving to a browser-based tool, she bills from her phone at exhibitions, sends each bill on WhatsApp, and her CA receives PDFs at month end. Her cost dropped to ₹499 a year, and she no longer needs the shop PC switched on to bill.</p>
+
             <h2 class="text-2xl font-bold mt-8 mb-4">The Verdict: Why MsgBill Wins on Mobile Speed</h2>
-            <p class="mb-4">If you need double-entry accounting with audit trails, heavy desktop software makes sense. But if your goal is to generate clean GST bills, get paid instantly via UPI, and share receipts directly on WhatsApp without paying expensive renewal fees, MsgBill provides the fastest solution in Bharat.</p>
+            <p class="mb-4">If you need double-entry accounting with audit trails, heavy desktop software makes sense. But if your goal is to generate clean GST bills, get paid instantly via UPI, and share receipts directly on WhatsApp without expensive renewal fees, MsgBill is one of the simplest options available.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Does MsgBill work on a PC?</strong></p>
+            <p class="mb-4">Yes. It runs in any modern browser on Windows, Mac, Android or iPhone. There is nothing to install.</p>
+            <p class="mb-2"><strong>Can I import my Vyapar data?</strong></p>
+            <p class="mb-4">There is no one-click import today. Most small businesses re-enter their regular clients and products, which usually takes under an hour, and keep old invoices as PDFs.</p>
+            <p class="mb-2"><strong>Is a free tool safe for GST invoices?</strong></p>
+            <p class="mb-4">The tool only formats and calculates; compliance depends on the details you enter. Check the first few invoices with your CA.</p>
+            <p class="mb-2"><strong>What happens to my bills if I stop paying for Pro?</strong></p>
+            <p class="mb-4">Keep downloaded PDFs of everything you need. Invoices stay in a MsgBill account for 6 months on the free plan and 12 months on Pro.</p>
+            <p class="mb-2"><strong>Can my staff bill from a second phone?</strong></p>
+            <p class="mb-4">Because MsgBill runs in the browser, you can sign in on another device with the same account. Agree who issues which invoices so the number series stays in order.</p>
 
             <div class="bg-emerald-50 dark:bg-emerald-950/40 p-6 rounded-2xl my-8 border border-emerald-100 dark:border-emerald-800">
                 <h3 class="font-bold text-emerald-900 dark:text-emerald-200 mb-2">Try the 100% Free Invoice Generator Today</h3>
@@ -1957,28 +2557,84 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-14",
         author: "MsgBill Team",
         category: "Retail & GST",
+        description: "Garment shop cash memo format: 5% GST up to ₹2,500 per piece and 18% above since Sept 2025, discounts, inclusive prices and a worked GST bill.",
         content: `
             <p class="mb-6 text-lg">Running a clothing store, boutique, or textile showroom in India requires fast counter billing with accurate apparel HSN codes and GST slab calculation. Giving customers a professional cash memo builds trust and streamlines size exchange requests.</p>
+            <p class="mb-6">GST on garments changed on 22 September 2025, and many shops are still using old rate cards. This guide explains the current per-piece rule, how discounts and GST-inclusive prices affect the rate, the fields your cash memo needs, and how to handle exchanges and returns. It is general guidance, not tax advice.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">GST Slabs & HSN Codes for Garments in 2026</h2>
-            <p class="mb-4">Apparel items fall under Chapter 61 (knitted) and Chapter 62 (not knitted) of the GST tariff:</p>
+            <p class="mb-4">Apparel items fall under Chapter 61 (knitted or crocheted, such as T-shirts and hosiery) and Chapter 62 (not knitted, such as shirts, trousers, blouses and kurtas) of the GST tariff:</p>
             <ul class="list-disc pl-6 mb-6 space-y-2">
-                <li><strong>Sale Value Up to ₹1,000 per piece:</strong> 5% GST (2.5% CGST + 2.5% SGST).</li>
-                <li><strong>Sale Value Exceeding ₹1,000 per piece:</strong> 12% GST (6% CGST + 6% SGST).</li>
-                <li><strong>Custom Tailoring & Job Work:</strong> 5% or 12% depending on whether materials are supplied by the customer or boutique.</li>
+                <li><strong>Sale Value Up to ₹2,500 per piece:</strong> 5% GST (2.5% CGST + 2.5% SGST).</li>
+                <li><strong>Sale Value Exceeding ₹2,500 per piece:</strong> 18% GST (9% CGST + 9% SGST).</li>
+                <li><strong>Fabric sold by the metre:</strong> most fabrics are taxed at 5%; check the HSN for your material.</li>
+                <li><strong>Stitching and alteration charges:</strong> these are services, billed on a separate line with a SAC code. Confirm the rate with your CA.</li>
             </ul>
+            <p class="mb-4">Before 22 September 2025, the dividing line was ₹1,000 per piece and the higher rate was 12%. If your billing software still shows 12%, update it.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">How the ₹2,500 Rule Works in Practice</h2>
+            <p class="mb-4">The rate depends on the <strong>sale value of each piece</strong>, not the bill total. A ₹6,000 bill for three shirts at ₹2,000 each is entirely at 5%. A single ₹3,000 jacket is at 18%.</p>
+            <p class="mb-4">The sale value is the transaction value after a discount shown on the invoice, excluding GST. So a kurta with a printed price of ₹2,800 sold at 15% off for ₹2,380 is below ₹2,500 and taxed at 5%.</p>
+            <p class="mb-4"><strong>Watch out for GST-inclusive price tags.</strong> If your tag says "₹2,600 incl. GST", work out the value before tax. At 5%, ₹2,600 ÷ 1.05 = ₹2,476.19, which is under ₹2,500, so 5% applies. Prices close to the threshold can be tricky, because the rate you assume changes the value you calculate. If many of your products sit between about ₹2,500 and ₹2,700 inclusive, ask your CA how to price them.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example</h2>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Item</th>
+                            <th class="p-3 border border-slate-200">HSN</th>
+                            <th class="p-3 border border-slate-200">Taxable value</th>
+                            <th class="p-3 border border-slate-200">Rate</th>
+                            <th class="p-3 border border-slate-200">CGST</th>
+                            <th class="p-3 border border-slate-200">SGST</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200">Cotton T-shirt × 2 (₹799 each)</td><td class="p-3 border border-slate-200">6109</td><td class="p-3 border border-slate-200">₹1,598.00</td><td class="p-3 border border-slate-200">5%</td><td class="p-3 border border-slate-200">₹39.95</td><td class="p-3 border border-slate-200">₹39.95</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">Kurta (₹2,800 less 15%)</td><td class="p-3 border border-slate-200">6211</td><td class="p-3 border border-slate-200">₹2,380.00</td><td class="p-3 border border-slate-200">5%</td><td class="p-3 border border-slate-200">₹59.50</td><td class="p-3 border border-slate-200">₹59.50</td></tr>
+                        <tr><td class="p-3 border border-slate-200">Wool blazer</td><td class="p-3 border border-slate-200">6203</td><td class="p-3 border border-slate-200">₹4,500.00</td><td class="p-3 border border-slate-200">18%</td><td class="p-3 border border-slate-200">₹405.00</td><td class="p-3 border border-slate-200">₹405.00</td></tr>
+                        <tr class="bg-slate-50 font-semibold"><td class="p-3 border border-slate-200" colspan="2">Total</td><td class="p-3 border border-slate-200">₹8,478.00</td><td class="p-3 border border-slate-200"></td><td class="p-3 border border-slate-200">₹504.45</td><td class="p-3 border border-slate-200">₹504.45</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-4">Grand total: ₹8,478.00 + ₹1,008.90 = <strong>₹9,486.90</strong>, rounded to ₹9,487. HSN codes shown are typical headings; confirm the exact code for each product.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Essential Fields on a Clothing Store Cash Memo</h2>
             <ol class="list-decimal pl-6 mb-6 space-y-2">
-                <li><strong>Store Branding:</strong> Boutique Name, address, phone number, and Instagram handle.</li>
-                <li><strong>Item Breakdown:</strong> Apparel category, size, color, quantity, unit price, and discount percentage.</li>
+                <li><strong>Store Branding:</strong> Boutique Name, address, phone number, GSTIN (if registered) and Instagram handle.</li>
+                <li><strong>Memo number and date:</strong> one running series per financial year.</li>
+                <li><strong>Item Breakdown:</strong> Apparel category, size, color, quantity, unit price, discount, HSN and GST rate per line.</li>
+                <li><strong>Tax summary:</strong> taxable value, CGST and SGST at each rate.</li>
                 <li><strong>Clear Return / Exchange Policy:</strong> E.g., "Exchange allowed within 7 days with original cash memo and tags attached."</li>
                 <li><strong>Payment Mode:</strong> Cash, Card, or UPI Reference ID.</li>
             </ol>
+            <p class="mb-4">Composition-scheme shops issue a bill of supply instead, with no tax shown and the line "Composition taxable person, not eligible to collect tax on supplies".</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Exchanges and Returns</h2>
+            <p class="mb-4">A like-for-like size exchange at the same price needs no new tax entry; note the exchange on the original memo. If the customer returns an item for a refund, or swaps a ₹2,000 shirt for a ₹3,000 jacket, the tax changes. Issue a credit note against the original memo for the returned item and a fresh bill for the new one, so your GST return reflects the right rates.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Still using the old ₹1,000 / 12% rule.</li>
+                <li>Applying the rate to the bill total instead of each piece.</li>
+                <li>Giving "extra discount" in cash after billing, which does not reduce the taxable value.</li>
+                <li>Combining stitching charges with the garment price.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>Does the ₹2,500 limit apply to a set, like a three-piece suit?</strong></p>
+            <p class="mb-4">Sets and multi-piece items need care: the value is generally considered for the item as sold. Ask your CA how to bill sets sold at one price.</p>
+            <p class="mb-2"><strong>Are sarees covered by the same rule?</strong></p>
+            <p class="mb-4">Sarees are usually classified as fabric rather than apparel, so a different rate may apply. Check the HSN for your product.</p>
+            <p class="mb-2"><strong>Can I show prices inclusive of GST on the bill?</strong></p>
+            <p class="mb-4">You can display inclusive prices, but a registered regular taxpayer's invoice must still show the taxable value and GST separately.</p>
+            <p class="mb-2"><strong>Do I need HSN codes on retail memos?</strong></p>
+            <p class="mb-4">For shops with turnover up to ₹5 crore, HSN is mandatory on B2B invoices and optional on bills to walk-in customers. Printing it anyway makes it easier to apply the right rate and to fill the HSN summary in your GST return.</p>
 
             <div class="bg-emerald-50 dark:bg-emerald-950/40 p-6 rounded-2xl my-8 border border-emerald-100 dark:border-emerald-800">
                 <h3 class="font-bold text-emerald-900 dark:text-emerald-200 mb-2">Generate Instant Clothing Bills with MsgBill</h3>
-                <p class="text-emerald-800 dark:text-emerald-300 text-sm mb-4">Support 5% and 12% GST slabs with automatic tax splits. Print A4, thermal, or send directly to customer's WhatsApp.</p>
+                <p class="text-emerald-800 dark:text-emerald-300 text-sm mb-4">Set 5% or 18% GST on each line with automatic CGST/SGST splits. Download a PDF to print or send directly to the customer's WhatsApp.</p>
                 <a href="/free-invoice-generator" class="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-md text-sm">Create Free Garment Bill →</a>
             </div>
         `
@@ -1989,27 +2645,84 @@ const blogPosts: Record<string, any> = {
         date: "2026-03-15",
         author: "MsgBill Team",
         category: "Freelancing",
+        description: "GST for freelancers under ₹20 lakh: what counts in aggregate turnover, how export income affects registration, LUT filing and a worked example.",
         content: `
-            <p class="mb-6 text-lg">If you are a remote software engineer, UI/UX designer, digital marketer, or content creator in India earning income from domestic or overseas clients, understanding GST applicability is critical to prevent unexpected tax notices and bank freezes.</p>
+            <p class="mb-6 text-lg">If you are a remote software engineer, UI/UX designer, digital marketer, or content creator in India earning income from domestic or overseas clients, understanding GST applicability is critical to prevent unexpected tax notices.</p>
+            <p class="mb-6">This guide explains the ₹20 lakh registration limit, what counts towards it, how export income changes the picture, what your invoice should look like before and after registration, and a worked example of the month you cross the limit. It is general information, not tax advice.</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">The ₹20 Lakh Exemption Threshold (Domestic Clients)</h2>
-            <p class="mb-4">Under Section 22 of the CGST Act, service providers whose aggregate annual turnover is below <strong>₹20 Lakhs</strong> (₹10 Lakhs in special category states) are <strong>not legally required to register for GST</strong> for intra-state supplies.</p>
-            <p class="mb-4">If you bill domestic clients in India and stay below ₹20 Lakhs, you can issue standard non-GST commercial invoices or bills of supply without charging tax.</p>
+            <p class="mb-4">Under Section 22 of the CGST Act, service providers whose aggregate annual turnover is below <strong>₹20 Lakhs</strong> (₹10 Lakhs in special category states) are <strong>not legally required to register for GST</strong>.</p>
+            <p class="mb-4">If you bill clients in India and stay below ₹20 Lakhs, you issue a simple invoice without charging tax and without showing any GSTIN. Note that a "bill of supply" is a document for registered persons (composition dealers or exempt supplies); an unregistered freelancer just issues a plain invoice. Service providers billing clients in other states also generally do not need to register below the threshold.</p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3">What Counts as "Aggregate Turnover"</h3>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>All taxable supplies to Indian clients.</li>
+                <li><strong>Exports of services</strong> to foreign clients, even though they are zero-rated.</li>
+                <li>Exempt supplies, if any.</li>
+                <li>Turnover of all your businesses under the same PAN, across India.</li>
+            </ul>
+            <p class="mb-4">It does not include GST itself. It is calculated on a financial year basis (April to March).</p>
 
             <h2 class="text-2xl font-bold mt-8 mb-4">Export of Services to Foreign Clients (Zero-Rated Supply)</h2>
-            <p class="mb-4">When you work with foreign clients (US, UK, Europe, UAE) on Upwork, Fiverr, or direct contracts and receive payment in convertible foreign exchange (via Wise, Stripe, PayPal, or Bank Wire), your work is classified as <strong>Export of Services</strong> under Section 2(6) of the IGST Act.</p>
+            <p class="mb-4">When you work with foreign clients (US, UK, Europe, UAE) on Upwork, Fiverr, or direct contracts and receive payment in convertible foreign exchange (via Wise, Stripe, PayPal, or Bank Wire), your work is generally classified as <strong>Export of Services</strong> under Section 2(6) of the IGST Act.</p>
             <ul class="list-disc pl-6 mb-6 space-y-2">
                 <li>Export of services is treated as a <strong>Zero-Rated Supply</strong> (0% tax).</li>
-                <li>By filing an annual online <strong>Letter of Undertaking (LUT)</strong> on the GST portal (Form GST RFD-11), you can invoice international clients legally with 0% IGST without paying tax upfront.</li>
-                <li>Always request a <strong>FIRC (Foreign Inward Remittance Certificate)</strong> or e-BRC from your receiving bank as proof of export.</li>
+                <li>Once registered, by filing an annual online <strong>Letter of Undertaking (LUT)</strong> on the GST portal (Form GST RFD-11), you can invoice international clients legally with 0% IGST without paying tax upfront.</li>
+                <li>Always request a <strong>FIRC or FIRA (Foreign Inward Remittance Certificate/Advice)</strong> from your receiving bank or payment platform as proof of export.</li>
+            </ul>
+            <p class="mb-4">Because exports count towards aggregate turnover, a freelancer earning mostly from abroad can cross ₹20 lakh and need to register even though very little GST is ever payable. Registration plus an LUT keeps exports at 0%.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Worked Example: The Month You Cross ₹20 Lakh</h2>
+            <p class="mb-4">Arjun, a freelance developer in Bengaluru, earns in FY 2026-27:</p>
+            <div class="overflow-x-auto my-6">
+                <table class="w-full text-left border-collapse border border-slate-200 text-sm">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 font-bold">
+                            <th class="p-3 border border-slate-200">Source</th>
+                            <th class="p-3 border border-slate-200">April–December</th>
+                            <th class="p-3 border border-slate-200">Running total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-3 border border-slate-200">Indian startup clients</td><td class="p-3 border border-slate-200">₹11,00,000</td><td class="p-3 border border-slate-200">₹11,00,000</td></tr>
+                        <tr class="bg-slate-50"><td class="p-3 border border-slate-200">US client (export)</td><td class="p-3 border border-slate-200">₹9,50,000</td><td class="p-3 border border-slate-200">₹20,50,000</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-4">His aggregate turnover crosses ₹20 lakh in December because exports count. He must apply for registration within 30 days of becoming liable. After registration, his invoices to Indian clients in Karnataka carry 9% CGST + 9% SGST (18%), clients in other states are charged 18% IGST, and he files an LUT so his US invoices stay at 0%.</p>
+            <p class="mb-4">A ₹1,00,000 invoice to a Bengaluru client becomes ₹1,00,000 + ₹9,000 CGST + ₹9,000 SGST = ₹1,18,000. Business clients can usually claim this GST as input tax credit, so most do not object.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Should You Register Voluntarily?</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li><strong>Pros:</strong> some companies only work with GST-registered vendors; you can claim ITC on laptops, software and co-working rent; exports under LUT are clean.</li>
+                <li><strong>Cons:</strong> monthly or quarterly returns even with zero sales, and 18% added to bills for individual clients who cannot claim ITC.</li>
             </ul>
 
+            <h2 class="text-2xl font-bold mt-8 mb-4">Income Tax Is a Separate Question</h2>
+            <p class="mb-4">GST exemption does not mean income-tax exemption. Many freelancers in specified professions use presumptive taxation under Section 44ADA; whether your work qualifies, and the limits that apply, should be confirmed with your CA. Indian business clients may also deduct TDS under Section 194J — check that it appears in your Form 26AS.</p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Common Mistakes</h2>
+            <ul class="list-disc pl-6 mb-6 space-y-2">
+                <li>Ignoring export income when checking the ₹20 lakh limit.</li>
+                <li>Charging "18% GST" on invoices while unregistered.</li>
+                <li>Registering but forgetting the LUT, then having to pay IGST on exports.</li>
+                <li>Not filing nil returns after registering in a quiet month.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">Frequently Asked Questions</h2>
+            <p class="mb-2"><strong>I earn ₹15 lakh only from foreign clients. Do I need GST?</strong></p>
+            <p class="mb-4">Not while your aggregate turnover stays below ₹20 lakh. Keep FIRAs and track the total each month.</p>
+            <p class="mb-2"><strong>Is the limit ₹40 lakh for me?</strong></p>
+            <p class="mb-4">No. The ₹40 lakh limit applies to businesses supplying only goods, in states that adopted it. Service providers use ₹20 lakh (₹10 lakh in special category states).</p>
+            <p class="mb-2"><strong>What happens if I register late?</strong></p>
+            <p class="mb-4">You may owe GST on supplies from the date you became liable, plus interest and penalties. Speak to a CA as soon as you notice.</p>
+
             <h2 class="text-2xl font-bold mt-8 mb-4">Professional Invoicing for Tech Freelancers</h2>
-            <p class="mb-4">Foreign clients expect clean, structured PDF invoices detailing project milestones, hourly rates, wire routing numbers (SWIFT/BIC codes), and payment terms. MsgBill allows tech professionals to create polished, international-grade invoices in seconds.</p>
+            <p class="mb-4">Foreign clients expect clean, structured PDF invoices detailing project milestones, hourly rates, wire details (SWIFT/BIC codes), and payment terms. MsgBill lets you add your logo, line items with SAC codes and the right GST rate, then download a clean PDF or share it on WhatsApp.</p>
 
             <div class="bg-emerald-50 dark:bg-emerald-950/40 p-6 rounded-2xl my-8 border border-emerald-100 dark:border-emerald-800">
                 <h3 class="font-bold text-emerald-900 dark:text-emerald-200 mb-2">Create Professional Freelance Invoices for Free</h3>
-                <p class="text-emerald-800 dark:text-emerald-300 text-sm mb-4">Generate international invoices with 0% LUT or standard domestic GST in seconds. Download clean PDFs ready for client delivery.</p>
+                <p class="text-emerald-800 dark:text-emerald-300 text-sm mb-4">Generate invoices at 0% for exports or with domestic GST in seconds. Download clean PDFs ready for client delivery.</p>
                 <a href="/free-invoice-generator" class="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-md text-sm">Generate Free Freelance Invoice →</a>
             </div>
         `
@@ -2030,10 +2743,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const url = `https://msgbill.com/blog/${params.slug}`;
     return {
         title: `${post.title} | MsgBill Blog`,
-        description: `Read: ${post.title}. Comprehensive ${post.category} guide for Indian businesses by MsgBill.`,
+        description: post.description || `Read: ${post.title}. Comprehensive ${post.category} guide for Indian businesses by MsgBill.`,
         alternates: { canonical: url },
         openGraph: {
             title: post.title,
+            description: post.description,
             type: "article",
             url,
             publishedTime: post.date,
