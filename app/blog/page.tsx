@@ -17,6 +17,19 @@ export const metadata: Metadata = {
         "cash memo format",
         "free invoice maker",
     ],
+    alternates: {
+        canonical: "https://msgbill.com/blog",
+    },
+    openGraph: {
+        type: "website",
+        locale: "en_IN",
+        siteName: "MsgBill",
+        url: "https://msgbill.com/blog",
+        title: "Billing & Invoicing Blog for Indian Businesses | MsgBill",
+        description:
+            "Learn how to invoice on WhatsApp, calculate GST, handle cash memos, recover overdue payments, and grow your Indian business with free expert guides.",
+        images: ["/logo-final.png"],
+    },
 };
 
 const blogPosts = [
